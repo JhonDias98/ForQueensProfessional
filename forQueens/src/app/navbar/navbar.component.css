@@ -1,0 +1,62 @@
+textarea:focus, input:focus, select:focus, button:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
+#navbar {
+  position: relative;
+}
+
+.logo {
+  width: 150px;
+  height: 60px;
+}
+
+.navbar {
+	width: 100%;
+	height: 70px;
+	background-color: #ffde59;
+	color: black;
+	font-size: 16px;
+  text-transform: uppercase;
+  line-height: 10px;
+}
+
+.navbar ul li {
+	display: inline-block;
+  color: black;
+}
+
+.borda {
+  color: blue;
+  border: 1px solid black;
+  border-radius: 16px;
+}
+
+.borda:hover {
+  border: 1.5px solid black;
+}
+
+.navegacao:hover {
+  border-bottom: 1px solid black;
+}
+
+.busca {
+  color: black;
+}
+
+#buscar {
+  display: none;
+}
+
+.inputBusca {
+  border-radius: 16px;
+  padding-left: 5px;
+}
+
+button {
+  box-shadow: none;
+  background-color: transparent;
+  margin-top: 15px;
+}

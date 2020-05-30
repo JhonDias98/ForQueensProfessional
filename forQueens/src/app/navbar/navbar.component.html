@@ -1,0 +1,57 @@
+<nav id="navbar" class="container">
+
+  <div class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand ml-3" routerLink='/home'><img class="logo" src="../../assets/img/logo oficial.png"
+        alt="logo do site"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ml-3">
+        <li class="nav-item">
+          <a class="nav-link navegacao" href="#">Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navegacao" href="">Dicas e Tutoriais</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navegacao" href="">Contato</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navegacao" href="">Sobre nós</a>
+        </li>
+      </ul>
+
+      <div id="buscar" class="mr-1">
+        <input class="inputBusca" placeholder="O que procura?" type="text">
+      </div>
+
+      <div>
+        <ul>
+          <li class="nav-item ">
+            <button class="nav-link ">
+              <fa-icon [icon]="faSearch" class="busca fa-lg"></fa-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mr-3">
+        <ul class="navbar-nav mr-auto ml-3">
+          <li class="nav-item">
+            <a class="nav-link borda" href="#">Login</a>
+          </li>
+          <li class="nav-item ml-3">
+            <a class="nav-link borda" href="">Cadastro</a>
+          </li>
+          <li class="nav-item ml-3">
+            <a class="nav-link borda" [routerLink]="['/usuarios']">Administração</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+<div class="listaUsuarios container">
+
+  <h1 class="p-5">Usuários cadastrados</h1>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table id="t01" >
+        <tr>
+          <th>ID</th>
+          <th>Nome Completo</th>
+          <th>Email</th>
+          <th>Senha</th>
+          <th>Alterações</th>
+        </tr>
+        <tr *ngFor="let lista of listaUsers">
+          <td>{{lista.id}}</td>
+          <td>{{lista.nome}}</td>
+          <td>{{lista.email}}</td>
+          <td>{{lista.senha}}</td>
+          <td>
+            <div class="">
+              <button id="botaoEditar" class="mr-3 btn btn-light">
+                Editar
+              </button>
+            
+              <button id="botaoApagar" class="btn btn-outline-danger ml-3">
+                Apagar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
