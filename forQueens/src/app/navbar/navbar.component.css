@@ -1,4 +1,4 @@
-textarea:focus, input:focus, select:focus, button:focus {
+textarea:focus, input:focus, button:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
@@ -55,8 +55,23 @@ textarea:focus, input:focus, select:focus, button:focus {
   padding-left: 5px;
 }
 
-button {
+button.nav-link {
   box-shadow: none;
   background-color: transparent;
   margin-top: 15px;
+}
+
+/* Modal cadastro */
+#cnpj{
+    display: none;
+}
+
+#erro{
+    display: none;
+    color: red;
+    font-weight: bold;
+}
+
+input:focus {
+  border: 2px solid rgb(255, 204, 0);
 }

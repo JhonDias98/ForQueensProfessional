@@ -1,0 +1,48 @@
+.formsContato {
+  padding-top: 80px;
+}
+
+.campos_contato {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.icone_contato {
+    padding: 15px;
+    background: black;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+.cor_input_contato {
+    border: 2px solid rgb(169, 169, 169);
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+.cor_input_contato:focus {
+    border: 2px solid rgb(255, 204, 0);
+}
+.caixa_mensagem{
+    border: 2px solid rgb(169, 169, 169);;
+}
+.caixa_mensagem:focus{
+    border: 2px solid rgb(255, 204, 0);
+    box-shadow: none;
+}
+#selecao_contato:focus{
+    border-bottom: 2px solid white;
+}
+#pencil1{
+    padding-top: 95px;
+}
+#observacao {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius: 0;
+}
+#box_contato {
+    margin-bottom: 20px;
+    clear: both;
+}

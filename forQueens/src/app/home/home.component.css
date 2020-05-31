@@ -1,3 +1,34 @@
 header.container-fluid {
   padding: 70px 0 0;
 }
+
+/* INICIO LANÇAMENTOS */
+.linha_produtos {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.lancamento{
+    float: left;
+}
+
+.img_alinhamento {
+    text-align: center;
+}
+
+.img_lancamento {
+    width: 200px;
+    height: 250px;
+}
+/* FIM LANÇAMENTOS */
+
+/* INICIO BANNER */
+#banner{
+    width: 100%;
+    height: 300px;
+}
+/* FIM BANNER */
+
+p {
+  text-align: center;
+}

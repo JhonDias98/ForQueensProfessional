@@ -1,0 +1,15 @@
+.produtos {
+  padding-top: 80px;
+}
+
+img {
+  height: 280px;
+}
+
+h3.card-title {
+  text-align: center;
+}
+
+.card-footer h4 {
+  text-align: center;
+}

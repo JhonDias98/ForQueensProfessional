@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApagarUsuarioComponent } from './apagar-usuario.component';
+import { SobrenosComponent } from './sobrenos.component';
 
-describe('ApagarUsuarioComponent', () => {
-  let component: ApagarUsuarioComponent;
-  let fixture: ComponentFixture<ApagarUsuarioComponent>;
+describe('SobrenosComponent', () => {
+  let component: SobrenosComponent;
+  let fixture: ComponentFixture<SobrenosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApagarUsuarioComponent ]
+      declarations: [ SobrenosComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApagarUsuarioComponent);
+    fixture = TestBed.createComponent(SobrenosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

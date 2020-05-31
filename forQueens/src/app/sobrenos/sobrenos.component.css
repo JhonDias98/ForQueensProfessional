@@ -1,0 +1,103 @@
+#tema_equipe {
+	margin-top: 55px;
+	margin-bottom: 65px;
+}
+
+.infor_direita {
+	height: 250px;
+	width: 100%;
+	margin-top: 40px;	
+}
+
+.infor_esquerda {
+	height: 250px;
+	width: 100%;
+	margin-top: 40px;
+}
+
+.tema_sobre {
+	text-align: center;
+	padding-top: 10px;
+
+}
+
+.foto_grupo {
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+}
+
+.foto_direita {
+	float: right;	
+}
+
+.texto_direita{
+	text-align: end;
+}
+
+.aparecer {
+	display: none;
+}
+
+p {
+	text-align: justify;
+}
+
+@media(max-width: 700px){
+
+	/* INÍCIO MAIN */
+	#tema_equipe {
+		margin-top: 55px;
+		margin-bottom: 65px;
+		text-align: center;
+		padding: 15px;
+	}
+
+	.infor_direita {
+		width: 100%;
+		height: auto;
+		margin-top: 40px;
+		text-align: center;
+	}
+
+	.texto_direita{
+		text-align: center;
+	}
+	
+	.foto_direita {
+		float: none;
+	}
+
+	.reposicao{
+		position: absolute;
+		bottom: 0;
+	}
+
+	.infor_esquerda {		
+		width: 100%;
+		height: auto;
+		margin-top: 80px;
+		clear: both;
+		text-align: center;
+	}
+
+	.tema_sobre {
+		text-align: center;
+		padding-top: 10px;
+	}
+
+	.foto_grupo {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+	}
+
+	.aparecer{
+		display: block;
+	}
+
+	.sumir {
+		display: none;
+	}
+
+}

@@ -1,1 +1,29 @@
-<p>footer works!</p>
+<footer>
+  <div class="justify-content-center text-center ">
+    <ul class="conteudo_footer">
+      <a href="">
+        <li> Mapa do site</li>
+      </a>
+      <a [routerLink]="['/politica']">
+        <li>Politica de privacidade</li>
+      </a>
+      <a [routerLink]="['/contato']">
+        <li> Sugestões</li>
+      </a>
+      <a [routerLink]="['/faq']">
+        <li>Perguntas frequentes</li>
+      </a>
+    </ul>
+    <br>
+    <h6 style="color: white;">CONHEÇA NOSSAS REDES SOCIAIS</h6>
+    <a href=""><fa-icon [icon]="faFacebookSquare" class="fa-3x"></fa-icon></a>
+    <a href=""><fa-icon [icon]="faInstagram" class="fa-3x ml-3 mr-3"></fa-icon></a>
+    <a href=""><fa-icon [icon]="faWhatsapp" class="fa-3x"></fa-icon></a>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"> For Queens Professional © 2020
+  </div>
+  <!-- Copyright -->
+
+</footer>

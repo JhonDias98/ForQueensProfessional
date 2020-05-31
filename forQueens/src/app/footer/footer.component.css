@@ -1,0 +1,32 @@
+footer{
+	width: 100%;	
+	height: auto;
+	background-color: black;
+	padding-top: 20px;
+	margin-top: 40px;
+	bottom: 0;
+}
+
+i{
+	color: #ffde59;
+	padding-left: 8px;
+}
+
+.footer-copyright{
+	background-color: black;
+	color: gray;
+	font-size: 14px;
+}
+
+footer ul {
+	padding:0px;
+  margin:0px;
+	list-style:none;
+	
+}
+
+footer ul li {
+	padding-left:10px ;
+	display: inline;
+	color: #ffde59; 
+}

@@ -10,7 +10,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
-import { ApagarUsuarioComponent } from './apagar-usuario/apagar-usuario.component';
+import { SobrenosComponent } from './sobrenos/sobrenos.component';
+import { FaqComponent } from './faq/faq.component';
+import { PoliticaPrivacidadeComponent } from './politica-privacidade/politica-privacidade.component';
+import { ContatoComponent } from './contato/contato.component';
+import { DicasComponent } from './dicas/dicas.component';
+import { ProdutosComponent } from './produtos/produtos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { ApagarUsuarioComponent } from './apagar-usuario/apagar-usuario.componen
     FooterComponent,
     HomeComponent,
     ListaUsuarioComponent,
-    ApagarUsuarioComponent
+    SobrenosComponent,
+    FaqComponent,
+    PoliticaPrivacidadeComponent,
+    ContatoComponent,
+    DicasComponent,
+    ProdutosComponent
   ],
   imports: [
     BrowserModule,

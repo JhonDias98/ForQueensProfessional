@@ -22,7 +22,7 @@ export class UsuarioService {
   }
 
   putUser(user: Usuario) {
-    return this.http.put('http://93.188.161.223:9000/user/', user)
+    return this.http.put('http://93.188.161.223:9000/user', user)
   }
 
   deletar(id: number) {

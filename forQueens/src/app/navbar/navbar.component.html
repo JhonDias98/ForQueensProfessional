@@ -11,21 +11,21 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto ml-3">
         <li class="nav-item">
-          <a class="nav-link navegacao" href="#">Produtos</a>
+          <a class="nav-link navegacao" [routerLink]="['/produtos']">Produtos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navegacao" href="">Dicas e Tutoriais</a>
+          <a class="nav-link navegacao" [routerLink]="['/dicas']">Dicas e Tutoriais</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navegacao" href="">Contato</a>
+          <a class="nav-link navegacao" [routerLink]="['/contato']">Contato</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navegacao" href="">Sobre nós</a>
+          <a class="nav-link navegacao" [routerLink]="['/sobrenos']">Sobre nós</a>
         </li>
       </ul>
 
       <div id="buscar" class="mr-1">
-        <input class="inputBusca" placeholder="O que procura?" type="text">
+        <input maxlength="15" class="inputBusca" placeholder="O que procura?" type="text">
       </div>
 
       <div>
@@ -41,10 +41,10 @@
       <div class="mr-3">
         <ul class="navbar-nav mr-auto ml-3">
           <li class="nav-item">
-            <a class="nav-link borda" href="#">Login</a>
+            <a class="nav-link borda" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
           </li>
           <li class="nav-item ml-3">
-            <a class="nav-link borda" href="">Cadastro</a>
+            <a class="nav-link borda" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
           </li>
           <li class="nav-item ml-3">
             <a class="nav-link borda" [routerLink]="['/usuarios']">Administração</a>
@@ -55,3 +55,144 @@
     </div>
   </div>
 </nav>
+
+
+
+<!-- Modal Login -->
+<div class="modal" id="modalLogin">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div class="modal-title">
+          <h5>Fazer login</h5>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Manter-me comectado</label>
+          </div>
+          <button type="submit" class="btn btn-primary mr-3">Login</button>
+          <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal cadastro -->
+<div class="modal" id="modalCadastro">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div class="modal-title">
+          <h3 style="text-align: center;">Crie sua conta</h3>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        
+        <div id="cadastro" class="container">
+          <div class="caixa_cadastro">
+            
+            <div id="form_cadastro">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email">
+              </div>
+        
+              <h3 style="text-align: center;">Tipo de conta</h3>
+              
+              <div class="row">
+                <div class="col-3"></div>
+                <div class="col-8">
+                  <input (change)="cpf()" class="mr-1" type="radio" name="#" id="pf" value="pf" checked>
+                  <label class="mr-2">Pessoa física</label>
+        
+                  <input (change)="cnpj()" class="mr-1 ml-2" type="radio" name="#" id="pj" value="pj">
+                  <label>Pessoa jurídica</label>
+                </div>
+              </div>
+              
+              <!-- Dados conta PJ -->
+              <div id="cnpj" class="caixa_cadastro">
+                <h3>Dados da empresa</h3>
+
+                
+                <div>
+                  <label for="validationDefault01">CNPJ</label>
+                  <input type="text" class="form-control" required>
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Razão Social</label>
+                  <input type="text" class="form-control" required>
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Nome Comercial</label>
+                  <input type="text" class="form-control" required>
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Inscrição Estadual</label>
+                  <input type="text" class="form-control" required>
+                </div>
+              </div>
+              <!-- Fim dos Dados PJ -->
+        
+              <!-- Dados conta PF -->
+              <div class="caixa_cadastro">
+                <h3>Dados pessoais</h3>
+
+                <div id="cpf">
+                  <label for="validationDefault01">CPF</label>
+                  <input type="text" class="form-control" >
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Nome Completo</label>
+                  <input type="text" class="form-control" [(ngModel)]="user.nome" required>
+                </div>
+
+                <div id="nascimento">
+                  <label for="validationDefault01">Data de Nascimento</label>
+                  <input type="date" class="form-control" >
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Senha</label>
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.password" required>
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Confirme a senha</label>
+                  <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.password_confirm"required>
+                  <span *ngIf="data.password != data.password_confirm" id="erro"> Campos devem ser iguais!!! </span>
+                </div>
+              </div>
+              <!-- Fim dos dados PF -->
+        
+              <button type="submit" class="btn btn-primary mt-3" (click)="validacar()">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
