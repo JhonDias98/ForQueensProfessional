@@ -160,12 +160,14 @@
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" required>
+                  <input type="text" class="form-control" [(ngModel)]="data.cpf" required id="cadastroPF">
+                  <span id="erro_cpf">O cpf deve conter apenas numeros e deve ser valido!</span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Nome Completo</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.nome" required>
+                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome" required id = "nome">
+                  <span id="erro_nome">O nome deve ser completo!</span>
                 </div>
 
                 <div id="nascimento">
@@ -175,18 +177,19 @@
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.password" required>
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.password" required id="senha">
+                  <span id="erro_senha"> A senha deve ter no minimo 6 caracteres! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Confirme a senha</label>
                   <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.password_confirm"required>
-                  <span *ngIf="data.password != data.password_confirm" id="erro"> Campos devem ser iguais!!! </span>
+                  <span id="erro_confirmaSenha"> Campos devem ser iguais! </span>
                 </div>
               </div>
               <!-- Fim dos dados PF -->
         
-              <button type="submit" class="btn btn-primary mt-3" (click)="validacar()">Cadastrar</button>
+              <button type="submit" class="btn btn-primary mt-3" (click)="validar()">Cadastrar</button>
             </div>
           </div>
         </div>
