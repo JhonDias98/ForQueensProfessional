@@ -112,7 +112,8 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email" [(ngModel)]="data.email" id="email">
-                <span id="erro_email">O email deve ser valido</span>
+                <span id="erro_email">O email deve ser valido!</span>
+                <span id="vazio_email"> Campo Obrigatorio! </span>
               </div>
         
               <h3 style="text-align: center;">Tipo de conta</h3>
@@ -135,23 +136,27 @@
                 
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cnpj" required id="cadastroNPJ">
-                  <span id="erro_cnpj"> O cnpj deve conter apenas numeros e deve ser valido! </span>
+                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ">
+                  <span id="erro_cnpj"> O cnpj deve conter apenas números e deve ser válido! </span>
+                  <span id="vazio_cnpj"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Razão Social</label>
-                  <input type="text" class="form-control" required>
+                  <input type="text" class="form-control" [(ngModel)]="data.razao_social" id="razaoSocial">
+                  <span id="vazio_razaoSocial"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Nome Comercial</label>
-                  <input type="text" class="form-control" required>
+                  <input type="text" class="form-control" [(ngModel)]="data.nome_comercial" id="nomeComercial">
+                  <span id="vazio_nomeComercial"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Inscrição Estadual</label>
-                  <input type="text" class="form-control" required>
+                  <input type="text" class="form-control" [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
+                  <span id="vazio_inscricaoEstadual"> Campo Obrigatorio! </span>
                 </div>
               </div>
               <!-- Fim dos Dados PJ -->
@@ -162,41 +167,44 @@
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cpf" required id="cadastroPF">
-                  <span id="erro_cpf">O cpf deve conter apenas numeros e deve ser valido!</span>
+                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF">
+                  <span id="erro_cpf">O cpf deve conter apenas números e deve ser válido!</span>
+                  <span id="vazio_cpf"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Nome Completo</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome" required id = "nome">
+                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome"  id = "nome">
                   <span id="erro_nome">O nome deve ser completo!</span>
+                  <span id="vazio_nome"> Campo Obrigatorio! </span>
                 </div>
 
                 <div id="nascimento">
                   <label for="validationDefault01">Data de Nascimento</label>
-                  <input type="date" class="form-control" required>
+                  <input type="date" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento">
+                  <span id="vazio_dataNascimento"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha" required id="senha">
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"  id="senha">
                   <span id="erro_senha"> A senha deve ter no minimo 6 caracteres! </span>
+                  <span id="vazio_senha"> Campo Obrigatorio! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Confirme a senha</label>
-                  <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma"required>
+                  <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma">
                   <span id="erro_confirmaSenha"> Campos devem ser iguais! </span>
                 </div>
               </div>
               <!-- Fim dos dados PF -->
         
-              <button type="submit" class="btn btn-primary mt-3" (click)="validar()">Cadastrar</button>
+              <button type="submit" class="btn btn-primary mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
+              <button type="submit" class="btn btn-primary mt-3" (click)="validarCNPJ()" id="botaoCNPJ">Cadastrar</button>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>

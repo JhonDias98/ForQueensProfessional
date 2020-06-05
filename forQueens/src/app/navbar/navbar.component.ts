@@ -20,7 +20,11 @@ export class NavbarComponent implements OnInit {
     senha: '',
     senha_confirma: '',
     cpf: '',
-    cnpj: ''
+    cnpj: '',
+    data_nascimento: '',
+    razao_social: '',
+    inscricao_estadual: '',
+    nome_comercial: ''
   }
   
   constructor(private usuarioService: UsuarioService) { }
@@ -34,9 +38,11 @@ export class NavbarComponent implements OnInit {
     });
     this.cpf()
   }
+
   
-  validar() {
+  validarCPF() {
     let erros = []
+    erros.push(this.verificar_dataNascimento())
     erros.push(this.verificar_email())
     erros.push(this.verificar_nome())
     erros.push(this.verificar_cpf())
@@ -47,8 +53,36 @@ export class NavbarComponent implements OnInit {
       this.cadastrar();
     }
   }
+
+
+  validarCNPJ(){
+    let erros = []
+    erros.push(this.verificar_email())
+    erros.push(this.verificar_nome())
+    erros.push(this.verificar_cnpj())
+    erros.push(this.verificar_senha())
+    erros.push(this.verificar_razaoSocial())
+    erros.push(this.verificar_inscricaoEstadual())
+    erros.push(this.verificar_nomeComercial())
+    erros.push(this.verificar_confirmasenha())
+    if (erros.indexOf(false) == -1){
+      alert('Cadastrado com sucesso')
+      this.cadastrar();
+    }
+  }
+
+
   verificar_email(){
     let email = this.data.email
+    if(email == ""){
+      document.getElementById("email").style.border = "red 1px solid"
+      document.getElementById("vazio_email").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("email").style.border = "black 1px solid"
+      document.getElementById("vazio_email").style.display = "none"
+    }
     if(email.match(/^[\w.-]+@[\w.-]+$/)){
       let emailLista = email.split("")
         if(emailLista.indexOf(".") != -1){
@@ -71,8 +105,20 @@ export class NavbarComponent implements OnInit {
     document.getElementById("erro_email").style.display = "block"
     return false
   }
+
+
   verificar_senha(){
-    if (this.data.senha.length < 6){
+    let senha = this.data.senha
+    if(senha == ""){
+      document.getElementById("senha").style.border = "red 1px solid"
+      document.getElementById("vazio_senha").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("senha").style.border = "black 1px solid"
+      document.getElementById("vazio_senha").style.display = "none"
+    }
+    if (senha.length < 6){
       document.getElementById("senha").style.border = "red 1px solid"
       document.getElementById("erro_senha").style.display = "block"
       return false
@@ -81,6 +127,8 @@ export class NavbarComponent implements OnInit {
       document.getElementById("erro_senha").style.display = "none"
       return true
   }
+
+
   verificar_confirmasenha(){
     if (this.data.senha === this.data.senha_confirma) {
       document.getElementById("confirmaSenha").style.border = "black 1px solid"
@@ -91,8 +139,19 @@ export class NavbarComponent implements OnInit {
     document.getElementById("erro_confirmaSenha").style.display = "block"
     return false
   }
+
+
   verificar_nome(){
     let nome = this.data.nome
+    if(nome == ""){
+      document.getElementById("nome").style.border = "red 1px solid"
+      document.getElementById("vazio_nome").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("nome").style.border = "black 1px solid"
+      document.getElementById("vazio_nome").style.display = "none"
+    }
     nome.split("")
     if(nome.length < 5 || nome.indexOf(" ") == -1){
       document.getElementById("nome").style.border = "red 1px solid"
@@ -104,8 +163,23 @@ export class NavbarComponent implements OnInit {
       document.getElementById("erro_nome").style.display = "none"
       return true
     }
-    
   }
+
+
+  verificar_dataNascimento(){
+    let dataNascimento = this.data.data_nascimento
+    if(dataNascimento == ""){
+      document.getElementById("dataNascimento").style.border = "red 1px solid"
+      document.getElementById("vazio_dataNascimento").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("dataNascimento").style.border = "black 1px solid"
+      document.getElementById("vazio_dataNascimento").style.display = "none"
+    }
+  }
+
+
   verificar_cpf(){
     let cpfsInvalidos = ["00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888", "99999999999"]
     let dig1:Number
@@ -114,7 +188,18 @@ export class NavbarComponent implements OnInit {
     let cpflista = []
     let pesos = [10,9,8,7,6,5,4,3,2] // utilizado para multiplicar os numeros do cpf
     let soma = 0 // calcula os necessarios para validação
-    
+
+    if(cpf == ""){
+      document.getElementById("cadastroPF").style.border = "red 1px solid"
+      document.getElementById("vazio_cpf").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("cadastroPF").style.border = "black 1px solid"
+      document.getElementById("vazio_cpf").style.display = "none"
+    }
+
+
     if(cpfsInvalidos.indexOf(cpf) != -1){
       return false
     }
@@ -158,6 +243,7 @@ export class NavbarComponent implements OnInit {
     return false
   }
 
+
   verificar_cnpj(){
     let cnpjsInvalidos = ["00000000000000", "11111111111111","22222222222222","33333333333333", "44444444444444", "55555555555555", "66666666666666", "77777777777777", "88888888888888", "99999999999999"]
     let dig1:Number
@@ -166,6 +252,17 @@ export class NavbarComponent implements OnInit {
     let cnpjLista = []
     let pesos = [2,3,4,5,6,7,8,9,2,3,4,5]
     let soma = 0
+
+    if(cnpj == ""){
+      document.getElementById("cadastroNPJ").style.border = "red 1px solid"
+      document.getElementById("vazio_cnpj").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("cadastroNPJ").style.border = "black 1px solid"
+      document.getElementById("vazio_cnpj").style.display = "none"
+    }
+
     if(cnpjsInvalidos.indexOf(cnpj) != -1){
       return false
     }
@@ -207,6 +304,46 @@ export class NavbarComponent implements OnInit {
     return false
   }
 
+  verificar_razaoSocial(){
+    let razaoSocial = this.data.razao_social
+    if(razaoSocial == ""){
+      document.getElementById("razaoSocial").style.border = "red 1px solid"
+      document.getElementById("vazio_razaoSocial").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("razaoSocial").style.border = "black 1px solid"
+      document.getElementById("vazio_razaoSocial").style.display = "none"
+    }
+  }
+
+
+  verificar_nomeComercial(){
+    let nomeComercial = this.data.nome_comercial
+    if(nomeComercial == ""){
+      document.getElementById("nomeComercial").style.border = "red 1px solid"
+      document.getElementById("vazio_nomeComercial").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("nomeComercial").style.border = "black 1px solid"
+      document.getElementById("vazio_nomeComercial").style.display = "none"
+    }
+  }
+
+  verificar_inscricaoEstadual(){
+    let inscricaoEstadual = this.data.inscricao_estadual
+    if(inscricaoEstadual == ""){
+      document.getElementById("inscricaoEstadual").style.border = "red 1px solid"
+      document.getElementById("vazio_inscricaoEstadual").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("inscricaoEstadual").style.border = "black 1px solid"
+      document.getElementById("vazio_inscricaoEstadual").style.display = "none"
+    }
+  }
+
   cadastrar() {
     this.usuarioService.postUser(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
@@ -214,15 +351,22 @@ export class NavbarComponent implements OnInit {
     })
   }
   
+
   cpf() {
     document.getElementById("cpf").style.display = "block"
     document.getElementById("nascimento").style.display = "block"
     document.getElementById("cnpj").style.display = "none"
+    document.getElementById("botaoCPF").style.display = "block"
+    document.getElementById("botaoCNPJ").style.display = "none"
   }
+
+
   cnpj() {
     document.getElementById("cpf").style.display = "none"
     document.getElementById("nascimento").style.display = "none"
     document.getElementById("cnpj").style.display = "block"
+    document.getElementById("botaoCPF").style.display = "none"
+    document.getElementById("botaoCNPJ").style.display = "block"
   }
   
 }

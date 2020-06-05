@@ -66,12 +66,15 @@ button.nav-link {
     display: none;
 }
 
-#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email{
+#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email, #vazio_senha, #vazio_nome, #vazio_cpf,
+#vazio_cnpj, #vazio_email, #vazio_razaoSocial, #vazio_nomeComercial, #vazio_inscricaoEstadual, #vazio_dataNascimento{
     display: none;
     color: red;
-    font-weight: bold;
 }
 
 input:focus {
   border: 2px solid rgb(255, 204, 0);
+}
+#botaoCNPJ{
+  display:none
 }
