@@ -66,7 +66,7 @@ button.nav-link {
     display: none;
 }
 
-#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf{
+#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email{
     display: none;
     color: red;
     font-weight: bold;

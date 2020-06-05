@@ -15,10 +15,12 @@ export class NavbarComponent implements OnInit {
   user: Usuario = new Usuario
   
   data = {
-    password: '',
-    password_confirm: '',
+    email:'',
     nome: '',
-    cpf: ''
+    senha: '',
+    senha_confirma: '',
+    cpf: '',
+    cnpj: ''
   }
   
   constructor(private usuarioService: UsuarioService) { }
@@ -35,6 +37,7 @@ export class NavbarComponent implements OnInit {
   
   validar() {
     let erros = []
+    erros.push(this.verificar_email())
     erros.push(this.verificar_nome())
     erros.push(this.verificar_cpf())
     erros.push(this.verificar_senha())
@@ -44,28 +47,49 @@ export class NavbarComponent implements OnInit {
       this.cadastrar();
     }
   }
+  verificar_email(){
+    let email = this.data.email
+    if(email.match(/^[\w.-]+@[\w.-]+$/)){
+      let emailLista = email.split("")
+        if(emailLista.indexOf(".") != -1){
+            email = emailLista.join("")
+            emailLista = email.split(".")
+            if(emailLista.indexOf("com") != -1){
+              document.getElementById("email").style.border = "black 1px solid"
+              document.getElementById("erro_email").style.display = "none"
+              return true
+            }
+            document.getElementById("email").style.border = "red 1px solid"
+            document.getElementById("erro_email").style.display = "block"
+            return false
+        }
+        document.getElementById("email").style.border = "red 1px solid"
+        document.getElementById("erro_email").style.display = "block"
+        return false
+    }
+    document.getElementById("email").style.border = "red 1px solid"
+    document.getElementById("erro_email").style.display = "block"
+    return false
+  }
   verificar_senha(){
-    if (this.data.password.length < 6){
+    if (this.data.senha.length < 6){
       document.getElementById("senha").style.border = "red 1px solid"
       document.getElementById("erro_senha").style.display = "block"
       return false
     }
-    else{
       document.getElementById("senha").style.border = "black 1px solid"
       document.getElementById("erro_senha").style.display = "none"
       return true
-    }
   }
   verificar_confirmasenha(){
-    if (this.data.password === this.data.password_confirm) {
+    if (this.data.senha === this.data.senha_confirma) {
       document.getElementById("confirmaSenha").style.border = "black 1px solid"
       document.getElementById("erro_confirmaSenha").style.display = "none"
       return true
-    } else {
-      document.getElementById("confirmaSenha").style.border = "red 1px solid"
-      document.getElementById("erro_confirmaSenha").style.display = "block"
-      return false
     }
+    document.getElementById("confirmaSenha").style.border = "red 1px solid"
+    document.getElementById("erro_confirmaSenha").style.display = "block"
+    return false
   }
   verificar_nome(){
     let nome = this.data.nome
@@ -83,22 +107,21 @@ export class NavbarComponent implements OnInit {
     
   }
   verificar_cpf(){
-    let dig1 = 0
-    let dig2 = 0
+    let cpfsInvalidos = ["00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888", "99999999999"]
+    let dig1:Number
+    let dig2:Number
     let cpf = this.data.cpf
     let cpflista = []
-    let cpfsruins = ["00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888", "99999999999"]
     let pesos = [10,9,8,7,6,5,4,3,2] // utilizado para multiplicar os numeros do cpf
     let soma = 0 // calcula os necessarios para validação
     
-    if(cpfsruins.indexOf(cpf) != -1){
+    if(cpfsInvalidos.indexOf(cpf) != -1){
       return false
     }
     if(cpf.length == 11){ // valida o tamanho
       cpflista = cpf.split("")
       for(let i = 0; i < cpf.length-2; i++){ 
-        cpflista[i] = parseInt(cpflista[i])
-        soma += cpflista[i]*pesos[i] // calcula a soma para o primeiro digito de validação
+        soma += Number(cpflista[i])*pesos[i] // calcula a soma para o primeiro digito de validação
       }
       dig1 = 11 - (soma%11)
       if(dig1 > 9){ // faz uma verificação de acordo com as regras do cpf
@@ -134,7 +157,56 @@ export class NavbarComponent implements OnInit {
     document.getElementById("erro_cpf").style.display = "block"
     return false
   }
-  
+
+  verificar_cnpj(){
+    let cnpjsInvalidos = ["00000000000000", "11111111111111","22222222222222","33333333333333", "44444444444444", "55555555555555", "66666666666666", "77777777777777", "88888888888888", "99999999999999"]
+    let dig1:Number
+    let dig2:Number
+    let cnpj = this.data.cnpj
+    let cnpjLista = []
+    let pesos = [2,3,4,5,6,7,8,9,2,3,4,5]
+    let soma = 0
+    if(cnpjsInvalidos.indexOf(cnpj) != -1){
+      return false
+    }
+    if(cnpj.length == 14){
+      cnpjLista = cnpj.split("")
+      for(let i = 0; i < cnpj.length-2; i++){ 
+        soma += Number(cnpjLista[i])*pesos[i]
+      }
+      dig1 = 11 - (soma % 11)
+      if(dig1 > 9){
+        dig1 = 0
+      }
+      if(dig1 == cnpjLista[12]){
+        pesos.unshift(6)
+        soma = 0
+        for(let i = 0; i < cnpj.length-1; i++){ 
+          cnpjLista[i] = parseInt(cnpjLista[i])
+          soma += Number(cnpjLista[i])*pesos[i]
+        }
+        dig2 = 11 - (soma % 11)
+        if(dig2 > 9){
+          dig2 = 0
+        }
+        if(dig2 == cnpjLista[13]){
+          document.getElementById("cadastroNPJ").style.border = "black 1px solid"
+          document.getElementById("erro_cnpj").style.display = "none"
+          return true
+        }
+        document.getElementById("cadastroNPJ").style.border = "red 1px solid"
+        document.getElementById("erro_cnpj").style.display = "block"
+        return false
+      }
+      document.getElementById("cadastroNPJ").style.border = "red 1px solid"
+      document.getElementById("erro_cnpj").style.display = "block"
+      return false
+    }
+    document.getElementById("cadastroNPJ").style.border = "red 1px solid"
+    document.getElementById("erro_cnpj").style.display = "block"
+    return false
+  }
+
   cadastrar() {
     this.usuarioService.postUser(this.user).subscribe((resp: Usuario) => {
       this.user = resp;

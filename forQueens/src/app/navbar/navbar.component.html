@@ -111,7 +111,8 @@
             <div id="form_cadastro">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email">
+                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email" [(ngModel)]="data.email" id="email">
+                <span id="erro_email">O email deve ser valido</span>
               </div>
         
               <h3 style="text-align: center;">Tipo de conta</h3>
@@ -134,7 +135,8 @@
                 
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" required>
+                  <input type="text" class="form-control" [(ngModel)]="data.cnpj" required id="cadastroNPJ">
+                  <span id="erro_cnpj"> O cnpj deve conter apenas numeros e deve ser valido! </span>
                 </div>
 
                 <div>
@@ -177,13 +179,13 @@
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.password" required id="senha">
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha" required id="senha">
                   <span id="erro_senha"> A senha deve ter no minimo 6 caracteres! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Confirme a senha</label>
-                  <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.password_confirm"required>
+                  <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma"required>
                   <span id="erro_confirmaSenha"> Campos devem ser iguais! </span>
                 </div>
               </div>
