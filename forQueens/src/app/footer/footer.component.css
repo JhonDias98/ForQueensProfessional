@@ -30,3 +30,11 @@ footer ul li {
 	display: inline;
 	color: #ffde59; 
 }
+
+.icones {
+	color: #ffde59;
+}
+
+.icones:hover {
+	color: white;
+}

@@ -5,9 +5,9 @@
 }
 
 .botao_home {
-    border: 3px solid #fec63e;
+    border: 2px solid black;
     padding: 10px 30px;
-    color: #fec63e;
+    color: black;
     font-size: 14px;
     line-height: 20px;
     text-transform: uppercase;
@@ -16,6 +16,6 @@
 }
 
 .botao_home:hover {
-    color: black;
-    border-color: black;
+    color: #fec63e;
+    border-color: #fec63e;
 }
