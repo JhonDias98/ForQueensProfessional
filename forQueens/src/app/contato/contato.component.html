@@ -1,63 +1,67 @@
-<main class="container formsContato">
+<main class="fundo">
 
-  <h1 style="padding-top: 20px; text-align: center;">Contato</h1>
-  <hr>
+  <div class="container">
 
-  <div id="box_contato" class="row">
+    <h1 style="text-align: center;">Contato</h1>
+    <hr>
 
-    <div class="formulario col-md-6 col-sm-12 col-lg-6">
+    <div id="box_contato" class="row">
 
-      <label for="">Nome</label>
-      <div class="input-container campos_contato">
-        <fa-icon [icon]="faUser" class="fa-lg icone_contato"></fa-icon>
-        <input class="input-field cor_input_contato" type="text" placeholder="Nome Completo" name="Nome">
+      <div class="formulario col-md-6 col-sm-12 col-lg-6">
+
+        <label for="">Nome</label>
+        <div class="input-container campos_contato">
+          <fa-icon [icon]="faUser" class="fa-lg icone_contato"></fa-icon>
+          <input class="input-field cor_input_contato" type="text" placeholder="Nome Completo" name="Nome">
+        </div>
+
+        <label for="">Email</label>
+        <div class="input-container campos_contato">
+          <fa-icon [icon]="faEnvelope" class="fa-lg icone_contato"></fa-icon>
+          <input class="input-field cor_input_contato" type="text" placeholder="Email" name="email">
+        </div>
+
+        <label for="">Telefone</label>
+        <div class="input-container campos_contato">
+          <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
+          <input class="input-field cor_input_contato" type="text" placeholder="Telefone" name="telefone">
+        </div>
+
+        <label for="">Assunto</label>
+        <div class="input-container campos_contato">
+          <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
+          <select id="seletor selecao_contato" class="input-field cor_input_contato" type="" name="assunto">
+            <option selected disabled style="display: none;"></option>
+            <option>Sugestão</option>
+            <option>Elogio</option>
+            <option>Duvida</option>
+            <option>Reclamação</option>
+          </select>
+        </div>
+        <label for="">Mensagem</label>
+        <div class="input-container campos_contato">
+          <i id="pencil pencil1" class="fas fa-pencil-alt icon icone_contato"></i>
+          <textarea id="obs observacao" class="form-control caixa_mensagem" style="resize: none;" maxlength="400"
+            placeholder="Mensagem" name="" id="" cols="30" rows="8"></textarea>
+        </div>
+        <div style="text-align: center;">
+          <button class="botao_home">ENVIAR</button>
+        </div>
+
       </div>
 
-      <label for="">Email</label>
-      <div class="input-container campos_contato">
-        <fa-icon [icon]="faEnvelope" class="fa-lg icone_contato"></fa-icon>
-        <input class="input-field cor_input_contato" type="text" placeholder="Email" name="email">
-      </div>
+      <div id="map_contato" class="formulario col-md-6 col-sm-12 col-lg-6">
+        <h2>Nossos dados</h2>
+        <h6>Telefone: (11) 4545-4545</h6>
+        <h6>E-mail: forqueens@generation.com</h6>
 
-      <label for="">Telefone</label>
-      <div class="input-container campos_contato">
-        <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
-        <input class="input-field cor_input_contato" type="text" placeholder="Telefone" name="telefone">
+        <h2 class="mt-4">Nossa Localicaçao</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.700675884496!2d-46.51638318533803!3d-23.543265866808753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce60aae72563c9%3A0x434eb379fbbb0820!2sR.%20Pedro%20Talarico%2C%20239%20-%20Vila%20Talarico%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003534-000!5e0!3m2!1spt-BR!2sbr!4v1584830222917!5m2!1spt-BR!2sbr"
+          width="540" height="370" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
       </div>
-
-      <label for="">Assunto</label>
-      <div class="input-container campos_contato">
-        <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
-        <select id="seletor selecao_contato" class="input-field cor_input_contato" type="" name="assunto">
-          <option selected disabled style="display: none;"></option>
-          <option>Sugestão</option>
-          <option>Elogio</option>
-          <option>Duvida</option>
-          <option>Reclamação</option>
-        </select>
-      </div>
-      <label for="">Mensagem</label>
-      <div class="input-container campos_contato">
-        <i id="pencil pencil1" class="fas fa-pencil-alt icon icone_contato"></i>
-        <textarea id="obs observacao" class="form-control caixa_mensagem" style="resize: none;" maxlength="400"
-          placeholder="Mensagem" name="" id="" cols="30" rows="8"></textarea>
-      </div>
-      <div style="text-align: center;">
-        <button class="botao_home">ENVIAR</button>
-      </div>
-
-    </div>
-
-    <div id="map_contato" class="formulario col-md-6 col-sm-12 col-lg-6">
-      <h2>Nossos dados</h2>
-      <h6>Telefone: (11) 4545-4545</h6>
-      <h6>E-mail: forqueens@generation.com</h6>
-
-      <h2 class="mt-4">Nossa Localicaçao</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.700675884496!2d-46.51638318533803!3d-23.543265866808753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce60aae72563c9%3A0x434eb379fbbb0820!2sR.%20Pedro%20Talarico%2C%20239%20-%20Vila%20Talarico%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003534-000!5e0!3m2!1spt-BR!2sbr!4v1584830222917!5m2!1spt-BR!2sbr"
-        width="540" height="370" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-        tabindex="0"></iframe>
     </div>
   </div>
+
 </main>

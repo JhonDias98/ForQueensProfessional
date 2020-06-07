@@ -1,5 +1,5 @@
 header.container-fluid {
-  padding: 70px 0 0;
+  padding: 0;
 }
 
 .card {
@@ -22,4 +22,18 @@ header.container-fluid {
 
 img.produto {
     height: 250px;
+}
+
+.parallax {
+  background-image: url('../../assets/img/modelos/mod-row2.jpeg');
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modeloDistr {
+  width: 100%;
+  border-radius: 8px;
 }

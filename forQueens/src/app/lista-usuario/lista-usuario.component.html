@@ -1,104 +1,107 @@
-<div class="listaUsuarios container">
+<main class="fundo">
+  <div class="container">
 
-  <h1 class="p-5">Usuários cadastrados</h1>
+    <h1>Usuários cadastrados</h1>
 
-  <div class="row">
-    <div class="col-md-12">
-      <table id="t01">
-        <tr>
-          <th>ID</th>
-          <th>Nome Completo</th>
-          <th>Email</th>
-          <th>Senha</th>
-          <th>Alterações</th>
-        </tr>
-        <tr *ngFor="let lista of listaUsers">
-          <td>{{lista.id}}</td>
-          <td>{{lista.nome}}</td>
-          <td>{{lista.email}}</td>
-          <td>{{lista.senha}}</td>
-          <td>
-            <div class="">
-              <button id="botaoEditar" data-toggle="modal" data-target="#modal2" class="mr-3 btn btn-light"
-                (click)="getId(lista.id)">
-                Editar
-              </button>
+    <div class="row">
+      <div class="col-md-12">
+        <table id="t01">
+          <tr>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Alterações</th>
+          </tr>
+          <tr *ngFor="let lista of listaUsers">
+            <td>{{lista.id}}</td>
+            <td>{{lista.nome}}</td>
+            <td>{{lista.email}}</td>
+            <td>{{lista.senha}}</td>
+            <td>
+              <div class="">
+                <button id="botaoEditar" data-toggle="modal" data-target="#modal2" class="mr-3 btn btn-light"
+                  (click)="getId(lista.id)">
+                  Editar
+                </button>
 
-              <button type="button" data-toggle="modal" data-target="#modal1" id="botaoApagar"
-                class="btn btn-outline-danger ml-3" (click)="getId(lista.id)">
-                Apagar
-              </button>
-            </div>
+                <button type="button" data-toggle="modal" data-target="#modal1" id="botaoApagar"
+                  class="btn btn-outline-danger ml-3" (click)="getId(lista.id)">
+                  Apagar
+                </button>
+              </div>
 
-            <div class="modal" id="modal1">
-              <div class="modal-dialog">
-                <div class="modal-content">
+              <div class="modal" id="modal1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
 
-                  <div class="modal-header">
-                    <div class="modal-title">
-                      <h5>Tem certeza de que deseja excluir o perfil ?</h5>
+                    <div class="modal-header">
+                      <div class="modal-title">
+                        <h5>Tem certeza de que deseja excluir o perfil ?</h5>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="modal-body">
-                    <p>Todas as informações associadas a esse perfil de usuário serão excluídas permanentemente.
-                      <span class="text-danger">Esta operação não pode ser desfeita.</span>
-                  </div>
+                    <div class="modal-body">
+                      <p>Todas as informações associadas a esse perfil de usuário serão excluídas permanentemente.
+                        <span class="text-danger">Esta operação não pode ser desfeita.</span>
+                    </div>
 
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="btnSim()">Sim</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Não</button>
-                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="btnSim()">Sim</button>
+                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Não</button>
+                    </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
 
 
-            <div class="modal" id="modal2">
-              <div class="modal-dialog">
-                <div class="modal-content">
+              <div class="modal" id="modal2">
+                <div class="modal-dialog">
+                  <div class="modal-content">
 
-                  <div class="modal-header">
-                    <div class="modal-title">
-                      <h5>Editar perfil do usuário</h5>
+                    <div class="modal-header">
+                      <div class="modal-title">
+                        <h5>Editar perfil do usuário</h5>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="modal-body">
-                    <div>
+                    <div class="modal-body">
+                      <div>
 
-                      <div class="form-group">
-                        <label for="text-monospace">Nome:</label>
-                        <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="user.nome">
+                        <div class="form-group">
+                          <label for="text-monospace">Nome:</label>
+                          <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="user.nome">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="text-monospace">E-mail:</label>
+                          <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="user.email">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="text-monospace">Senha:</label>
+                          <input type="text" class="form-control" placeholder="Senha" [(ngModel)]="user.senha">
+                        </div>
+
                       </div>
-
-                      <div class="form-group">
-                        <label for="text-monospace">E-mail:</label>
-                        <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="user.email">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="text-monospace">Senha:</label>
-                        <input type="text" class="form-control" placeholder="Senha" [(ngModel)]="user.senha">
-                      </div>
-
                     </div>
-                  </div>
 
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="salvar()">Salvar</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>                   
-                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="salvar()">Salvar</button>
+                      <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
+                    </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
 
 
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+
+</main>
