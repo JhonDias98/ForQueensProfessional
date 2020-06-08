@@ -53,6 +53,7 @@ textarea:focus, input:focus, button:focus {
 .inputBusca {
   border-radius: 16px;
   padding-left: 5px;
+  height: 28px;
 }
 
 button.nav-link {
