@@ -49,7 +49,7 @@ img.produto {
 }
 
 .cor2 {
-  color: white;
+  color: black;
   background-color: #ffde59;
   border: 2px solid #ffde59;
   border-radius: 16px;
@@ -60,7 +60,7 @@ img.produto {
 
 [data-anime] {
   opacity: 0;
-  transition: .3s;
+  transition: 1.2s;
 }
 
 [data-anime="left"] {

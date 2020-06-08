@@ -18,7 +18,7 @@ i{
 
 footer ul {
 	padding:0px;
-  margin:0px;
+  	margin:0px;
 	list-style:none;
 	
 }
@@ -35,4 +35,8 @@ footer ul li {
 
 .icones:hover {
 	color: white;
+}
+
+.conteudo_footer{
+	padding-top: 10px;
 }
