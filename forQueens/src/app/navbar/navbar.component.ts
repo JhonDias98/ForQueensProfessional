@@ -11,7 +11,6 @@ import { UsuarioService } from '../service/usuario.service';
 export class NavbarComponent implements OnInit {
   
   faSearch = faSearch
-  
   user: Usuario = new Usuario
   
   data = {
@@ -176,6 +175,52 @@ export class NavbarComponent implements OnInit {
       document.getElementById("dataNascimento").style.border = "black 1px solid"
       document.getElementById("vazio_dataNascimento").style.display = "none"
     }
+    if(dataNascimento.length != 8){
+      document.getElementById("dataNascimento").style.border = "red 1px solid"
+      document.getElementById("erro_dataNascimento").style.display = "block"
+      return false
+    }
+    let listaMeses31 = [1,3,5,7,8,10,12]
+    let listaMeses30 = [4,6,9,11]
+    let listaMeses28 = [2]
+    let dia = Number(dataNascimento.substring(0,2))
+    let mes = Number(dataNascimento.substring(2,4))
+    let ano = Number(dataNascimento.substring(4,8))
+    let bissexto:boolean
+    if(ano%4 == 0 && ano%100 != 0){
+      bissexto = true
+    }
+    else{
+      bissexto = false
+    }
+    if (listaMeses31.indexOf(mes) != -1 && dia > 31){
+      document.getElementById("dataNascimento").style.border = "red 1px solid"
+      document.getElementById("erro_dataNascimento").style.display = "block"
+      return false
+    } else {
+      if(listaMeses30.indexOf(mes) != -1 && dia > 30){
+        document.getElementById("dataNascimento").style.border = "red 1px solid"
+        document.getElementById("erro_dataNascimento").style.display = "block"
+        return false
+      }
+      else{
+        if (listaMeses28.indexOf(mes) != -1 && dia > 28 && bissexto == false){
+          document.getElementById("dataNascimento").style.border = "red 1px solid"
+          document.getElementById("erro_dataNascimento").style.display = "block"
+          return false
+        }
+        else{
+          if(listaMeses28.indexOf(mes) != -1 && dia > 29 && bissexto == true){
+            document.getElementById("dataNascimento").style.border = "red 1px solid"
+          document.getElementById("erro_dataNascimento").style.display = "block"
+          return false
+          }
+          document.getElementById("dataNascimento").style.border = "black 1px solid"
+          document.getElementById("erro_dataNascimento").style.display = "none"
+          return true
+        }
+      }
+    }
   }
 
 
@@ -249,7 +294,7 @@ export class NavbarComponent implements OnInit {
     let dig2:Number
     let cnpj = this.data.cnpj
     let cnpjLista = []
-    let pesos = [2,3,4,5,6,7,8,9,2,3,4,5]
+    let pesos = [5,4,3,2,9,8,7,6,5,4,3,2]
     let soma = 0
 
     if(cnpj == ""){

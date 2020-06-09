@@ -134,8 +134,8 @@
                 
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ" placeholder="99.999.999/9999-99">
-                  <span id="erro_cnpj"> O cnpj deve conter apenas números e deve ser válido! </span>
+                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ" placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
+                  <span id="erro_cnpj"> O cnpj deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
                 </div>
 
@@ -165,8 +165,8 @@
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF" placeholder="999.999.999-99">
-                  <span id="erro_cpf">O cpf deve conter apenas números e deve ser válido!</span>
+                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF" placeholder="999.999.999-99" mask="000.000.000-00">
+                  <span id="erro_cpf">O cpf deve ser válido!</span>
                   <span id="vazio_cpf"> Campo obrigatório! </span>
                 </div>
 
@@ -179,13 +179,14 @@
 
                 <div id="nascimento">
                   <label for="validationDefault01">Data de nascimento</label>
-                  <input type="text" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento" placeholder="dd/mm/aaaa">
+                  <input type="text" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento" placeholder="dd/mm/aaaa" mask="00/00/0000">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
+                  <span id="erro_dataNascimento">A data de nascimento deve ser válida!</span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"  id="senha">
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"  id="senha" placeholder="Senha com no mínimo 6 carácteres">
                   <span id="erro_senha"> A senha deve ter no mínimo 6 carácteres! </span>
                   <span id="vazio_senha"> Campo obrigatório! </span>
                 </div>
