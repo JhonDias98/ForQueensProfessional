@@ -39,7 +39,7 @@
       </div>
 
       <div id="buscar" class="mr-1">
-        <input maxlength="15" class="inputBusca" placeholder="O que procura?" type="text">
+        <input maxlength="30" class="inputBusca" placeholder="O que procura?" type="text">
       </div>
       
       <div>
@@ -117,24 +117,13 @@
               </div>
         
               <h3 style="text-align: center;">Tipo de conta</h3>
-              
-              <!-- <div class="row">
-                <div class="col-3"></div>
-                <div class="col-8">
-                  <input (change)="cpf()" class="mr-1" type="radio" name="#" id="pf" value="pf" checked>
-                  <label class="mr-2">Pessoa física</label>
         
-                  <input (change)="cnpj()" class="mr-1 ml-2" type="radio" name="#" id="pj" value="pj">
-                  <label>Pessoa jurídica</label>
-                </div>
-              </div> -->
-
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
                 <label class="btn btn-secondary active">
-                  <input (change)="cpf()" type="radio" name="#" id="pf" value="pf" checked>Pessoa física
+                  <input (click)="cpf()" type="radio" id="pf" value="pf" checked>Pessoa física
                 </label>
                 <label class="btn btn-secondary">
-                  <input (change)="cnpj()" type="radio" name="#" id="pj" value="pj">Pessoa jurídica
+                  <input (click)="cnpj()" type="radio" id="pj" value="pj">Pessoa jurídica
                 </label>
               </div>
               
@@ -145,7 +134,7 @@
                 
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ">
+                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ" placeholder="99.999.999/9999-99">
                   <span id="erro_cnpj"> O cnpj deve conter apenas números e deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
                 </div>
@@ -176,7 +165,7 @@
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF">
+                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF" placeholder="999.999.999-99">
                   <span id="erro_cpf">O cpf deve conter apenas números e deve ser válido!</span>
                   <span id="vazio_cpf"> Campo obrigatório! </span>
                 </div>
@@ -190,7 +179,7 @@
 
                 <div id="nascimento">
                   <label for="validationDefault01">Data de nascimento</label>
-                  <input type="date" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento">
+                  <input type="text" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento" placeholder="dd/mm/aaaa">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
                 </div>
 

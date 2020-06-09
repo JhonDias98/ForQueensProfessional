@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
     this.cpf()
   }
 
-  
   validarCPF() {
     let erros = []
     erros.push(this.verificar_dataNascimento())
