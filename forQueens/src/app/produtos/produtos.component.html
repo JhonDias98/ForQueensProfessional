@@ -1,112 +1,165 @@
 <main class="fundo">
 
+  <div class="parallax"></div>
+
   <div class="produtos container">
 
     <h1 style="text-align: center;">Nossos produtos</h1>
     <hr class="mb-5">
 
-    <div class="card-deck mb-3">
+    <div class="row">
 
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
+      <div class="col-3">
+        <div class="list-group-hover sidebar-widget-1">
+          <ul class="list-unstyled">
+
+            <li>
+              <a id="todos" class="list-group-item  bg-active" (click)="escolhaTodos()"> Todos
+                <span class="badge">4</span> </a>
+            </li>
+            <li>
+              <a id="botox" class="list-group-item" (click)="escolhaBotox()">Botox</a>
+            </li>
+            <li>
+              <a id="hidratante" class="list-group-item" (click)="escolhaHidratante()">Hidratante</a>
+            </li>
+            <li>
+              <a id="mascara" class="list-group-item" (click)="escolhaMascara()">Máscara</a>
+            </li>
+          </ul>
         </div>
       </div>
+        
+      <div id="produtoTodos" class="col-9">
+          <div class="row" >
 
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
-        </div>
+            <div class="col-md-4 col-sm-6 mb-3">
+              <div class="product-grid3 cardProduto">
+                <div class="product-image3">
+                  <a href="#">
+                    <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                    <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <a href=""><fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon></a>
+                  </li>
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                     </a>
+                    </li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+                  <div class="price">
+                    R$75.00
+                    <span>RS100.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mb-3">
+              <div class="product-grid3 cardProduto">
+                <div class="product-image3">
+                  <a href="#">
+                    <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                    <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+                  <div class="price">
+                    R$75.00
+                    <span>RS100.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mb-3">
+              <div class="product-grid3 cardProduto">
+                <div class="product-image3">
+                  <a href="#">
+                    <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                    <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+                  <div class="price">
+                    R$75.00
+                    <span>RS100.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3">
+              <div class="product-grid3 cardProduto">
+                <div class="product-image3">
+                  <a href="#">
+                    <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                    <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                  <span class="product-new-label">New</span>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+                  <div class="price">
+                    R$75.00
+                    <span>RS100.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
 
       </div>
 
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
-        </div>
-      </div>
     </div>
-
-
-    <div class="card-deck mb-3">
-
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho
-            tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho
-            tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
-        </div>
-
-      </div>
-
-      <div class="card">
-        <img src="../../assets/img/pagina_home/lancamentos/lancamento1.webp" class="card-img-top mt-3" alt="...">
-        <div class="card-body">
-          <h3 class="card-title">Shampoo</h3>
-          <p class="card-text">O Shampoo Banho de Verniz limpa e repara levemente os fios, devolvendo vitalidade e
-            brilho
-            tridimensional a todos os
-            tipos de cabelos.</p>
-        </div>
-        <div class="card-footer">
-          <h4>R$ 55,00</h4>
-          <button class="botao_home mr-3">COMPRAR</button>
-          <button class="botao_home">ADICIONAR NA CESTA</button>
-        </div>
-      </div>
-    </div>
-
 
   </div>
 </main>
