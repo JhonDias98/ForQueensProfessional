@@ -358,6 +358,7 @@ export class NavbarComponent implements OnInit {
     else{
       document.getElementById("razaoSocial").style.border = "black 1px solid"
       document.getElementById("vazio_razaoSocial").style.display = "none"
+      return true
     }
   }
 
@@ -372,6 +373,7 @@ export class NavbarComponent implements OnInit {
     else{
       document.getElementById("nomeComercial").style.border = "black 1px solid"
       document.getElementById("vazio_nomeComercial").style.display = "none"
+      return true
     }
   }
 
@@ -385,6 +387,7 @@ export class NavbarComponent implements OnInit {
     else{
       document.getElementById("inscricaoEstadual").style.border = "black 1px solid"
       document.getElementById("vazio_inscricaoEstadual").style.display = "none"
+      return true
     }
   }
 
