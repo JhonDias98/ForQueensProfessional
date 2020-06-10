@@ -15,7 +15,8 @@ import { PoliticaPrivacidadeComponent } from './politica-privacidade/politica-pr
 import { ContatoComponent } from './contato/contato.component';
 import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
-import { NgxMaskModule} from 'ngx-mask'
+import { NgxMaskModule} from 'ngx-mask';
+import { MapaSiteComponent } from './mapa-site/mapa-site.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgxMaskModule} from 'ngx-mask'
     PoliticaPrivacidadeComponent,
     ContatoComponent,
     DicasComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    MapaSiteComponent
   ],
   imports: [
     BrowserModule,

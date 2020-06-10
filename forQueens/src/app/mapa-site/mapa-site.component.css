@@ -1,0 +1,74 @@
+header.container-fluid {
+    padding: 0;
+  }
+
+#titulo{
+    padding-top: 100px;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    color: black;
+}
+
+.parallax {
+    background-image: url('../../assets/img/pagina-mapa-site/mapa-site.jpeg');
+    min-height: 410px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+#subtitulo{
+    color: black;
+     
+}
+
+#titulo1{
+    text-align: center;
+    margin-top: 3%; 
+    color: black;
+    
+}
+#imagem{ 
+    text-align:center;
+    margin-top: 20%;
+}
+#accordion{
+    margin-bottom: 20%;
+    
+}
+#cards{
+    text-align: left; 
+    
+    
+}
+
+#ancora {
+    color: black;
+}
+
+.btn-accordion {
+    background-color: transparent;
+    color: green ;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+}
+.collapsed {
+    color: #353b43;
+}
+
+.accordion .fa{
+    margin-right: 0.9rem;
+}
+
+
+.titulo-traco.text-center:after {
+    left: 50%;
+    margin-left: -13px;
+}
+
+#fundo{
+    padding-bottom: 60px;
+}
