@@ -188,8 +188,6 @@ export class ContatoComponent implements OnInit {
   telefone() {
     document.getElementById("telefone").style.display = "block"
     document.getElementById("celular").style.display = "none"
-    document.getElementById("labelcelular").style.display = "none"
-    document.getElementById("labeltelefone").style.display = "block"
     document.getElementById("botaotelefone").style.display = "block"
     document.getElementById("botaocelular").style.display = "none"
     document.getElementById("erro_celular").style.display = "none"
@@ -200,8 +198,6 @@ export class ContatoComponent implements OnInit {
   celular() {
     document.getElementById("telefone").style.display = "none"
     document.getElementById("celular").style.display = "block"
-    document.getElementById("labelcelular").style.display = "block"
-    document.getElementById("labeltelefone").style.display = "none"
     document.getElementById("botaotelefone").style.display = "none"
     document.getElementById("botaocelular").style.display = "block"
     document.getElementById("erro_telefone").style.display = "none"
