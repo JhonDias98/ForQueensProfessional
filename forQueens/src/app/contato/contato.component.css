@@ -42,3 +42,11 @@
     margin-bottom: 20px;
     clear: both;
 }
+
+#erro_nome_contato, #vazio_nome_contato, #erro_email_contato, #vazio_email_contato, #erro_telefone, #vazio_telefone, #erro_celular, #vazio_celular, #vazio_assunto, #vazio_mensagem{
+    display: none;
+    color: red;
+}
+#botaocelular, #celular, #labelcelular{
+    display: none;
+}
