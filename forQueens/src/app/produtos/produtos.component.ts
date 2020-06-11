@@ -26,6 +26,9 @@ export class ProdutosComponent implements OnInit {
     const mascara = document.querySelector("#mascara")
 
     const produtoTodos = document.getElementById("produtoTodos")
+    const produtoBotox = document.getElementById("produtoBotox")
+    const produtoHidratante = document.getElementById("produtoHidratante")
+    const produtoMascara = document.getElementById("produtoMascara")
 
     const catEscolhida = 'bg-active';
 
@@ -38,8 +41,12 @@ export class ProdutosComponent implements OnInit {
       mascara.classList.remove(catEscolhida)
 
       produtoTodos.style.display = "block"
+      produtoBotox.style.display = "none"
+      produtoHidratante.style.display = "none"
+      produtoMascara.style.display = "none"
     }
   }
+
 
   escolhaBotox() {
     const todos = document.querySelector("#todos")
@@ -48,6 +55,9 @@ export class ProdutosComponent implements OnInit {
     const mascara = document.querySelector("#mascara")
 
     const produtoTodos = document.getElementById("produtoTodos")
+    const produtoBotox = document.getElementById("produtoBotox")
+    const produtoHidratante = document.getElementById("produtoHidratante")
+    const produtoMascara = document.getElementById("produtoMascara")
 
     const catEscolhida = 'bg-active';
 
@@ -60,9 +70,10 @@ export class ProdutosComponent implements OnInit {
       mascara.classList.remove(catEscolhida)
 
       produtoTodos.style.display = "none"
+      produtoBotox.style.display = "block"
+      produtoHidratante.style.display = "none"
+      produtoMascara.style.display = "none"
     }
-      
-
   }
 
   escolhaHidratante() {
@@ -72,6 +83,9 @@ export class ProdutosComponent implements OnInit {
     const mascara = document.querySelector("#mascara")
 
     const produtoTodos = document.getElementById("produtoTodos")
+    const produtoBotox = document.getElementById("produtoBotox")
+    const produtoHidratante = document.getElementById("produtoHidratante")
+    const produtoMascara = document.getElementById("produtoMascara")
 
     const catEscolhida = 'bg-active';
 
@@ -84,6 +98,9 @@ export class ProdutosComponent implements OnInit {
       mascara.classList.remove(catEscolhida)
 
       produtoTodos.style.display = "none"
+      produtoBotox.style.display = "none"
+      produtoHidratante.style.display = "block"
+      produtoMascara.style.display = "none"
     }
   }
 
@@ -94,6 +111,9 @@ export class ProdutosComponent implements OnInit {
     const mascara = document.querySelector("#mascara")
 
     const produtoTodos = document.getElementById("produtoTodos")
+    const produtoBotox = document.getElementById("produtoBotox")
+    const produtoHidratante = document.getElementById("produtoHidratante")
+    const produtoMascara = document.getElementById("produtoMascara")
 
     const catEscolhida = 'bg-active';
 
@@ -106,6 +126,9 @@ export class ProdutosComponent implements OnInit {
       mascara.classList.add(catEscolhida)
 
       produtoTodos.style.display = "none"
+      produtoBotox.style.display = "none"
+      produtoHidratante.style.display = "none"
+      produtoMascara.style.display = "block"
     }
   }
 

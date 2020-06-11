@@ -2,6 +2,71 @@ header.container-fluid {
   padding: 0;
 }
 
+.banner {
+  width: 100%;
+  height: 65vh;
+}
+
+/* Carrosel Instagran */
+.titlebar {
+  overflow: hidden;
+}
+
+.titlebar .next-back {
+  float: right;
+  margin: 12px 0;
+}
+
+.titlebar .next-back span a {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: Poppins;
+  color: #222222;
+}
+
+.titlebar .next-back span a:hover {
+  text-decoration: none;
+  color: #888888;
+}
+
+.titlebar .next-back span {
+  border-right: 1px solid #000;
+  padding: 0 8px 0 5px;
+  display: inline-block;
+  line-height: 10px;
+}
+
+.titlebar .next-back span:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.carousel {
+  margin-bottom: 0;
+  padding: 0 0 30px 0;
+}
+
+.arrival-product .arrival-item ul {
+  margin: 0;
+  padding: 0;
+}
+.arrival-product .arrival-item ul li {
+  float: left;
+  list-style: none;
+  width: 23%;
+  overflow: hidden;
+  margin-right: 2.6%;
+}
+
+.arrival-product .arrival-item ul li:last-child {
+  margin-right: 0;
+}
+
+.carrouselSlide:hover{
+  border-bottom: 2px solid #ffde59;
+}
+/* Fim Carrossel Instagram */
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;

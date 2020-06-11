@@ -1,5 +1,5 @@
 .parallax {
-  background-image: url('../../assets/img/pagina-produtos/mulherCompra.jpg');
+  background-image: url("../../assets/img/pagina-produtos/mulherCompra.jpg");
   min-height: 400px;
   background-attachment: fixed;
   background-position: center;
@@ -9,7 +9,7 @@
 
 .sidebar-widget-1 .list-group-item {
   padding: 15px;
-  text-decoration:none;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -18,7 +18,6 @@
   color: #fff;
   transition: all 0.5s ease-out;
 }
-
 
 .list-group-item.bg-active {
   background: #febf00;
@@ -29,6 +28,7 @@
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
+  text-align: justify;
 }
 body {
   font-family: "Roboto";
@@ -141,11 +141,13 @@ body {
   margin: 0 2px;
   display: block;
   transition: all 0.3s ease 0s;
+  padding-left: 15px;
 }
 
 .product-grid3 .social li a:hover {
   background: #ffde59;
   color: #fff;
+  cursor: pointer;
 }
 
 .product-grid3 .product-discount-label,
@@ -214,6 +216,7 @@ body {
 
 .cardProduto:hover {
   box-shadow: 0 4px 8px 0;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -233,4 +236,19 @@ body {
   .product-grid3 .rating {
     margin: 0;
   }
+}
+
+#produtoBotox,
+#produtoHidratante,
+#produtoMascara {
+  display: none;
+}
+
+.modal {
+  margin-top: 160px;
+}
+
+.textoCinza {
+  color: grey;
+  font-size: 22px;
 }
