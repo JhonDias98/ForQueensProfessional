@@ -180,6 +180,10 @@ export class NavbarComponent implements OnInit {
       document.getElementById("erro_dataNascimento").style.display = "block"
       return false
     }
+    var minhaData = new Date();
+    let anoHJ = minhaData.getFullYear()
+    let mesHJ = minhaData.getMonth()+1
+    let diaHJ = minhaData.getDate()
     let listaMeses31 = [1,3,5,7,8,10,12]
     let listaMeses30 = [4,6,9,11]
     let listaMeses28 = [2]
@@ -187,6 +191,11 @@ export class NavbarComponent implements OnInit {
     let mes = Number(dataNascimento.substring(2,4))
     let ano = Number(dataNascimento.substring(4,8))
     let bissexto:boolean
+    if(anoHJ < ano || (anoHJ == ano && mesHJ < mes) || (anoHJ == ano && mesHJ == mes && diaHJ < dia)){
+      document.getElementById("dataNascimento").style.border = "red 1px solid"
+      document.getElementById("erro_dataNascimento").style.display = "block"
+      return false
+    }
     if(ano%4 == 0 && ano%100 != 0){
       bissexto = true
     }
