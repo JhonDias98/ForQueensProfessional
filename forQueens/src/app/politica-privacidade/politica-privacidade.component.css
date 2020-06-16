@@ -1,3 +1,17 @@
+#titulo {
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.parallax {
+  background-image: url('../../assets/img/pagina-politica/principal.png');
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .accordion_politica {
   background-color: #eee;
   color: #444;
@@ -34,3 +48,4 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+

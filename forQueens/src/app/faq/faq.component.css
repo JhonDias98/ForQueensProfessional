@@ -1,3 +1,16 @@
+#titulo {
+  padding-top: 50px;
+}
+
+.parallax {
+  background-image: url('../../assets/img/pagina-perguntas/PERGUNTAS.png');
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .accordion_faq {
 	background-color: #eee;
 	color: #444;
