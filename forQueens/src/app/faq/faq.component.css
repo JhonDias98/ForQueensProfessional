@@ -47,3 +47,16 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.accordion_faq {
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}

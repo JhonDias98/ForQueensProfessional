@@ -49,3 +49,11 @@
   transition: max-height 0.2s ease-out;
 }
 
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}

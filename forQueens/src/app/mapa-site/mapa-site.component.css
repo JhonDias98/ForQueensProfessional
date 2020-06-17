@@ -86,3 +86,25 @@ header.container-fluid {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+  h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+  }
+
+  .accordion_mapasite {
+    font-family: 'Raleway', sans-serif;
+  }
+
+ strong {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+  }
+
+  a {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+  }

@@ -50,3 +50,24 @@
 #botaocelular, #celular, #labelcelular{
     display: none;
 }
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h6 {
+    font-family: 'Raleway', sans-serif;
+}   
+
+@media (max-width: 767px) {
+    #map_contato {
+     margin-top: 30px;
+    }
+   }

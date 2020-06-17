@@ -24,3 +24,8 @@
     color: #fec63e;
     border-color: #fec63e;
 }
+
+@font-face {
+  font-family: 'Raleway';
+  src: url(assets/fonts/Raleway-Light.ttf) format("opentype");
+}
