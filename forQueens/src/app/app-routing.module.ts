@@ -8,6 +8,8 @@ import { PoliticaPrivacidadeComponent } from './politica-privacidade/politica-pr
 import { ContatoComponent } from './contato/contato.component';
 import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { MapaSiteComponent } from './mapa-site/mapa-site.component';
+
 
 
 const routes: Routes = [
@@ -19,7 +21,8 @@ const routes: Routes = [
   { path: 'politica', component: PoliticaPrivacidadeComponent },
   { path: 'contato', component: ContatoComponent },
   { path: 'dicas', component: DicasComponent },
-  { path: 'produtos', component: ProdutosComponent }
+  { path: 'produtos', component: ProdutosComponent },
+  { path: 'mapa-site', component: MapaSiteComponent}
 ];
 
 @NgModule({
