@@ -7,6 +7,10 @@
   background-size: cover;
 }
 
+.categorias_mobile{
+  display: flex;
+}
+
 .sidebar-widget-1 .list-group-item {
   padding: 15px;
   text-decoration: none;
@@ -235,6 +239,21 @@ a {
   cursor: pointer;
 }
 
+#produtoBotox,
+#produtoHidratante,
+#produtoMascara {
+  display: none;
+}
+
+.modal {
+  margin-top: 160px;
+}
+
+.textoCinza {
+  color: grey;
+  font-size: 22px;
+}
+
 @media only screen and (max-width: 1200px) {
   .product-grid3 .rating {
     margin: 0;
@@ -254,17 +273,13 @@ a {
   }
 }
 
-#produtoBotox,
-#produtoHidratante,
-#produtoMascara {
-  display: none;
+@media(max-width:991px){
+  .parallax{
+    display: none;
+  }
 }
-
-.modal {
-  margin-top: 160px;
-}
-
-.textoCinza {
-  color: grey;
-  font-size: 22px;
+@media(max-width:768px){
+  .categorias_desktop{
+    display: none;
+  }
 }
