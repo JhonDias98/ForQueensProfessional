@@ -8,6 +8,10 @@ header.container-fluid {
 }
 
 /* Carrosel Instagran */
+.instagram_mobile{
+  display: none;
+}
+
 .titlebar {
   overflow: hidden;
 }
@@ -18,9 +22,8 @@ header.container-fluid {
 }
 
 .titlebar .next-back span a {
-  font-size: 12px;
+  font-size: 40px;
   text-transform: uppercase;
-  font-family: Poppins;
   color: #222222;
 }
 
@@ -67,6 +70,40 @@ header.container-fluid {
 }
 /* Fim Carrossel Instagram */
 
+.cards_mobile{
+  display: none;
+}
+
+.carousel-indicators .active{
+  background-color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 50px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 50px;
+  color: black;
+}
+
+.carrossel{
+  height: 420px;
+}
+
+.carrossel_img{
+  height: 400px;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -87,6 +124,9 @@ header.container-fluid {
 
 img.produto {
   height: 250px;
+}
+.produto{
+  width:100%
 }
 
 .parallax {
@@ -149,23 +189,107 @@ h1 {
 
  h3 {
   font-family: 'Raleway', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 p {
   font-family: 'Raleway', sans-serif;
 }
-
-@media (max-width: 600px) {
-  .linha {
-    font-size: 13px;
+@media (max-width: 991px) {
+  h1{
+    font-size: 35px;
+  }
+  h3{
+    font-size: 23px;
+  }
+  .linha{
+    font-size: 20px;
+  }
+  .descricao{
+    display: none
+  }
+  .card{
+    height: 400px;
+  }
+  .titlebar .next-back span a {
+    font-size: 30px;
+  }
 }
-  p {
-    font-size: 14px;
-   }
 
-   h1 {
-     font-size: 35px;
-   }
- 
+
+@media (max-width: 767px) {
+  img.produto {
+    height: 180px;
+  }
+  .card{
+    height: 360px;
+  }
+  h3{
+    font-size: 25px;
+  }
+  .linha{
+    font-size: 18px;
+  }
+  .banner {
+    height: 40vh;
+  }
+  .titlebar .next-back span a {
+    font-size: 25px;
+  }
+}
+@media (max-width: 575px) {
+  h1{
+    font-size: 30px;
+  }
+  .cards_desktop{
+    display: none;
+  }
+  .cards_mobile{
+    display: block;
+  }
+  .banner {
+    height: 30vh;
+  }
+  .instagram_mobile{
+    display: block;
+  }
+  .arrival-product .arrival-item ul li {
+    width: 46%;
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+}
+
+@media (max-width: 450px) {
+  h1{
+    font-size: 25px;
+  }
+  .carrossel{
+    height: 350px;
+  }
+  .carrossel_img{
+    height: 330px;
+  }
+  .carousel-control-next-icon:after{
+  font-size: 40px;
+  }
+  .carousel-control-prev-icon:after{
+    font-size: 40px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .carrossel{
+    height: 320px;
+  }
+  .carrossel_img{
+    height: 290px;
+  }
+  .carousel-control-next-icon:after{
+    font-size: 35px;
+    }
+  .carousel-control-prev-icon:after{
+    font-size: 35px;
+  }
 }
