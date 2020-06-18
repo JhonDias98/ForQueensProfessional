@@ -36,6 +36,25 @@ export class NavbarComponent implements OnInit {
       document.getElementById("buscar").style.display="block"
     });
     this.cpf()
+
+    const btn = document.querySelector('.navbar-toggler');
+    const navbar = document.querySelector('.navbar');
+    const backdrop = document.getElementById("backdrop")
+
+    btn.addEventListener('click', () => {
+
+      navbar.classList.toggle('sidebar-open')
+
+      if (navbar.classList.contains('sidebar-open')) {
+        backdrop.style.display = "block"
+        backdrop.addEventListener('click', () => {
+          backdrop.style.display = "none"
+        })
+
+      } else {
+        backdrop.style.display = "none"
+      }
+    })
   }
 
   validarCPF() {

@@ -1,15 +1,17 @@
-<nav id="navbar" class="container">
+<div id="backdrop"></div>
+<nav class="container">
 
-  <div class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand ml-3" routerLink='/home'><img class="logo" src="../../assets/img/logo oficial.png"
-        alt="logo do site"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <div class="navbar navbar-dark fixed-top">
+    <button type="button" class="navbar-toggler d-lg-none">
+      <img src="../../assets/img/hamburger.png" alt="Menu">
     </button>
 
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto ml-3">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50" class="">
+    </a>
+
+    <div class="d-flex justify-content-start desktop">
+      <ul class="d-none d-lg-block navbar-nav mr-auto ">
         <li class="nav-item">
           <a class="nav-link navegacao" [routerLink]="['/produtos']">Produtos</a>
         </li>
@@ -23,40 +25,57 @@
           <a class="nav-link navegacao" [routerLink]="['/sobrenos']">Sobre nós</a>
         </li>
       </ul>
-
-      <div class="mr-3">
-        <ul class="navbar-nav mr-auto ml-3">
-          <li class="nav-item">
-            <a class="nav-link borda" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
-          </li>
-          <li class="nav-item ml-3">
-            <a class="nav-link borda" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
-          </li>
-          <li class="nav-item ml-3">
-            <a class="nav-link borda" [routerLink]="['/usuarios']">ADM</a>
-          </li>
-        </ul>
-      </div>
-
-      <div id="buscar" class="mr-1">
-        <input maxlength="30" class="inputBusca" placeholder="O que procura?" type="text">
-      </div>
-      
-      <div>
-        <ul>
-          <li class="nav-item ">
-            <button class="nav-link ">
-              <fa-icon [icon]="faSearch" class="busca fa-lg"></fa-icon>
-            </button>
-          </li>
-        </ul>
-      </div>
-      
     </div>
+
+    <div class="desktop">
+      <ul class=" nav d-none d-lg-block navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link borda" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link borda" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="buscar" class="form-inline mr-1">
+      <input maxlength="30" class="inputBusca form-control" placeholder="O que procura?" type="search">
+    </div>
+
+    <div class="d-none d-lg-block">
+      <ul style="list-style: none;">
+        <li class="nav-item ">
+          <button class="nav-link ">
+            <fa-icon [icon]="faSearch" class="busca fa-lg"></fa-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="list-unstyled font-weight-bold sidebar">
+      <li class="divider"></li>
+      <li class="">
+        <a class="text-reset " [routerLink]="['/produtos']">Produtos</a>
+      </li>
+      <li class="nav-item">
+        <a class="text-reset " [routerLink]="['/dicas']">Dicas e Tutoriais</a>
+      </li>
+      <li class="nav-item">
+        <a class="text-reset " [routerLink]="['/contato']">Contato</a>
+      </li>
+      <li class="nav-item">
+        <a class="text-reset " [routerLink]="['/sobrenos']">Sobre nós</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="text-reset" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="text-reset" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
+      </li>
+    </ul>
   </div>
 </nav>
-
-
 
 <!-- Modal Login -->
 <div class="modal" id="modalLogin">
@@ -104,20 +123,21 @@
       </div>
 
       <div class="modal-body">
-        
+
         <div id="cadastro" class="container">
           <div class="caixa_cadastro">
-            
+
             <div id="form_cadastro">
               <div class="form-group">
                 <label for="exampleInputEmail1">E-mail</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email" [(ngModel)]="data.email" id="email">
+                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.email"
+                  [(ngModel)]="data.email" id="email">
                 <span id="erro_email">O email deve ser válido!</span>
                 <span id="vazio_email"> Campo obrigatório! </span>
               </div>
-        
+
               <h3 style="text-align: center;">Tipo de Conta</h3>
-        
+
               <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
                 <label class="btn btn-secondary active">
                   <input (click)="cpf()" type="radio" id="pf" value="pf" checked>Pessoa Física
@@ -126,15 +146,16 @@
                   <input (click)="cnpj()" type="radio" id="pj" value="pj">Pessoa Jurídica
                 </label>
               </div>
-              
+
               <!-- Dados conta PJ -->
               <div id="cnpj" class="caixa_cadastro mt-3">
                 <h3>Dados da empresa</h3>
 
-                
+
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cnpj"  id="cadastroNPJ" placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
+                  <input type="text" class="form-control" [(ngModel)]="data.cnpj" id="cadastroNPJ"
+                    placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
                   <span id="erro_cnpj"> O cnpj deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
                 </div>
@@ -158,35 +179,38 @@
                 </div>
               </div>
               <!-- Fim dos Dados PJ -->
-        
+
               <!-- Dados conta PF -->
               <div class="caixa_cadastro mt-3">
                 <h3>Dados pessoais</h3>
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cpf"  id="cadastroPF" placeholder="999.999.999-99" mask="000.000.000-00">
+                  <input type="text" class="form-control" [(ngModel)]="data.cpf" id="cadastroPF"
+                    placeholder="999.999.999-99" mask="000.000.000-00">
                   <span id="erro_cpf">O cpf deve ser válido!</span>
                   <span id="vazio_cpf"> Campo obrigatório! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Nome completo</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome"  id = "nome">
+                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome" id="nome">
                   <span id="erro_nome">O nome deve ser completo!</span>
                   <span id="vazio_nome"> Campo obrigatório! </span>
                 </div>
 
                 <div id="nascimento">
                   <label for="validationDefault01">Data de nascimento</label>
-                  <input type="text" class="form-control"  [(ngModel)]="data.data_nascimento" id="dataNascimento" placeholder="dd/mm/aaaa" mask="00/00/0000">
+                  <input type="text" class="form-control" [(ngModel)]="data.data_nascimento" id="dataNascimento"
+                    placeholder="dd/mm/aaaa" mask="00/00/0000">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
                   <span id="erro_dataNascimento">A data de nascimento deve ser válida!</span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"  id="senha" placeholder="Senha com no mínimo 6 carácteres">
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"
+                    id="senha" placeholder="Senha com no mínimo 6 carácteres">
                   <span id="erro_senha"> A senha deve ter no mínimo 6 carácteres! </span>
                   <span id="vazio_senha"> Campo obrigatório! </span>
                 </div>
@@ -198,9 +222,10 @@
                 </div>
               </div>
               <!-- Fim dos dados PF -->
-        
+
               <button type="submit" class="btn btn-primary mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
-              <button type="submit" class="btn btn-primary mt-3" (click)="validarCNPJ()" id="botaoCNPJ">Cadastrar</button>
+              <button type="submit" class="btn btn-primary mt-3" (click)="validarCNPJ()"
+                id="botaoCNPJ">Cadastrar</button>
             </div>
           </div>
         </div>

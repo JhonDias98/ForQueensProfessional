@@ -1,37 +1,91 @@
-textarea:focus, input:focus, button:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-} 
-
-#navbar {
-  position: relative;
-}
-
-.logo {
-  width: 150px;
-  height: 60px;
+textarea:focus,
+input:focus,
+button:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
 }
 
 .navbar {
-	width: 100%;
-	height: 70px;
-	background-color: #ffde59;
-	color: black;
-	font-size: 16px;
+  background-color: #ffde59 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  flex-wrap: nowrap;
+  height: 60px;
   text-transform: uppercase;
-  line-height: 10px;
+}
+
+.navbar .form-control {
+  border-color: #ffde59;
+  max-width: 155px;
+  line-height: 28px;
+  height: 38px;
+}
+
+.navbar img {
+  height: 38px;
+  margin-left: 5%;
+}
+
+.navbar-dark .navbar-toggler {
+  color: white;
+  border: none;
+  padding-left: 0;
+}
+
+.navbar ul.sidebar {
+  max-width: 250px;
+  background-color: #ffde59;
+  position: absolute;
+  top: 50px;
+  left: -250px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  transition: all 0.1s ease-out;
+  opacity: 0.5;
+}
+
+.navbar.sidebar-open ul {
+  left: 0;
+  opacity: 1;
 }
 
 .navbar ul li {
-	display: inline-block;
+  padding: 0 8px;
+}
+
+.navbar ul li.divider {
+  border-bottom: black 1px solid;
+  margin: 0.3em auto;
+}
+
+#backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+}
+
+.desktop ul li {
+  display: inline-block;
+}
+
+.desktop ul li a {
   color: black;
+  text-decoration: none;
 }
 
 .borda {
   color: black;
   border: 1px solid black;
   border-radius: 16px;
+  padding: 0 20px;
 }
 
 .borda:hover {
@@ -46,50 +100,100 @@ textarea:focus, input:focus, button:focus {
   color: black;
 }
 
+button.nav-link {
+  box-shadow: none;
+  background-color: transparent;
+  margin-top: 15px;
+  list-style-type: none;
+}
+
 #buscar {
   display: none;
 }
 
 .inputBusca {
-  border-radius: 16px;
+  border-radius: 10px;
   padding-left: 5px;
   height: 35px;
 }
 
-button.nav-link {
-  box-shadow: none;
-  background-color: transparent;
-  margin-top: 15px;
+@media (min-width: 576px) {
+  .navbar .form-control {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    background-color: #ffde59 !important;
+  }
+}
+
+@media (max-width: 1130px) {
+  * {
+    font-size: 14px;
+  }
+
+  .inputBusca {
+    width: 130px;
+  }
+
+  .navbar ul li {
+    padding: 0 7px;
+  }
+}
+
+@media (max-width: 992px) {
+  .inputBusca {
+    display: none;
+  }
 }
 
 /* Modal cadastro */
-#cnpj{
-    display: none;
+#cnpj {
+  display: none;
 }
 
-#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email, #vazio_senha, #vazio_nome, #vazio_cpf,
-#vazio_cnpj, #vazio_email, #vazio_razaoSocial, #vazio_nomeComercial, #vazio_inscricaoEstadual, #vazio_dataNascimento, #erro_dataNascimento{
-    display: none;
-    color: red;
+#erro_senha,
+#erro_nome,
+#erro_confirmaSenha,
+#erro_cpf,
+#erro_cnpj,
+#erro_email,
+#vazio_senha,
+#vazio_nome,
+#vazio_cpf,
+#vazio_cnpj,
+#vazio_email,
+#vazio_razaoSocial,
+#vazio_nomeComercial,
+#vazio_inscricaoEstadual,
+#vazio_dataNascimento,
+#erro_dataNascimento {
+  display: none;
+  color: red;
 }
 
 input:focus {
   border: 2px solid rgb(255, 204, 0);
 }
-#botaoCNPJ{
-  display:none
+#botaoCNPJ {
+  display: none;
 }
 
 a {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 h5 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
