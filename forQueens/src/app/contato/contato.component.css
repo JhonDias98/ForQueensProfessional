@@ -1,3 +1,18 @@
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h6 {
+    font-family: 'Raleway', sans-serif;
+} 
 .campos_contato {
     display: flex;
     width: 100%;
@@ -26,6 +41,9 @@
     border: 2px solid rgb(255, 204, 0);
     box-shadow: none;
 }
+.map_mobile{
+    display: none;
+}
 #selecao_contato:focus{
     border-bottom: 2px solid white;
 }
@@ -47,27 +65,29 @@
     display: none;
     color: red;
 }
+
 #botaocelular, #celular, #labelcelular{
     display: none;
 }
 
-h1 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
+@media (max-width: 1110px){
+    #mapa{
+        width: 360px;
+        height: 345px;
+    }
 }
 
-h2 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-h6 {
-    font-family: 'Raleway', sans-serif;
-}   
 
 @media (max-width: 767px) {
     #map_contato {
-     margin-top: 30px;
+     display: none;
+    }
+    #mapa_mobile{
+        width: 260px;
+        height: 250px;
+    }
+    .map_mobile{
+        margin-top: 30px;
+        display: flex;
     }
    }
