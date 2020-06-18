@@ -70,6 +70,7 @@ h6 {
     display: none;
 }
 
+
 @media (max-width: 1110px){
     #mapa{
         width: 360px;
@@ -89,5 +90,8 @@ h6 {
     .map_mobile{
         margin-top: 30px;
         display: flex;
+    }
+    #botaocelular,#botaotelefone{
+        width: 100%;
     }
    }
