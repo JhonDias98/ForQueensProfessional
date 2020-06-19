@@ -18,13 +18,13 @@
 }
 
 .list-group-hover .list-group-item:hover {
-  background-color: #febf00;
+  background-color:  #fec63e;
   color: #fff;
   transition: all 0.5s ease-out;
 }
 
 .list-group-item.bg-active {
-  background: #febf00;
+  background:  #fec63e;
   color: #fff;
 }
 
@@ -225,7 +225,7 @@ a {
 }
 
 .product-grid3 .rating li {
-  color: #ffd200;
+  color: #fec63e;
   font-size: 13px;
   display: inline-block;
 }
