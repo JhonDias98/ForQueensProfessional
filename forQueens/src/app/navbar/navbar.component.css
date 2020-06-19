@@ -25,7 +25,11 @@ button:focus {
 }
 
 .navbar img {
-  height: 25px;
+  margin-left: 5%;
+}
+
+.navbar img.humburger{
+  height: 22px;
   margin-left: 5%;
 }
 
@@ -41,7 +45,7 @@ button:focus {
   position: absolute;
   top: 50px;
   left: -250px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 40px);
   overflow-y: auto;
   transition: all 0.1s ease-out;
   opacity: 0.5;
@@ -107,8 +111,8 @@ button.nav-link {
   list-style-type: none;
 }
 
-#buscar {
-  display: none;
+.inputbusca {
+  display: block;
 }
 
 .inputBusca {
@@ -127,8 +131,8 @@ button.nav-link {
 }
 
 @media (min-width: 992px) {
-  .navbar {
-    background-color: #ffde59 !important;
+  .inputBusca {
+    display: none;
   }
 }
 
@@ -143,12 +147,6 @@ button.nav-link {
 
   .navbar ul li {
     padding: 0 7px;
-  }
-}
-
-@media (max-width: 992px) {
-  .inputBusca {
-    display: none;
   }
 }
 
