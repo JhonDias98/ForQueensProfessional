@@ -16,7 +16,8 @@ import { ContatoComponent } from './contato/contato.component';
 import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { NgxMaskModule} from 'ngx-mask';
-import { MapaSiteComponent } from './mapa-site/mapa-site.component'
+import { MapaSiteComponent } from './mapa-site/mapa-site.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MapaSiteComponent } from './mapa-site/mapa-site.component'
     ContatoComponent,
     DicasComponent,
     ProdutosComponent,
-    MapaSiteComponent
+    MapaSiteComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,

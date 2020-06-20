@@ -9,6 +9,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { MapaSiteComponent } from './mapa-site/mapa-site.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'contato', component: ContatoComponent },
   { path: 'dicas', component: DicasComponent },
   { path: 'produtos', component: ProdutosComponent },
-  { path: 'mapa-site', component: MapaSiteComponent}
+  { path: 'mapa-site', component: MapaSiteComponent},
+  { path: 'carrinho', component: CarrinhoComponent }
 ];
 
 @NgModule({
