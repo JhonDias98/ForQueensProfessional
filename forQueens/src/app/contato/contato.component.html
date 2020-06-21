@@ -12,7 +12,7 @@
         <label for="">Nome Completo</label>
         <div class="input-container campos_contato">
           <fa-icon [icon]="faUser" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Nome Completo" name="Nome" id="nome_contato" [(ngModel)]="contato.nome">
+          <input class="input-field cor_input_contato" type="text" placeholder="Nome Completo" name="Nome" id="nome_contato" [(ngModel)]="contatoAPI.nome" [(ngModel)]="contato.nome">
         </div>
         <div>
           <span id="erro_nome_contato"> O nome deve ser completo </span>
@@ -22,7 +22,7 @@
         <label for="">E-mail</label>
         <div class="input-container campos_contato">
           <fa-icon [icon]="faEnvelope" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Email" name="email" id="email_contato" [(ngModel)]="contato.email">
+          <input class="input-field cor_input_contato" type="text" placeholder="Email" name="email" id="email_contato" [(ngModel)]="contatoAPI.email" [(ngModel)]="contato.email">
         </div>
         <div>
           <span id="erro_email_contato"> O email deve ser válido </span>
@@ -42,7 +42,7 @@
         
         <div class="input-container campos_contato" id="telefone">
           <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Telefone" name="telefone" id="telefoneinput" [(ngModel)]="contato.telefone" mask="(00)0000-0000">
+          <input class="input-field cor_input_contato" type="text" placeholder="Telefone" name="telefone" id="telefoneinput" [(ngModel)]="contatoAPI.telefone" [(ngModel)]="contato.telefone" mask="(00)0000-0000">
         </div>
 
         <div>
@@ -53,7 +53,7 @@
         
         <div class="input-container campos_contato" id="celular">
           <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Celular" name="celular" id="celularinput" [(ngModel)]="contato.celular" mask="(00)00000-0000">
+          <input class="input-field cor_input_contato" type="text" placeholder="Celular" name="celular" id="celularinput" [(ngModel)]="contatoAPI.telefone" [(ngModel)]="contato.celular" mask="(00)00000-0000">
         </div>
         <div>
           <span id="erro_celular"> O celular deve ser válido </span>
@@ -63,7 +63,7 @@
         <label for="">Assunto</label>
         <div class="input-container campos_contato">
           <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
-          <select id="seletor selecao_contato" class="input-field cor_input_contato" type="" name="assunto" id="assunto" [(ngModel)]="contato.assunto">
+          <select id="seletor selecao_contato" class="input-field cor_input_contato" type="" name="assunto" id="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
             <option selected disabled style="display: none;"></option>
             <option>Sugestão</option>
             <option>Elogio</option>
@@ -81,7 +81,7 @@
         <div class="input-container campos_contato">
           <i id="pencil pencil1" class="fas fa-pencil-alt icon icone_contato"></i>
           <textarea id="obs observacao" class="form-control caixa_mensagem" style="resize: none;" maxlength="400"
-            placeholder="Mensagem" name="" id="" cols="30" rows="8" id="mensagem" [(ngModel)]="contato.mensagem"></textarea>
+            placeholder="Mensagem" name="" id="" cols="30" rows="8" id="mensagem" [(ngModel)]="contatoAPI.mensagem" [(ngModel)]="contato.mensagem"></textarea>
         </div>
 
         <div>
@@ -89,10 +89,10 @@
         </div>
 
         <div class="justify-content-center">
-            <button class="botao_home" id="botaotelefone" (click)="validar_telefone()">ENVIAR</button>
+            <button class="botao_home" id="botaotelefone" (click)="enviarContato" (click)="validar_telefone()">ENVIAR</button>
         </div>
         <div class="justify-content-center">
-            <button class="botao_home" id="botaocelular" (click)="validar_celular()">ENVIAR</button>
+            <button class="botao_home" id="botaocelular" (click)="enviarContato" (click)="validar_celular()">ENVIAR</button>
         </div>
       </div>
 

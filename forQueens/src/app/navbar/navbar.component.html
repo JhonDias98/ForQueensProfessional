@@ -130,8 +130,10 @@
             <div id="form_cadastro">
               <div class="form-group">
                 <label for="exampleInputEmail1">E-mail</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.usuario"
-                  [(ngModel)]="data.email" id="email">
+                <input type="email" class="form-control" aria-describedby="emailHelp"
+                [(ngModel)]="user.usuario"
+                [(ngModel)]="empresa.email"
+                [(ngModel)]="data.email" id="email">
                 <span id="erro_email">O email deve ser válido!</span>
                 <span id="vazio_email"> Campo obrigatório! </span>
               </div>
@@ -154,7 +156,7 @@
 
                 <div>
                   <label for="validationDefault01">CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cnpj" id="cadastroNPJ"
+                  <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj" id="cadastroNPJ"
                     placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
                   <span id="erro_cnpj"> O cnpj deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
@@ -162,20 +164,25 @@
 
                 <div>
                   <label for="validationDefault01">Razão social</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.razao_social" id="razaoSocial">
+                  <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial" [(ngModel)]="data.razao_social" id="razaoSocial">
                   <span id="vazio_razaoSocial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Nome comercial</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.nome_comercial" id="nomeComercial">
+                  <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial" [(ngModel)]="data.nome_comercial" id="nomeComercial">
                   <span id="vazio_nomeComercial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
                   <label for="validationDefault01">Inscrição estadual</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
+                  <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual" [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
                   <span id="vazio_inscricaoEstadual"> Campo obrigatório! </span>
+                </div>
+
+                <div>
+                  <label for="validationDefault01">Telefone</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial">
                 </div>
               </div>
               <!-- Fim dos Dados PJ -->
@@ -186,7 +193,7 @@
 
                 <div id="cpf">
                   <label for="validationDefault01">CPF</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.cpf" id="cadastroPF"
+                  <input type="text" class="form-control" [(ngModel)]="user.cpf" [(ngModel)]="data.cpf" id="cadastroPF"
                     placeholder="999.999.999-99" mask="000.000.000-00">
                   <span id="erro_cpf">O cpf deve ser válido!</span>
                   <span id="vazio_cpf"> Campo obrigatório! </span>
@@ -194,14 +201,22 @@
 
                 <div>
                   <label for="validationDefault01">Nome completo</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="data.nome" id="nome">
+                  <input type="text" class="form-control"
+                  [(ngModel)]="user.nome"
+                  [(ngModel)]="empresa.nomeComprador"
+                  [(ngModel)]="data.nome" id="nome">
                   <span id="erro_nome">O nome deve ser completo!</span>
                   <span id="vazio_nome"> Campo obrigatório! </span>
                 </div>
 
+                <div>
+                  <label for="validationDefault01">Telefone</label>
+                  <input type="text" class="form-control" [(ngModel)]="user.celular">
+                </div>
+
                 <div id="nascimento">
                   <label for="validationDefault01">Data de nascimento</label>
-                  <input type="text" class="form-control" [(ngModel)]="data.data_nascimento" id="dataNascimento"
+                  <input type="text" class="form-control" [(ngModel)]="user.dataNascimento" [(ngModel)]="data.data_nascimento" id="dataNascimento"
                     placeholder="dd/mm/aaaa" mask="00/00/0000">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
                   <span id="erro_dataNascimento">A data de nascimento deve ser válida!</span>
@@ -209,7 +224,10 @@
 
                 <div>
                   <label for="validationDefault01">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="data.senha"
+                  <input type="password" class="form-control" 
+                  [(ngModel)]="user.senha" 
+                  [(ngModel)]="empresa.senha"
+                  [(ngModel)]="data.senha"
                     id="senha" placeholder="Senha com no mínimo 6 carácteres">
                   <span id="erro_senha"> A senha deve ter no mínimo 6 carácteres! </span>
                   <span id="vazio_senha"> Campo obrigatório! </span>

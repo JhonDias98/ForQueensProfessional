@@ -31,6 +31,52 @@
       </div>
 
       <!-- Modal Produto -->
+
+      <!-- Este modal de produto será utilizado para fazer consumir a API -->
+
+      <!-- <div class="modal " id="modalProduto">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+      
+            <div class="modal-body">
+      
+      
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" class="card-img mt-4"
+                    alt="Produto do site">
+                </div>
+      
+                <div class="col-md-8">
+      
+                  <div class="card-body">
+                    <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                    <p class="card-text"><strong>Categoria:</strong>{{produto.categoria.descricao}}</p>
+                    <p class="card-text"><strong>Descrição:</strong> {{produto.descricao}}
+                    </p>
+                    <span class="textoCinza">Em estoque</span>
+                    <p><strong>Preço:</strong>{{produto.valor}}</p>
+      
+                    <div class="row">
+                      <div class="col-3">
+                        <button class="botao_home mr-4">COMPRAR</button>
+                      </div>
+                      <div class="col-1"></div>
+                      <div class="col-8">
+                        <button class="botao_home">ADICIONAR AO CARRINHO</button>
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+
       <div class="modal " id="modalProduto">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -53,7 +99,7 @@
                     fortalecem os cabelos penetrando e preenchendo as falhas do cimento intercelular e das fibrilas do Córtex.
                     </p>
                     <span class="textoCinza">Em estoque</span>
-                    <p><strong>Preço:</strong> R$120.00</p>
+                    <p><strong>Preço:</strong> R$100.00</p>
 
                     <div class="row">
                       <div class="col-3">
@@ -75,7 +121,43 @@
       <!----------------- CATEGORIA 1  ---------------->
       <div id="produtoTodos" class="col-lg-9 col-md-12">
 
+        
+
         <div class="row">
+
+          <!-- Este cart será usado para consumir a API -->
+
+          <!-- <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let categoria of listaCategoria">
+            <div class="product-grid3 cardProduto">
+              <div (click)="produtoID(categoria.produto.codigoProduto)" data-toggle="modal" data-target="#modalProduto" class="product-image3">
+                <a>
+                  <img class="pic-1" src="{{categoria.produto.urlImage}}">
+                  <img class="pic-2" src="{{categoria.produto.urlImage}}">
+                </a>
+                <ul class="social">
+                  <li>
+                    <a>
+                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="product-content">
+                <h3 class="title"><a href="#">{{categoria.produto.nomeProduto}}</a></h3>
+                <div class="price">
+                  {{categoria.produto.valor}}
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
           <div class="col-md-4 col-sm-6 col-6 mb-3">
             <div class="product-grid3 cardProduto">
               <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
@@ -100,7 +182,7 @@
               <div class="product-content">
                 <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
                 <div class="price">
-                  R$120.00
+                  R$100.00
                   <span>RS150.00</span>
                 </div>
               </div>

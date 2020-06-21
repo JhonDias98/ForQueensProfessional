@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser, faEnvelope, faPhoneAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookSquare, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { ContatoService } from '../service/contato.service';
+import { Contato } from '../model/Contato';
 
 @Component({
   selector: 'app-contato',
@@ -27,11 +29,22 @@ export class ContatoComponent implements OnInit {
     mensagem: ''
   }
 
-  constructor() { }
+  contatoAPI: Contato = new Contato
+
+  constructor(private contatoService: ContatoService) { }
 
   ngOnInit(): void {
     window.scroll(0, 0)
   }
+
+  enviarContato() {
+    this.contatoService.postContato(this.contatoAPI).subscribe((resp: Contato) => {
+      this.contatoAPI = resp;
+      window.alert("Mensagem enviada")
+      location.assign("/contato")
+    })
+  }
+
 
   validar_celular(){
     let erros = []

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Usuario } from '../model/Usuario';
 import { UsuarioService } from '../service/usuario.service';
+import { Empresa } from '../model/Empresa';
+import { EmpresaService } from '../service/empresa.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +14,7 @@ export class NavbarComponent implements OnInit {
   
   faSearch = faSearch
   user: Usuario = new Usuario
+  empresa: Empresa = new Empresa
   
   data = {
     email:'',
@@ -26,7 +29,7 @@ export class NavbarComponent implements OnInit {
     nome_comercial: ''
   }
   
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private empresaService: EmpresaService) { }
   
   ngOnInit(): void {    
     
@@ -67,7 +70,7 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_confirmasenha())
     if (erros.indexOf(false) == -1){
       alert('Cadastrado com sucesso')
-      this.cadastrar();
+      this.cadastrarPF();
     }
   }
 
@@ -84,7 +87,7 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_confirmasenha())
     if (erros.indexOf(false) == -1){
       alert('Cadastrado com sucesso')
-      this.cadastrar();
+      this.cadastrarPJ();
     }
   }
 
@@ -419,10 +422,17 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  cadastrar() {
+  cadastrarPF() {
     this.usuarioService.postUser(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
-      location.assign('/usuarios');
+      window.alert("Usuário cadastrado com sucesso")
+    })
+  }
+
+  cadastrarPJ() {
+    this.empresaService.postEmpresa(this.empresa).subscribe((resp: Empresa) => {
+      this.empresa = resp;
+      window.alert("Empresa cadastrado com sucesso")
     })
   }
   

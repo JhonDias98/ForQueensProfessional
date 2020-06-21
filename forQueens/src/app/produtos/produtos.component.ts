@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faShoppingBag, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CategoriaService } from '../service/categoria.service';
+import { Categoria } from '../model/Categoria';
+import { Produto } from '../model/Produto';
+import { ProdutoService } from '../service/produto.service';
 
 @Component({
   selector: 'app-produtos',
@@ -11,12 +15,43 @@ export class ProdutosComponent implements OnInit {
   faShoppingBag = faShoppingBag
   faShoppingCart = faShoppingCart
 
-  constructor() { }
+  listaCategoria: Categoria[];
+
+  listaProduto: Produto[];
+  produto: Produto = new Produto
+
+
+  constructor(private categoriaService: CategoriaService, private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
     window.scroll(0, 0)
 
+    this.findAllCategoria
   
+  }
+
+
+  produtoId(id: number) {
+    this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
+      this.produto = resp
+    }, err => {
+      console.log(`Erro: ${err.status}, ocorreu um erro na busca pelo id do produto`)
+    })
+  }
+
+  findAllCategoria() {
+    this.categoriaService.getAllCategorias().subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    })
+  }
+
+  categoriaId(id: number) {
+    this.categoriaService.getByIdCategoria(id).subscribe((resp: Categoria[]) => {
+      this.listaCategoria = resp
+    }, err => {
+      console.log(`Erro: ${err.status}, ocorreu um erro na busca do id da categoria`)
+    })
   }
 
   escolhaTodos() {
@@ -49,6 +84,7 @@ export class ProdutosComponent implements OnInit {
 
 
   escolhaBotox() {
+    this.categoriaId(1)
     const todos = document.querySelector("#todos")
     const botox = document.querySelector("#botox")
     const hidratante = document.querySelector("#hidratante")
@@ -77,6 +113,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   escolhaHidratante() {
+    this.categoriaId(2)
     const todos = document.querySelector("#todos")
     const botox = document.querySelector("#botox")
     const hidratante = document.querySelector("#hidratante")
@@ -105,6 +142,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   escolhaMascara() {
+    this.categoriaId(3)
     const todos = document.querySelector("#todos")
     const botox = document.querySelector("#botox")
     const hidratante = document.querySelector("#hidratante")
