@@ -16,15 +16,20 @@ header.container-fluid {
   overflow: hidden;
 }
 
+.next-back{
+  padding-right: 18px;
+}
+
 .titlebar .next-back {
   float: right;
   margin: 12px 0;
 }
 
 .titlebar .next-back span a {
-  font-size: 40px;
+  font-size: 20px;
   text-transform: uppercase;
   color: #222222;
+  font-weight: bold;
 }
 
 .titlebar .next-back span a:hover {
@@ -117,6 +122,14 @@ header.container-fluid {
   box-shadow: 0 4px 8px 0;
 }
 
+.left{
+  margin-right: 250px;
+}
+
+.right{
+  margin-left: 250px;
+}
+
 .linha {
   color: grey;
   font-size: 22px;
@@ -195,6 +208,19 @@ h1 {
 p {
   font-family: 'Raleway', sans-serif;
 }
+
+@media (max-width: 1200px) {
+  .left{
+    margin-right: 190px;
+  }
+  
+  .right{
+    margin-left: 190px;
+  }
+}
+
+
+
 @media (max-width: 991px) {
   h1{
     font-size: 35px;
@@ -211,8 +237,12 @@ p {
   .card{
     height: 400px;
   }
-  .titlebar .next-back span a {
-    font-size: 30px;
+  .left{
+    margin-right: 130px;
+  }
+  
+  .right{
+    margin-left: 130px;
   }
 }
 
@@ -233,8 +263,12 @@ p {
   .banner {
     height: 40vh;
   }
-  .titlebar .next-back span a {
-    font-size: 25px;
+  .left{
+    margin-right: 80px;
+  }
+  
+  .right{
+    margin-left: 85px;
   }
 }
 @media (max-width: 575px) {
@@ -257,6 +291,13 @@ p {
     width: 46%;
     margin-right: 2%;
     margin-left: 2%;
+  }
+  .left{
+    margin-right: 0%;
+  }
+  
+  .right{
+    margin-left: 0%;
   }
 }
 
