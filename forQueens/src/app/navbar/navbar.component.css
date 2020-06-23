@@ -85,17 +85,6 @@ button:focus {
   text-decoration: none;
 }
 
-.borda {
-  color: black;
-  border: 1px solid black;
-  border-radius: 16px;
-  padding: 0 20px;
-}
-
-.borda:hover {
-  border: 1.5px solid black;
-}
-
 .navegacao:hover {
   border-bottom: 1px solid black;
 }
