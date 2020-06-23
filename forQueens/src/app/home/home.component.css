@@ -196,17 +196,11 @@ img.produto {
 }
 
 h1 { 
-  font-family: 'Raleway', sans-serif;
   font-weight: bold;
  }
 
  h3 {
-  font-family: 'Raleway', sans-serif;
   font-size: 30px;
-}
-
-p {
-  font-family: 'Raleway', sans-serif;
 }
 
 @media (max-width: 1200px) {

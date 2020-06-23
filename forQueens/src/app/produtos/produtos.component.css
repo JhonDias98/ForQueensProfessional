@@ -105,20 +105,13 @@ body {
 }
 
 h1 { 
-  font-family: 'Raleway', sans-serif;
   font-weight: bold;
   
  }
 
  h3 {
-  font-family: 'Raleway', sans-serif;
   font-weight: bold;
 }
-
-a { 
-  font-family: 'Raleway', sans-serif;
-  
- }
 
 .product-grid3 .social {
   width: 120px;

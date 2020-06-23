@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat 200';
 }
 
 .fundo {
@@ -29,15 +29,31 @@
     border: 2px solid black;
 }
 
-@font-face {
-  font-family: 'Raleway';
-  src: url(assets/fonts/Raleway-Light.ttf) format("opentype");
-}
 
 @font-face {
   font-family: 'Playfair Display';
   src: url(assets/fonts/PlayfairDisplayItalic.ttf) format("opentype")
 }
-h1{
-  font-family: 'Playfair Display', serif !important;
+
+
+
+@font-face {
+  font-family: 'Montserrat 200';
+  src: url(assets/fonts/Montserrat-ExtraLight-200.ttf) format("opentype")
 }
+
+@font-face {
+  font-family: 'Montserrat 400';
+  src: url(assets/fonts/Montserrat-Regular-400.ttf) format("opentype")
+}
+
+@font-face {
+  font-family: 'Montserrat 600';
+  src: url(assets/fonts/Montserrat-SemiBold-600.ttf) format("opentype")
+}
+
+h1{
+  font-family: 'Montserrat 600'!important;
+}
+
+

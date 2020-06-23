@@ -88,23 +88,9 @@ header.container-fluid {
   }
 
   h1 {
-    font-family: 'Raleway', sans-serif;
     font-weight: bold;
   }
-
-  .accordion_mapasite {
-    font-family: 'Raleway', sans-serif;
-  }
-
- strong {
-    font-family: 'Raleway', sans-serif;
+ 
+  strong {
     font-weight: bold;
-  }
-
-  a {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  p {
-    font-family: 'Raleway', sans-serif;
   }
