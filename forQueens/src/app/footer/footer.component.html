@@ -1,29 +1,48 @@
-<footer>
-  <div class="justify-content-center text-center conteudo_footer">
-    <ul>
-      <a [routerLink]="['/mapa-site']">
-        <li>Mapa do Site</li>
-      </a>
-      <a [routerLink]="['/politica']">
-        <li>Política de Privacidade</li>
-      </a>
-      <a [routerLink]="['/contato']">
-        <li>Sugestões</li>
-      </a>
-      <a [routerLink]="['/faq']">
-        <li>Perguntas Frequentes</li>
-      </a>
-    </ul>
-    <br>
-    <h6 style="color: white;">CONHEÇA NOSSAS REDES SOCIAIS</h6>
-    <a [routerLink]="['https://www.facebook.com/ForQueensProfissional/']"><fa-icon [icon]="faFacebookSquare" class="fa-3x icones"></fa-icon></a>
-    <a href=""><fa-icon [icon]="faInstagram" class="fa-3x ml-3 mr-3 icones"></fa-icon></a>
-    <a href=""><fa-icon [icon]="faWhatsapp" class="fa-3x icones"></fa-icon></a>
-  </div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-  <!-- Copyright  -->
-  <div class="footer-copyright text-center py-3"> ForQueens Professional © 2020
+<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div id="conteudo" class="row text-center text-xs-center text-sm-center text-md-center">
+				<div id="mapasite" >
+          <h5><a [routerLink]="['/mapa-site']"><strong>Mapa do Site</strong></a></h5>
+          <span class="animate-border border-black"></span>
+      </div>
+      <div id="politica" >
+        <h5><a [routerLink]="['/politica']"><strong>Política de Privacidade</strong></a></h5>
+        <span class="animate-border2 border-black"></span>
+    </div>
+    <div id="perguntas" >
+      <h5><a [routerLink]="['/faq']"><strong>Perguntas Frequentes</strong></a></h5>
+      <span class="animate-border3 border-black"></span>
   </div>
-  <!-- Copyright -->
-
-</footer>
+  <div id="sugestoes" >
+    <h5><a [routerLink]="['/contato']"><strong>Sugestões</strong></a></h5>
+    <span class="animate-border4 border-black"></span>
+</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+          <h3 class="text-center"><strong>Conheça Nossas Redes Sociais</strong></h3>
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a [routerLink]="['https://www.facebook.com/ForQueensProfissional/']" target="_blank"> <i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a [routerLink]="['https://www.instagram.com/forqueensprofessional/']" target="_blank"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href=""><i class="fa fa-whatsapp"></i></a></li>
+						<li class="list-inline-item"><a [routerLink]="['/contato']" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				<hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><a>ForQueens Professional.</a>  Brasil, São Paulo.</p>
+					<p class="h6">Copyright© 2020. All right Reversed.</p>
+				</div>
+				<hr>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
