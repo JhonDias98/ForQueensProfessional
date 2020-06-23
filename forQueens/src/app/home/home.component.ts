@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     const target = document.querySelectorAll('[data-anime]');
     const animationClass = 'animate';
 
-    /*function animeScroll() {
+    function animeScroll() {
       const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
       target.forEach((element) => {
         if((windowTop) > (element as HTMLElement).offsetTop) {
@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
     window.addEventListener('scroll', () => {
       animeScroll()
     })
-    */
   }
 
   

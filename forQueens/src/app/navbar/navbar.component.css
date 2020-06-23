@@ -6,6 +6,11 @@ button:focus {
   outline: 0;
 }
 
+*{
+  font-family: 'Montserrat 400' !important;
+}
+
+
 .navbar {
   background-color: #ffde59 !important;
   position: fixed;

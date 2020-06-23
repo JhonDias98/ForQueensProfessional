@@ -11,6 +11,7 @@
 }
 
 .btn{
+  font-family: 'Montserrat 400';
   background-color:rgb(255, 222, 89);
   color: black;
   border-color: black;
@@ -18,13 +19,13 @@
 
 .btn:hover{
   background-color:black;
-  color: rgb(255, 222, 89);
+  color: rgb(255, 222, 89) !important;
 }
 
 .btn:focus, .btn:active {
   outline: none !important;
   background-color: black;
-  color: rgb(255, 222, 89);
+  color: rgb(255, 222, 89) !important;
   box-shadow: none !important;
 }
 
