@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser, faEnvelope, faPhoneAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faFacebookSquare, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { ContatoService } from '../service/contato.service';
 import { Contato } from '../model/Contato';
@@ -15,6 +17,8 @@ export class ContatoComponent implements OnInit {
   faEnvelope = faEnvelope
   faPhoneAlt = faPhoneAlt
   faQuestionCircle = faQuestionCircle
+  faPencilAlt = faPencilAlt
+  faComment = faComment
 
   faFacebookSquare = faFacebookSquare
   faWhatsapp = faWhatsapp
