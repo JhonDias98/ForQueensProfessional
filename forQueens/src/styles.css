@@ -10,23 +10,22 @@
   padding: 60px 0 30px 0;
 }
 
-.botao_home {
-    border: 2px solid #fec63e;
-    border-radius: 6px;
-    background-color: white;
-    padding: 10px 30px;
-    color: #fec63e;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: .1em;
+.btn{
+  background-color:rgb(255, 222, 89);
+  color: black;
+  border-color: black;
 }
 
-.botao_home:hover {
-    color: black;
-    background-color: #fec63e;
-    border: 2px solid black;
+.btn:hover{
+  background-color:black;
+  color: rgb(255, 222, 89);
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  background-color: black;
+  color: rgb(255, 222, 89);
+  box-shadow: none !important;
 }
 
 
