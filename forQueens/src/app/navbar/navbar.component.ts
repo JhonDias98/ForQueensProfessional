@@ -31,14 +31,7 @@ export class NavbarComponent implements OnInit {
   
   constructor(private usuarioService: UsuarioService, private empresaService: EmpresaService) { }
   
-  ngOnInit(): void {    
-    
-    const busca = document.querySelector('.busca');
-    
-    busca.addEventListener('click', ()=> {
-      document.getElementById("buscar").style.display="block"
-    });
-    this.cpf()
+  ngOnInit(): void {   
 
     const btn = document.querySelector('.navbar-toggler');
     const navbar = document.querySelector('.navbar');
