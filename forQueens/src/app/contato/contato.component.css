@@ -41,7 +41,11 @@ h2 {
     display: none;
 }
 #selecao_contato:focus{
-    border-bottom: 2px solid white;
+    /* border-bottom: 2px solid white; */
+}
+
+option:first-of-type {
+    color: #999;
 }
 #pencil1{
     padding-top: 95px;
@@ -76,7 +80,7 @@ h2 {
 
 
 @media (max-width: 767px) {
-    #map_contato {
+    #informacoes_contato {
      display: none;
     }
     #mapa_mobile{

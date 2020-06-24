@@ -8,15 +8,15 @@
     <h5 class="text-center m-4 p-4">Entre em contato conosco através do formulário abaixo, ou através de nosso telefone e email.</h5>
 
     <div id="box_contato" class="row">
-      <div class="col-md-4 col-sm-12 col-lg-4">
+      <div id="informacoes_contato" class="col-md-4 col-sm-12 col-lg-4">
         <p class="text-left">
           R. Pedro Talarico, 239 - Vila Talarico
           R. Pedro Talarico, 239 - Vila Talarico, São Paulo - SP, 03534-000
         </p>
         <p class="text-left">
-          <fa-icon [icon] = "faPhoneAlt" class="" style="color: black;"></fa-icon> 
+          <fa-icon [icon] = "faPhoneAlt" class="" ></fa-icon> 
            (11) 4545-4545 <br>
-          <fa-icon [icon] = "faEnvelope " class="" style="color: black;"></fa-icon>
+          <fa-icon [icon] = "faEnvelope " class=""></fa-icon>
            forqueens@generation.com
 
         </p>
@@ -75,8 +75,8 @@
 
         <div class="input-container campos_contato">
           <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
-          <select id="seletor selecao_contato" class="input-field cor_input_contato" type="" name="assunto" id="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
-            <option selected disabled >Assunto</option>
+          <select id="selecao_contato" class="input-field cor_input_contato" type="" name="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
+            <option value="" selected disabled >Assunto</option>
             <option>Sugestão</option>
             <option>Elogio</option>
             <option>Distribuidor</option>
@@ -88,13 +88,9 @@
         <div>
           <span id="vazio_assunto"> Campo obrigatório! </span>
         </div>
-
-        
-
-        
       </div>
 
-      <div id="map_contato" class="formulario col-md-4 col-sm-12 col-lg-4">
+      <div class="formulario col-md-4 col-sm-12 col-lg-4">
         <div class="input-container campos_contato">
           <fa-icon [icon] = "faPencilAlt" class="fa-lg icone_contato"></fa-icon>
           <textarea id="obs observacao" class="form-control caixa_mensagem" style="resize: none;" maxlength="400"
