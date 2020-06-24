@@ -182,12 +182,12 @@ img.produto {
   transition: 1.2s;
 }
 
-[data-anime="left"] {
-  transform: translate3d(-100px, 0, 0);
+[data-anime="bottom"] {
+  transform: translate3d(0, 100px, 0);
 }
 
 [data-anime="right"] {
-  transform: translate3d(100px, 0, 0);
+  transform: translate3d(0, 100px, 0);
 }
 
 [data-anime].animate {

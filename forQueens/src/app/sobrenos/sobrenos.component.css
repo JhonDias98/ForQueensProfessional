@@ -49,12 +49,8 @@ h4 {
   transition: .8s;
 }
 
-[data-anime="left"] {
-  transform: translate3d(-120px, 0, 0);
-}
-
-[data-anime="right"] {
-  transform: translate3d(120px, 0, 0);
+[data-anime="bottom"] {
+  transform: translate3d(0, 150px, 0);
 }
 
 [data-anime].animate {
