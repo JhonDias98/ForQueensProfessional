@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   empresa: Empresa = new Empresa();
   userLogin: UserLogin = new UserLogin();
   nomeUser: string = localStorage.getItem('nome');
+  
 
   data = {
     email:'',
@@ -55,9 +56,11 @@ export class NavbarComponent implements OnInit {
       } else {
         backdrop.style.display = "none"
       }
-
-      
     })
+  }
+  pegarPrimeiroNome(nome) {
+    let primeiroNome = nome.split(' ');
+    return primeiroNome.slice(0, 1);
   }
 
   validarCPF() {
