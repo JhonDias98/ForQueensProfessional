@@ -84,12 +84,10 @@
             <label for="exampleInputPassword1">Senha</label>
             <input type="password" class="form-control" id="exampleInputPassword1">
           </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Manter-me conectado</label>
+          <div class="d-flex justify-content-end">
+            <button type="button" data-dismiss="modal" class="btn btn-secondary botao_cadastro">Cancelar</button>
+            <button type="submit" class="btn ml-3">Login</button>
           </div>
-          <button type="submit" class="btn btn-primary mr-3">Login</button>
-          <button type="button" data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
         </div>
       </div>
     </div>
@@ -115,7 +113,7 @@
 
             <div id="form_cadastro">
               <div class="form-group">
-                <label for="exampleInputEmail1">E-mail</label>
+                <label>E-mail</label>
                 <input type="email" class="form-control" aria-describedby="emailHelp"
                 [(ngModel)]="user.usuario"
                 [(ngModel)]="empresa.email"
@@ -127,10 +125,10 @@
               <h3 style="text-align: center;">Tipo de Conta</h3>
 
               <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
-                <label class="btn btn-secondary active">
+                <label class="botao_cadastro btn btn-secondary active">
                   <input (click)="cpf()" type="radio" id="pf" value="pf" checked>Pessoa Física
                 </label>
-                <label class="btn btn-secondary">
+                <label class="botao_cadastro btn btn-secondary">
                   <input (click)="cnpj()" type="radio" id="pj" value="pj">Pessoa Jurídica
                 </label>
               </div>
@@ -141,7 +139,7 @@
 
 
                 <div>
-                  <label for="validationDefault01">CNPJ</label>
+                  <label >CNPJ</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj" id="cadastroNPJ"
                     placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
                   <span id="erro_cnpj"> O cnpj deve ser válido! </span>
@@ -149,26 +147,27 @@
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Razão social</label>
+                  <label >Razão social</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial" [(ngModel)]="data.razao_social" id="razaoSocial">
                   <span id="vazio_razaoSocial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Nome comercial</label>
+                  <label >Nome comercial</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial" [(ngModel)]="data.nome_comercial" id="nomeComercial">
                   <span id="vazio_nomeComercial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Inscrição estadual</label>
+                  <label >Inscrição estadual</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual" [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
                   <span id="vazio_inscricaoEstadual"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Telefone</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial">
+                  <label >Telefone Comercial</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial" [(ngModel)]="data.telefone_comercial" id=telefoneComercial mask="(00)0000-0000">
+                  <span id="erro_telefoneComercial">O telefone deve ser válido!</span>
                 </div>
               </div>
               <!-- Fim dos Dados PJ -->
@@ -178,7 +177,7 @@
                 <h3>Dados pessoais</h3>
 
                 <div id="cpf">
-                  <label for="validationDefault01">CPF</label>
+                  <label >CPF</label>
                   <input type="text" class="form-control" [(ngModel)]="user.cpf" [(ngModel)]="data.cpf" id="cadastroPF"
                     placeholder="999.999.999-99" mask="000.000.000-00">
                   <span id="erro_cpf">O cpf deve ser válido!</span>
@@ -186,7 +185,7 @@
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Nome completo</label>
+                  <label >Nome completo</label>
                   <input type="text" class="form-control"
                   [(ngModel)]="user.nome"
                   [(ngModel)]="empresa.nomeComprador"
@@ -196,12 +195,13 @@
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Telefone</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.celular">
+                  <label >Celular</label>
+                  <input id="celular" type="text" class="form-control" [(ngModel)]="user.celular" [(ngModel)]="data.celular" mask="(00)00000-0000">
+                  <span id="erro_celular">O celular deve ser válido!</span>
                 </div>
 
                 <div id="nascimento">
-                  <label for="validationDefault01">Data de nascimento</label>
+                  <label >Data de nascimento</label>
                   <input type="text" class="form-control" [(ngModel)]="user.dataNascimento" [(ngModel)]="data.data_nascimento" id="dataNascimento"
                     placeholder="dd/mm/aaaa" mask="00/00/0000">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
@@ -209,7 +209,7 @@
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Senha</label>
+                  <label >Senha</label>
                   <input type="password" class="form-control" 
                   [(ngModel)]="user.senha" 
                   [(ngModel)]="empresa.senha"
@@ -220,16 +220,16 @@
                 </div>
 
                 <div>
-                  <label for="validationDefault01">Confirme a senha</label>
+                  <label >Confirme a senha</label>
                   <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma">
                   <span id="erro_confirmaSenha"> Campos devem ser iguais! </span>
                 </div>
               </div>
               <!-- Fim dos dados PF -->
-
-              <button type="submit" class="btn btn-primary mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
-              <button type="submit" class="btn btn-primary mt-3" (click)="validarCNPJ()"
-                id="botaoCNPJ">Cadastrar</button>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
+                <button type="submit" class="btn mt-3" (click)="validarCNPJ()" id="botaoCNPJ">Cadastrar</button>
+              </div>
             </div>
           </div>
         </div>

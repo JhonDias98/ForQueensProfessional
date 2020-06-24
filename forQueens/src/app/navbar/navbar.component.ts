@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   data = {
     email:'',
     nome: '',
+    celular: '',
     senha: '',
     senha_confirma: '',
     cpf: '',
@@ -26,7 +27,8 @@ export class NavbarComponent implements OnInit {
     data_nascimento: '',
     razao_social: '',
     inscricao_estadual: '',
-    nome_comercial: ''
+    nome_comercial: '',
+    telefone_comercial: ''
   }
   
   constructor(private usuarioService: UsuarioService, private empresaService: EmpresaService) { }
@@ -61,6 +63,7 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_cpf())
     erros.push(this.verificar_senha())
     erros.push(this.verificar_confirmasenha())
+    erros.push(this.verificar_celular())
     if (erros.indexOf(false) == -1){
       alert('Cadastrado com sucesso')
       this.cadastrarPF();
@@ -78,6 +81,8 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_inscricaoEstadual())
     erros.push(this.verificar_nomeComercial())
     erros.push(this.verificar_confirmasenha())
+    erros.push(this.verificar_celular())
+    erros.push(this.verificar_telefone_comercial())
     if (erros.indexOf(false) == -1){
       alert('Cadastrado com sucesso')
       this.cadastrarPJ();
@@ -90,6 +95,7 @@ export class NavbarComponent implements OnInit {
     if(email == ""){
       document.getElementById("email").style.border = "red 1px solid"
       document.getElementById("vazio_email").style.display = "block"
+      document.getElementById("erro_email").style.display = "none"
       return false
     }
     else{
@@ -99,16 +105,9 @@ export class NavbarComponent implements OnInit {
     if(email.match(/^[\w.-]+@[\w.-]+$/)){
       let emailLista = email.split("")
         if(emailLista.indexOf(".") != -1){
-            email = emailLista.join("")
-            emailLista = email.split(".")
-            if(emailLista.indexOf("com") != -1){
               document.getElementById("email").style.border = "black 1px solid"
               document.getElementById("erro_email").style.display = "none"
               return true
-            }
-            document.getElementById("email").style.border = "red 1px solid"
-            document.getElementById("erro_email").style.display = "block"
-            return false
         }
         document.getElementById("email").style.border = "red 1px solid"
         document.getElementById("erro_email").style.display = "block"
@@ -119,12 +118,12 @@ export class NavbarComponent implements OnInit {
     return false
   }
 
-
   verificar_senha(){
     let senha = this.data.senha
     if(senha == ""){
       document.getElementById("senha").style.border = "red 1px solid"
       document.getElementById("vazio_senha").style.display = "block"
+      document.getElementById("erro_senha").style.display = "none"
       return false
     }
     else{
@@ -159,6 +158,7 @@ export class NavbarComponent implements OnInit {
     if(nome == ""){
       document.getElementById("nome").style.border = "red 1px solid"
       document.getElementById("vazio_nome").style.display = "block"
+      document.getElementById("erro_nome").style.display = "none"
       return false
     }
     else{
@@ -178,12 +178,36 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  verificar_telefone_comercial(){
+    let telefone_comercial = this.data.telefone_comercial
+    if (telefone_comercial == "" || telefone_comercial.length == 10){
+      document.getElementById("erro_telefoneComercial").style.display = "none"
+      document.getElementById("telefoneComercial").style.border = "black 1px solid"
+      return true
+    }
+    document.getElementById("erro_telefoneComercial").style.display = "block"
+    document.getElementById("telefoneComercial").style.border = "red 1px solid"
+    return false
+  }
+
+  verificar_celular(){
+    let celular = this.data.celular
+    if (celular == "" || celular.length == 11){
+      document.getElementById("erro_celular").style.display = "none"
+      document.getElementById("celular").style.border = "black 1px solid"
+      return true
+    }
+    document.getElementById("erro_celular").style.display = "block"
+    document.getElementById("celular").style.border = "red 1px solid"
+    return false
+  }
 
   verificar_dataNascimento(){
     let dataNascimento = this.data.data_nascimento
     if(dataNascimento == ""){
       document.getElementById("dataNascimento").style.border = "red 1px solid"
       document.getElementById("vazio_dataNascimento").style.display = "block"
+      document.getElementById("erro_dataNascimento").style.display = "none"
       return false
     }
     else{
@@ -260,6 +284,7 @@ export class NavbarComponent implements OnInit {
     if(cpf == ""){
       document.getElementById("cadastroPF").style.border = "red 1px solid"
       document.getElementById("vazio_cpf").style.display = "block"
+      document.getElementById("erro_cpf").style.display = "none"
       return false
     }
     else{
@@ -324,6 +349,7 @@ export class NavbarComponent implements OnInit {
     if(cnpj == ""){
       document.getElementById("cadastroNPJ").style.border = "red 1px solid"
       document.getElementById("vazio_cnpj").style.display = "block"
+      document.getElementById("erro_cnpj").style.display = "none"
       return false
     }
     else{
