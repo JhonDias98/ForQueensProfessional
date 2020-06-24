@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Usuario } from '../model/Usuario';
-import { UsuarioService } from '../service/usuario.service';
 import { Empresa } from '../model/Empresa';
-import { EmpresaService } from '../service/empresa.service';
+import { AuthService } from '../service/auth.service';
+import { UserLogin } from '../model/UserLogin';
 
 @Component({
   selector: 'app-navbar',
@@ -13,9 +13,11 @@ import { EmpresaService } from '../service/empresa.service';
 export class NavbarComponent implements OnInit {
   
   faSearch = faSearch
-  user: Usuario = new Usuario
-  empresa: Empresa = new Empresa
-  
+  user: Usuario = new Usuario();
+  empresa: Empresa = new Empresa();
+  userLogin: UserLogin = new UserLogin();
+  nomeUser: string = localStorage.getItem('nome');
+
   data = {
     email:'',
     nome: '',
@@ -31,9 +33,9 @@ export class NavbarComponent implements OnInit {
     telefone_comercial: ''
   }
   
-  constructor(private usuarioService: UsuarioService, private empresaService: EmpresaService) { }
+  constructor(public authService: AuthService) { }
   
-  ngOnInit(): void {   
+  ngOnInit() {   
 
     const btn = document.querySelector('.navbar-toggler');
     const navbar = document.querySelector('.navbar');
@@ -47,11 +49,14 @@ export class NavbarComponent implements OnInit {
         backdrop.style.display = "block"
         backdrop.addEventListener('click', () => {
           backdrop.style.display = "none"
+          navbar.classList.remove('sidebar-open')
         })
 
       } else {
         backdrop.style.display = "none"
       }
+
+      
     })
   }
 
@@ -65,7 +70,6 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_confirmasenha())
     erros.push(this.verificar_celular())
     if (erros.indexOf(false) == -1){
-      alert('Cadastrado com sucesso')
       this.cadastrarPF();
     }
   }
@@ -84,7 +88,6 @@ export class NavbarComponent implements OnInit {
     erros.push(this.verificar_celular())
     erros.push(this.verificar_telefone_comercial())
     if (erros.indexOf(false) == -1){
-      alert('Cadastrado com sucesso')
       this.cadastrarPJ();
     }
   }
@@ -442,19 +445,38 @@ export class NavbarComponent implements OnInit {
   }
 
   cadastrarPF() {
-    this.usuarioService.postUser(this.user).subscribe((resp: Usuario) => {
+    this.authService.cadastrarUsuario(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
-      window.alert("Usuário cadastrado com sucesso")
+      location.assign('/home')
+      alert("Usuário cadastrado com sucesso")
+    }, err => {
+      alert('Usuário já existe')
     })
   }
 
   cadastrarPJ() {
-    this.empresaService.postEmpresa(this.empresa).subscribe((resp: Empresa) => {
+    this.authService.cadastrarEmpresa(this.empresa).subscribe((resp: Empresa) => {
       this.empresa = resp;
-      window.alert("Empresa cadastrado com sucesso")
+      location.assign('/home')
+      alert("Empresa cadastrado com sucesso")
     })
   }
   
+  entrar() {
+    this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
+      this.userLogin = resp
+      localStorage.setItem('token', this.userLogin.token)
+      localStorage.setItem('nome', this.userLogin.nome)
+      location.assign('/home')
+    }, err => {
+      alert("Houve um erro ao entrar, por favor verifique o e-mail e senha")
+    })
+  }
+
+  sair() {
+    localStorage.clear();
+    location.assign('/home')
+  }
 
   cpf() {
     document.getElementById("cpf").style.display = "block"

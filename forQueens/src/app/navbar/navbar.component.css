@@ -2,6 +2,12 @@
   font-family: 'Montserrat 400' !important;
 }
 
+*:focus{
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+}
+
 textarea:focus, input:focus{
   box-shadow: 0 0 0 0;
   border: 0 none;
@@ -53,12 +59,12 @@ button.nav-link {
 }
 
 .navbar img {
-  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .navbar img.humburger{
   height: 22px;
-  margin-left: 5%;
+  margin-right: 5%; 
 }
 
 .navbar-dark .navbar-toggler {
@@ -72,15 +78,23 @@ button.nav-link {
   background-color: #ffde59;
   position: absolute;
   top: 50px;
-  left: -250px;
+  right: -250px;
   height: calc(100vh - 40px);
   overflow-y: auto;
   transition: all 0.1s ease-out;
   opacity: 0.5;
 }
 
+.navbar ul.sidebar li {
+  margin: 8px;
+}
+
+.navbar ul.sidebar li a.text-reset {
+  font-size: 20px !important;
+}
+
 .navbar.sidebar-open ul {
-  left: 0;
+  right: 0;
   opacity: 1;
 }
 

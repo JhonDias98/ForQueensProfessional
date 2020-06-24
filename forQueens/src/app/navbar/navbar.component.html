@@ -2,13 +2,13 @@
 <nav class="container">
 
   <div class="navbar navbar-dark fixed-top">
-    <button type="button" class="navbar-toggler d-lg-none ">
-      <img src="../../assets/img/hamburger.png" class="humburger" alt="Menu">
-    </button>
-
     <a class="navbar-brand logoSite" [routerLink]="['/home']">
       <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50" class="">
     </a>
+
+    <button type="button" class="navbar-toggler d-lg-none humburger">
+      <img src="../../assets/img/hamburger.png" class="humburger" alt="Menu">
+    </button>
 
     <div class="d-flex justify-content-start desktop">
       <ul class="d-none d-lg-block navbar-nav mr-auto ">
@@ -28,18 +28,36 @@
     </div>
 
     <div class="desktop">
-      <ul class=" nav d-none d-lg-block navbar-nav ">
-        <li class="nav-item">
-          <a class="btn" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
-        </li>
-        <li class="nav-item ">
-          <a class="btn" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
-        </li>
+      <ul class=" nav d-none d-lg-block navbar-nav">
+
+        <div *ngIf='authService.btnSemLogin()'>
+          <li class="nav-item">
+            <a class="btn" data-toggle="modal" data-target="#modalLogin">Login</a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="btn" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
+          </li>
+        </div>
+
+        <div *ngIf='authService.btnComLogin()'>
+          <li class="nav-item ">
+            <a class="btn" (click)='sair()'>{{nomeUser}}</a>
+          </li>
+          <li class="nav-item ">
+            <a class="btn" (click)='sair()'>Sair</a>
+          </li>
+        </div>
       </ul>
     </div>
 
     <ul class="list-unstyled font-weight-bold sidebar">
       <li class="divider"></li>
+      <div *ngIf='authService.btnComLogin()'>
+        <li class="nav-item">
+          <a class="text-reset" href="">{{nomeUser}}</a>
+        </li>
+      </div>
       <li class="">
         <a class="text-reset " [routerLink]="['/produtos']">Produtos</a>
       </li>
@@ -53,12 +71,23 @@
         <a class="text-reset " [routerLink]="['/sobrenos']">Sobre nós</a>
       </li>
 
-      <li class="nav-item">
-        <a class="text-reset" data-toggle="modal" data-target="#modalLogin">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="text-reset" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
-      </li>
+      <div *ngIf='authService.btnSemLogin()'>
+        <li class="nav-item">
+          <a class="text-reset" href="" data-toggle="modal" data-target="#modalLogin">Login</a>
+        </li>
+      </div>
+
+      <div *ngIf='authService.btnSemLogin()'>
+        <li class="nav-item">
+          <a class="text-reset" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
+        </li>
+      </div>
+
+      <div *ngIf='authService.btnComLogin()'>
+        <li class="nav-item">
+          <a class="text-reset" href="">Sair</a>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>
@@ -77,16 +106,17 @@
       <div class="modal-body">
         <div>
           <div class="form-group">
-            <label for="exampleInputEmail1">E-mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="emailLogin">E-mail</label>
+            <input type="email" class="form-control" id="emailLoign" aria-describedby="emailHelp"
+              [(ngModel)]='userLogin.usuario'>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="passwordLogin">Senha</label>
+            <input type="password" class="form-control" id="passwordLogin" [(ngModel)]='userLogin.senha'>
           </div>
           <div class="d-flex justify-content-end">
             <button type="button" data-dismiss="modal" class="btn btn-secondary botao_cadastro">Cancelar</button>
-            <button type="submit" class="btn ml-3">Login</button>
+            <button type="submit" class="btn ml-3" (click)='entrar()'>Login</button>
           </div>
         </div>
       </div>
@@ -114,10 +144,8 @@
             <div id="form_cadastro">
               <div class="form-group">
                 <label>E-mail</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp"
-                [(ngModel)]="user.usuario"
-                [(ngModel)]="empresa.email"
-                [(ngModel)]="data.email" id="email">
+                <input type="email" class="form-control" aria-describedby="emailHelp" [(ngModel)]="user.usuario"
+                  [(ngModel)]="empresa.email" [(ngModel)]="data.email" id="email">
                 <span id="erro_email">O email deve ser válido!</span>
                 <span id="vazio_email"> Campo obrigatório! </span>
               </div>
@@ -139,34 +167,38 @@
 
 
                 <div>
-                  <label >CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj" id="cadastroNPJ"
-                    placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
+                  <label>CNPJ</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj"
+                    id="cadastroNPJ" placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
                   <span id="erro_cnpj"> O cnpj deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Razão social</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial" [(ngModel)]="data.razao_social" id="razaoSocial">
+                  <label>Razão social</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial"
+                    [(ngModel)]="data.razao_social" id="razaoSocial">
                   <span id="vazio_razaoSocial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Nome comercial</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial" [(ngModel)]="data.nome_comercial" id="nomeComercial">
+                  <label>Nome comercial</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial"
+                    [(ngModel)]="data.nome_comercial" id="nomeComercial">
                   <span id="vazio_nomeComercial"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Inscrição estadual</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual" [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
+                  <label>Inscrição estadual</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual"
+                    [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
                   <span id="vazio_inscricaoEstadual"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Telefone Comercial</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial" [(ngModel)]="data.telefone_comercial" id=telefoneComercial mask="(00)0000-0000">
+                  <label>Telefone Comercial</label>
+                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial"
+                    [(ngModel)]="data.telefone_comercial" id=telefoneComercial mask="(00)0000-0000">
                   <span id="erro_telefoneComercial">O telefone deve ser válido!</span>
                 </div>
               </div>
@@ -177,7 +209,7 @@
                 <h3>Dados pessoais</h3>
 
                 <div id="cpf">
-                  <label >CPF</label>
+                  <label>CPF</label>
                   <input type="text" class="form-control" [(ngModel)]="user.cpf" [(ngModel)]="data.cpf" id="cadastroPF"
                     placeholder="999.999.999-99" mask="000.000.000-00">
                   <span id="erro_cpf">O cpf deve ser válido!</span>
@@ -185,42 +217,38 @@
                 </div>
 
                 <div>
-                  <label >Nome completo</label>
-                  <input type="text" class="form-control"
-                  [(ngModel)]="user.nome"
-                  [(ngModel)]="empresa.nomeComprador"
-                  [(ngModel)]="data.nome" id="nome">
+                  <label>Nome completo</label>
+                  <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="empresa.nomeComprador"
+                    [(ngModel)]="data.nome" id="nome">
                   <span id="erro_nome">O nome deve ser completo!</span>
                   <span id="vazio_nome"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Celular</label>
-                  <input id="celular" type="text" class="form-control" [(ngModel)]="user.celular" [(ngModel)]="data.celular" mask="(00)00000-0000">
+                  <label>Celular</label>
+                  <input id="celular" type="text" class="form-control" [(ngModel)]="user.celular"
+                    [(ngModel)]="data.celular" mask="(00)00000-0000">
                   <span id="erro_celular">O celular deve ser válido!</span>
                 </div>
 
                 <div id="nascimento">
-                  <label >Data de nascimento</label>
-                  <input type="text" class="form-control" [(ngModel)]="user.dataNascimento" [(ngModel)]="data.data_nascimento" id="dataNascimento"
-                    placeholder="dd/mm/aaaa" mask="00/00/0000">
+                  <label>Data de nascimento</label>
+                  <input type="text" class="form-control" [(ngModel)]="user.dataNascimento"
+                    [(ngModel)]="data.data_nascimento" id="dataNascimento" placeholder="dd/mm/aaaa" mask="00/00/0000">
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
                   <span id="erro_dataNascimento">A data de nascimento deve ser válida!</span>
                 </div>
 
                 <div>
-                  <label >Senha</label>
-                  <input type="password" class="form-control" 
-                  [(ngModel)]="user.senha" 
-                  [(ngModel)]="empresa.senha"
-                  [(ngModel)]="data.senha"
-                    id="senha" placeholder="Senha com no mínimo 6 carácteres">
+                  <label>Senha</label>
+                  <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="empresa.senha"
+                    [(ngModel)]="data.senha" id="senha" placeholder="Senha com no mínimo 6 carácteres">
                   <span id="erro_senha"> A senha deve ter no mínimo 6 carácteres! </span>
                   <span id="vazio_senha"> Campo obrigatório! </span>
                 </div>
 
                 <div>
-                  <label >Confirme a senha</label>
+                  <label>Confirme a senha</label>
                   <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma">
                   <span id="erro_confirmaSenha"> Campos devem ser iguais! </span>
                 </div>
