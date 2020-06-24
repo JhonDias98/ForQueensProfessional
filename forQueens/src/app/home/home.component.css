@@ -1,3 +1,247 @@
+.categorias_mobile{
+  display: flex;
+}
+.sidebar-widget-1 .list-group-item {
+  padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.list-group-hover .list-group-item:hover {
+  background-color:  #fec63e;
+  color: #fff;
+  transition: all 0.5s ease-out;
+}
+
+.list-group-item.bg-active {
+  background:  #fec63e;
+  color: #fff;
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  text-align: justify;
+}
+body {
+  font-family: "Roboto";
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+/* ------------------------------------------------- */
+
+.product-grid3 {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}
+
+.product-grid3:before {
+  content: "";
+  height: 81%;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.5s ease 0s;
+}
+
+.product-grid3:hover:before {
+  opacity: 1;
+  height: 100%;
+}
+
+.product-grid3 .product-image3 {
+  position: relative;
+}
+
+.product-grid3 .product-image3 a {
+  display: block;
+}
+
+.product-grid3 .product-image3 img {
+  width: 100%;
+  height: auto;
+}
+
+.product-grid3 .pic-1 {
+  opacity: 1;
+  transition: all 0.5s ease-out 0s;
+}
+
+.product-grid3:hover .pic-1 {
+  opacity: 0;
+}
+
+.product-grid3 .pic-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.5s ease-out 0s;
+}
+
+.product-grid3:hover .pic-2 {
+  opacity: 1;
+}
+
+h1 { 
+  font-weight: bold;
+  
+ }
+
+ h3 {
+  font-weight: bold;
+}
+
+.product-grid3 .social {
+  width: 120px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -23px;
+  transform: scale(0);
+  transition: all 0.3s ease 0s;
+}
+
+.product-grid3:hover .social {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-grid3:hover .product-discount-label,
+.product-grid3:hover .product-new-label,
+.product-grid3:hover .title {
+  opacity: 0;
+}
+
+.product-grid3 .social li {
+  display: inline-block;
+}
+
+.product-grid3 .social li a {
+  color: #ffde59;
+  background: #fff;
+  font-size: 18px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  margin: 0 2px;
+  display: block;
+  transition: all 0.3s ease 0s;
+  padding-left: 15px;
+}
+
+.product-grid3 .social li a:hover {
+  background: #ffde59;
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-grid3 .product-discount-label,
+.product-grid3 .product-new-label {
+  background-color: #ffde59;
+  color: #fff;
+  font-size: 17px;
+  padding: 2px 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: all 0.3s;
+}
+.product-grid3 .product-content {
+  z-index: -1;
+  padding: 15px;
+  text-align: left;
+}
+
+.product-grid3 .title {
+  font-size: 14px;
+  text-transform: capitalize;
+  margin: 0 0 7px;
+  transition: all 0.3s ease 0s;
+}
+
+.product-grid3 .title a {
+  color: #414141;
+}
+
+.product-grid3 .price {
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-right: 2px;
+  display: inline-block;
+}
+.product-grid3 .price span {
+  color: #909090;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-decoration: line-through;
+  text-align: left;
+  display: inline-block;
+  margin-top: -2px;
+}
+.product-grid3 .rating {
+  padding: 0;
+  margin: -22px 0 0;
+  list-style: none;
+  text-align: right;
+  display: block;
+}
+
+.product-grid3 .rating li {
+  color: #fec63e;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.product-grid3 .rating li.disable {
+  color: #dcdcdc;
+}
+
+.cardProduto:hover {
+  box-shadow: 0 4px 8px 0;
+  cursor: pointer;
+}
+
+#produtoBotox,
+#produtoHidratante,
+#produtoMascara {
+  display: none;
+}
+
+.modal {
+  margin-top: 120px;
+}
+
+.textoCinza {
+  color: grey;
+  font-size: 22px;
+}
+
+
+
+
+
+
 header.container-fluid {
   padding: 0;
 }
@@ -328,3 +572,4 @@ h1 {
     font-size: 35px;
   }
 }
+

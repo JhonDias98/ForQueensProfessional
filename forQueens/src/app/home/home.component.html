@@ -69,8 +69,8 @@
             </div>
             <div class="titlebar d-flex flex-row justify-content-center">
               <div class="next-back">
-                <span><a data-slide="prev" href="#CarouselDesktop" class="left carousel-control carrouselSlide">Anterior</a></span>
-                <span><a data-slide="next" href="#CarouselDesktop" class="right carousel-control carrouselSlide">Próximo</a></span>
+                <span><a data-slide="prev" href="#CarouselDesktop" class="left carousel-control carrouselSlide">Proximo</a></span>
+                <span><a data-slide="next" href="#CarouselDesktop" class="right carousel-control carrouselSlide">Anterior</a></span>
               </div>
             </div>
           </div>
@@ -173,28 +173,99 @@
     <hr class="mt-2 mb-4">
 
     <div class="row">
-      <div class="card col-4">
-        <img class="produto" src="../../assets/img/pagina_home/produtos/Botox Platinum.png" alt="Produto">
-        <h3>PLATINUN BLOND</h3>
-        <p class="linha">BOTOX</p>
-        <p class = "descricao">Desenvolvidos com complexo Nanotecnológicos de ativos reconstrutores e matizadores.</p>
-        <p><button class="btn" [routerLink]="['/produtos']">CONFIRA</button></p>
+
+
+      <div class="col-md-4 col-sm-6 col-6 mb-3">
+        <div class="product-grid3 cardProduto">
+          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+            </a>
+            <ul class="social">
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                </a>
+              </li>
+            </ul>
+            <span class="product-new-label">New</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="card col-4">
-        <img class="produto" src="../../assets/img/pagina_home/produtos/QNanoPlex.png" alt="Produto">
-        <h3>Q-NANO PLEX</h3>
-        <p class="linha">RECONSTRUTOR</p>
-        <p class = "descricao">O reconstrutor contém complexos nanotecnológicos que reconstroem cabelos destruídos quimicamente.</p>
-        <p><button class="btn" [routerLink]="['/produtos']">CONFIRA</button></p>
+      <div class="col-md-4 col-sm-6 col-6 mb-3">
+        <div class="product-grid3 cardProduto">
+          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+            </a>
+            <ul class="social">
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                </a>
+              </li>
+            </ul>
+            <span class="product-new-label">New</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a href="#">Q-NANO PLEX</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="card col-4">
-        <img class="produto" src="../../assets/img/pagina_home/produtos/Red Pepper.png" alt="Produto">
-        <h3>RED PEPPER</h3>
-        <p class="linha">MÁSCARA</p>
-        <p class = "descricao">Intensifica e revitaliza a cor dos cabelos com tons de vinho, além de disfarçar os fios brancos</p>
-        <p><button class="btn" [routerLink]="['/produtos']">CONFIRA</button></p>
+      <div class="col-md-4 col-sm-6 col-6 mb-3">
+        <div class="product-grid3 cardProduto">
+          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+            </a>
+            <ul class="social">
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                </a>
+              </li>
+            </ul>
+            <span class="product-new-label">New</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a href="#">RED PEPPER</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
