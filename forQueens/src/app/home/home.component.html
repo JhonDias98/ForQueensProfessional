@@ -69,8 +69,8 @@
             </div>
             <div class="titlebar d-flex flex-row justify-content-center">
               <div class="next-back">
-                <span><a data-slide="prev" href="#CarouselDesktop" class="left carousel-control carrouselSlide">Proximo</a></span>
                 <span><a data-slide="next" href="#CarouselDesktop" class="right carousel-control carrouselSlide">Anterior</a></span>
+                <span><a data-slide="prev" href="#CarouselDesktop" class="left carousel-control carrouselSlide">Próximo</a></span>
               </div>
             </div>
           </div>
@@ -169,35 +169,23 @@
 
 
   <div class="container mb-3 cards_desktop">
-    <h1 class="text-center">Produtos Mais Vendidos</h1>
+    <h1 class="text-center">Lançamentos</h1>
     <hr class="mt-2 mb-4">
 
     <div class="row">
 
 
       <div class="col-md-4 col-sm-6 col-6 mb-3">
-        <div class="product-grid3 cardProduto">
-          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
             <a>
               <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
               <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
             </a>
-            <ul class="social">
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                </a>
-              </li>
-            </ul>
-            <span class="product-new-label">New</span>
+            <span class="product-new-label">Novo</span>
           </div>
           <div class="product-content">
-            <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+            <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
             <div class="price">
               R$100.00
               <span>RS150.00</span>
@@ -207,28 +195,16 @@
       </div>
 
       <div class="col-md-4 col-sm-6 col-6 mb-3">
-        <div class="product-grid3 cardProduto">
-          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
             <a>
               <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
               <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
             </a>
-            <ul class="social">
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                </a>
-              </li>
-            </ul>
-            <span class="product-new-label">New</span>
+            <span class="product-new-label">Novo</span>
           </div>
           <div class="product-content">
-            <h3 class="title"><a href="#">Q-NANO PLEX</a></h3>
+            <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
             <div class="price">
               R$100.00
               <span>RS150.00</span>
@@ -238,28 +214,16 @@
       </div>
 
       <div class="col-md-4 col-sm-6 col-6 mb-3">
-        <div class="product-grid3 cardProduto">
-          <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
             <a>
               <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
               <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
             </a>
-            <ul class="social">
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                </a>
-              </li>
-            </ul>
-            <span class="product-new-label">New</span>
+            <span class="product-new-label">Novo</span>
           </div>
           <div class="product-content">
-            <h3 class="title"><a href="#">RED PEPPER</a></h3>
+            <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
             <div class="price">
               R$100.00
               <span>RS150.00</span>
@@ -337,18 +301,18 @@
         </div>
 
         <div class="row justify-content-center">
-          <p class="cor1 mb-4">Compras realizadas diretas com seu consultor de vendas através de:</p>
+          <p class="cor2 mb-4">Compras realizadas diretas com seu consultor de vendas através de:</p>
         </div>
 
         <div class="row justify-content-center mb-3">
           <div class="col4">
-            <p class="cor2 mb-4">Cartão de crédito</p>
+            <p class="cor1 mb-4">Cartão de crédito</p>
           </div>
           <div class="col4 ml-3 mr-3">
-            <p class="cor1 mb-4">Cartão de débito</p>
+            <p class="cor2 mb-4">Cartão de débito</p>
           </div>
           <div class="col4">
-            <p class="cor2 mb-4">Boleto à vista</p>
+            <p class="cor1 mb-4">Boleto à vista</p>
           </div>
         </div>
 
