@@ -16,13 +16,13 @@ video{
   height: 500px;
 }
 .Qnano{
-  height: 184.65px;
+  height: 230.65px;
   padding: 10px;
 }
 
 @media (max-width: 1200px){
   .Qnano{
-    height: 153.11px;
+    height: 191.11px;
   }
   .card-text{
     height: 144px;
