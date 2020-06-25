@@ -11,42 +11,39 @@ h2 {
 .campos_contato {
     display: flex;
     width: 100%;
-    
-    margin-bottom: 15px;
+    margin-bottom: 32px;
 }
+
 .icone_contato {
-    padding: 15px;
+    padding: 9px;
     background: transparent;
     color: #ffde59;
     min-width: 50px;
     text-align: center;
 }
-.cor_input_contato {
-    border: 2px solid rgb(169, 169, 169);
-    width: 100%;
-    padding: 10px;
-    outline: none;
+
+input:focus, select:focus, textarea:focus {
+    border: 1.2px solid black;
+    box-shadow: none;
 }
-.cor_input_contato:focus {
-    border: 2px solid rgb(255, 204, 0);
-}
+
 .caixa_mensagem{
     border: 2px solid rgb(169, 169, 169);;
 }
+
 .caixa_mensagem:focus{
     border: 2px solid rgb(255, 204, 0);
     box-shadow: none;
 }
+
 .map_mobile{
     display: none;
-}
-#selecao_contato:focus{
-    /* border-bottom: 2px solid white; */
 }
 
 option:first-of-type {
     color: #999;
 }
+
 #pencil1{
     padding-top: 95px;
 }

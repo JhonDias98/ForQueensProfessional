@@ -25,7 +25,7 @@
 
         <div class="input-container campos_contato">
           <fa-icon [icon]="faUser" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Nome completo" name="Nome" id="nome_contato" [(ngModel)]="contatoAPI.nome" [(ngModel)]="contato.nome">
+          <input class="input-field form-control " type="text" placeholder="Nome completo" name="Nome" id="nome_contato" [(ngModel)]="contatoAPI.nome" [(ngModel)]="contato.nome">
         </div>
         <div>
           <span id="erro_nome_contato"> O nome deve ser completo </span>
@@ -35,27 +35,16 @@
 
         <div class="input-container campos_contato">
           <fa-icon [icon]="faEnvelope" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="E-mail" name="email" id="email_contato" [(ngModel)]="contatoAPI.email" [(ngModel)]="contato.email">
+          <input class="input-field form-control " type="text" placeholder="E-mail" name="email" id="email_contato" [(ngModel)]="contatoAPI.email" [(ngModel)]="contato.email">
         </div>
         <div>
           <span id="erro_email_contato"> O e-mail deve ser válido </span>
           <span id="vazio_email_contato"> Campo obrigatório! </span>
         </div>
-
-        <div class="d-flex flex-row">
-            <!-- <div >
-              <label for="telefone">Telefone</label>
-              <input (change)="telefone()" style="vertical-align: middle;" type="radio" id="telefoneinput" name="telefone" value="telefone" class="ml-1 mr-3" checked> 
-            </div>
-            <div >
-              <label for="celular">Celular</label>
-              <input (change)="celular()" style="vertical-align: middle" type="radio" id="celularinput" name="telefone" value="celular" class="ml-1">
-            </div> -->
-        </div>
         
         <div class="input-container campos_contato" id="telefone">
           <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Telefone" name="telefone" id="telefoneinput" [(ngModel)]="contatoAPI.telefone" [(ngModel)]="contato.telefone" mask="(00)0000-0000">
+          <input class="input-field form-control " type="text" placeholder="Telefone" name="telefone" id="telefoneinput" [(ngModel)]="contatoAPI.telefone" [(ngModel)]="contato.telefone" mask="(00)00000-0000">
         </div>
 
         <div>
@@ -63,20 +52,10 @@
           <span id="vazio_telefone"> Campo obrigatório! </span>
         </div>
 
-        
-        <div class="input-container campos_contato" id="celular">
-          <fa-icon [icon]="faPhoneAlt" class="fa-lg icone_contato"></fa-icon>
-          <input class="input-field cor_input_contato" type="text" placeholder="Celular" name="celular" id="celularinput" [(ngModel)]="contatoAPI.telefone" [(ngModel)]="contato.celular" mask="(00)00000-0000">
-        </div>
-        <div>
-          <span id="erro_celular"> O celular deve ser válido </span>
-          <span id="vazio_celular"> Campo obrigatório! </span>
-        </div>
-
         <div class="input-container campos_contato">
           <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
-          <select id="selecao_contato" class="input-field cor_input_contato" type="" name="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
-            <option value="" selected disabled >Assunto</option>
+          <select id="selecao_contato" class="input-field form-control" type="" name="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
+            <option disabled selected hidden>Assunto</option>
             <option>Sugestão</option>
             <option>Elogio</option>
             <option>Distribuidor</option>
@@ -93,7 +72,7 @@
       <div class="formulario col-md-4 col-sm-12 col-lg-4">
         <div class="input-container campos_contato">
           <fa-icon [icon] = "faPencilAlt" class="fa-lg icone_contato"></fa-icon>
-          <textarea id="obs observacao" class="form-control caixa_mensagem" style="resize: none;" maxlength="400"
+          <textarea id="obs observacao" class="form-control" style="resize: none;" maxlength="400"
             placeholder="Mensagem" name="" id="" cols="30" rows="7" id="mensagem" [(ngModel)]="contatoAPI.mensagem" [(ngModel)]="contato.mensagem"></textarea>
         </div>
 

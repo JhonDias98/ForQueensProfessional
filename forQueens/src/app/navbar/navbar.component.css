@@ -51,13 +51,6 @@ button.nav-link {
   text-transform: uppercase;
 }
 
-.navbar .form-control {
-  border-color: #ffde59;
-  max-width: 155px;
-  line-height: 28px;
-  height: 38px;
-}
-
 .navbar img {
   margin-right: 5%;
 }
