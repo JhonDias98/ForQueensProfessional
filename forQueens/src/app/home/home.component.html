@@ -175,7 +175,7 @@
     <div class="row">
 
 
-      <div class="col-md-4 col-sm-6 col-6 mb-3">
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
         <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
           <div class="product-image3">
             <a>
@@ -194,7 +194,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 col-6 mb-3">
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
         <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
           <div class="product-image3">
             <a>
@@ -213,7 +213,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 col-6 mb-3">
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
         <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
           <div class="product-image3">
             <a>
@@ -237,24 +237,64 @@
 
   </div>
   <div class="container cards_mobile">
-    <h1 class="text-center">Produtos Mais Vendidos</h1>
+    <h1 class="text-center">Lançamentos</h1>
     <hr class="mt-2 mb-4">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
       <div class="carousel-inner carrossel">
         <div class="carousel-item active">
-          <img [routerLink]="['/produtos']" class="w-100 carrossel_img" src="../../assets/img/pagina_home/produtos/Botox Platinum.png" alt="Produto">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="carousel-item">
-          <img [routerLink]="['/produtos']" class="w-100 carrossel_img" src="../../assets/img/pagina_home/produtos/QNanoPlex.png" alt="Produto">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="carousel-item">
-          <img [routerLink]="['/produtos']" class="w-100 carrossel_img" src="../../assets/img/pagina_home/produtos/Red Pepper.png" alt="Produto">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -269,7 +309,7 @@
   </div>
   <div class="parallax"></div>
   
-  <div class="container mt-3" data-anime="bottom">
+  <div class="container mt-3 animacao" data-anime="bottom">
 
     <div class="row">
 
@@ -277,8 +317,8 @@
         <img class="modeloDistr" src="../../assets/img/modelos/mod-col2.jpeg" alt="">
       </div>
 
-      <div class="col-6">
-        <h3 class="text-center mb-5">Venha ser um Distribuidor</h3>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-11 distribuidor">
+        <h2 class="text-center mb-5">Venha ser um Distribuidor</h2>
 
         <div class="row justify-content-center">
           <p class="cor1 mb-4">Seja seu chefe, liberdade total para estabelecer suas próprias regras.</p>
