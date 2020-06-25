@@ -11,21 +11,78 @@ p {
   
   text-align: left;
 }
+video{
+  width: 100%;
+  height: 500px;
+}
+.Qnano{
+  height: 184.65px;
+  padding: 10px;
+}
 
-@media (max-width:1200){
+@media (max-width: 1200px){
   .Qnano{
-    max-height: 153.11px !important;
+    height: 153.11px;
+  }
+  .card-text{
+    height: 144px;
+  }
+  .card-body{
+    height: 250px;
+  }
+}
+@media (max-width: 991px){
+  .Qnano{
+    height: 139px;
+  }
+  .card-body{
+    height: 270px;
+  }
+  h5{
+    font-size: 20px;
+  }
+  p{
+    font-size: 14px;
   }
 }
 
 @media (max-width: 767px) {
 
+  video{
+    height: 300px;
+  }
   h5 {
     text-align: center;
+    font-size: 26px;
   }
 
   h1 {
     font-size: 35px;
   }
-
+  p{
+    font-size: 18px;
+  }
+  .card-body{
+    height: 150px;
+  }
+  .card-img{
+    height: 400px;
+  }
+  .modal-content{
+    margin-top: 20%;
+  }
+}
+@media(max-width: 360px){
+  .card-img{
+    height: 300px;
+  }
+  h5{
+    font-size: 23px;
+  }
+  p{
+    font-size: 16px;
+  }
+  .card-body{
+    height: 200px;
+  }
 }
