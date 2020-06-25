@@ -67,23 +67,22 @@ button.nav-link {
 }
 
 .navbar ul.sidebar {
-  max-width: 250px;
+  width: 50%;
   background-color: #ffde59;
   position: absolute;
   top: 50px;
-  right: -250px;
-  height: calc(100vh - 40px);
+  right: -50%;
   overflow-y: auto;
   transition: all 0.1s ease-out;
   opacity: 0.5;
 }
 
 .navbar ul.sidebar li {
-  margin: 8px;
+  margin: 15px;
 }
 
 .navbar ul.sidebar li a.text-reset {
-  font-size: 20px !important;
+  font-size: 22px !important;
 }
 
 .navbar.sidebar-open ul {
@@ -138,26 +137,39 @@ button.nav-link {
 #botaoCNPJ {
   display: none;
 }
-@media (min-width: 576px) {
-  .navbar .form-control {
-    max-width: 180px;
-  }
-}
-
-@media (max-width: 991px) {
-  .logoSite {
-    margin: 0 auto;
-    padding-right: 25px;
-  }
-}
 
 @media (max-width: 1130px) {
   * {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .navbar ul li {
-    padding: 0 7px;
+    padding: 0 6px;
+  }
+  .btn{
+    font-size: 15px !important;
   }
 }
 
+@media (max-width: 930px) {
+  * {
+    font-size: 13px;
+  }
+  .btn{
+    font-size: 13px !important;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logoSite {
+    margin: 0 auto;
+    padding-left: 45.38px;
+  }
+}
+@media(max-width: 550px){
+  .navbar ul.sidebar li a.text-reset {
+    font-size: 18px !important;
+    margin-bottom: 25px !important;
+  }
+}

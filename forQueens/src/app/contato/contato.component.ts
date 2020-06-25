@@ -27,7 +27,7 @@ export class ContatoComponent implements OnInit {
   contato = {
     email:'',
     nome: '',
-    assunto: null,
+    assunto: '',
     telefone: '',
     celular: '',
     mensagem: ''

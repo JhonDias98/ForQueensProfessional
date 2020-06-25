@@ -6,12 +6,12 @@
       <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50" class="">
     </a>
 
-    <button type="button" class="navbar-toggler d-lg-none humburger">
+    <button type="button" class="navbar-toggler d-lg-none d-md-none humburger">
       <img src="../../assets/img/hamburger.png" class="humburger" alt="Menu">
     </button>
 
     <div class="d-flex justify-content-start desktop">
-      <ul class="d-none d-lg-block navbar-nav mr-auto ">
+      <ul class="d-none d-lg-block d-md-block navbar-nav mr-auto ">
         <li class="nav-item">
           <a class="navegacao" [routerLink]="['/produtos']">Produtos</a>
         </li>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="desktop">
-      <ul class=" nav d-none d-lg-block navbar-nav">
+      <ul class=" nav d-none d-lg-block d-md-block navbar-nav">
 
         <div *ngIf='authService.btnSemLogin()'>
           <li class="nav-item">
@@ -58,17 +58,17 @@
           <a class="text-reset" href="">{{pegarPrimeiroNome(nomeUser)}}</a>
         </li>
       </div>
-      <li class="">
-        <a class="text-reset " [routerLink]="['/produtos']">Produtos</a>
+      <li class="nav-item">
+        <a class="text-reset" [routerLink]="['/produtos']">Produtos</a>
       </li>
       <li class="nav-item">
-        <a class="text-reset " [routerLink]="['/dicas']">Dicas e Tutoriais</a>
+        <a class="text-reset" [routerLink]="['/dicas']">Dicas</a>
       </li>
       <li class="nav-item">
-        <a class="text-reset " [routerLink]="['/contato']">Contato</a>
+        <a class="text-reset" [routerLink]="['/contato']">Contato</a>
       </li>
       <li class="nav-item">
-        <a class="text-reset " [routerLink]="['/sobrenos']">Sobre nós</a>
+        <a class="text-reset" [routerLink]="['/sobrenos']">Sobre</a>
       </li>
 
       <div *ngIf='authService.btnSemLogin()'>
