@@ -4,6 +4,146 @@
     <img class="banner" src="../../assets/img/pagina_home/unidas.jpg" alt="">
   </header>
 
+  <div class="container mb-3 cards_desktop" style="margin-top: 20px;">
+    <h1 class="text-center">Lançamentos</h1>
+    <hr class="mt-2 mb-4">
+
+    <div class="row">
+
+
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+            </a>
+            <span class="product-new-label">Novo</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+            </a>
+            <span class="product-new-label">Novo</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
+        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+          <div class="product-image3">
+            <a>
+              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+            </a>
+            <span class="product-new-label">Novo</span>
+          </div>
+          <div class="product-content">
+            <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
+            <div class="price">
+              R$100.00
+              <span>RS150.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="container cards_mobile" style="margin-top: 20px;">
+    <h1 class="text-center" >Lançamentos</h1>
+    <hr class="mt-2 mb-4">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner carrossel">
+        <div class="carousel-item active">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
+            <div class="product-image3">
+              <a>
+                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
+              </a>
+              <span class="product-new-label">Novo</span>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
+              <div class="price">
+                R$100.00
+                <span>RS150.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="parallax"></div>
   <div class="container mt-3 mb-5">
     <h1 class="text-center">Confira Nosso Instagram</h1>
     <hr class="mt-2 mb-4">
@@ -166,148 +306,6 @@
       </div>
     </div>
   </div>
-
-
-  <div class="container mb-3 cards_desktop">
-    <h1 class="text-center">Lançamentos</h1>
-    <hr class="mt-2 mb-4">
-
-    <div class="row">
-
-
-      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
-        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-          <div class="product-image3">
-            <a>
-              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-            </a>
-            <span class="product-new-label">Novo</span>
-          </div>
-          <div class="product-content">
-            <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
-            <div class="price">
-              R$100.00
-              <span>RS150.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
-        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-          <div class="product-image3">
-            <a>
-              <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
-              <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
-            </a>
-            <span class="product-new-label">Novo</span>
-          </div>
-          <div class="product-content">
-            <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
-            <div class="price">
-              R$100.00
-              <span>RS150.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 lancamento col-sm-4 col-6 mb-3">
-        <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-          <div class="product-image3">
-            <a>
-              <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
-              <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
-            </a>
-            <span class="product-new-label">Novo</span>
-          </div>
-          <div class="product-content">
-            <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
-            <div class="price">
-              R$100.00
-              <span>RS150.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-  </div>
-  <div class="container cards_mobile">
-    <h1 class="text-center">Lançamentos</h1>
-    <hr class="mt-2 mb-4">
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner carrossel">
-        <div class="carousel-item active">
-          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-            <div class="product-image3">
-              <a>
-                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-              </a>
-              <span class="product-new-label">Novo</span>
-            </div>
-            <div class="product-content">
-              <h3 class="title"><a [routerLink] = "['/produtos']">PLATINUN BLOND</a></h3>
-              <div class="price">
-                R$100.00
-                <span>RS150.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-            <div class="product-image3">
-              <a>
-                <img class="pic-1" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
-                <img class="pic-2" src="../../assets/img/pagina_home/produtos/QNanoPlex.png">
-              </a>
-              <span class="product-new-label">Novo</span>
-            </div>
-            <div class="product-content">
-              <h3 class="title"><a [routerLink] = "['/produtos']">Q-NANO PLEX</a></h3>
-              <div class="price">
-                R$100.00
-                <span>RS150.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="product-grid3 cardProduto" [routerLink] = "['/produtos']">
-            <div class="product-image3">
-              <a>
-                <img class="pic-1" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
-                <img class="pic-2" src="../../assets/img/pagina_home/produtos/Red Pepper.png">
-              </a>
-              <span class="product-new-label">Novo</span>
-            </div>
-            <div class="product-content">
-              <h3 class="title"><a [routerLink] = "['/produtos']">RED PEPPER</a></h3>
-              <div class="price">
-                R$100.00
-                <span>RS150.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-  <div class="parallax"></div>
   
   <div class="container mt-3 animacao" data-anime="bottom">
 
