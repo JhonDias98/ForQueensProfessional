@@ -1,8 +1,3 @@
-.QNano {
-  padding-bottom: 10px;
-  height: 200px;
-}
-
 h1 {
   font-weight: bold;
 }
@@ -15,6 +10,12 @@ h5 {
 p {
   
   text-align: left;
+}
+
+@media (max-width:1200){
+  .Qnano{
+    max-height: 153.11px !important;
+  }
 }
 
 @media (max-width: 767px) {

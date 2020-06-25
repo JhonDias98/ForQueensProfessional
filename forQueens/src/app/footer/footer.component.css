@@ -1,41 +1,105 @@
-footer{
-	width: 100%;	
-	height: auto;
-	background-color: black;
-	bottom: 0;
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
 }
 
-i{
-	color: #ffde59;
-	padding-left: 8px;
+#conteudo {
+	margin-left: 10px;
 }
 
-.footer-copyright{
-	background-color: black;
-	color: gray;
-	font-size: 14px;
+#politica {
+	margin-left: 100px;
 }
 
-footer ul {
-	padding:0px;
-  	margin:0px;
-	list-style:none;
+#perguntas {
+	margin-left: 100px;
 }
 
-footer ul li {
-	padding-left:10px ;
-	display: inline;
-	color: #ffde59; 
+#sugestoes {
+	margin-left: 100px;
 }
 
-.icones {
-	color: #ffde59;
+#footer {
+	background: black !important;
+	padding-bottom: 20px;
+	padding-top: 30px;
+}
+#footer h5{
+	padding-left: 10px;
+    margin-bottom: 15px;
+    color:#ffffff;
 }
 
-.icones:hover {
-	color: white;
+#footer h5 :hover {
+	
+	color:#ffde59;
 }
 
-.conteudo_footer{
-	padding-top: 10px;
+#footer h3 {
+	font-size:22px;
+	color:#ffffff;
 }
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+}
+#footer ul.social li{
+	padding: 5px 2px;
+}
+
+/* Tamanho dos icones antes do hover */
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:28px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+
+/* Tamanho dos icones após o hover */
+#footer ul.social li:hover a i {
+	font-size:35px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+
+/* Cor dos ícones após o hover */
+#footer ul.social li a:hover{
+	color:#ffde59;
+}
+#footer ul.quick-links li{
+	margin-right: 5px;
+	font-size:28px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+
+
+
+
+
+@-webkit-keyframes animborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px); }
+  100% {
+    -webkit-transform: translateX(113px);
+    transform: translateX(113px); } }
+
+@keyframes animborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px); }
+  100% {
+    -webkit-transform: translateX(113px);
+    transform: translateX(113px); } }
+
+
+
+
+

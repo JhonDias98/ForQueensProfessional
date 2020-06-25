@@ -1,15 +1,44 @@
-textarea:focus,
-input:focus,
-button:focus {
+*{
+  font-family: 'Montserrat 400' !important;
+}
+
+*:focus{
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+}
+
+textarea:focus, input:focus{
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
 }
 
-*{
-  font-family: 'Montserrat 400' !important;
+input:focus {
+  border: 1.2px solid black;
 }
 
+h5 {
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+label{
+  margin-top: 8px;
+}
+button.nav-link {
+  box-shadow: none;
+  background-color: transparent;
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+.botao_cadastro:hover{
+  color: white !important;
+}
 
 .navbar {
   background-color: #ffde59 !important;
@@ -22,20 +51,13 @@ button:focus {
   text-transform: uppercase;
 }
 
-.navbar .form-control {
-  border-color: #ffde59;
-  max-width: 155px;
-  line-height: 28px;
-  height: 38px;
-}
-
 .navbar img {
-  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .navbar img.humburger{
   height: 22px;
-  margin-left: 5%;
+  margin-right: 5%; 
 }
 
 .navbar-dark .navbar-toggler {
@@ -45,19 +67,26 @@ button:focus {
 }
 
 .navbar ul.sidebar {
-  max-width: 250px;
+  width: 50%;
   background-color: #ffde59;
   position: absolute;
   top: 50px;
-  left: -250px;
-  height: calc(100vh - 40px);
+  right: -50%;
   overflow-y: auto;
   transition: all 0.1s ease-out;
   opacity: 0.5;
 }
 
+.navbar ul.sidebar li {
+  margin: 15px;
+}
+
+.navbar ul.sidebar li a.text-reset {
+  font-size: 22px !important;
+}
+
 .navbar.sidebar-open ul {
-  left: 0;
+  right: 0;
   opacity: 1;
 }
 
@@ -68,17 +97,6 @@ button:focus {
 .navbar ul li.divider {
   border-bottom: black 1px solid;
   margin: 0.7em auto;
-}
-
-#backdrop {
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  display: none;
 }
 
 .desktop ul li {
@@ -94,36 +112,15 @@ button:focus {
   border-bottom: 1px solid black;
 }
 
-
-
-button.nav-link {
-  box-shadow: none;
-  background-color: transparent;
-  margin-top: 15px;
-  list-style-type: none;
-}
-
-@media (min-width: 576px) {
-  .navbar .form-control {
-    max-width: 180px;
-  }
-}
-
-@media (max-width: 991px) {
-  .logoSite {
-    margin: 0 auto;
-    padding-right: 25px;
-  }
-}
-
-@media (max-width: 1130px) {
-  * {
-    font-size: 14px;
-  }
-
-  .navbar ul li {
-    padding: 0 7px;
-  }
+#backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
 }
 
 /* Modal cadastro */
@@ -131,37 +128,48 @@ button.nav-link {
   display: none;
 }
 
-#erro_senha,
-#erro_nome,
-#erro_confirmaSenha,
-#erro_cpf,
-#erro_cnpj,
-#erro_email,
-#vazio_senha,
-#vazio_nome,
-#vazio_cpf,
-#vazio_cnpj,
-#vazio_email,
-#vazio_razaoSocial,
-#vazio_nomeComercial,
-#vazio_inscricaoEstadual,
-#vazio_dataNascimento,
-#erro_dataNascimento {
+#erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email, #vazio_senha, #vazio_nome, #vazio_cpf, #vazio_cnpj,
+#vazio_email, #vazio_razaoSocial,  #vazio_nomeComercial, #vazio_inscricaoEstadual, #vazio_dataNascimento, #erro_dataNascimento, #erro_celular, #erro_telefoneComercial {  
   display: none;
   color: red;
 }
 
-input:focus {
-  border: 2px solid rgb(255, 204, 0);
-}
 #botaoCNPJ {
   display: none;
 }
 
-h5 {
-  font-weight: bold;
+@media (max-width: 1130px) {
+  * {
+    font-size: 15px;
+  }
+
+  .navbar ul li {
+    padding: 0 6px;
+  }
+  .btn{
+    font-size: 15px !important;
+  }
 }
 
-h3 {
-  font-weight: bold;
+@media (max-width: 930px) {
+  * {
+    font-size: 13px;
+  }
+  .btn{
+    font-size: 13px !important;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logoSite {
+    margin: 0 auto;
+    padding-left: 45.38px;
+  }
+}
+@media(max-width: 550px){
+  .navbar ul.sidebar li a.text-reset {
+    font-size: 18px !important;
+    margin-bottom: 25px !important;
+  }
 }
