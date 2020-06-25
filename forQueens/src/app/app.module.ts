@@ -17,7 +17,7 @@ import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { NgxMaskModule} from 'ngx-mask';
 import { MapaSiteComponent } from './mapa-site/mapa-site.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component'
+import { PedidoComponent } from './pedido/pedido.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component'
     DicasComponent,
     ProdutosComponent,
     MapaSiteComponent,
-    CarrinhoComponent
+    PedidoComponent
   ],
   imports: [
     BrowserModule,
