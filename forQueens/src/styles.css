@@ -11,20 +11,20 @@
 
 .btn{
   font-family: 'Montserrat 400';
-  background-color:rgb(255, 222, 89);
+  background-color:white;
   color: black;
   border-color: black !important;
 }
 
 .btn:hover{
   background-color:black;
-  color: rgb(255, 222, 89) !important;
+  color: white !important;
 }
 
 .btn:focus, .btn:active {
   outline: none !important;
   background-color: black;
-  color: rgb(255, 222, 89) !important;
+  color: white !important;
   box-shadow: none !important;
 }
 

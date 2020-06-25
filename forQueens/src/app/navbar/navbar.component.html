@@ -58,29 +58,36 @@
           <a class="text-reset" href="">{{pegarPrimeiroNome(nomeUser)}}</a>
         </li>
       </div>
-      <li class="nav-item">
+      <a [routerLink]="['/produtos']"><li class="nav-item">
         <a class="text-reset" [routerLink]="['/produtos']">Produtos</a>
       </li>
+      </a>
+      <a [routerLink]="['/dicas']">
       <li class="nav-item">
         <a class="text-reset" [routerLink]="['/dicas']">Dicas</a>
       </li>
+      </a>
+      <a [routerLink]="['/contato']">
       <li class="nav-item">
         <a class="text-reset" [routerLink]="['/contato']">Contato</a>
       </li>
+      </a>
+      <a [routerLink]="['/sobrenos']">
       <li class="nav-item">
         <a class="text-reset" [routerLink]="['/sobrenos']">Sobre</a>
       </li>
+      </a>
 
       <div *ngIf='authService.btnSemLogin()'>
-        <li class="nav-item">
-          <a class="text-reset" href="" data-toggle="modal" data-target="#modalLogin">Login</a>
+        <li class="nav-item" data-toggle="modal" data-target="#modalLogin">
+          <a class="text-reset" href="">Login</a>
         </li>
       </div>
 
       <div *ngIf='authService.btnSemLogin()'>
-        <li class="nav-item">
-          <a class="text-reset" href="" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
-        </li>
+          <li class="nav-item" data-toggle="modal" data-target="#modalCadastro">
+            <a class="text-reset" href="">Cadastro</a>
+          </li>
       </div>
 
       <div *ngIf='authService.btnComLogin()'>

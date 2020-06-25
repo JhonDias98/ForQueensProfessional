@@ -41,7 +41,7 @@ button.nav-link {
 }
 
 .navbar {
-  background-color: #ffde59 !important;
+  background-color: white !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -49,6 +49,7 @@ button.nav-link {
   flex-wrap: nowrap;
   height: 60px;
   text-transform: uppercase;
+  border-bottom: 0.5px black solid;
 }
 
 .navbar img {
@@ -68,7 +69,7 @@ button.nav-link {
 
 .navbar ul.sidebar {
   width: 50%;
-  background-color: #ffde59;
+  background-color: white;
   position: absolute;
   top: 50px;
   right: -50%;
@@ -78,11 +79,21 @@ button.nav-link {
 }
 
 .navbar ul.sidebar li {
-  margin: 15px;
+  padding: 15px;
+}
+
+.navbar ul.sidebar li.divider{
+  padding: 0px;
 }
 
 .navbar ul.sidebar li a.text-reset {
   font-size: 22px !important;
+  color: black !important;
+}
+
+.navbar ul.sidebar li{
+  border-bottom: .5px black solid;
+  border-left: black 0.5px solid;
 }
 
 .navbar.sidebar-open ul {
@@ -95,8 +106,9 @@ button.nav-link {
 }
 
 .navbar ul li.divider {
-  border-bottom: black 1px solid;
-  margin: 0.7em auto;
+  border-bottom: black 0.5px solid;
+  border-left: black 0.5px solid;
+  margin: 0.7em auto 0 auto;
 }
 
 .desktop ul li {
