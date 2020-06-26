@@ -3,31 +3,39 @@
   padding: 0;
   border: 0;
   font-family: 'Montserrat 400';
+  color: #2a2e2e;
 }
 
 .fundo {
+  background-color: #F8F9F9;
   padding: 60px 0 30px 0;
 }
 
 .btn{
+  background: -webkit-linear-gradient(to right, rgba(247, 220 , 111, 1) 30%, rgba(247, 220 , 111, 0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
+  background: -moz-linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
+  background: -o-linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
+  background: linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
+  background-size: 300%;
+  -webkit-transition:.7s;  
+  -moz-transition:.7s;  
+  -o-transition:.7s;  
+  transition:.7s;  
   font-family: 'Montserrat 400';
-  background-color:white;
-  color: black;
-  border-color: black !important;
+  color: #2a2e2e !important;
+  border-color: #2a2e2e !important;
 }
 
 .btn:hover{
-  background-color:black;
-  color: white !important;
+  background-position: right; 
 }
 
 .btn:focus, .btn:active {
   outline: none !important;
-  background-color: black;
-  color: white !important;
+  background-color: #2a2e2e;
+  color: #F8F9F9 !important;
   box-shadow: none !important;
 }
-
 
 @font-face {
   font-family: 'Playfair Display';
@@ -53,9 +61,11 @@
 
 h1{
   font-family: 'Montserrat 600'!important;
+  color: #2a2e2e !important;
 }
 h2{
   font-family: 'Montserrat 600'!important;
+  color: #2a2e2e !important;
 }
 
 

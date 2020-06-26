@@ -1,7 +1,7 @@
 <div id="backdrop"></div>
 <nav class="container">
 
-  <div class="navbar navbar-dark fixed-top">
+  <div class="navbar shadow-sm navbar-dark fixed-top">
     <a class="navbar-brand logoSite" [routerLink]="['/home']">
       <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50" class="">
     </a>
@@ -32,11 +32,11 @@
 
         <div *ngIf='authService.btnSemLogin()'>
           <li class="nav-item">
-            <a class="btn" data-toggle="modal" data-target="#modalLogin">Login</a>
+            <button class="btn transicao" data-toggle="modal" data-target="#modalLogin">Login</button>
           </li>
 
           <li class="nav-item ">
-            <a class="btn" data-toggle="modal" data-target="#modalCadastro">Cadastro</a>
+            <button class="btn" data-toggle="modal" data-target="#modalCadastro">Cadastro</button>
           </li>
         </div>
 
