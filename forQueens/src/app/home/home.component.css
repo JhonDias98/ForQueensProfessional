@@ -191,7 +191,22 @@ header.container-fluid {
 }
 
 .carousel-control-prev{
-  height: 30px !important;
+  margin-left: 3%;
+}
+
+.carousel-control-next{
+  margin-right: 3%;
+}
+
+.carousel-control-prev,.carousel-control-next{
+  height: 40px !important;
+  margin-top: 45vh;
+  background-color: #424949;
+  border-radius: 40px;
+  width: 40px;
+}
+.carousel-control-prev-icon{
+  color: black;
 }
 
 .card{
@@ -323,9 +338,6 @@ h1 {
   .descricao{
     display: none
   }
-  .card{
-    height: 400px;
-  }
   .left{
     margin-right: 130px;
   }
@@ -344,9 +356,6 @@ h1 {
 @media (max-width: 767px) {
   img.produto {
     height: 180px;
-  }
-  .card{
-    height: 360px;
   }
   h3{
     font-size: 25px;
@@ -377,12 +386,6 @@ h1 {
   h1{
     font-size: 30px;
   }
-  .cards_desktop{
-    display: none;
-  }
-  .cards_mobile{
-    display: block;
-  }
   .banner {
     height: 30vh;
   }
@@ -407,10 +410,6 @@ h1 {
   .distribuidor{
     margin-left: 4.16%;
   }
-  .cardProduto{
-    padding-top: 50px;
-  }
-
   .product-new-label{
     margin-top: -50px;
   }
