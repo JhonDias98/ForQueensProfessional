@@ -205,12 +205,13 @@ header.container-fluid {
   border-radius: 40px;
   width: 40px;
 }
-.carousel-control-prev-icon{
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
   color: black;
 }
 
 .card{
-  height: 40vh;
+  /* height: 40vh; */
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
@@ -228,6 +229,7 @@ header.container-fluid {
 .carousel-banner{
   padding-left: 30px;
 }
+
 
 /* carousel fim */
 
@@ -429,25 +431,7 @@ h1 {
   .carousel-control-prev-icon:after{
     font-size: 40px;
   }
-  .cardProduto{
-    padding-top: 0px;
-  }
   .product-new-label{
     margin-top: 0px;
   }
 }
-
-
-@media (max-width: 375px) {
-  .carousel-control-next-icon:after{
-    font-size: 35px;
-    }
-  .carousel-control-prev-icon:after{
-    font-size: 35px;
-  }
-  .cardProduto{
-    width: 80%;
-    margin-left: 10%;
-  }
-}
-
