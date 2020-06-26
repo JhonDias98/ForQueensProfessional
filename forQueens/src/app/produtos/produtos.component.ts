@@ -16,20 +16,26 @@ export class ProdutosComponent implements OnInit {
   faShoppingCart = faShoppingCart
 
   listaCategoria: Categoria[];
+  categoria: Categoria = new Categoria()
 
   listaProduto: Produto[];
-  produto: Produto = new Produto
+  produto: Produto = new Produto()
 
 
   constructor(private categoriaService: CategoriaService, private produtoService: ProdutoService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     window.scroll(0, 0)
 
-    this.findAllCategoria
-  
+    this.findAllCategoria()
+    this.getAllProdutos()
   }
 
+  getAllProdutos() {
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+    })
+  }
 
   produtoId(id: number) {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
@@ -47,8 +53,8 @@ export class ProdutosComponent implements OnInit {
   }
 
   categoriaId(id: number) {
-    this.categoriaService.getByIdCategoria(id).subscribe((resp: Categoria[]) => {
-      this.listaCategoria = resp
+    this.categoriaService.getByIdCategoria(id).subscribe((resp: Produto) => {
+      this.produto = resp
     }, err => {
       console.log(`Erro: ${err.status}, ocorreu um erro na busca do id da categoria`)
     })

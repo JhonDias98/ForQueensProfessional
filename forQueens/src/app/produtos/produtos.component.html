@@ -1,6 +1,8 @@
 <main class="fundo">
 
-  <div class="parallax"></div>
+  <div>
+    <img src="../../assets/img/pagina_home/banner.png" style="width: 100%;" alt="">
+  </div>
 
   <div class="produtos container mb-3 mt-3">
 
@@ -15,10 +17,10 @@
 
             <li>
               <a id="todos" class="list-group-item  bg-active" (click)="escolhaTodos()"> Todos
-                 </a>
+              </a>
             </li>
             <li>
-              <a id="botox" class="list-group-item" (click)="escolhaBotox()">Botox</a>
+              <a id="botox" class="list-group-item" (click)="categoriaId(1)" (click)="escolhaBotox()">Botox</a>
             </li>
             <li>
               <a id="hidratante" class="list-group-item" (click)="escolhaHidratante()">Hidratante</a>
@@ -30,140 +32,16 @@
         </div>
       </div>
 
-      <!-- Modal Produto -->
-
-      <!-- Este modal de produto será utilizado para fazer consumir a API -->
-
-      <!-- <div class="modal " id="modalProduto">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-      
-            <div class="modal-body">
-      
-      
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" class="card-img mt-4"
-                    alt="Produto do site">
-                </div>
-      
-                <div class="col-md-8">
-      
-                  <div class="card-body">
-                    <h5 class="card-title">{{produto.nomeProduto}}</h5>
-                    <p class="card-text"><strong>Categoria:</strong>{{produto.categoria.descricao}}</p>
-                    <p class="card-text"><strong>Descrição:</strong> {{produto.descricao}}
-                    </p>
-                    <span class="textoCinza">Em estoque</span>
-                    <p><strong>Preço:</strong>{{produto.valor}}</p>
-      
-                    <div class="row">
-                      <div class="col-3">
-                        <button class="btn mr-4">COMPRAR</button>
-                      </div>
-                      <div class="col-1"></div>
-                      <div class="col-8">
-                        <button class="btn">ADICIONAR AO CARRINHO</button>
-                      </div>
-                    </div>
-      
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
-      <div class="modal " id="modalProduto">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-
-            <div class="modal-body">
-
-
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" class="card-img mt-4"
-                    alt="Produto do site">
-                </div>
-
-                <div class="col-md-8">
-
-                  <div class="card-body">
-                    <h5 class="card-title">PLATINUN BLOND</h5>
-                    <p class="card-text"><strong>Categoria:</strong> Botox</p>
-                    <p class="card-text"><strong>Descrição:</strong> Desenvolvidos com complexo Nanotecnológicos de ativos reconstrutores e matizadores que reestruturam, alinham e
-                    fortalecem os cabelos penetrando e preenchendo as falhas do cimento intercelular e das fibrilas do Córtex.
-                    </p>
-                    <span class="textoCinza">Em estoque</span>
-                    <p><strong>Preço:</strong> R$100.00</p>
-
-                    <div class="row">
-                      <div class="col-3">
-                        <button class="btn mr-4">COMPRAR</button>
-                      </div>
-                      <div class="col-1"></div>
-                      <div class="col-8">
-                        <button class="btn">ADICIONAR AO CARRINHO</button>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <!----------------- CATEGORIA 1  ---------------->
       <div id="produtoTodos" class="col-lg-9 col-md-12">
 
-        
-
         <div class="row">
-
-          <!-- Este card será usado para consumir a API -->
-
-          <!-- <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let categoria of listaCategoria">
-            <div class="product-grid3 cardProduto">
-              <div (click)="produtoId(categoria.produto.codigoProduto)" data-toggle="modal" data-target="#modalProduto" class="product-image3">
-                <a>
-                  <img class="pic-1" src="{{categoria.produto.urlImage}}">
-                  <img class="pic-2" src="{{categoria.produto.urlImage}}">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a>
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">{{categoria.produto.nomeProduto}}</a></h3>
-                <div class="price">
-                  {{categoria.produto.valor}}
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
+          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let card of listaProduto">
+            <div class="product-grid3 cardProduto" (click)='produtoId(card.codigoProduto)'>
               <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
                 <a>
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
+                  <img class="pic-1 imgProduto" src="{{card.urlImage}}">
+                  <img class="pic-2 imgProduto" src="{{card.urlImage}}">
                 </a>
                 <ul class="social">
                   <li>
@@ -177,115 +55,48 @@
                     </a>
                   </li>
                 </ul>
-                <span class="product-new-label">New</span>
               </div>
               <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
+                <h3 class="title"><a href="#">{{card.nomeProduto}}</a></h3>
                 <div class="price">
-                  R$100.00
-                  <span>RS150.00</span>
+                  R${{card.valor}}
+                  <span>{{card.categoria.descricao}}</span>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-
       </div>
 
+      <div class="modal " id="modalProduto" *ngFor="let modal of listaProduto">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="{{produto.urlImage}}" class="card-img mt-4" alt="Produto do site">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                    <p class="card-text"><strong>Categoria: </strong>{{produto.categoria.descricao}}</p>
+                    <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
+                    </p>
+                    <p><strong>Preço: </strong>{{produto.valor}}</p>
+
+                    <div class="row">
+                      <div class="col-8">
+                        <button class="btn">ADICIONAR AO CARRINHO</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!----------------- CATEGORIA 2  ---------------->
       <div id="produtoBotox" class="col-lg-9 col-md-12">
@@ -321,72 +132,7 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
         </div>
-
       </div>
 
 
@@ -424,110 +170,13 @@
               </div>
             </div>
           </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
         </div>
-
       </div>
 
 
       <!----------------- CATEGORIA 4  ---------------->
       <div id="produtoMascara" class="col-lg-9 col-md-12">
         <div class="row">
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div class="col-md-4 col-sm-6 col-6 mb-3">
             <div class="product-grid3 cardProduto">
