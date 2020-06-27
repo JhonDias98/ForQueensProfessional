@@ -1,15 +1,12 @@
 <div id="backdrop"></div>
 <nav class="container">
-
   <div class="navbar shadow-sm navbar-dark fixed-top">
     <a class="navbar-brand logoSite" [routerLink]="['/home']">
-      <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50" class="">
+      <img class="logo" src="../../assets/img/logo oficial.png" alt="logo do site" height="50">
     </a>
-
     <button type="button" class="navbar-toggler d-lg-none d-md-none humburger">
       <img src="../../assets/img/hamburger.png" class="humburger" alt="Menu">
     </button>
-
     <div class="d-flex justify-content-start desktop">
       <ul class="d-none d-lg-block d-md-block navbar-nav mr-auto ">
         <li class="nav-item">
@@ -26,20 +23,16 @@
         </li>
       </ul>
     </div>
-
     <div class="desktop">
       <ul class=" nav d-none d-lg-block d-md-block navbar-nav">
-
         <div *ngIf='authService.btnSemLogin()'>
           <li class="nav-item">
             <button class="btn transicao" data-toggle="modal" data-target="#modalLogin">Login</button>
           </li>
-
           <li class="nav-item ">
             <button class="btn" data-toggle="modal" data-target="#modalCadastro">Cadastro</button>
           </li>
         </div>
-
         <div *ngIf='authService.btnComLogin()'>
           <li class="nav-item ">
             <a class="btn" (click)='sair()'>{{pegarPrimeiroNome(nomeUser)}}</a>
@@ -50,7 +43,6 @@
         </div>
       </ul>
     </div>
-
     <ul class="list-unstyled font-weight-bold sidebar">
       <li class="divider"></li>
       <div *ngIf='authService.btnComLogin()'>
@@ -77,19 +69,16 @@
         <a class="text-reset" [routerLink]="['/sobrenos']">Sobre</a>
       </li>
       </a>
-
       <div *ngIf='authService.btnSemLogin()'>
         <li class="nav-item" data-toggle="modal" data-target="#modalLogin">
           <a class="text-reset" href="">Login</a>
         </li>
       </div>
-
       <div *ngIf='authService.btnSemLogin()'>
           <li class="nav-item" data-toggle="modal" data-target="#modalCadastro">
             <a class="text-reset" href="">Cadastro</a>
           </li>
       </div>
-
       <div *ngIf='authService.btnComLogin()'>
         <li class="nav-item">
           <a class="text-reset" href="">Sair</a>
@@ -98,27 +87,24 @@
     </ul>
   </div>
 </nav>
-
 <!-- Modal Login -->
 <div class="modal" id="modalLogin">
   <div class="modal-dialog">
     <div class="modal-content">
-
       <div class="modal-header">
         <div class="modal-title">
           <h5>Fazer Login</h5>
         </div>
       </div>
-
       <div class="modal-body">
         <div>
           <div class="form-group">
-            <label for="emailLogin">E-mail</label>
+            <label>E-mail</label>
             <input type="email" class="form-control" id="emailLoign" aria-describedby="emailHelp"
               [(ngModel)]='userLogin.usuario'>
           </div>
           <div class="form-group">
-            <label for="passwordLogin">Senha</label>
+            <label>Senha</label>
             <input type="password" class="form-control" id="passwordLogin" [(ngModel)]='userLogin.senha'>
           </div>
           <div class="d-flex justify-content-end">
@@ -130,24 +116,18 @@
     </div>
   </div>
 </div>
-
-
 <!-- Modal cadastro -->
 <div class="modal" id="modalCadastro">
   <div class="modal-dialog">
     <div class="modal-content">
-
       <div class="modal-header">
         <div class="modal-title">
-          <h3 style="text-align: center;">CRIE SUA CONTA</h3>
+          <h3>CRIE SUA CONTA</h3>
         </div>
       </div>
-
       <div class="modal-body">
-
         <div id="cadastro" class="container">
           <div class="caixa_cadastro">
-
             <div id="form_cadastro">
               <div class="form-group">
                 <label>E-mail</label>
@@ -156,9 +136,7 @@
                 <span id="erro_email">O email deve ser válido!</span>
                 <span id="vazio_email"> Campo obrigatório! </span>
               </div>
-
               <h3 style="text-align: center;">Tipo de Conta</h3>
-
               <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
                 <label class="botao_cadastro btn btn-secondary active">
                   <input (click)="cpf()" type="radio" id="pf" value="pf" checked>Pessoa Física
@@ -167,12 +145,9 @@
                   <input (click)="cnpj()" type="radio" id="pj" value="pj">Pessoa Jurídica
                 </label>
               </div>
-
               <!-- Dados conta PJ -->
               <div id="cnpj" class="caixa_cadastro mt-3">
                 <h3>Dados da empresa</h3>
-
-
                 <div>
                   <label>CNPJ</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj"
@@ -180,28 +155,24 @@
                   <span id="erro_cnpj"> O cnpj deve ser válido! </span>
                   <span id="vazio_cnpj"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Razão social</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial"
                     [(ngModel)]="data.razao_social" id="razaoSocial">
                   <span id="vazio_razaoSocial"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Nome comercial</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial"
                     [(ngModel)]="data.nome_comercial" id="nomeComercial">
                   <span id="vazio_nomeComercial"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Inscrição estadual</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual"
                     [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
                   <span id="vazio_inscricaoEstadual"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Telefone Comercial</label>
                   <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial"
@@ -210,11 +181,9 @@
                 </div>
               </div>
               <!-- Fim dos Dados PJ -->
-
               <!-- Dados conta PF -->
               <div class="caixa_cadastro mt-3">
                 <h3>Dados pessoais</h3>
-
                 <div id="cpf">
                   <label>CPF</label>
                   <input type="text" class="form-control" [(ngModel)]="user.cpf" [(ngModel)]="data.cpf" id="cadastroPF"
@@ -222,7 +191,6 @@
                   <span id="erro_cpf">O cpf deve ser válido!</span>
                   <span id="vazio_cpf"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Nome completo</label>
                   <input type="text" class="form-control" [(ngModel)]="user.nome" [(ngModel)]="empresa.nomeComprador"
@@ -230,14 +198,12 @@
                   <span id="erro_nome">O nome deve ser completo!</span>
                   <span id="vazio_nome"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Celular</label>
                   <input id="celular" type="text" class="form-control" [(ngModel)]="user.celular"
                     [(ngModel)]="data.celular" mask="(00)00000-0000">
                   <span id="erro_celular">O celular deve ser válido!</span>
                 </div>
-
                 <div id="nascimento">
                   <label>Data de nascimento</label>
                   <input type="text" class="form-control" [(ngModel)]="user.dataNascimento"
@@ -245,7 +211,6 @@
                   <span id="vazio_dataNascimento"> Campo obrigatório! </span>
                   <span id="erro_dataNascimento">A data de nascimento deve ser válida!</span>
                 </div>
-
                 <div>
                   <label>Senha</label>
                   <input type="password" class="form-control" [(ngModel)]="user.senha" [(ngModel)]="empresa.senha"
@@ -253,7 +218,6 @@
                   <span id="erro_senha"> A senha deve ter no mínimo 6 carácteres! </span>
                   <span id="vazio_senha"> Campo obrigatório! </span>
                 </div>
-
                 <div>
                   <label>Confirme a senha</label>
                   <input type="password" class="form-control" id="confirmaSenha" [(ngModel)]="data.senha_confirma">
