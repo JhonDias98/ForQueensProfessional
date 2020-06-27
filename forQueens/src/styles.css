@@ -12,22 +12,23 @@
 }
 
 .btn{
-  background: -webkit-linear-gradient(to right, rgba(247, 220 , 111, 1) 30%, rgba(247, 220 , 111, 0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
-  background: -moz-linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
-  background: -o-linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
-  background: linear-gradient(to right, rgba(247, 220 , 111,1)30%, rgba(247, 220 , 111,0.85) 60%, rgba(247, 220 , 111,0.5)90%);  
+  background: -webkit-linear-gradient(150deg, rgba(42, 42,46, 0.9) 20%, rgba(42, 42 , 46, 0.4) 50%, rgba(42, 46 ,46,0)80%);  
+  background: -moz-linear-gradient(150deg, rgba(42, 42,46,0.9) 20%, rgba(42, 42,46,0.4) 50%, rgba(42, 42,46,0) 80%);  
+  background: -o-linear-gradient(150deg, rgba(42, 42,46,0.9)20%, rgba(42, 42,46,0.4) 50%, rgba(42, 42,46 ,0) 80%);  
+  background: linear-gradient(150deg, rgba(42, 42,46,0.9)20%, rgba(42, 42,46,0.4) 50%, rgba(42, 42,46 ,0) 80%);  
   background-size: 300%;
-  -webkit-transition:.7s;  
-  -moz-transition:.7s;  
-  -o-transition:.7s;  
-  transition:.7s;  
+  -webkit-transition:.5s;  
+  -moz-transition:.5s;  
+  -o-transition:.5s;  
+  transition:.5s;  
   font-family: 'Montserrat 400';
-  color: #2a2e2e !important;
-  border-color: #2a2e2e !important;
+  color: white !important;
+  border-color: #2e2e2e !important;
 }
 
 .btn:hover{
-  background-position: right; 
+  background-position: right;
+  color: black !important;
 }
 
 .btn:focus, .btn:active {
