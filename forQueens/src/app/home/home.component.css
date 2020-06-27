@@ -117,10 +117,6 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e") !important;
 }
 
-.instagram_mobile{
-  display: none;
-}
-
 .titlebar {
   overflow: hidden;
 }
@@ -142,8 +138,16 @@ body {
   margin-right: 0;
 }
 
-.carrouselSlide:hover{
-  border-bottom: 2px solid rgba(247, 220 , 111, 1);
+.imagem_carrossel_intagram{
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 90% !important;
+  transition: 1s;
+}
+.imagem_carrossel_intagram:hover{
+  width: 100% !important;
+  margin-left: 0% !important;
+  margin-top: 0%;
 }
 
 /* Fim Carrossel Instagram */
@@ -174,18 +178,18 @@ body {
   background-color: rgba(244,244,240);
   border-radius: .1rem !important;
   padding: 10px;
-  margin: 0 10%;
+  margin: 0 7%;
 }
 
 .cor2 {
   color: #424949;
   border-radius: .1rem !important;
   padding: 10px;
-  margin: 0 10%;
+  margin: 0 7%;
 }
 
 .margin_botao_distribuidor{
-  margin-top: 39px;
+  margin-top: 25px;
 }
 
 [data-anime] {
