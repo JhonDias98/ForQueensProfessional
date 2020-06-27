@@ -1,3 +1,24 @@
+* {
+  text-align: justify;
+}
+
+h1 { 
+  font-weight: bold;
+  font-weight: bold;
+ }
+
+ h3 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+body {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* navbar-mobile */
+
 .sidebar-widget-1 .list-group-item {
   padding: 15px;
   text-decoration: none;
@@ -15,107 +36,79 @@
   color: #F8F9F9;
 }
 
-* {
-  text-align: justify;
+/* fim-navbar-mobile */
+
+/* carousel banner */
+
+.carousel{
+  margin-bottom: 5vh;
 }
-body {
+
+.carousel-control-prev{
+  margin-left: 3%;
+}
+
+.carousel-control-next{
+  margin-right: 3%;
+}
+
+.carousel-control-prev,.carousel-control-next{
+  height: 40px !important;
+  margin-top: 37.5vh;
+  background-color: #424949;
+  border-radius: 40px;
+  width: 40px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  color: black;
+}
+
+.card{
+  height: 35vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.card-body{
+  height: 8vh;
+  padding: 10px !important;
+}
+
+.card-title{
   font-size: 16px;
-  letter-spacing: 0.5px;
-}
-/* ------------------------------------------------- */
-
-.product-grid3 {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  background-color: white;
 }
 
-.product-grid3:before {
-  content: "";
-  height: 81%;
+.card-img-top{
+  height: 23vh;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.card-banner{
+  padding-top: 20px;
+}
+
+.carousel-banner{
+  padding-left: 30px;
+}
+
+.img_carrossel_banner{
+  height: 80vh !important;
+  padding: 4vh;
   width: 100%;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.5s ease 0s;
-}
-
-.product-grid3:hover:before {
-  opacity: 1;
-  height: 100%;
-}
-
-.product-grid3 .product-image3 {
-  position: relative;
-}
-
-.product-grid3 .product-image3 a {
-  display: block;
-}
-
-.product-grid3 .product-image3 img {
-  width: 100%;
-  height:38vh;
-}
-
-.product-grid3 .pic-1 {
-  padding: 10%;
-  opacity: 1;
-  transition: all 0.5s ease-out 0s;
-}
-
-.product-grid3:hover .pic-1 {
-  opacity: 0;
-}
-
-.product-grid3 .pic-2 {
-  padding: 10%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: all 0.5s ease-out 0s;
-}
-
-.product-grid3:hover .pic-2 {
-  opacity: 1;
-}
-/* -------------------------------- */
-
-h1 { 
-  font-weight: bold;
   
- }
-
- h3 {
-  font-weight: bold;
-}
-
-.modal {
-  margin-top: 120px;
-}
-
-.textoCinza {
-  color: #B2BABB;
-  font-size: 22px;
-}
-
-header.container-fluid {
-  padding: 0;
 }
 
 .banner {
   width: 100%;
-  height: 92.5vh !important;
+  height: 80vh !important;
   border-radius: 2px;
 }
+
+/* carousel banner fim */
 
 /* Carrosel Instagran */
 .seta_anterior_instagram{
@@ -156,94 +149,16 @@ header.container-fluid {
 
 /* Fim Carrossel Instagram */
 
-
-/* carousel inicio */
-
-.carousel{
-  margin-bottom: 5vh;
-}
-
-.carousel-control-prev{
-  margin-left: 3%;
-}
-
-.carousel-control-next{
-  margin-right: 3%;
-}
-
-.carousel-control-prev,.carousel-control-next{
-  height: 40px !important;
-  margin-top: 44vh;
-  background-color: #424949;
-  border-radius: 40px;
-  width: 40px;
-}
-
-.carousel-control-prev-icon, .carousel-control-next-icon{
-  color: black;
-}
-
-.card{
-  height: 40vh;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-}
-
-.card-body{
-  height: 10vh;
-}
-
-.card-title{
-  font-size: 16px;
-}
-
-.card-img-top{
-  height: 25vh;
-  width: 80%;
-  margin-left: 10%;
-}
-
-.gold_shampoo{
-  padding: 25px 60px;
-}
-
-.card-banner{
-  padding-top: 20px;
-}
-
-.carousel-banner{
-  padding-left: 30px;
-}
-
-
-/* carousel fim */
-
-.left{
-  margin-right: 250px;
-}
-
-.right{
-  margin-left: 250px;
-}
-
-.linha {
-  color: #B2BABB;
-  font-size: 22px;
-}
-
-.produto{
-  width:100%
-}
-
-.parallax {
+/* .parallax {
   background-image: url('../../assets/img/modelos/mod-row2.jpeg');
   min-height: 400px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
+/* seja um distribuidor */
 .div_distribuidor{
   width: 100%;
 }
@@ -292,130 +207,27 @@ header.container-fluid {
   transform: translate3d(0px, 0px, 0px);
 }
 
-h1 { 
-  font-weight: bold;
- }
+/* seja um distribuidor fim */
 
- h3 {
-  font-size: 30px;
+/* ajustes imagens cards */
+
+#gold_mascara{
+  padding: 0px;
+}
+#gold_shampoo{
+  padding: 18px 60px;
+}
+#gold_hidratante{
+  padding: 0px;
+}
+#gold_kit{
+  padding: 20px;
+}
+#qq_shampoo{
+  padding: 18px 60px;
+}
+#qq_kit{
+  padding: 15px;
 }
 
-@media (max-width: 1200px) {
-  .left{
-    margin-right: 190px;
-  }
-  
-  .right{
-    margin-left: 190px;
-  }
-  .animacao{
-    font-size: 14px;
-  }
-}
-
-
-
-@media (max-width: 991px) {
-  h1{
-    font-size: 35px;
-  }
-  h3{
-    font-size: 23px;
-  }
-  .linha{
-    font-size: 20px;
-  }
-  .descricao{
-    display: none
-  }
-  .left{
-    margin-right: 130px;
-  }
-  .modeloDistr{
-    display: none;
-  }
-  .product-grid3 .product-image3 img {
-    height:300px;
-  }  
-  .right{
-    margin-left: 130px;
-  }
-}
-
-
-@media (max-width: 767px) {
-  img.produto {
-    height: 180px;
-  }
-  h3{
-    font-size: 25px;
-  }
-  .linha{
-    font-size: 18px;
-  }
-  .banner {
-    height: 40vh;
-  }
-  .left{
-    margin-right: 80px;
-  }
-  .product-grid3 .product-image3 img {
-    height:200px;
-  }
-
-  .lancamento{
-    padding: 0 8px;
-  }
-  
-  .right{
-    margin-left: 85px;
-  }
-
-}
-@media (max-width: 576px) {
-  h1{
-    font-size: 30px;
-  }
-  .banner {
-    height: 30vh;
-  }
-  .instagram_mobile{
-    display: block;
-  }
-  .arrival-product .arrival-item ul li {
-    width: 46%;
-    margin-right: 2%;
-    margin-left: 2%;
-  }
-  .left{
-    margin-right: 0%;
-  }
-
-  .product-grid3 .product-image3 img {
-    margin-left: 10%;
-    width: 80%;
-    height:300px;
-  }
-  .product-new-label{
-    margin-top: -50px;
-  }
-
-  .right{
-    margin-left: 0%;
-  }
-}
-
-@media (max-width: 450px) {
-  h1{
-    font-size: 25px;
-  }
-  .carousel-control-next-icon:after{
-  font-size: 40px;
-  }
-  .carousel-control-prev-icon:after{
-    font-size: 40px;
-  }
-  .product-new-label{
-    margin-top: 0px;
-  }
-}
+/* fim ajustes imagens cards */
