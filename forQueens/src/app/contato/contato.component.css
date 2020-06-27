@@ -17,7 +17,7 @@ h2 {
 .icone_contato {
     padding: 9px;
     background: transparent;
-    color: #ffde59;
+    color: black;
     min-width: 50px;
     text-align: center;
 }
@@ -28,11 +28,11 @@ input:focus, select:focus, textarea:focus {
 }
 
 .caixa_mensagem{
-    border: 2px solid rgb(169, 169, 169);;
+    border: 1.5px solid rgb(169, 169, 169);;
 }
 
 .caixa_mensagem:focus{
-    border: 2px solid rgb(255, 204, 0);
+    border: 1.5px solid black;
     box-shadow: none;
 }
 
