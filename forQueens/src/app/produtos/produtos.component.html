@@ -10,38 +10,42 @@
     <hr class="mb-4 pb-5">
 
     <div class="row">
-
+      <!-- Categorias -->
       <div class="col-lg-3 col-md-12">
         <div class="list-group-hover sidebar-widget-1">
           <ul class="list-unstyled">
-
             <li>
-              <a id="todos" class="list-group-item  bg-active" (click)="escolhaTodos()"> Todos
-              </a>
+              <a class="list-group-item botox bg-active" (click)="getBotox()">Botox</a>
             </li>
             <li>
-              <a id="botox" class="list-group-item" (click)="categoriaId(1)" (click)="escolhaBotox()">Botox</a>
+              <a class="list-group-item hidratante" (click)="getHidratante()">Hidratante</a>
             </li>
             <li>
-              <a id="hidratante" class="list-group-item" (click)="escolhaHidratante()">Hidratante</a>
+              <a class="list-group-item mascara" (click)="getMascara()">Máscara</a>
             </li>
             <li>
-              <a id="mascara" class="list-group-item" (click)="escolhaMascara()">Máscara</a>
+              <a class="list-group-item reconstrutor" (click)="getReconstrutor()">Reconstrutor</a>
+            </li>
+            <li>
+              <a class="list-group-item shampoo" (click)="getShampoo()">Shampoo</a>
+            </li>
+            <li>
+              <a class="list-group-item kit" (click)="getKit()">Kits</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <!----------------- CATEGORIA 1  ---------------->
-      <div id="produtoTodos" class="col-lg-9 col-md-12">
-
+      
+      <div class="col-lg-9 col-md-12">
         <div class="row">
-          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let card of listaProduto">
-            <div class="product-grid3 cardProduto" (click)='produtoId(card.codigoProduto)'>
-              <div data-toggle="modal" data-target="#modalProduto" class="product-image3">
+          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let categoria of listaCategoria">
+            <div class="product-grid3 cardProduto" *ngFor="let produto of categoria.produto"
+              (click)='produtoId(produto.codigoProduto)'>
+              <div class="product-image3" data-toggle="modal" data-target="#modalProduto">
                 <a>
-                  <img class="pic-1 imgProduto" src="{{card.urlImage}}">
-                  <img class="pic-2 imgProduto" src="{{card.urlImage}}">
+                  <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                  <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                 </a>
                 <ul class="social">
                   <li>
@@ -57,153 +61,38 @@
                 </ul>
               </div>
               <div class="product-content">
-                <h3 class="title"><a href="#">{{card.nomeProduto}}</a></h3>
+                <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
                 <div class="price">
-                  R${{card.valor}}
-                  <span>{{card.categoria.descricao}}</span>
+                  {{produto.valor}}
+                  <span>{{categoria.descricao}}</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="modal " id="modalProduto" *ngFor="let modal of listaProduto">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img src="{{produto.urlImage}}" class="card-img mt-4" alt="Produto do site">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">{{produto.nomeProduto}}</h5>
-                    <p class="card-text"><strong>Categoria: </strong>{{produto.categoria.descricao}}</p>
-                    <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
-                    </p>
-                    <p><strong>Preço: </strong>{{produto.valor}}</p>
-
-                    <div class="row">
-                      <div class="col-8">
-                        <button class="btn">ADICIONAR AO CARRINHO</button>
+          <div class="modal " id="modalProduto" *ngFor="let modal of listaProduto">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="{{modal.urlImage}}" class="card-img mt-4" alt="Produto do site">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{modal.nomeProduto}}</h5>
+                        <p class="card-text"><strong>Categoria: </strong>{{modal.categoria.descricao}}</p>
+                        <p class="card-text"><strong>Descrição: </strong> {{modal.descricao}}
+                        </p>
+                        <p><strong>Preço: </strong>{{modal.valor}}</p>
+                        <div class="row">
+                          <div class="col-8">
+                            <button class="btn">ADICIONAR AO CARRINHO</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!----------------- CATEGORIA 2  ---------------->
-      <div id="produtoBotox" class="col-lg-9 col-md-12">
-        <div class="row">
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!----------------- CATEGORIA 3  ---------------->
-      <div id="produtoHidratante" class="col-lg-9 col-md-12">
-        <div class="row">
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!----------------- CATEGORIA 4  ---------------->
-      <div id="produtoMascara" class="col-lg-9 col-md-12">
-        <div class="row">
-
-          <div class="col-md-4 col-sm-6 col-6 mb-3">
-            <div class="product-grid3 cardProduto">
-              <div class="product-image3">
-                <a href="#">
-                  <img class="pic-1" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                  <img class="pic-2" src="../../assets/img/pagina_home/produtos/Botox Platinum.png">
-                </a>
-                <ul class="social">
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                </ul>
-                <span class="product-new-label">New</span>
-              </div>
-              <div class="product-content">
-                <h3 class="title"><a href="#">PLATINUN BLOND</a></h3>
-                <div class="price">
-                  R$75.00
-                  <span>RS100.00</span>
                 </div>
               </div>
             </div>

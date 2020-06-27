@@ -173,6 +173,7 @@ h1 {
   top: 10px;
   transition: all 0.3s;
 }
+
 .product-grid3 .product-content {
   z-index: -1;
   padding: 15px;
@@ -237,12 +238,6 @@ h1 {
 
 .card-img {
   height: 320px;
-}
-
-#produtoBotox,
-#produtoHidratante,
-#produtoMascara {
-  display: none;
 }
 
 .modal {

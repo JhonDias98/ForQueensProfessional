@@ -16,33 +16,30 @@ export class ProdutosComponent implements OnInit {
   faShoppingCart = faShoppingCart
 
   listaCategoria: Categoria[];
-  categoria: Categoria = new Categoria()
-
   listaProduto: Produto[];
-  produto: Produto = new Produto()
+  produto: Produto = new Produto();
 
+  descricaoC: string
 
   constructor(private categoriaService: CategoriaService, private produtoService: ProdutoService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     window.scroll(0, 0)
 
-    this.findAllCategoria()
-    this.getAllProdutos()
-  }
-
-  getAllProdutos() {
-    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-    })
+    this.getBotox()
   }
 
   produtoId(id: number) {
-    this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
-      this.produto = resp
-    }, err => {
-      console.log(`Erro: ${err.status}, ocorreu um erro na busca pelo id do produto`)
-    })
+    this.produtoService.getByIdProduto(id).subscribe(
+      (resp: Produto) => {
+        this.produto = resp;
+      },
+      (err) => {
+        console.log(
+          `Erro: ${err.status}, ocorreu um erro na busca pelo id do produto`
+        );
+      }
+    );
   }
 
   findAllCategoria() {
@@ -52,128 +49,178 @@ export class ProdutosComponent implements OnInit {
     })
   }
 
-  categoriaId(id: number) {
-    this.categoriaService.getByIdCategoria(id).subscribe((resp: Produto) => {
-      this.produto = resp
+  getBotox() {
+    this.descricaoC = "Botox"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
     }, err => {
-      console.log(`Erro: ${err.status}, ocorreu um erro na busca do id da categoria`)
+      console.log(err)
     })
+
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
+    } else {
+
+      botox.classList.add(categoriaAtiva);
+      hidratante.classList.remove(categoriaAtiva);
+      mascara.classList.remove(categoriaAtiva);
+      reconstrutor.classList.remove(categoriaAtiva);
+      shampoo.classList.remove(categoriaAtiva);
+      kit.classList.remove(categoriaAtiva);
+    }
+    
   }
 
-  escolhaTodos() {
-    const todos = document.querySelector("#todos")
-    const botox = document.querySelector("#botox")
-    const hidratante = document.querySelector("#hidratante")
-    const mascara = document.querySelector("#mascara")
+  getHidratante() {
+    this.descricaoC = "Hidratante"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    }, err => {
+      console.log(err)
+    })
 
-    const produtoTodos = document.getElementById("produtoTodos")
-    const produtoBotox = document.getElementById("produtoBotox")
-    const produtoHidratante = document.getElementById("produtoHidratante")
-    const produtoMascara = document.getElementById("produtoMascara")
-
-    const catEscolhida = 'bg-active';
-
-    if (todos.classList.contains(catEscolhida)) {
-      todos.classList.remove(catEscolhida)
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
     } else {
-      todos.classList.add(catEscolhida)
-      botox.classList.remove(catEscolhida)
-      hidratante.classList.remove(catEscolhida)
-      mascara.classList.remove(catEscolhida)
 
-      produtoTodos.style.display = "block"
-      produtoBotox.style.display = "none"
-      produtoHidratante.style.display = "none"
-      produtoMascara.style.display = "none"
+      botox.classList.remove(categoriaAtiva);
+      hidratante.classList.add(categoriaAtiva);
+      mascara.classList.remove(categoriaAtiva);
+      reconstrutor.classList.remove(categoriaAtiva);
+      shampoo.classList.remove(categoriaAtiva);
+      kit.classList.remove(categoriaAtiva);
     }
   }
 
+  getMascara() {
+    this.descricaoC = "Mascara"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    }, err => {
+      console.log(err)
+    })
 
-  escolhaBotox() {
-    this.categoriaId(1)
-    const todos = document.querySelector("#todos")
-    const botox = document.querySelector("#botox")
-    const hidratante = document.querySelector("#hidratante")
-    const mascara = document.querySelector("#mascara")
-
-    const produtoTodos = document.getElementById("produtoTodos")
-    const produtoBotox = document.getElementById("produtoBotox")
-    const produtoHidratante = document.getElementById("produtoHidratante")
-    const produtoMascara = document.getElementById("produtoMascara")
-
-    const catEscolhida = 'bg-active';
-
-    if (botox.classList.contains(catEscolhida)) {
-      botox.classList.remove(catEscolhida)
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
     } else {
-      todos.classList.remove(catEscolhida)
-      botox.classList.add(catEscolhida)
-      hidratante.classList.remove(catEscolhida)
-      mascara.classList.remove(catEscolhida)
 
-      produtoTodos.style.display = "none"
-      produtoBotox.style.display = "block"
-      produtoHidratante.style.display = "none"
-      produtoMascara.style.display = "none"
+      botox.classList.remove(categoriaAtiva);
+      hidratante.classList.remove(categoriaAtiva);
+      mascara.classList.add(categoriaAtiva);
+      reconstrutor.classList.remove(categoriaAtiva);
+      shampoo.classList.remove(categoriaAtiva);
+      kit.classList.remove(categoriaAtiva);
+    }
+  }
+  
+  getReconstrutor() {
+    this.descricaoC = "Reconstrutor"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    }, err => {
+      console.log(err)
+    })
+
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
+    } else {
+
+      botox.classList.remove(categoriaAtiva);
+      hidratante.classList.remove(categoriaAtiva);
+      mascara.classList.remove(categoriaAtiva);
+      reconstrutor.classList.add(categoriaAtiva);
+      shampoo.classList.remove(categoriaAtiva);
+      kit.classList.remove(categoriaAtiva);
     }
   }
 
-  escolhaHidratante() {
-    this.categoriaId(2)
-    const todos = document.querySelector("#todos")
-    const botox = document.querySelector("#botox")
-    const hidratante = document.querySelector("#hidratante")
-    const mascara = document.querySelector("#mascara")
+  getShampoo() {
+    this.descricaoC = "Shampoo"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    }, err => {
+      console.log(err)
+    })
 
-    const produtoTodos = document.getElementById("produtoTodos")
-    const produtoBotox = document.getElementById("produtoBotox")
-    const produtoHidratante = document.getElementById("produtoHidratante")
-    const produtoMascara = document.getElementById("produtoMascara")
-
-    const catEscolhida = 'bg-active';
-
-    if (hidratante.classList.contains(catEscolhida)) {
-      hidratante.classList.remove(catEscolhida)
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
     } else {
-      todos.classList.remove(catEscolhida)
-      botox.classList.remove(catEscolhida)
-      hidratante.classList.add(catEscolhida)
-      mascara.classList.remove(catEscolhida)
 
-      produtoTodos.style.display = "none"
-      produtoBotox.style.display = "none"
-      produtoHidratante.style.display = "block"
-      produtoMascara.style.display = "none"
+      botox.classList.remove(categoriaAtiva);
+      hidratante.classList.remove(categoriaAtiva);
+      mascara.classList.remove(categoriaAtiva);
+      reconstrutor.classList.remove(categoriaAtiva);
+      shampoo.classList.add(categoriaAtiva);
+      kit.classList.remove(categoriaAtiva);
     }
   }
 
-  escolhaMascara() {
-    this.categoriaId(3)
-    const todos = document.querySelector("#todos")
-    const botox = document.querySelector("#botox")
-    const hidratante = document.querySelector("#hidratante")
-    const mascara = document.querySelector("#mascara")
+  getKit() {
+    this.descricaoC = "Kit"
+    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
+      console.log(resp);
+      this.listaCategoria = resp;
+    }, err => {
+      console.log(err)
+    })
 
-    const produtoTodos = document.getElementById("produtoTodos")
-    const produtoBotox = document.getElementById("produtoBotox")
-    const produtoHidratante = document.getElementById("produtoHidratante")
-    const produtoMascara = document.getElementById("produtoMascara")
-
-    const catEscolhida = 'bg-active';
-
-    if (mascara.classList.contains(catEscolhida)) {
-      mascara.classList.remove(catEscolhida)
+    let botox = document.querySelector(".botox");
+    let hidratante = document.querySelector(".hidratante");
+    let mascara = document.querySelector(".mascara");
+    let reconstrutor = document.querySelector(".reconstrutor");
+    let shampoo = document.querySelector(".shampoo");
+    let kit = document.querySelector(".kit");
+    let categoriaAtiva = "bg-active"
+    if (mascara.classList.contains(categoriaAtiva)) {
+      mascara.classList.remove(categoriaAtiva);
     } else {
-      todos.classList.remove(catEscolhida)
-      botox.classList.remove(catEscolhida)
-      hidratante.classList.remove(catEscolhida)
-      mascara.classList.add(catEscolhida)
 
-      produtoTodos.style.display = "none"
-      produtoBotox.style.display = "none"
-      produtoHidratante.style.display = "none"
-      produtoMascara.style.display = "block"
+      botox.classList.remove(categoriaAtiva);
+      hidratante.classList.remove(categoriaAtiva);
+      mascara.classList.remove(categoriaAtiva);
+      reconstrutor.classList.remove(categoriaAtiva);
+      shampoo.classList.remove(categoriaAtiva);
+      kit.classList.add(categoriaAtiva);
     }
   }
-
 }

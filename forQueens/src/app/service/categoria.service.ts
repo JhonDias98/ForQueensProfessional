@@ -17,6 +17,10 @@ export class CategoriaService {
     return this.http.get(`http://localhost:8080/categorias/${codigoCategoria}`)
   }
 
+  findByName(descricao: string) {
+    return this.http.get(`http://localhost:8080/categorias/nome/${descricao}`)
+  }
+
   postCategoria(categoria: Categoria) {
     return this.http.post("http://localhost:8080/categorias", categoria)
   }

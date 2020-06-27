@@ -7,5 +7,5 @@ export class Produto {
   public descricao: string
   public valor: number
   public qtdEstoque: number
-  public categoria: Categoria
+  public categoria: Categoria[]
 }
