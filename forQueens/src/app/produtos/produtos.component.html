@@ -36,15 +36,15 @@
         </div>
       </div>
 
-      
+
       <div class="col-lg-9 col-md-12">
-        <div class="row">
-          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let categoria of listaCategoria">
-            <div class="product-grid3 cardProduto" *ngFor="let produto of categoria.produto"
-              (click)='produtoId(produto.codigoProduto)'>
-              <div class="product-image3" data-toggle="modal" data-target="#modalProduto">
+        <div class="row" *ngFor="let categoria of listaCategoria">
+          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
+            <div class="product-grid3 cardProduto ">
+              <div class="product-image3" data-toggle="modal" data-target="#modalProduto"
+                (click)='produtoId(produto.codigoProduto)'>
                 <a>
-                  <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                  <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
                   <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                 </a>
                 <ul class="social">
@@ -69,26 +69,26 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="modal " id="modalProduto" *ngFor="let modal of listaProduto">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <img src="{{modal.urlImage}}" class="card-img mt-4" alt="Produto do site">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">{{modal.nomeProduto}}</h5>
-                        <p class="card-text"><strong>Categoria: </strong>{{modal.categoria.descricao}}</p>
-                        <p class="card-text"><strong>Descrição: </strong> {{modal.descricao}}
-                        </p>
-                        <p><strong>Preço: </strong>{{modal.valor}}</p>
-                        <div class="row">
-                          <div class="col-8">
-                            <button class="btn">ADICIONAR AO CARRINHO</button>
-                          </div>
+        <div class="modal " id="modalProduto">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{produto.urlImage}}" class="card-img mt-4" alt="Produto do site">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                      <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
+                      <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
+                      </p>
+                      <p><strong>Preço: </strong>{{produto.valor}}</p>
+                      <div class="row">
+                        <div class="col-8">
+                          <button class="btn">ADICIONAR AO CARRINHO</button>
                         </div>
                       </div>
                     </div>
@@ -98,6 +98,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
