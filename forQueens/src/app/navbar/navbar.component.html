@@ -40,6 +40,16 @@
           <li class="nav-item ">
             <a class="btn" (click)='sair()'>Sair</a>
           </li>
+          <li>
+            <a routerLink="/pedido" class="row">
+            <fa-icon [icon]="faShoppingCart" class="fa fa-lg ml-3 mr-3 icones"></fa-icon>
+            <div>R{{ precoTotal | currency }}</div>
+          </a>
+          </li>
+          
+        </div>
+        <div>
+          
         </div>
       </ul>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PedidoService } from '../service/pedido.service';
-import { Pedido } from '../model/Pedido';
-import { Produto } from '../model/Produto';
+import { CarrinhoService } from '../service/carrinho.service';
+import { Carrinho } from '../model/Carrinho';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pedido',
@@ -10,26 +10,39 @@ import { Produto } from '../model/Produto';
 })
 export class PedidoComponent implements OnInit {
 
-  produto: Produto[]
-  pedido: Pedido = new Pedido
-  listaPedido: Pedido[]
+  faPlus = faPlus
+  faMinus = faMinus
 
-  constructor(private pedidoService: PedidoService) { }
+  carrinho: Carrinho[] = []
+  valorTotal: number = 0
+  quantidadeTotal: number = 0
+
+  constructor(private carrinhoService: CarrinhoService) { }
 
   ngOnInit() {
-    this.findAllPedido()
+    this.detalhesCarrinho()
+    window.scroll(0, 0)
   }
 
-  findAllPedido() {
-    this.pedidoService.getAllPedido().subscribe((resp: Pedido[]) => {
-      this.listaPedido = resp;
-    });
+  detalhesCarrinho() {
+    this.carrinho = this.carrinhoService.carrinho
+    this.carrinhoService.precoTotal.subscribe(data => this.valorTotal = data)
+
+    this.carrinhoService.quantidadeTotal.subscribe(data => this.quantidadeTotal = data)
+
+    this.carrinhoService.calcularTotal()
+  }
+  
+  incrementarQuantidade(carrinho: Carrinho) {
+    this.carrinhoService.adicionarAoCarrinho(carrinho)
   }
 
-  findPedido(id: number) {
-    this.pedidoService.getByIdPedido(id).subscribe((resp: Pedido) => {
-      this.pedido = resp;
-    });
+  decrementarQuantidade(carrinho: Carrinho) {
+    this.carrinhoService.diminuirDoCariinho(carrinho)
+  }
+
+  remover(carrinho: Carrinho) {
+    this.carrinhoService.remover(carrinho)
   }
 
 }

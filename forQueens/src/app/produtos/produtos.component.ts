@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faShoppingBag, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag, faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
 import { ProdutoService } from '../service/produto.service';
+import { CarrinhoService } from '../service/carrinho.service';
+import { Carrinho } from '../model/Carrinho';
 
 @Component({
   selector: 'app-produtos',
@@ -12,6 +14,7 @@ import { ProdutoService } from '../service/produto.service';
 })
 export class ProdutosComponent implements OnInit {
 
+  faSearch = faSearch
   faShoppingBag = faShoppingBag
   faShoppingCart = faShoppingCart
 
@@ -20,13 +23,31 @@ export class ProdutosComponent implements OnInit {
   produto: Produto = new Produto();
 
   descricaoC: string
+  nomeProduto: string
+  pesquisa: boolean = false
 
-  constructor(private categoriaService: CategoriaService, private produtoService: ProdutoService) { }
+  produtoP = {
+    nome: '',
+    categotia: '',
+    imagem: '',
+    valor: 0
+  }
+
+  constructor(
+    private categoriaService: CategoriaService, 
+    private produtoService: ProdutoService,
+    private carrinhoService: CarrinhoService
+    ) { }
 
   ngOnInit(): void {
     window.scroll(0, 0)
 
     this.getBotox()
+  }
+
+  adicionarAoCarrinho(produto: Produto) {
+    const carrinho = new Carrinho(produto)
+    this.carrinhoService.adicionarAoCarrinho(carrinho)
   }
 
   produtoId(id: number) {
@@ -40,6 +61,21 @@ export class ProdutosComponent implements OnInit {
         );
       }
     );
+  }
+
+  buscarPorNome() {
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+    
+  }
+
+  findAllProdutos() {
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+    })
   }
 
   findAllCategoria() {
@@ -57,26 +93,7 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.add(categoriaAtiva);
-      hidratante.classList.remove(categoriaAtiva);
-      mascara.classList.remove(categoriaAtiva);
-      reconstrutor.classList.remove(categoriaAtiva);
-      shampoo.classList.remove(categoriaAtiva);
-      kit.classList.remove(categoriaAtiva);
-    }
-    
+    document.getElementById("buscaProduto").style.display = "none"
   }
 
   getHidratante() {
@@ -87,25 +104,7 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.remove(categoriaAtiva);
-      hidratante.classList.add(categoriaAtiva);
-      mascara.classList.remove(categoriaAtiva);
-      reconstrutor.classList.remove(categoriaAtiva);
-      shampoo.classList.remove(categoriaAtiva);
-      kit.classList.remove(categoriaAtiva);
-    }
+    document.getElementById("buscaProduto").style.display = "none"
   }
 
   getMascara() {
@@ -116,25 +115,7 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.remove(categoriaAtiva);
-      hidratante.classList.remove(categoriaAtiva);
-      mascara.classList.add(categoriaAtiva);
-      reconstrutor.classList.remove(categoriaAtiva);
-      shampoo.classList.remove(categoriaAtiva);
-      kit.classList.remove(categoriaAtiva);
-    }
+    document.getElementById("buscaProduto").style.display = "none"
   }
   
   getReconstrutor() {
@@ -145,25 +126,7 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.remove(categoriaAtiva);
-      hidratante.classList.remove(categoriaAtiva);
-      mascara.classList.remove(categoriaAtiva);
-      reconstrutor.classList.add(categoriaAtiva);
-      shampoo.classList.remove(categoriaAtiva);
-      kit.classList.remove(categoriaAtiva);
-    }
+    document.getElementById("buscaProduto").style.display = "none"
   }
 
   getShampoo() {
@@ -174,25 +137,7 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.remove(categoriaAtiva);
-      hidratante.classList.remove(categoriaAtiva);
-      mascara.classList.remove(categoriaAtiva);
-      reconstrutor.classList.remove(categoriaAtiva);
-      shampoo.classList.add(categoriaAtiva);
-      kit.classList.remove(categoriaAtiva);
-    }
+    document.getElementById("buscaProduto").style.display = "none"
   }
 
   getKit() {
@@ -203,24 +148,6 @@ export class ProdutosComponent implements OnInit {
     }, err => {
       console.log(err)
     })
-
-    let botox = document.querySelector(".botox");
-    let hidratante = document.querySelector(".hidratante");
-    let mascara = document.querySelector(".mascara");
-    let reconstrutor = document.querySelector(".reconstrutor");
-    let shampoo = document.querySelector(".shampoo");
-    let kit = document.querySelector(".kit");
-    let categoriaAtiva = "bg-active"
-    if (mascara.classList.contains(categoriaAtiva)) {
-      mascara.classList.remove(categoriaAtiva);
-    } else {
-
-      botox.classList.remove(categoriaAtiva);
-      hidratante.classList.remove(categoriaAtiva);
-      mascara.classList.remove(categoriaAtiva);
-      reconstrutor.classList.remove(categoriaAtiva);
-      shampoo.classList.remove(categoriaAtiva);
-      kit.classList.add(categoriaAtiva);
-    }
+    document.getElementById("buscaProduto").style.display = "none"
   }
 }

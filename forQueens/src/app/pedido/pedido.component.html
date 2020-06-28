@@ -1,120 +1,137 @@
-<div class="fundo">
-
-  <!-- <div>
-    <img class="banner_carrinho" src="../../assets/img/BannerCarrinho.jpg" alt="">
-  </div> -->
-
+<div class="fundo mt-3">
   <div class="container">
-    <div class="ordem-compra">
-      <div>
-        <h5>Sua Compra</h5>
-        <hr/>
 
-        <div class="form-row pedidos" *ngFor="let pedido of listaPedido">
-          <div class="form-group col-sm-1">
-            <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" class="img-fluid">
-          </div>
-          <div class="form-group col-sm-6">
-            {{pedido.produto.nomeProduto}}
-            <br/>
-            {{pedido.produto.categoria.descricao}}
-          </div>
+    <div *ngIf="carrinho.length > 0">
 
-          <div>
-            <div class="row">
-              <div class="col">
-                <button type="button" class="btn btn-link">-</button>
-                1
-                <button type="button" class="btn btn-link">+</button>
+      <table class="table table-bordered">
+        <tr>
+          <th width="20%">Imagem do prodtudo</th>
+          <th width="50%">Detalhes</th>
+          <th width="30%"></th>
+        </tr>
+
+        <tr *ngFor="let itemCarrinho of carrinho">
+          <td>
+            <img src="{{ itemCarrinho.urlImagem }}" width="150px" height="150px" />
+          </td>
+          <td>
+            <p>{{ itemCarrinho.nome }}</p>
+            <p>{{ itemCarrinho.valor | currency: 'USD' }}</p>
+          </td>
+          <td>
+            <div class="items">
+              <label>Quantidade:</label>
+
+              <div class="row no-gutters">
+                <div class="col-2">
+                  <button (click)="decrementarQuantidade(itemCarrinho)" class="btn">
+                    <fa-icon [icon]="faMinus" class="fa fa-lg"></fa-icon>
+                  </button>
+                </div>
+
+                <div class="col-1">
+                  {{ itemCarrinho.quantidade }}
+                </div>
+                <div class="col-2">
+                  <button (click)="incrementarQuantidade(itemCarrinho)" class="btn">
+                    <fa-icon [icon]="faPlus" class="fa fa-lg"></fa-icon>
+                  </button>
+                </div>
+                <button (click)="remover(itemCarrinho)" class="col-5 btn">Remover</button>
               </div>
             </div>
-          </div>
+            <p class="mt-2">Subtotal: {{ itemCarrinho.quantidade * itemCarrinho.valor | currency: 'USD' }}</p>
+          </td>
+        </tr>
 
-          <div class="form-group col-sm-3 d-flex justify-content-end">
-            {{pedido.valor}}
-          </div>
+        <tr>
+          <td colspan="2"></td>
+          <td style="font-weight: bold">
+            <p>Quantidade Total: {{ quantidadeTotal }}</p>
+            <p>Frete: gratuito</p>
+            <p>Valor tota: {{ valorTotal | currency: 'USD' }}</p>
+          </td>
+        </tr>
+      </table>
+      <h5>Dados de entrega</h5>
+      <hr />
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" placeholder="Endereço">
         </div>
 
-        <div class="form-row">
-          <div class="form-group col d-flex justify-content-end">
-            <h4>Total do pedido: 61.80</h4>
-          </div>
-        </div>
-        <br />
-
-        <h5>Dados de entrega</h5>
-        <hr />
-
-        <div class="form-row">
-
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Endereço">
-          </div>
-
-          <div class="form-group col-md-2">
-            <input type="text" class="form-control" placeholder="Número">
-          </div>
-
-          <div class="form-group col-md-4">
-            <input type="text" class="form-control" placeholder="Complemento">
-          </div>
-
-        </div>
-        <br />
-
-        <h5>Dados de pagamento</h5>
-        <hr />
-
-        <div class="form-row">
-
-          <div class="form-group col-md-3">
-            <select class="form-control">
-              <option value="">Selecione uma opção</option>
-              <option value="dinheiro">Dinheiro</option>
-              <option value="debito">Débito</option>
-            </select>
-          </div>
+        <div class="form-group col-md-2">
+          <input type="text" class="form-control" placeholder="Número">
         </div>
 
-        <hr />
-        <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" placeholder="Complemento">
+        </div>
+
       </div>
+      <br />
+
+      <h5>Dados de pagamento</h5>
+      <hr />
+
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <select class="form-control">
+            <option value="">Selecione uma opção</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="debito">Débito</option>
+          </select>
+        </div>
+      </div>
+
+      <hr />
+      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
     </div>
+    <div *ngIf="carrinho.length == 0" class="alert alert-warning col-md-12" role="alert">
+      Seu carrinho de compras está vazio.
+    </div>
+  </div>
+</div>
 
 
 
-    <!-- Modal Produto -->
-    <div class="modal " id="modalProduto">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-          <div class="modal-body">
 
 
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" height="250px" class="card-img mt-4"
-                  alt="Produto do site">
-              </div>
 
-              <div class="col-md-8">
 
-                <div class="card-body">
-                  <h5 class="card-title">PLATINUN BLOND</h5>
-                  <p class="card-text"><strong>Categoria:</strong> Botox</p>
-                  <p class="card-text"><strong>Descrição:</strong> Desenvolvidos com complexo Nanotecnológicos de ativos
-                    reconstrutores e matizadores que reestruturam, alinham e
-                    fortalecem os cabelos penetrando e preenchendo as falhas do cimento intercelular e das fibrilas do
-                    Córtex.
-                  </p>
-                  <span class="textoCinza">Em estoque</span>
+<!-- Modal Produto -->
+<!-- <div class="modal " id="modalProduto">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
 
-                </div>
-              </div>
+      <div class="modal-body">
+
+
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" height="250px" class="card-img mt-4"
+              alt="Produto do site">
+          </div>
+
+          <div class="col-md-8">
+
+            <div class="card-body">
+              <h5 class="card-title">PLATINUN BLOND</h5>
+              <p class="card-text"><strong>Categoria:</strong> Botox</p>
+              <p class="card-text"><strong>Descrição:</strong> Desenvolvidos com complexo Nanotecnológicos de ativos
+                reconstrutores e matizadores que reestruturam, alinham e
+                fortalecem os cabelos penetrando e preenchendo as falhas do cimento intercelular e das fibrilas do
+                Córtex.
+              </p>
+              <span class="textoCinza">Em estoque</span>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
