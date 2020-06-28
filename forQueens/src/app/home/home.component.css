@@ -41,7 +41,7 @@ body {
 /* carousel banner */
 
 .carousel{
-  margin-bottom: 5vh;
+  margin-bottom: 20px;
 }
 
 .carousel-control-prev{
@@ -54,7 +54,7 @@ body {
 
 .carousel-control-prev,.carousel-control-next{
   height: 40px !important;
-  margin-top: 37.5vh;
+  margin-top: 250px;
   background-color: #424949;
   border-radius: 40px;
   width: 40px;
@@ -65,15 +65,15 @@ body {
 }
 
 .card{
-  height: 35vh;
-  margin-top: 1vh;
-  margin-bottom: 2vh;
-  width: 90%;
+  height: 230px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
   margin-left: 5%;
 }
 
 .card-body{
-  height: 8vh;
+  height: 50px;
   padding: 10px !important;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 .card-img-top{
-  height: 23vh;
+  height: 140px;
   width: 90%;
   margin-left: 5%;
 }
@@ -96,14 +96,14 @@ body {
 }
 
 .img_carrossel_banner{
-  height: 80vh !important;
-  padding: 4vh;
+  height: 520px !important;
+  padding: 3%;
   width: 100%;
 }
 
 .banner {
   width: 100%;
-  height: 80vh !important;
+  height: 520px !important;
   border-radius: 2px;
 }
 
@@ -139,27 +139,64 @@ body {
 }
 
 .imagem_carrossel_intagram{
-  margin-top: 5%;
-  margin-left: 5%;
+  margin: 5%;
   width: 90% !important;
   transition: 1s;
 }
 .imagem_carrossel_intagram:hover{
   width: 100% !important;
-  margin-left: 0% !important;
-  margin-top: 0%;
+  margin: 0% !important;
 }
 
 /* Fim Carrossel Instagram */
 
-/* .parallax {
-  background-image: url('../../assets/img/modelos/mod-row2.jpeg');
-  min-height: 400px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
+/* cards instituições */
+
+.card-content {
+background: #ffffff;
+border: 4px;
+}
+
+.card-img {
+position: relative;
+overflow: hidden;
+border-radius: 0;
+z-index: 1;
+}
+
+.card-img img {
+width: 100%;
+height: 180px;
+display: block;
+}
+.card-desc {
+padding: 1.25rem;
+}
+
+.card-desc h3 {
+color: #000000;
+  font-weight: 600;
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.card-desc p {
+color: #747373;
+  font-size: 14px;
+font-weight: 400;
+font-size: 1em;
+line-height: 1.5;
+margin: 0px;
+margin-bottom: 20px;
+padding: 0;
+font-family: 'Raleway', sans-serif;
+}
+/* End card section */
+
+/* cards instituições */
 
 /* seja um distribuidor */
 .div_distribuidor{
@@ -215,22 +252,62 @@ body {
 /* ajustes imagens cards */
 
 #gold_mascara{
-  padding: 0px;
+  padding: 0%;
 }
 #gold_shampoo{
-  padding: 18px 60px;
+  padding: 6% 30%;
 }
 #gold_hidratante{
-  padding: 0px;
+  padding: 2% 0% 0% 0%;
 }
 #gold_kit{
-  padding: 20px;
+  padding: 5% 17%;
+}
+#sys_mascara{
+  padding: 6% 25%;
+}
+#sys_shampoo{
+  padding: 6% 25%;
+}
+#sys_hidratante{
+  padding: 6% 25%;
+}
+#sys_kit{
+  padding: 4% 12%;
+}
+#qq_mascara{
+  padding: 6% 25%;
 }
 #qq_shampoo{
-  padding: 18px 60px;
+  padding: 4% 30%;
+}
+#qq_hidratante{
+  padding: 2% 0% 0% 10%;
 }
 #qq_kit{
-  padding: 15px;
+  padding: 4% 9%;
 }
 
+
 /* fim ajustes imagens cards */
+
+/* Resposividade */
+
+@media(max-width:1200px){
+  /* banner home */
+
+  .card-title{
+    font-size: 13px;
+  }
+  .card{
+    margin-left: 2%;
+  }
+
+  /* banner home fim */
+  @media(max-width:1000px){
+    
+  }
+}
+
+
+/* Responsividade fim */
