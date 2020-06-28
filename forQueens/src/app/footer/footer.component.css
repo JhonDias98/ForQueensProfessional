@@ -65,7 +65,7 @@ p{
 /* animações redes sociais */
 
 .instagram, .facebook, .whatsapp{
-	transition: .7s;
+	transition: .4s;
 	width: 49px;
 	height: 50px;
 	border-radius: 30px;
