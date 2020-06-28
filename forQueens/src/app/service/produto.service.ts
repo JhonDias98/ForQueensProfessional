@@ -18,7 +18,7 @@ export class ProdutoService {
   }
 
   findByNome(nomeProduto: string) {
-    return this.http.get(`http://localhost:8080/produtos/nomeProduto/${nomeProduto}`)
+    return this.http.get(`http://localhost:8080/produtos/nome/${nomeProduto}`)
   }
 
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Usuario } from '../model/Usuario';
 import { Empresa } from '../model/Empresa';
 import { AuthService } from '../service/auth.service';
 import { UserLogin } from '../model/UserLogin';
+import { CarrinhoService } from '../service/carrinho.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +14,14 @@ import { UserLogin } from '../model/UserLogin';
 export class NavbarComponent implements OnInit {
   
   faSearch = faSearch
+  faShoppingCart = faShoppingCart
   user: Usuario = new Usuario();
   empresa: Empresa = new Empresa();
   userLogin: UserLogin = new UserLogin();
   nomeUser: string = localStorage.getItem('nome');
   
+  precoTotal: number = 0.00
+  quantidadeTotal: number = 0
 
   data = {
     email:'',
@@ -34,7 +38,7 @@ export class NavbarComponent implements OnInit {
     telefone_comercial: ''
   }
   
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private carrinhoService: CarrinhoService) { }
   
   ngOnInit() {   
 
@@ -57,7 +61,15 @@ export class NavbarComponent implements OnInit {
         backdrop.style.display = "none"
       }
     })
+    this.statusCarrinho()
   }
+
+  statusCarrinho() {
+    this.carrinhoService.precoTotal.subscribe(data => this.precoTotal = data)
+
+    this.carrinhoService.quantidadeTotal.subscribe(data => this.quantidadeTotal = data)
+  } 
+  
   pegarPrimeiroNome(nome) {
     let primeiroNome = nome.split(' ');
     return primeiroNome.slice(0, 1);

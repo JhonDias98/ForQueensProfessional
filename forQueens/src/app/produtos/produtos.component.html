@@ -12,34 +12,40 @@
     <div class="row">
       <!-- Categorias -->
       <div class="col-lg-3 col-md-12">
-        <div class="list-group-hover sidebar-widget-1">
-          <ul class="list-unstyled">
-            <li>
-              <a class="list-group-item botox bg-active" (click)="getBotox()">Botox</a>
-            </li>
-            <li>
-              <a class="list-group-item hidratante" (click)="getHidratante()">Hidratante</a>
-            </li>
-            <li>
-              <a class="list-group-item mascara" (click)="getMascara()">Máscara</a>
-            </li>
-            <li>
-              <a class="list-group-item reconstrutor" (click)="getReconstrutor()">Reconstrutor</a>
-            </li>
-            <li>
-              <a class="list-group-item shampoo" (click)="getShampoo()">Shampoo</a>
-            </li>
-            <li>
-              <a class="list-group-item kit" (click)="getKit()">Kits</a>
-            </li>
-          </ul>
-        </div>
+
+        <input class="form-control mb-1 w-100" type="search" placeholder="Pesquisar produto" aria-label="Pesquisar" [(ngModel)]="nomeProduto">
+        <button class="btn my-2 my-sm-0 w-100 text-center" type="button"
+          (click)="buscarPorNome()">Pesquisar</button>
+
+        <h5>Categorias</h5>
+        <form>
+
+          <label class="container">Botox
+            <input (change)="getBotox()" name="options" type="radio" checked="checked">
+          </label>
+          <label class="container">Hidratante
+            <input (change)="getHidratante()" name="options" type="radio">
+          </label>
+          <label class="container">Máscara
+            <input (change)="getMascara()" name="options" name="options" type="radio">
+          </label>
+          <label class="container">Reconstrutor
+            <input (change)="getReconstrutor()" name="options" type="radio">
+          </label>
+          <label class="container">Shampoo
+            <input (change)="getShampoo()" name="options" type="radio">
+          </label>
+          <label class="container">Kits
+            <input (change)="getKit()" name="options" type="radio">
+          </label>
+        </form>
       </div>
 
 
       <div class="col-lg-9 col-md-12">
-        <div class="row" *ngFor="let categoria of listaCategoria">
-          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
+        
+        <div id="categorias" class="row" *ngFor="let categoria of listaCategoria">
+          <div  class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
             <div class="product-grid3 cardProduto ">
               <div class="product-image3" data-toggle="modal" data-target="#modalProduto"
                 (click)='produtoId(produto.codigoProduto)'>
@@ -50,12 +56,8 @@
                 <ul class="social">
                   <li>
                     <a>
-                      <fa-icon [icon]="faShoppingBag" class="fa icones"></fa-icon>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <fa-icon [icon]="faShoppingCart" class="fa icones"></fa-icon>
+                      <fa-icon [icon]="faShoppingCart" (click)="adicionarAoCarrinho(produto)" class="fa icones">
+                      </fa-icon>
                     </a>
                   </li>
                 </ul>
@@ -63,13 +65,46 @@
               <div class="product-content">
                 <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
                 <div class="price">
-                  {{produto.valor}}
+                  R{{produto.valor | currency}}
                   <span>{{categoria.descricao}}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div id="buscaProduto">
+
+            <div class="row">
+              <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto">
+                <div class="product-grid3 cardProduto ">
+                  <div class="product-image3" data-toggle="modal" data-target="#modalProduto"
+                    (click)='produtoId(produto.codigoProduto)'>
+                    <a>
+                      <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                      <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
+                    </a>
+                    <ul class="social">
+                      <li>
+                        <a>
+                          <fa-icon [icon]="faShoppingCart" (click)="adicionarAoCarrinho(produto)" class="fa icones">
+                          </fa-icon>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
+                    <div class="price">
+                      R{{produto.valor | currency}}
+                      <span>{{produto.categoria.descricao}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+  
 
         <div class="modal " id="modalProduto">
           <div class="modal-dialog modal-lg">
@@ -85,10 +120,10 @@
                       <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
                       <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
                       </p>
-                      <p><strong>Preço: </strong>{{produto.valor}}</p>
+                      <p><strong>Preço: </strong>{{produto.valor | currency}}</p>
                       <div class="row">
                         <div class="col-8">
-                          <button class="btn">ADICIONAR AO CARRINHO</button>
+                          <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
                         </div>
                       </div>
                     </div>
@@ -98,7 +133,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
