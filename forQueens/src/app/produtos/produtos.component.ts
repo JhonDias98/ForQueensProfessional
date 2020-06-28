@@ -30,9 +30,9 @@ export class ProdutosComponent implements OnInit {
   }
 
   produtoId(id: number) {
-    this.produtoService.getByIdProduto(id).subscribe(
-      (resp: Produto) => {
-        this.produto = resp;
+    this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
+      this.produto = resp;
+      this.descricaoC = this.produto.categoria.descricao
       },
       (err) => {
         console.log(
