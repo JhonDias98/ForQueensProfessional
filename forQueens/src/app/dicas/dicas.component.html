@@ -88,7 +88,7 @@
 
     <!-- modais -->
 
-    <div class="modal show" id="cleanPlus">
+    <div class="modal show" (click)="pausa_video()" id="cleanPlus">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-body">
@@ -106,14 +106,14 @@
       </div>
     </div>
 
-    <div class="modal" id="QNano">
+    <div class="modal" (click)="pausa_video()" id="QNano">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-body">
+          <div class="modal-body" >
             <div class="row no-gutters">
               <div class="col-md-12">
-                <div>
-                  <video #qNano controls>
+                <div >
+                  <video #qNano controls >
                     <source src="../../assets/video/QNano.mp4" type="video/mp4">
                   </video>
                 </div>
@@ -124,7 +124,7 @@
       </div>
     </div>
 
-    <div class="modal" id="nutritionRose">
+    <div class="modal" (click)="pausa_video()" id="nutritionRose">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-body">
@@ -142,7 +142,7 @@
       </div>
     </div>
 
-    <div class="modal" id="QQCream">
+    <div class="modal" (click)="pausa_video()" id="QQCream">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-body">

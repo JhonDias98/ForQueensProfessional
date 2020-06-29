@@ -24,7 +24,9 @@ export class ProdutosComponent implements OnInit {
 
   descricaoC: string
   nomeProduto: string
+  nomeInput: string
   pesquisa: boolean = false
+  catCard: string
 
   produtoP = {
     nome: '',
@@ -43,6 +45,14 @@ export class ProdutosComponent implements OnInit {
     window.scroll(0, 0)
 
     this.getBotox()
+
+    
+  }
+
+  teclaEnter(event) {
+    if (event.keyCode === 13) {
+      this.buscarPorNome()
+    }
   }
 
   adicionarAoCarrinho(produto: Produto) {
@@ -64,7 +74,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   buscarPorNome() {
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+    this.produtoService.findByNome(this.nomeInput).subscribe((resp: Produto[]) => {
       this.listaProduto = resp
       document.getElementById("buscaProduto").style.display = "block"
       document.getElementById("categorias").style.display = "none"
@@ -150,4 +160,59 @@ export class ProdutosComponent implements OnInit {
     })
     document.getElementById("buscaProduto").style.display = "none"
   }
+
+  getEssenceLiss() {
+    this.nomeProduto = "Essence Liss"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
+  getHoneyMilk() {
+    this.nomeProduto = "Honey Milk"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
+  getLuxuryGold() {
+    this.nomeProduto = "Luxury Gold"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
+  getNutritionRose() {
+    this.nomeProduto = "Nutrition Rose"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
+  getQQCream() {
+    this.nomeProduto = "QQ Cream"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
+  getSystemSave() {
+    this.nomeProduto = "System Save"
+    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
+      this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
+    })
+  }
+
 }

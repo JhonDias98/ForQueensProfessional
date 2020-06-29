@@ -3,9 +3,6 @@
 }
 
 * {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
   text-align: justify;
 }
 
@@ -89,7 +86,7 @@ h1 {
 }
 
 .product-grid3 .social {
-  width: 120px;
+  width: 65px;
   padding: 0;
   margin: 0 auto;
   list-style: none;
@@ -133,10 +130,11 @@ h1 {
 }
 
 .product-grid3 .social li a:hover {
-  background: #ffde59;
+  background: black;
   color: #fff;
   cursor: pointer;
 }
+
 
 .product-grid3 .product-discount-label,
 .product-grid3 .product-new-label {
@@ -225,7 +223,34 @@ h1 {
   font-size: 22px;
 }
 
+.inputProduto {
+  padding-left: 5px;
+  border-radius: 2px !important;
+  font-size: 16px;
+}
 
+.buscarProduto {
+  margin:0;
+  margin-top: -50px;
+  padding: 0;
+  border: 1px solid black;
+}
+
+.buscarProduto button {
+  border: 0;
+  background: none;
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: relative;
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
+textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 
 
 @media only screen and (max-width: 1200px) {
   .product-grid3 .rating {

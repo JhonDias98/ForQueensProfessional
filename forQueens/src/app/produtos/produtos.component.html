@@ -10,53 +10,77 @@
     <hr class="mb-4 pb-5">
 
     <div class="row">
-      <!-- Categorias -->
       <div class="col-lg-3 col-md-12">
-
-        <input class="form-control mb-1 w-100" type="search" placeholder="Pesquisar produto" aria-label="Pesquisar" [(ngModel)]="nomeProduto">
-        <button class="btn my-2 my-sm-0 w-100 text-center" type="button"
-          (click)="buscarPorNome()">Pesquisar</button>
-
         <h5>Categorias</h5>
         <form>
+          <input class="mr-1" (change)="getBotox()" name="options" type="radio" checked="checked">
+          <label >Botox</label> <br>
 
-          <label class="container">Botox
-            <input (change)="getBotox()" name="options" type="radio" checked="checked">
-          </label>
-          <label class="container">Hidratante
-            <input (change)="getHidratante()" name="options" type="radio">
-          </label>
-          <label class="container">Máscara
-            <input (change)="getMascara()" name="options" name="options" type="radio">
-          </label>
-          <label class="container">Reconstrutor
-            <input (change)="getReconstrutor()" name="options" type="radio">
-          </label>
-          <label class="container">Shampoo
-            <input (change)="getShampoo()" name="options" type="radio">
-          </label>
-          <label class="container">Kits
-            <input (change)="getKit()" name="options" type="radio">
-          </label>
+          <input class="mr-1" (change)="getHidratante()" name="options" type="radio">
+          <label>Hidratante</label> <br>
+
+          <input class="mr-1" (change)="getMascara()" name="options" name="options" type="radio">
+          <label>Máscara</label> <br>
+
+          <input class="mr-1" (change)="getReconstrutor()" name="options" type="radio">
+          <label>Reconstrutor</label> <br>
+
+          <input class="mr-1" (change)="getShampoo()" name="options" type="radio">
+          <label>Shampoo</label> <br>
+
+          <input class="mr-1" (change)="getKit()" name="options" type="radio">
+          <label>Kits</label> <br>
+
+          <h5 class="mt-3">Linhas</h5>
+
+          <input class="mr-1" (change)="getEssenceLiss()" name="options" type="radio">
+          <label>Essence Liss</label> <br>
+
+          <input class="mr-1" (change)="getHoneyMilk()" name="options" type="radio">
+          <label>Honey Milk</label> <br>
+
+          <input class="mr-1" (change)="getLuxuryGold()" name="options" type="radio">
+          <label>Luxury Gold</label> <br>
+
+          <input class="mr-1" (change)="getNutritionRose()" name="options" name="options" type="radio">
+          <label>Nutrition Rose</label> <br>
+
+          <input class="mr-1" (change)="getQQCream()" name="options" type="radio">
+          <label>QQ Cream</label> <br>
+
+          <input class="mr-1" (change)="getSystemSave()" name="options" type="radio">
+          <label>System Save</label> <br>
         </form>
       </div>
 
-
       <div class="col-lg-9 col-md-12">
-        
+        <div class="row justify-content-end">
+          <div class="col-4">
+            <div class="buscarProduto">
+              <div>
+                <input (keydown)="teclaEnter($event)" type="text" class="inputProduto" placeholder="Buscar produto"
+                  [(ngModel)]="nomeInput">
+                <button type="submit" (click)="buscarPorNome()" class="btn">
+                  <fa-icon [icon]="faSearch" class="fa fa-lg icones"></fa-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="categorias" class="row" *ngFor="let categoria of listaCategoria">
-          <div  class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
+          <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
             <div class="product-grid3 cardProduto ">
-              <div class="product-image3" data-toggle="modal" data-target="#modalProduto"
+              <div class="product-image3" 
                 (click)='produtoId(produto.codigoProduto)'>
-                <a>
+                <a data-toggle="modal" data-target="#modalProduto">
                   <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
                   <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                 </a>
                 <ul class="social">
                   <li>
-                    <a>
-                      <fa-icon [icon]="faShoppingCart" (click)="adicionarAoCarrinho(produto)" class="fa icones">
+                    <a (click)="adicionarAoCarrinho(categoria)">
+                      <fa-icon [icon]="faShoppingCart" class="fa icones">
                       </fa-icon>
                     </a>
                   </li>
@@ -74,39 +98,66 @@
         </div>
 
         <div id="buscaProduto">
-
-            <div class="row">
-              <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto">
-                <div class="product-grid3 cardProduto ">
-                  <div class="product-image3" data-toggle="modal" data-target="#modalProduto"
-                    (click)='produtoId(produto.codigoProduto)'>
-                    <a>
-                      <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
-                      <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
-                    </a>
-                    <ul class="social">
-                      <li>
-                        <a>
-                          <fa-icon [icon]="faShoppingCart" (click)="adicionarAoCarrinho(produto)" class="fa icones">
-                          </fa-icon>
-                        </a>
-                      </li>
-                    </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto">
+              <div class="product-grid3 cardProduto ">
+                <div class="product-image3">
+                  <a data-toggle="modal" data-target="#modalProduto2">
+                    <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                    <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <a (click)="adicionarAoCarrinho(produto)">
+                        <fa-icon [icon]="faShoppingCart"  class="fa icones">
+                        </fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="product-content">
+                  <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
+                  <div class="price">
+                    R{{produto.valor | currency}}
+                    <span>{{produto.categoria.descricao}}</span>
                   </div>
-                  <div class="product-content">
-                    <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
-                    <div class="price">
-                      R{{produto.valor | currency}}
-                      <span>{{produto.categoria.descricao}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="modal " id="modalProduto">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{produto.urlImage}}" class="card-img mt-4" alt="Produto do site">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                      <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
+                      <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
+                      </p>
+                      <p><strong>Preço: </strong>{{produto.valor | currency}}</p>
+                      <div class="row">
+                        <div class="col-8">
+                          <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-  
 
-        <div class="modal " id="modalProduto">
+
+        <div class="modal " id="modalProduto2" *ngFor="let produto of listaProduto">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-body">
