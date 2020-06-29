@@ -52,18 +52,18 @@
 	<div class="container">
 		<div id="conteudo" class="mt-2">
 			<div id="primeiraLinha" class="row justify-content-center">
-				<div class="col-3">
-					<h5> <a (click)="abrirMapa()" style="cursor: pointer;">Mapa do Site</a></h5>
+				<div class="col-md-3 col-sm-12 mb-3">
+					<h5> <a [routerLink]="['/mapa-site']" style="cursor: pointer;">Mapa do Site</a></h5>
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-12 mb-3">
 					<h5><a [routerLink]="['/politica']">Política de Privacidade</a></h5>
 
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-12 mb-3">
 					<h5><a [routerLink]="['/faq']">Perguntas Frequentes</a></h5>
 					<span class="animate-border3 border-black"></span>
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-12 mb-3">
 					<h5><a [routerLink]="['/contato']">Sugestões</a></h5>
 					<span class="animate-border4 border-black"></span>
 				</div>
