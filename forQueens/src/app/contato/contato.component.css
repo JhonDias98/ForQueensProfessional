@@ -77,16 +77,8 @@ option:first-of-type {
 
 
 @media (max-width: 767px) {
-    #informacoes_contato {
-     display: none;
-    }
-    #mapa_mobile{
-        width: 260px;
-        height: 250px;
-    }
-    .map_mobile{
-        margin-top: 30px;
-        display: flex;
+    .text-left{
+        text-align: center !important;
     }
     #botaocelular,#botaotelefone{
         width: 100%;
