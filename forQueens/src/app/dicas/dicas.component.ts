@@ -17,31 +17,63 @@ export class DicasComponent implements OnInit {
     window.scroll(0, 0)
   }
   essence_liss(){
-    const backdrop2 = document.getElementById("backdrop2");
-    backdrop2.style.display="block"
     this.essenceLiss.nativeElement.play();
   }
   q_nano(){
-    const backdrop2 = document.getElementById("backdrop2");
-    backdrop2.style.display="block"
     this.qNano.nativeElement.play();
   }
   nutrition_rose(){
-    const backdrop2 = document.getElementById("backdrop2");
-    backdrop2.style.display="block"
     this.nutritionRose.nativeElement.play();
   }
   qq_cream(){
-    const backdrop2 = document.getElementById("backdrop2");
-    backdrop2.style.display="block"
     this.qqCream.nativeElement.play();
   }
-  pausa_video(){
-    this.qqCream.nativeElement.pause();
-    this.nutritionRose.nativeElement.pause();
-    this.qNano.nativeElement.pause();
-    this.essenceLiss.nativeElement.pause();
-    const backdrop2 = document.getElementById("backdrop2");
-    backdrop2.style.display="none"
+  pausa_video_liss(){
+    const video = document.getElementById("essence_Liss");
+    if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls") 
+      this.qqCream.nativeElement.pause();
+      this.nutritionRose.nativeElement.pause();
+      this.qNano.nativeElement.pause();
+      this.essenceLiss.nativeElement.pause();  
+    } else {
+      video.setAttribute("controls","controls")   
+    }
+  }
+  pausa_video_qnano(){
+    const video = document.getElementById("q_Nano");
+    if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls") 
+      this.qqCream.nativeElement.pause();
+      this.nutritionRose.nativeElement.pause();
+      this.qNano.nativeElement.pause();
+      this.essenceLiss.nativeElement.pause();  
+    } else {
+      video.setAttribute("controls","controls");
+    }
+  }
+  pausa_video_nutrition(){
+    const video = document.getElementById("nutrition_Rose");
+    if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls") 
+      this.qqCream.nativeElement.pause();
+      this.nutritionRose.nativeElement.pause();
+      this.qNano.nativeElement.pause();
+      this.essenceLiss.nativeElement.pause();  
+    } else {
+      video.setAttribute("controls","controls")   
+    }
+  }
+  pausa_video_qq(){
+    const video = document.getElementById("qq_Cream");
+    if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls") 
+      this.qqCream.nativeElement.pause();
+      this.nutritionRose.nativeElement.pause();
+      this.qNano.nativeElement.pause();
+      this.essenceLiss.nativeElement.pause();  
+    } else {
+      video.setAttribute("controls","controls")   
+    }
   }
 }

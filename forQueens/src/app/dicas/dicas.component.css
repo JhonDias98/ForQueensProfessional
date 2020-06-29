@@ -28,23 +28,6 @@ video{
   max-width: 546px
 }
 
-#backdrop2 {
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  display: none;
-  height: 100vh;
-  width: 100%;
-}
-
-.modal-body{
-  z-index: 1000 !important;
-}
-
 @media (max-width: 1200px){
   .img_produto{
     height: 191.11px;
