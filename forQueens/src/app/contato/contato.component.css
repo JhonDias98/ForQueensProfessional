@@ -11,6 +11,10 @@ input:focus, select:focus, textarea:focus {
     border: 1.2px solid black;
     box-shadow: none;
 }
+
+option,option:hover,option:active,option:focus{
+    border: none;
+}
  
 .campos_contato {
     display: block;
@@ -61,7 +65,22 @@ option:first-of-type {
     height: 210px;
     margin-bottom: 15px;
 }
-
+.alert{
+    position: sticky !important;
+    top: 20vh;
+    z-index: 10;
+    display: none;
+}
+#backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    display: none;
+  }
 
 @media (max-width: 1110px){
     #mapa{

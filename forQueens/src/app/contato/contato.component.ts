@@ -43,8 +43,10 @@ export class ContatoComponent implements OnInit {
   enviarContato() {
     this.contatoService.postContato(this.contatoAPI).subscribe((resp: Contato) => {
       this.contatoAPI = resp;
-      window.alert("Mensagem enviada")
-      location.assign("/contato")
+      document.getElementById("backdrop").style.display="block"
+      document.getElementById("backdrop").style.zIndex="9"
+      document.getElementById("alerta").style.display="block"
+      console.log("alo")
     })
   }
 
@@ -56,7 +58,7 @@ export class ContatoComponent implements OnInit {
     erros.push(this.verificar_assunto())
     erros.push(this.verificar_mensagem())
     if (erros.indexOf(false) == -1){
-      alert('Contato enviado com sucesso')
+      this.enviarContato()
     }
   }
 
@@ -120,7 +122,6 @@ export class ContatoComponent implements OnInit {
 
   verificar_assunto(){
     let assunto = this.contato.assunto
-    console.log(assunto)
     if(assunto == ""){
       document.getElementById("assunto").style.border = "red 1px solid"
       document.getElementById("vazio_assunto").style.display = "block"
@@ -135,7 +136,6 @@ export class ContatoComponent implements OnInit {
 
   verificar_mensagem(){
     let mensagem = this.contato.mensagem
-    console.log(mensagem)
     if(mensagem == ""){
       document.getElementById("mensagem").style.border = "red 1px solid"
       document.getElementById("vazio_mensagem").style.display = "block"
