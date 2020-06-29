@@ -91,3 +91,25 @@ p{
 }
 
 /* animações redes sociais fim */
+
+/* Mapa do site */
+.mapSite {
+	height: 300px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	bottom: -300px;
+	overflow-x: auto;
+	transition: all 5s ease-out;
+	opacity: 0;
+	background-color: #bc1888;
+	margin-left: 0;
+}
+
+.mapSidebar-open {
+	bottom: 0px;
+	opacity: 1;
+	overflow: visible;
+}
+
+/* Fim do mapa do site */

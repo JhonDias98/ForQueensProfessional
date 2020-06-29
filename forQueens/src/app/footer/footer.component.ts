@@ -17,4 +17,15 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirMapa() {
+    const mapa = document.querySelector('.mapSite');
+
+    document.getElementById('maps').style.display="block"
+
+    mapa.classList.toggle('mapSidebar-open')
+    if (mapa.classList.contains('mapSidebar-open')) {
+      mapa.classList.remove('mapSidebar-open')
+    }
+  }
+
 }
