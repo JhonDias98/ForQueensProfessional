@@ -122,6 +122,11 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e") !important;
 }
 
+.icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+  margin-top: 110px;
+  background-color: white;
+}
+
 .titlebar {
   overflow: hidden;
 }
@@ -146,11 +151,15 @@ body {
 .imagem_carrossel_intagram{
   margin: 5%;
   width: 90% !important;
-  transition: 1s;
+  transition: .7s;
 }
 .imagem_carrossel_intagram:hover{
   width: 100% !important;
   margin: 0% !important;
+}
+
+.mobile_instagram{
+  display: none;
 }
 
 /* Fim Carrossel Instagram */
@@ -297,18 +306,24 @@ font-family: 'Raleway', sans-serif;
 
 /* Resposividade */
 
-@media(max-width:1200px){
+@media(max-width:1199px){
   /* banner home */
 
   .card-title{
-    font-size: 13px;
+    font-size: 12px;
   }
   .card{
     margin-left: 2%;
   }
 
   /* banner home fim */
-  @media(max-width:1000px){
+
+  /* carousel instagram */
+  .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+    margin-top: 90px;
+  }
+  /* carousel instagram fim */
+  @media(max-width:991px){
     /* banner home */
     .texto_responsivo{
       display: block;
@@ -319,22 +334,18 @@ font-family: 'Raleway', sans-serif;
     .img_carrossel_banner, .banner{
       height: 400px !important;
     }
-
     .card{
       height: 180px;
       margin-top: 5px;
       margin-bottom: 10px;
     }
-    
     .card-body{
       height: 50px;
       padding: 10px !important;
     }
-    
     .card-img-top{
       height: 100px;
     }
-    
     .card-banner{
       padding-top: 10px;
     }
@@ -344,30 +355,92 @@ font-family: 'Raleway', sans-serif;
       width: 35px;
     }
     /* banner home fim*/
-    @media(max-width: 576px){
-      .img_carrossel_banner, .banner{
+
+     /* carousel instagram */
+    .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+      margin-top: 65px;
+    }
+    /* carousel instagram fim */
+    @media(max-width:767px){
+      h1{
+        font-size: 30px;
+      }
+      /* carousel instagram */
+      .container_mobile_instagram{
+        max-width: 570px !important;
+      }
+      .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+        margin-top: 50px;
+      }
+      /* carousel instagram fim */
+      @media(max-width: 576px){
+        h1{
+          font-size: 25px;
+        }
         /* banner home */
-        height: 320px !important;
-        /* banner home fim */
-      }
-      .carousel-control-prev,.carousel-control-next{
-        height: 40px !important;
-        margin-top: 150px;
-        width: 40px;
-      }
-      @media(max-width: 400px){
         .img_carrossel_banner, .banner{
-          /* banner home */
-          height: 280px !important;
-          /* banner home fim */
+          height: 320px !important;
         }
         .carousel-control-prev,.carousel-control-next{
-          height: 45px !important;
-          margin-top: 130px;
-          width: 45px;
+          height: 40px !important;
+          margin-top: 150px;
+          width: 40px;
+        }
+        /* banner home fim */
+
+        /* carousel instagram */
+
+        .mobile_instagram{
+          display: block;
+        }
+
+        .desktop_instagram{
+          display: none;
+        }
+
+        .arrival-product .arrival-item ul li {
+          float: left;
+          width: 48%;
+          margin-right: 4%;
+        }
+
+        .imagem_carrossel_intagram{
+          margin: 2.5%;
+          width: 95% !important;
+          transition: .5s;
+        }
+
+        .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+          margin-top: 21%;
+        }
+        /* carousel instagram fim */
+        @media(max-width: 400px){
+          h1{
+            font-size: 20px;
+          }
+          /* banner home */
+          .img_carrossel_banner, .banner{
+            height: 280px !important;
+          }
+          
+          .carousel-control-prev,.carousel-control-next{
+            height: 45px !important;
+            margin-top: 122px;
+            width: 45px;
+          }
+          /* banner home fim */
+
+          /* carousel instagram */
+
+          .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
+            margin-top: 18%;
+          }
+
+          /* carousel instagram fim */
         }
       }
     }
+    
   }
 }
 
