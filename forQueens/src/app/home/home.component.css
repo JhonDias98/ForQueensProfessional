@@ -218,8 +218,8 @@ font-family: 'Raleway', sans-serif;
 }
 
 .modeloDistr {
-  margin-left: 25%;
-  width: 50%;
+  margin-left: 15%;
+  width: 70%;
   height: 560px;
   border-radius: 8px;
 }
@@ -241,6 +241,10 @@ font-family: 'Raleway', sans-serif;
 
 .margin_botao_distribuidor{
   margin-top: 25px;
+}
+
+.aparecer_dist_mobile{
+  display: none;
 }
 
 [data-anime] {
@@ -319,10 +323,43 @@ font-family: 'Raleway', sans-serif;
   /* banner home fim */
 
   /* carousel instagram */
+
   .icone_next_carousel_instagram,.icone_prev_carousel_instagram{
     margin-top: 90px;
   }
+
   /* carousel instagram fim */
+
+  /* cards instituições */
+
+  .titulo_geledes{
+    margin-bottom: 37px;
+  }
+  .botao_geledes{
+    margin-top: 43px
+  }
+  .modeloDistr {
+    margin-left: 10%;
+    width: 80%;
+    height: 560px;
+    border-radius: 8px;
+  }
+
+  /* cards instituições fim */
+
+  /* distribuidor */
+
+  .cor1 {
+    margin: 0 1%;
+    font-size: 15px;
+  }
+  
+  .cor2 {
+    margin: 0 1%;
+    font-size: 15px;
+  }
+
+  /* distribuidor fim */
   @media(max-width:991px){
     /* banner home */
     .texto_responsivo{
@@ -361,9 +398,56 @@ font-family: 'Raleway', sans-serif;
       margin-top: 65px;
     }
     /* carousel instagram fim */
+
+    /* cards instituições */
+
+    .titulo_geledes{
+      margin-bottom: 33px;
+    }
+    .botao_geledes{
+      margin-top: 43px
+    }
+    .descricao_instituicao{
+      display: none;
+    }
+    .titulo_instituicao{
+      font-size: 22px!important;
+    }
+    .botao_geledes{
+      margin-top: 0px;
+    }  
+    /* cards instituições fim */
+
+    /* distribuidor */
+
+    .cor1 {
+      text-align: center;
+      margin: 0 4%;
+      font-size: 18px;
+    }
+    
+    .cor2 {
+      text-align: center;
+      margin: 0 4%;
+      font-size: 18px;
+    }
+    
+    .correcao_margin{
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .animacao{
+      padding: 20px;
+    }
+
+    /* distribuidor fim */
     @media(max-width:767px){
       h1{
         font-size: 30px;
+      }
+      .h2{
+        font-size: 28px;
       }
       /* carousel instagram */
       .container_mobile_instagram{
@@ -373,9 +457,44 @@ font-family: 'Raleway', sans-serif;
         margin-top: 50px;
       }
       /* carousel instagram fim */
+
+      /* cards instituições */
+
+      .titulo_geledes{
+        margin-bottom: 0px;
+      } 
+      .botao_instituicao{
+        margin-left: 30%;
+      }
+      .card-content{
+        margin-bottom: 20px;
+      }
+      /* cards instituições fim */
+
+      /* distribuidor */
+
+      .cor1 {
+        text-align: center;
+        margin: 0 3%;
+        font-size: 14px;
+      }
+      
+      .cor2 {
+        text-align: center;
+        margin: 0 3%;
+        font-size: 14px;
+      }
+      .animacao{
+        padding: 10px;
+      }
+
+      /* distribuidor fim */
       @media(max-width: 576px){
         h1{
-          font-size: 25px;
+          font-size: 23px;
+        }
+        h2{
+          font-size: 22px;
         }
         /* banner home */
         .img_carrossel_banner, .banner{
@@ -414,9 +533,49 @@ font-family: 'Raleway', sans-serif;
           margin-top: 21%;
         }
         /* carousel instagram fim */
+
+        /* cards instituições */
+
+        .titulo_instituicao{
+          font-size: 18px !important;
+          text-align: center;
+        } 
+        .botao_instituicao{
+          display: none;
+        }
+
+        /* cards instituições fim */
+
+        /* distribuidor */
+
+        .cor1 {
+          text-align: center;
+          margin: 0 7%;
+          font-size: 14px;
+        }
+        
+        .cor2 {
+          text-align: center;
+          margin: 0 7%;
+          font-size: 14px;
+        }
+        .animacao{
+          padding: 10px;
+        }
+        .ocultar_dist_mobile{
+          display: none;
+        }
+        .aparecer_dist_mobile{
+          display: block;
+        }
+
+        /* distribuidor fim */
         @media(max-width: 400px){
           h1{
             font-size: 20px;
+          }
+          h2{
+            font-size: 19px;
           }
           /* banner home */
           .img_carrossel_banner, .banner{
@@ -437,6 +596,17 @@ font-family: 'Raleway', sans-serif;
           }
 
           /* carousel instagram fim */
+
+          /* cards instituições */
+
+          .card-content{
+            height: 250px;
+          }
+          .card-desc{
+            padding:auto auto 10px auto;
+          }
+
+          /* cards instituições fim */
         }
       }
     }
