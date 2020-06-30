@@ -10,7 +10,7 @@ import { DicasComponent } from './dicas/dicas.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { MapaSiteComponent } from './mapa-site/mapa-site.component';
 import { PedidoComponent } from './pedido/pedido.component';
-
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: 'dicas', component: DicasComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'mapa-site', component: MapaSiteComponent},
-  { path: 'pedido', component: PedidoComponent }
+  { path: 'pedido', component: PedidoComponent },
+  { path: 'perfil', component: PerfilComponent }
 ];
 
 @NgModule({

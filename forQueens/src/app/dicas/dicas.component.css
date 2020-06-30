@@ -27,27 +27,26 @@ video{
 .card{
   max-width: 546px
 }
-
-#backdrop2 {
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  display: none;
-  height: 100vh;
-  width: 100%;
+#essence_liss{
+  padding: 0px;
 }
-
-.modal-body{
-  z-index: 1000 !important;
+#q_nano{
+  padding: 15px;
+}
+#nutrition_rose{
+  padding: 0px;
+}
+#qq_cream{
+  padding: 15px 0px 15px 10px;
 }
 
 @media (max-width: 1200px){
+  .banner{
+    height: 450px;
+  }
   .img_produto{
     height: 191.11px;
+    margin-top: 55px !important;
   }
   .card-text{
     height: 144px;
@@ -55,10 +54,26 @@ video{
   .card-body{
     height: 250px;
   }
+  #essence_liss{
+    padding: 15px 0 15px 0;
+  }
+  #q_nano{
+    padding: 30px 15px 30px 15px;
+  }
+  #nutrition_rose{
+    padding: 15px 0 15px 0;
+  }
+  #qq_cream{
+    padding: 30px 0px 30px 10px;
+  }
 }
 @media (max-width: 991px){
+  .banner{
+    height: 390px;
+  }
   .img_produto{
     height: 139px;
+    margin-top: 55px !important;
   }
   .card-body{
     height: 270px;
@@ -69,10 +84,24 @@ video{
   p{
     font-size: 14px;
   }
+  #essence_liss{
+    padding: 30px 0 30px 0;
+  }
+  #q_nano{
+    padding: 45px 15px 45px 15px;
+  }
+  #nutrition_rose{
+    padding: 30px 0 30px 0;
+  }
+  #qq_cream{
+    padding: 45px 0px 45px 10px;
+  }
 }
 
 @media (max-width: 767px) {
-
+  .banner{
+    height: 320px;
+  }
   video{
     height: 300px;
   }
@@ -80,7 +109,6 @@ video{
     text-align: center;
     font-size: 26px;
   }
-
   h1 {
     font-size: 35px;
   }
@@ -95,19 +123,63 @@ video{
   }
   .modal-content{
     margin-top: 20%;
+  }.card-text{
+    text-align: center;
+  }
+  .img_produto{
+    height: 250px !important;
+    margin-top: 0px !important;
+  }
+  #essence_liss{
+    padding: 0px 50px 0px 50px;
+  }
+  #q_nano{
+    padding: 10px 90px 0px 90px;
+  }
+  #nutrition_rose{
+    padding: 10px 100px 0px 100px;
+  }
+  #qq_cream{
+    padding: 20px 0px 0px 30px;
   }
 }
-@media(max-width: 360px){
+@media(max-width: 576px){
+  .card{
+    margin-right: 1rem !important;
+  }
+  .banner{
+    height: 250px;
+  }
+  #essence_liss{
+    padding: 0px 15% 0px 15%;
+  }
+  #q_nano{
+    padding: 10px 30% 0px 30%;
+  }
+  #nutrition_rose{
+    padding: 10px 25% 0px 25%;
+  }
+  #qq_cream{
+    padding: 20px 20% 0px 23%;
+  }
+}
+@media(max-width: 400px){
+  .banner{
+    height: 200px;
+  }
   .card-img{
     height: 300px;
+  }
+  .card-text{
+    height: 120px;
   }
   h5{
     font-size: 23px;
   }
   p{
-    font-size: 16px;
+    font-size: 15px;
   }
   .card-body{
-    height: 200px;
+    height: 130px;
   }
 }

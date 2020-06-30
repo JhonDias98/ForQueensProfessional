@@ -28,7 +28,6 @@ export class ContatoComponent implements OnInit {
     email:'',
     nome: '',
     assunto: '',
-    telefone: '',
     celular: '',
     mensagem: ''
   }
@@ -44,33 +43,21 @@ export class ContatoComponent implements OnInit {
   enviarContato() {
     this.contatoService.postContato(this.contatoAPI).subscribe((resp: Contato) => {
       this.contatoAPI = resp;
-      window.alert("Mensagem enviada")
-      location.assign("/contato")
+      document.getElementById("backdrop2").style.display="block"
+      document.getElementById("backdrop2").style.zIndex="9"
+      document.getElementById("alerta").style.display="block"
     })
   }
-
 
   validar_celular(){
     let erros = []
     erros.push(this.verificar_email())
     erros.push(this.verificar_nome())
-    erros.push(this.verificar_assunto())
     erros.push(this.verificar_celular())
-    erros.push(this.verificar_mensagem())
-    if (erros.indexOf(false) == -1){
-      alert('Contato enviado com sucesso')
-    }
-  }
-
-  validar_telefone(){
-    let erros = []
-    erros.push(this.verificar_email())
-    erros.push(this.verificar_nome())
     erros.push(this.verificar_assunto())
-    erros.push(this.verificar_telefone())
     erros.push(this.verificar_mensagem())
     if (erros.indexOf(false) == -1){
-      alert('Contato enviado com sucesso')
+      this.enviarContato()
     }
   }
 
@@ -134,7 +121,6 @@ export class ContatoComponent implements OnInit {
 
   verificar_assunto(){
     let assunto = this.contato.assunto
-    console.log(assunto)
     if(assunto == ""){
       document.getElementById("assunto").style.border = "red 1px solid"
       document.getElementById("vazio_assunto").style.display = "block"
@@ -149,7 +135,6 @@ export class ContatoComponent implements OnInit {
 
   verificar_mensagem(){
     let mensagem = this.contato.mensagem
-    console.log(mensagem)
     if(mensagem == ""){
       document.getElementById("mensagem").style.border = "red 1px solid"
       document.getElementById("vazio_mensagem").style.display = "block"
@@ -162,25 +147,6 @@ export class ContatoComponent implements OnInit {
     }
   }
 
-  verificar_telefone(){
-    let telefone = this.contato.telefone
-    if(telefone == ""){
-      document.getElementById("telefoneinput").style.border = "red 1px solid"
-      document.getElementById("vazio_telefone").style.display = "block"
-      return false
-    }
-    if(telefone.length != 10){
-      document.getElementById("telefoneinput").style.border = "red 1px solid"
-      document.getElementById("erro_telefone").style.display = "block"
-      return false
-    }
-    else{
-      document.getElementById("telefoneinput").style.border = "black 1px solid"
-      document.getElementById("vazio_telefone").style.display = "none"
-      return true
-    }
-  }
-
   verificar_celular(){
     let celular = this.contato.celular
     if(celular == ""){
@@ -188,37 +154,18 @@ export class ContatoComponent implements OnInit {
       document.getElementById("vazio_celular").style.display = "block"
       return false
     }
-    if(celular.length != 10){
-      document.getElementById("celularinput").style.border = "red 1px solid"
-      document.getElementById("erro_celular").style.display = "block"
-      return false
-    }
-    else{
+    if(celular.length == 10 || celular.length == 11){
       document.getElementById("celularinput").style.border = "black 1px solid"
       document.getElementById("vazio_celular").style.display = "none"
       return true
     }
+    else{
+      document.getElementById("celularinput").style.border = "red 1px solid"
+      document.getElementById("erro_celular").style.display = "block"
+      return false
+    }
   }
-
-
-
-  telefone() {
-    document.getElementById("telefone").style.display = "flex"
-    document.getElementById("celular").style.display = "none"
-    document.getElementById("botaotelefone").style.display = "flex"
-    document.getElementById("botaocelular").style.display = "none"
-    document.getElementById("erro_celular").style.display = "none"
-    document.getElementById("vazio_celular").style.display = "none"
+  contato_finalizar(){
+    location.assign("/home")
   }
-
-
-  celular() {
-    document.getElementById("telefone").style.display = "none"
-    document.getElementById("celular").style.display = "flex"
-    document.getElementById("botaotelefone").style.display = "none"
-    document.getElementById("botaocelular").style.display = "flex"
-    document.getElementById("erro_telefone").style.display = "none"
-    document.getElementById("vazio_telefone").style.display = "none"
-  }
-
 }

@@ -9,15 +9,6 @@ header.container-fluid {
     color: black;
 }
 
-.parallax {
-    background-image: url('../../assets/img/pagina-mapa-site/mapa-site.jpeg');
-    min-height: 410px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
 #subtitulo{
     color: black;
      
