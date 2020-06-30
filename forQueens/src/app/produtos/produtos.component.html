@@ -11,9 +11,12 @@
 
     <div class="row">
       <div class="col-lg-3 col-md-12">
+        <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" >
+        <label>Todos produtos</label> <br>
+
         <h5>Categorias</h5>
         <form>
-          <input class="mr-1" (change)="getBotox()" name="options" type="radio" checked="checked">
+          <input class="mr-1" (change)="getBotox()" name="options" type="radio">
           <label >Botox</label> <br>
 
           <input class="mr-1" (change)="getHidratante()" name="options" type="radio">
@@ -32,7 +35,6 @@
           <label>Kits</label> <br>
 
           <h5 class="mt-3">Linhas</h5>
-
           <input class="mr-1" (change)="getEssenceLiss()" name="options" type="radio">
           <label>Essence Liss</label> <br>
 
