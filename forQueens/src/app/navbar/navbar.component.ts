@@ -5,6 +5,7 @@ import { Empresa } from '../model/Empresa';
 import { AuthService } from '../service/auth.service';
 import { UserLogin } from '../model/UserLogin';
 import { CarrinhoService } from '../service/carrinho.service';
+import { EmpresaLogin } from '../model/EmpresaLogin';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   user: Usuario = new Usuario();
   empresa: Empresa = new Empresa();
   userLogin: UserLogin = new UserLogin();
+  empresaLogin: EmpresaLogin = new EmpresaLogin();
   nomeUser: string = localStorage.getItem('nome');
   
   precoTotal: number = 0.00
@@ -490,6 +492,26 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('dataNascimento', this.userLogin.dataNascimento)
       localStorage.setItem('senha', this.userLogin.senha)
       localStorage.setItem('token', this.userLogin.token)
+      location.assign('/home')
+    }, err => {
+      this.entrarEmpresa()
+    })
+  }
+
+  entrarEmpresa() {
+    this.authService.logarEmpresa(this.empresaLogin).subscribe((resp: EmpresaLogin) => {
+      this.empresaLogin = resp
+
+      localStorage.setItem('id', this.empresaLogin.id)
+      localStorage.setItem('cnpj', this.empresaLogin.cnpj)
+      localStorage.setItem('email', this.empresaLogin.email)
+      localStorage.setItem('razaoSocial', this.empresaLogin.razaoSocial)
+      localStorage.setItem('nomeComercial', this.empresaLogin.nomeComercial)
+      localStorage.setItem('inscricaoEstadual', this.empresaLogin.inscricaoEstadual)
+      localStorage.setItem('telefoneComercial', this.empresaLogin.telefoneComercial)
+      localStorage.setItem('nomeComprador', this.empresaLogin.nomeComprador)
+      localStorage.setItem('senha', this.empresaLogin.senha)
+      localStorage.setItem('token', this.empresaLogin.token)
       location.assign('/home')
     }, err => {
       alert("Houve um erro ao entrar, por favor verifique o e-mail e senha")

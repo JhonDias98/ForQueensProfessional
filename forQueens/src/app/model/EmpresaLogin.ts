@@ -1,8 +1,6 @@
-import { Endereco } from './Endereco'
-
-export class Empresa {
-  public id: number
-  public cnpj: number
+export class EmpresaLogin {
+  public id: string
+  public cnpj: string
   public email: string
   public razaoSocial: string
   public nomeComercial: string
@@ -10,5 +8,5 @@ export class Empresa {
   public telefoneComercial: string
   public nomeComprador: string
   public senha: string
-  public endereco: Endereco[]
+  public token: string
 }
