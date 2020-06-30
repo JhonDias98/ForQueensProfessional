@@ -44,9 +44,7 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void {
     window.scroll(0, 0)
 
-    this.getBotox()
-
-    
+    this.findAllProdutos()
   }
 
   teclaEnter(event) {
@@ -76,8 +74,7 @@ export class ProdutosComponent implements OnInit {
   buscarPorNome() {
     this.produtoService.findByNome(this.nomeInput).subscribe((resp: Produto[]) => {
       this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
+      
     })
     
   }
@@ -85,6 +82,8 @@ export class ProdutosComponent implements OnInit {
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
       this.listaProduto = resp
+      document.getElementById("buscaProduto").style.display = "block"
+      document.getElementById("categorias").style.display = "none"
     })
   }
 
