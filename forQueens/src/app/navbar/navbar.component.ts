@@ -480,8 +480,15 @@ export class NavbarComponent implements OnInit {
   entrar() {
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
-      localStorage.setItem('token', this.userLogin.token)
+      
+      localStorage.setItem('id', this.userLogin.id)
+      localStorage.setItem('cpf', this.userLogin.cpf)
+      localStorage.setItem('usuario', this.userLogin.usuario)
       localStorage.setItem('nome', this.userLogin.nome)
+      localStorage.setItem('celular', this.userLogin.celular)
+      localStorage.setItem('dataNascimento', this.userLogin.dataNascimento)
+      localStorage.setItem('senha', this.userLogin.senha)
+      localStorage.setItem('token', this.userLogin.token)
       location.assign('/home')
     }, err => {
       alert("Houve um erro ao entrar, por favor verifique o e-mail e senha")
