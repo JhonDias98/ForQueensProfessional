@@ -66,12 +66,15 @@ option:first-of-type {
     margin-bottom: 15px;
 }
 .alert{
-    position: sticky !important;
+    position: fixed !important;
     top: 20vh;
+    left: 9.5vw;
     z-index: 10;
     display: none;
+    width: 80vw;
+    height: 3rem !important;
 }
-#backdrop {
+#backdrop2 {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 50px;

@@ -248,6 +248,7 @@ export class NavbarComponent implements OnInit {
     let mes = Number(dataNascimento.substring(2,4))
     let ano = Number(dataNascimento.substring(4,8))
     let bissexto:boolean
+    let milissegundos = Number(Date.now())
     if(anoHJ < ano || (anoHJ == ano && mesHJ < mes) || (anoHJ == ano && mesHJ == mes && diaHJ < dia)){
       document.getElementById("dataNascimento").style.border = "red 1px solid"
       document.getElementById("erro_dataNascimento").style.display = "block"

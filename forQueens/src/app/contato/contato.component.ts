@@ -43,10 +43,9 @@ export class ContatoComponent implements OnInit {
   enviarContato() {
     this.contatoService.postContato(this.contatoAPI).subscribe((resp: Contato) => {
       this.contatoAPI = resp;
-      document.getElementById("backdrop").style.display="block"
-      document.getElementById("backdrop").style.zIndex="9"
+      document.getElementById("backdrop2").style.display="block"
+      document.getElementById("backdrop2").style.zIndex="9"
       document.getElementById("alerta").style.display="block"
-      console.log("alo")
     })
   }
 
@@ -165,5 +164,8 @@ export class ContatoComponent implements OnInit {
       document.getElementById("erro_celular").style.display = "block"
       return false
     }
+  }
+  contato_finalizar(){
+    location.assign("/home")
   }
 }
