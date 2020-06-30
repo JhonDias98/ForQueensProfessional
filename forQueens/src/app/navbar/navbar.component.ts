@@ -225,6 +225,7 @@ export class NavbarComponent implements OnInit {
     if(dataNascimento == ""){
       document.getElementById("dataNascimento").style.border = "red 1px solid"
       document.getElementById("vazio_dataNascimento").style.display = "block"
+      document.getElementById("dezoito_dataNascimento").style.display = "none"
       document.getElementById("erro_dataNascimento").style.display = "none"
       return false
     }
@@ -235,24 +236,28 @@ export class NavbarComponent implements OnInit {
     if(dataNascimento.length != 8){
       document.getElementById("dataNascimento").style.border = "red 1px solid"
       document.getElementById("erro_dataNascimento").style.display = "block"
+      document.getElementById("dezoito_dataNascimento").style.display = "none"
       return false
     }
-    var minhaData = new Date();
-    let anoHJ = minhaData.getFullYear()
-    let mesHJ = minhaData.getMonth()+1
-    let diaHJ = minhaData.getDate()
     let listaMeses31 = [1,3,5,7,8,10,12]
     let listaMeses30 = [4,6,9,11]
     let listaMeses28 = [2]
     let dia = Number(dataNascimento.substring(0,2))
     let mes = Number(dataNascimento.substring(2,4))
     let ano = Number(dataNascimento.substring(4,8))
+    let data_inteira = "" + ano + "-" + mes + "-" + dia
     let bissexto:boolean
-    let milissegundos = Number(Date.now())
-    if(anoHJ < ano || (anoHJ == ano && mesHJ < mes) || (anoHJ == ano && mesHJ == mes && diaHJ < dia)){
+    var dezoito = (567648000000+432000000)
+    let milissegundos = Date.now()
+    if(milissegundos-Date.parse(data_inteira) < dezoito){
       document.getElementById("dataNascimento").style.border = "red 1px solid"
-      document.getElementById("erro_dataNascimento").style.display = "block"
+      document.getElementById("erro_dataNascimento").style.display = "none"
+      document.getElementById("dezoito_dataNascimento").style.display = "block"
       return false
+    }
+    else{
+      document.getElementById("dataNascimento").style.border = "black 1px solid"
+      document.getElementById("dezoito_dataNascimento").style.display = "none"
     }
     if(ano%4 == 0 && ano%100 != 0){
       bissexto = true
