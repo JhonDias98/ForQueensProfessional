@@ -35,7 +35,7 @@
         </div>
         <div *ngIf='authService.btnComLogin()'>
           <li class="nav-item ">
-            <a class="btn" (click)='sair()'>{{pegarPrimeiroNome(nomeUser)}}</a>
+            <a class="btn" [routerLink]="['/perfil']">{{pegarPrimeiroNome(nomeUser)}}</a>
           </li>
           <li class="nav-item ">
             <a class="btn" (click)='sair()'>Sair</a>

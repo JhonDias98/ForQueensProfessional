@@ -8,27 +8,27 @@
             
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="">Nome</label>
-                <input class="input-field form-control" type="text"  value="Fulano da Silva" disabled>
+                <input class="input-field form-control" type="text"  value="{{nome}}" disabled>
             </div>
             
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="">CPF</label>
-                <input class="input-field form-control" type="text" value="439.478.098-93" disabled>
+                <input class="input-field form-control" type="text" value="{{cpf}}" disabled>
             </div>
             
             <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
                 <label for="">E-mail</label>
-                <input class="input-field form-control" type="text" value="blablabla@gmail.com">
+                <input class="input-field form-control" type="text" value="{{usuario}}">
             </div>
             
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="" >Telefone</label>
-                <input class="input-field form-control" type="text" value="11 980334567">
+                <input class="input-field form-control" type="text" value="{{celular}}">
             </div>
             
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="">Data de Nascimento</label>
-                <input class="input-field form-control" type="date" value="21112000">
+                <input class="input-field form-control" value="{{formatarData(dataNascimento)}}">
             </div>
             
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3 text-center">
