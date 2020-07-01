@@ -168,4 +168,8 @@ export class ContatoComponent implements OnInit {
   contato_finalizar(){
     location.assign("/home")
   }
+  assunto(){
+    console.log("foi")
+    document.getElementById("assunto").setAttribute("selected","selected")
+  }
 }
