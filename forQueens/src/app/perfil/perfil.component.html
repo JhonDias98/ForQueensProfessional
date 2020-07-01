@@ -114,7 +114,7 @@
         </div>
         <div class="row m-3 p-3">
             <div class="col-md-12 text-center ">
-                <a href="" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
+                <a href="" data-toggle="modal" (click)="getEnderecos()" data-target="#alterar-endereco">Alterar</a>
                 <a href="" class="pr-4 pl-4" data-toggle="modal" data-target="#adicionar-endereco">Adicionar</a>
                 <a href="" data-toggle="modal" data-target="#editar-endereco">Editar</a>
             </div>
@@ -134,7 +134,7 @@
                     <div class="modal-body row">
                         <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
                             <label for="">CEP</label>
-                            <input class="input-field form-control" id="cep-input" type="text">
+                            <input class="input-field form-control" id="cep-input2" type="text">
                         </div>
 
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
@@ -149,7 +149,7 @@
 
                         <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
                             <label for="">Bairro</label>
-                            <input class="input-field form-control" id="bairro-input" type="text">
+                            <input class="input-field form-control" id="bairro-input2" type="text">
                         </div>
 
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
@@ -230,18 +230,18 @@
 
         <!-- Modal alterar endereço-->
         <div class="modal fade" id="alterar-endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true" *ngFor="let endereco of listaEndereco">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
+            aria-hidden="true" >
+            <div class="modal-dialog" >
+                <div class="modal-content" >
+                    <div class="modal-header" >
                         <h5 class="modal-title" id="exampleModalLabel">Alterar senha</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="card mt-4">
-                            <ul class="list-group list-group-flush" >
+                    <div class="modal-body" >
+                        <div class="card mt-4" *ngFor="let endereco of listaEndereco">
+                            <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="customRadioInline1" name="customRadioInline1"

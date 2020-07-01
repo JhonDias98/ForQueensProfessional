@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserLogin } from '../model/UserLogin';
 import { Endereco } from '../model/Endereco';
 import { EnderecoService } from '../service/endereco.service';
+import { Usuario } from '../model/Usuario';
 
 @Component({
   selector: 'app-perfil',
@@ -31,16 +32,15 @@ export class PerfilComponent implements OnInit {
     cep: ''
   }
 
-  end: number = 1
+  end: number = 0
 
   constructor(private enderecoService: EnderecoService) { }
 
   listaEndereco: Endereco[]
-  endereco: Endereco = new Endereco
+  endereco: Endereco = new Endereco()
 
   ngOnInit() {
-    this.findAllEnderecos()
-    
+    this.getIdEndereco()
   }
 
   findAllEnderecos() {
@@ -49,8 +49,9 @@ export class PerfilComponent implements OnInit {
     })
   }
 
-  getIdEndereco(id: number) {
-    this.enderecoService.getByIdEndereco(id).subscribe((resp: Endereco) => {
+  getIdEndereco() {
+    this.end = Number(localStorage.getItem('id'))
+    this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco) => {
       this.endereco = resp
       this.umEndereco.codigoEndereco = this.endereco.codigoEndereco
       this.umEndereco.rua = this.endereco.rua
@@ -63,8 +64,16 @@ export class PerfilComponent implements OnInit {
     })
   }
 
+  getEnderecos() {
+    this.end = Number(localStorage.getItem('id'))
+    this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco[]) => {
+      this.listaEndereco = resp
+    })
+  }
+
   adicionarEndereco() {
-    this.enderecoService.postEndereco(this.endereco).subscribe((resp: Endereco) => {
+    this.end = Number(localStorage.getItem('id'))
+    this.enderecoService.postEndereco(this.end, this.endereco).subscribe((resp: Endereco) => {
       this.endereco = resp;
       alert("Endereço cadastrado com sucesso")
       location.assign("/perfil")

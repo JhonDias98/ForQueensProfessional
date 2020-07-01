@@ -6,12 +6,12 @@ import { Endereco } from '../model/Endereco';
   providedIn: 'root'
 })
 export class EnderecoService {
-
-  constructor(private http: HttpClient) { }
-
   token = {
     headers: new HttpHeaders().set('Authorization', localStorage.getItem('token'))
   };
+
+  constructor(private http: HttpClient) { }
+  
 
   getAllEnderecos() {
     return this.http.get("http://localhost:8080/endereco", this.token)
@@ -25,8 +25,12 @@ export class EnderecoService {
     return this.http.get(`http://localhost:8080/endereco/endereco/${cep}`, this.token)
   }
 
-  postEndereco(endereco: Endereco) {
-    return this.http.post("http://localhost:8080/endereco", endereco, this.token)
+  getEndUser(id: number) {
+    return this.http.get(`http://localhost:8080/endereco/meus/${id}`)
+  }
+
+  postEndereco(id: number, endereco: Endereco) {
+    return this.http.post(`http://localhost:8080/endereco/${id}`, endereco, this.token)
   }
 
   putEndereco(endereco: Endereco) {
