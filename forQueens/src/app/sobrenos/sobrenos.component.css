@@ -11,14 +11,18 @@ h4 {
 	font-size: 30px;
 }
 
+a{
+	color: black;
+}
+
 .infor_direita {
-	height: 250px;
+	height: 350px;
 	width: 100%;
 	margin-top: 40px;	
 }
 
 .infor_esquerda {
-	height: 250px;
+	height: 350px;
 	width: 100%;
 	margin-top: 40px;
 }
@@ -28,20 +32,85 @@ h4 {
 }
 
 .foto_grupo {
-	width: 100%;
-	height: 270px;
+	width: 80%;
+	height: 21vw;
+	margin-left: 10%;
 }
 
 .foto_direita {
-	float: right;	
+	float: right;
+	margin-right: 10%;
+	margin-left: 0% !important;
 }
 
 .texto_direita{
 	text-align: end;
 }
 
+.div_esquerda{
+	height: 80%;
+	margin-top: 5%;
+}
+
 .aparecer {
 	display: none;
+}
+
+.github{
+	height: 40px;
+	border: 3px black solid;
+	background: rgba(242, 242, 240, 0.4) !important;
+	transition: .7s;
+}
+
+.github img{
+	width: 14px;
+	height: 14px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.github a{
+	color: black !important;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.github:hover{
+	background: rgba(242, 242, 240, 1) !important;
+	margin-top: -5px;
+	padding:4px 12px;
+}
+
+.linkedin{
+	border: 3px #0e76a8 solid !important;
+	background: rgba(242, 242, 240, 0.4) !important;
+	transition: .7s;
+	height: 40px;
+}
+
+.linkedin img{
+	width: 14px;
+	height: 14px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.linkedin a{
+	color: #0e76a8 !important;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.linkedin:hover{
+	background: rgba(242, 242, 240, 1) !important;
+	margin-top: -5px;
+	padding:4px 12px;
+}
+
+.btn{
+	width: 120px;
+	padding:6px 8px
 }
 
 [data-anime] {

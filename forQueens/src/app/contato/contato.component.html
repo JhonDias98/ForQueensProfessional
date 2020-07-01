@@ -1,5 +1,5 @@
 <div id="backdrop2" (click)="contato_finalizar()"></div>
-<main class="fundo">
+<main class="fundo" (mouseover)="assunto()">
   <div class="container">
     <h1 class="text-center mt-4 pt-4" id="contato">CONTATO</h1>
     <hr>
@@ -60,8 +60,8 @@
         <div class="input-container campos_contato">
           <div class="d-flex">
           <fa-icon [icon]="faQuestionCircle" class="fa-lg icone_contato"></fa-icon>
-          <select id="assunto" class="input-field form-control" type="" name="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
-            <option selected hidden>Assunto</option>
+          <select class="input-field form-control" type="" name="assunto" [(ngModel)]="contato.assunto" [(ngModel)]="contatoAPI.assunto">
+            <option hidden id="assunto">Assunto</option>
             <option>Sugestão</option>
             <option>Elogio</option>
             <option>Distribuidor</option>
