@@ -92,24 +92,6 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  validarCNPJ(){
-    let erros = []
-    erros.push(this.verificar_email())
-    erros.push(this.verificar_nome())
-    erros.push(this.verificar_cnpj())
-    erros.push(this.verificar_senha())
-    erros.push(this.verificar_razaoSocial())
-    erros.push(this.verificar_inscricaoEstadual())
-    erros.push(this.verificar_nomeComercial())
-    erros.push(this.verificar_confirmasenha())
-    erros.push(this.verificar_celular())
-    erros.push(this.verificar_telefone_comercial())
-    if (erros.indexOf(false) == -1){
-      this.cadastrarPJ();
-    }
-  }
-
-
   verificar_email(){
     let email = this.data.email
     if(email == ""){
@@ -196,18 +178,6 @@ export class NavbarComponent implements OnInit {
       document.getElementById("erro_nome").style.display = "none"
       return true
     }
-  }
-
-  verificar_telefone_comercial(){
-    let telefone_comercial = this.data.telefone_comercial
-    if (telefone_comercial == "" || telefone_comercial.length == 10){
-      document.getElementById("erro_telefoneComercial").style.display = "none"
-      document.getElementById("telefoneComercial").style.border = "black 1px solid"
-      return true
-    }
-    document.getElementById("erro_telefoneComercial").style.display = "block"
-    document.getElementById("telefoneComercial").style.border = "red 1px solid"
-    return false
   }
 
   verificar_celular(){
@@ -363,110 +333,6 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  verificar_cnpj(){
-    let cnpjsInvalidos = ["00000000000000", "11111111111111","22222222222222","33333333333333", "44444444444444", "55555555555555", "66666666666666", "77777777777777", "88888888888888", "99999999999999"]
-    let dig1:Number
-    let dig2:Number
-    let cnpj = this.data.cnpj
-    let cnpjLista = []
-    let pesos = [5,4,3,2,9,8,7,6,5,4,3,2]
-    let soma = 0
-
-    if(cnpj == ""){
-      document.getElementById("cadastroNPJ").style.border = "red 1px solid"
-      document.getElementById("vazio_cnpj").style.display = "block"
-      document.getElementById("erro_cnpj").style.display = "none"
-      return false
-    }
-    else{
-      document.getElementById("cadastroNPJ").style.border = "black 1px solid"
-      document.getElementById("vazio_cnpj").style.display = "none"
-    }
-
-    if(cnpjsInvalidos.indexOf(cnpj) != -1){
-      return false
-    }
-    if(cnpj.length == 14){
-      cnpjLista = cnpj.split("")
-      for(let i = 0; i < cnpj.length-2; i++){ 
-        soma += Number(cnpjLista[i])*pesos[i]
-      }
-      dig1 = 11 - (soma % 11)
-      if(dig1 > 9){
-        dig1 = 0
-      }
-      if(dig1 == cnpjLista[12]){
-        pesos.unshift(6)
-        soma = 0
-        for(let i = 0; i < cnpj.length-1; i++){ 
-          cnpjLista[i] = parseInt(cnpjLista[i])
-          soma += Number(cnpjLista[i])*pesos[i]
-        }
-        dig2 = 11 - (soma % 11)
-        if(dig2 > 9){
-          dig2 = 0
-        }
-        if(dig2 == cnpjLista[13]){
-          document.getElementById("cadastroNPJ").style.border = "black 1px solid"
-          document.getElementById("erro_cnpj").style.display = "none"
-          return true
-        }
-        document.getElementById("cadastroNPJ").style.border = "red 1px solid"
-        document.getElementById("erro_cnpj").style.display = "block"
-        return false
-      }
-      document.getElementById("cadastroNPJ").style.border = "red 1px solid"
-      document.getElementById("erro_cnpj").style.display = "block"
-      return false
-    }
-    document.getElementById("cadastroNPJ").style.border = "red 1px solid"
-    document.getElementById("erro_cnpj").style.display = "block"
-    return false
-  }
-
-  verificar_razaoSocial(){
-    let razaoSocial = this.data.razao_social
-    if(razaoSocial == ""){
-      document.getElementById("razaoSocial").style.border = "red 1px solid"
-      document.getElementById("vazio_razaoSocial").style.display = "block"
-      return false
-    }
-    else{
-      document.getElementById("razaoSocial").style.border = "black 1px solid"
-      document.getElementById("vazio_razaoSocial").style.display = "none"
-      return true
-    }
-  }
-
-
-  verificar_nomeComercial(){
-    let nomeComercial = this.data.nome_comercial
-    if(nomeComercial == ""){
-      document.getElementById("nomeComercial").style.border = "red 1px solid"
-      document.getElementById("vazio_nomeComercial").style.display = "block"
-      return false
-    }
-    else{
-      document.getElementById("nomeComercial").style.border = "black 1px solid"
-      document.getElementById("vazio_nomeComercial").style.display = "none"
-      return true
-    }
-  }
-
-  verificar_inscricaoEstadual(){
-    let inscricaoEstadual = this.data.inscricao_estadual
-    if(inscricaoEstadual == ""){
-      document.getElementById("inscricaoEstadual").style.border = "red 1px solid"
-      document.getElementById("vazio_inscricaoEstadual").style.display = "block"
-      return false
-    }
-    else{
-      document.getElementById("inscricaoEstadual").style.border = "black 1px solid"
-      document.getElementById("vazio_inscricaoEstadual").style.display = "none"
-      return true
-    }
-  }
-
   cadastrarPF() {
     this.authService.cadastrarUsuario(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
@@ -474,14 +340,6 @@ export class NavbarComponent implements OnInit {
       alert("Usuário cadastrado com sucesso")
     }, err => {
       alert('Usuário já existe')
-    })
-  }
-
-  cadastrarPJ() {
-    this.authService.cadastrarEmpresa(this.empresa).subscribe((resp: Empresa) => {
-      this.empresa = resp;
-      location.assign('/home')
-      alert("Empresa cadastrado com sucesso")
     })
   }
   
@@ -499,50 +357,11 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('token', this.userLogin.token)
       location.assign('/home')
     }, err => {
-      this.entrarEmpresa()
-    })
-  }
-
-  entrarEmpresa() {
-    this.authService.logarEmpresa(this.empresaLogin).subscribe((resp: EmpresaLogin) => {
-      this.empresaLogin = resp
-
-      localStorage.setItem('id', this.empresaLogin.id)
-      localStorage.setItem('cnpj', this.empresaLogin.cnpj)
-      localStorage.setItem('email', this.empresaLogin.email)
-      localStorage.setItem('razaoSocial', this.empresaLogin.razaoSocial)
-      localStorage.setItem('nomeComercial', this.empresaLogin.nomeComercial)
-      localStorage.setItem('inscricaoEstadual', this.empresaLogin.inscricaoEstadual)
-      localStorage.setItem('telefoneComercial', this.empresaLogin.telefoneComercial)
-      localStorage.setItem('nomeComprador', this.empresaLogin.nomeComprador)
-      localStorage.setItem('senha', this.empresaLogin.senha)
-      localStorage.setItem('token', this.empresaLogin.token)
-      location.assign('/home')
-    }, err => {
-      alert("Houve um erro ao entrar, por favor verifique o e-mail e senha")
     })
   }
 
   sair() {
     localStorage.clear();
     location.assign('/home')
-  }
-
-  cpf() {
-    document.getElementById("cpf").style.display = "block"
-    document.getElementById("nascimento").style.display = "block"
-    document.getElementById("cnpj").style.display = "none"
-    document.getElementById("botaoCPF").style.display = "block"
-    document.getElementById("botaoCNPJ").style.display = "none"
-  }
-
-
-  cnpj() {
-    document.getElementById("cpf").style.display = "none"
-    document.getElementById("nascimento").style.display = "none"
-    document.getElementById("cnpj").style.display = "block"
-    document.getElementById("botaoCPF").style.display = "none"
-    document.getElementById("botaoCNPJ").style.display = "block"
-  }
-  
+  } 
 }

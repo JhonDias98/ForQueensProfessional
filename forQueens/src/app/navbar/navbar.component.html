@@ -34,17 +34,17 @@
           </li>
         </div>
         <div *ngIf='authService.btnComLogin()'>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="btn" [routerLink]="['/perfil']">{{pegarPrimeiroNome(nomeUser)}}</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="btn" (click)='sair()'>Sair</a>
           </li>
           <li>
             <a routerLink="/pedido" class="row">
-            <fa-icon [icon]="faShoppingCart" class="fa fa-lg ml-3 mr-3 icones"></fa-icon>
-            <div>R{{ precoTotal | currency }}</div>
-          </a>
+              <fa-icon [icon]="faShoppingCart" class="fa fa-lg ml-3 mr-3 icones"></fa-icon>
+              <div>R{{ precoTotal | currency }}</div>
+            </a>
           </li>
           
         </div>
@@ -147,51 +147,6 @@
                 <span id="erro_email">O email deve ser válido!</span>
                 <span id="vazio_email"> Campo obrigatório! </span>
               </div>
-              <h3 style="text-align: center;">Tipo de Conta</h3>
-              <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
-                <label class="botao_cadastro btn btn-secondary active">
-                  <input (click)="cpf()" type="radio" id="pf" value="pf" checked>Pessoa Física
-                </label>
-                <label class="botao_cadastro btn btn-secondary">
-                  <input (click)="cnpj()" type="radio" id="pj" value="pj">Pessoa Jurídica
-                </label>
-              </div>
-              <!-- Dados conta PJ -->
-              <div id="cnpj" class="caixa_cadastro mt-3">
-                <h3>Dados da empresa</h3>
-                <div>
-                  <label>CNPJ</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.cnpj" [(ngModel)]="data.cnpj"
-                    id="cadastroNPJ" placeholder="99.999.999/9999-99" mask="00.000.000/0000-00">
-                  <span id="erro_cnpj"> O cnpj deve ser válido! </span>
-                  <span id="vazio_cnpj"> Campo obrigatório! </span>
-                </div>
-                <div>
-                  <label>Razão social</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.razaoSocial"
-                    [(ngModel)]="data.razao_social" id="razaoSocial">
-                  <span id="vazio_razaoSocial"> Campo obrigatório! </span>
-                </div>
-                <div>
-                  <label>Nome comercial</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.nomeComercial"
-                    [(ngModel)]="data.nome_comercial" id="nomeComercial">
-                  <span id="vazio_nomeComercial"> Campo obrigatório! </span>
-                </div>
-                <div>
-                  <label>Inscrição estadual</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.inscricaoEstadual"
-                    [(ngModel)]="data.inscricao_estadual" id="inscricaoEstadual">
-                  <span id="vazio_inscricaoEstadual"> Campo obrigatório! </span>
-                </div>
-                <div>
-                  <label>Telefone Comercial</label>
-                  <input type="text" class="form-control" [(ngModel)]="empresa.telefoneComercial"
-                    [(ngModel)]="data.telefone_comercial" id=telefoneComercial mask="(00)0000-0000">
-                  <span id="erro_telefoneComercial">O telefone deve ser válido!</span>
-                </div>
-              </div>
-              <!-- Fim dos Dados PJ -->
               <!-- Dados conta PF -->
               <div class="caixa_cadastro mt-3">
                 <h3>Dados pessoais</h3>
@@ -239,7 +194,6 @@
               <!-- Fim dos dados PF -->
               <div class="d-flex justify-content-end">
                 <button type="submit" class="btn mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
-                <button type="submit" class="btn mt-3" (click)="validarCNPJ()" id="botaoCNPJ">Cadastrar</button>
               </div>
             </div>
           </div>
