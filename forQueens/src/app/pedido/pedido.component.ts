@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../service/carrinho.service';
 import { Carrinho } from '../model/Carrinho';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pedido',
@@ -9,10 +9,10 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./pedido.component.css']
 })
 export class PedidoComponent implements OnInit {
-
   faPlus = faPlus
   faMinus = faMinus
-
+  faTrash = faTrash
+  
   carrinho: Carrinho[] = []
   valorTotal: number = 0
   quantidadeTotal: number = 0
