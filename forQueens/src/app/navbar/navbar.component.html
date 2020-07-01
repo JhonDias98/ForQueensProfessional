@@ -57,7 +57,7 @@
       <li class="divider"></li>
       <div *ngIf='authService.btnComLogin()'>
         <li class="nav-item">
-          <a class="text-reset" href="">{{pegarPrimeiroNome(nomeUser)}}</a>
+          <a class="text-reset" [routerLink]="['/perfil']">{{pegarPrimeiroNome(nomeUser)}}</a>
         </li>
       </div>
       <a [routerLink]="['/produtos']"><li class="nav-item">
@@ -80,18 +80,18 @@
       </li>
       </a>
       <div *ngIf='authService.btnSemLogin()'>
-        <li class="nav-item" data-toggle="modal" data-target="#modalLogin">
-          <a class="text-reset" href="">Login</a>
+        <li class="nav-item" style="font-size: 22px;" data-toggle="modal" data-target="#modalLogin">
+          Login
         </li>
       </div>
       <div *ngIf='authService.btnSemLogin()'>
-          <li class="nav-item" data-toggle="modal" data-target="#modalCadastro">
-            <a class="text-reset" href="">Cadastro</a>
+          <li class="nav-item" style="font-size: 22px;" data-toggle="modal" data-target="#modalCadastro">
+            Cadastro
           </li>
       </div>
       <div *ngIf='authService.btnComLogin()'>
         <li class="nav-item">
-          <a class="text-reset" href="">Sair</a>
+          <a class="text-reset" (click)='sair()'>Sair</a>
         </li>
       </div>
     </ul>
@@ -118,6 +118,7 @@
             <label>Senha</label>
             <input type="password" class="form-control" id="passwordLogin" [(ngModel)]='userLogin.senha'>
           </div>
+          <div style="font-size: 13px;">Não tem uma conta? <button data-toggle="modal" data-target="#modalCadastro" style="background: none; color: rgb(0, 103, 184);"> Cadastre-se</button></div>
           <div class="d-flex justify-content-end">
             <button type="button" data-dismiss="modal" class="btn btn-secondary botao_cadastro">Cancelar</button>
             <button type="submit" class="btn ml-3" (click)='entrar()'>Login</button>

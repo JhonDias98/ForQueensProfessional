@@ -169,7 +169,6 @@ export class ContatoComponent implements OnInit {
     location.assign("/home")
   }
   assunto(){
-    console.log("foi")
-    document.getElementById("assunto").setAttribute("selected","selected")
+    document.getElementById("assunto_option").setAttribute("selected","selected")
   }
 }

@@ -119,12 +119,9 @@ button.nav-link {
   display: none;
 }
 #erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email, #vazio_senha, #vazio_nome, #vazio_cpf, #vazio_cnpj,
-#vazio_email, #vazio_razaoSocial,  #vazio_nomeComercial, #vazio_inscricaoEstadual, #vazio_dataNascimento, #erro_dataNascimento,#dezoito_dataNascimento, #erro_celular, #erro_telefoneComercial {  
+#vazio_email, #vazio_dataNascimento, #erro_dataNascimento,#dezoito_dataNascimento, #erro_celular{  
   display: none;
   color: red;
-}
-#botaoCNPJ {
-  display: none;
 }
 /* Fim modal cadastro */
 @media (max-width: 1130px) {
