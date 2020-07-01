@@ -1,0 +1,37 @@
+td{
+    padding: 12px 12px 0px;
+}
+
+.imagem_produto{
+    padding-left: 20px;
+    margin-left: 40px;
+}
+.menos{
+    background: linear-gradient(150deg, rgba(220, 53, 69, 0.8)20%, rgba(220, 53, 69, 0.6) 50%, rgba(220, 53, 69, 0.4) 80%);  
+    transition:.5s;
+    background-size: 300%;
+}
+.mais{
+    background: linear-gradient(150deg, rgba(40,167,69, 0.8)20%, rgba(40,167,69, 0.6) 50%, rgba(40,167,69, 0.4) 80%);  
+    transition:.5s;
+    background-size: 300%;
+}
+.mais:hover{
+    background-position: right;
+}
+.menos:hover{
+    background-position: right;
+}
+.mais:active,.mais:active{
+    background:rgba(40, 167,69, 0.9);
+}
+.menos:active,.menos:active{
+    background:rgba(220, 53, 69, 0.9)
+}
+.lixeira{
+    background: white!important;
+    transition: .5s;
+}
+.lixeira:hover{
+    background-color: black solid;
+}
