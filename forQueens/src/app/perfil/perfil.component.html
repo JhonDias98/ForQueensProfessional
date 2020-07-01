@@ -18,17 +18,17 @@
 
             <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
                 <label for="">E-mail</label>
-                <input class="input-field form-control" type="text" value="{{usuario}}">
+                <input class="input-field form-control" type="text" value="{{usuario}}" disabled>
             </div>
 
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="">Telefone</label>
-                <input class="input-field form-control" type="text" value="{{celular}}">
+                <input class="input-field form-control" type="text" value="{{celular}}" disabled>
             </div>
 
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                 <label for="">Data de Nascimento</label>
-                <input class="input-field form-control" value="{{formatarData(dataNascimento)}}">
+                <input class="input-field form-control" value="{{formatarData(dataNascimento)}}" disabled>
             </div>
 
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3 text-center">
@@ -71,42 +71,42 @@
         <!-- fim modal senha -->
 
         <h4 class="mt-4 pt-4">Endereço</h4>
-        <div class="card mt-4">
+        <div class="card mt-4 enderecos" *ngFor="let endereco of listaEndereco">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="row">
-                        <label class="col-md-3"><b>Rua:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.rua}}" disabled
+                        <label class="col-md-2"><b>Rua:</b></label>
+                        <input type="text" class="col-md-3 border-0" value="{{endereco.rua}}" disabled
                             style="background-color: transparent;">
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <label class="col-md-3"><b>Estado:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.estado}}" disabled
+                        <label class="col-md-2"><b>Estado:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.estado}}" disabled
                             style="background-color: transparent;">
-                        <label class="col-md-3"><b>Cidade:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.cidade}}" disabled
-                            style="background-color: transparent;">
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <label class="col-md-3"><b>Bairro:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.bairro}}" disabled
-                            style="background-color: transparent;">
-                        <label class="col-md-3"><b>Complemento:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.complemento}}" disabled
+                        <label class="col-md-2"><b>Cidade:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.cidade}}" disabled
                             style="background-color: transparent;">
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <label class="col-md-3"><b>CEP:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.cep}}" disabled
+                        <label class="col-md-2"><b>Bairro:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.bairro}}" disabled
                             style="background-color: transparent;">
-                        <label class="col-md-3"><b>Número:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{umEndereco.numero}}" disabled
+                        <label class="col-md-2"><b>Complemento:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.complemento}}" disabled
+                            style="background-color: transparent;">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <label class="col-md-2"><b>CEP:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.cep}}" disabled
+                            style="background-color: transparent;">
+                        <label class="col-md-2"><b>Número:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.numero}}" disabled
                             style="background-color: transparent;">
                     </div>
                 </li>
@@ -114,7 +114,7 @@
         </div>
         <div class="row m-3 p-3">
             <div class="col-md-12 text-center ">
-                <a href="" data-toggle="modal" (click)="getEnderecos()" data-target="#alterar-endereco">Alterar</a>
+                <a href="" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
                 <a href="" class="pr-4 pl-4" data-toggle="modal" data-target="#adicionar-endereco">Adicionar</a>
                 <a href="" data-toggle="modal" data-target="#editar-endereco">Editar</a>
             </div>
