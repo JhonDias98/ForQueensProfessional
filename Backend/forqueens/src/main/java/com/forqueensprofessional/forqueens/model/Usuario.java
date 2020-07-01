@@ -49,7 +49,7 @@ public class Usuario {
 	private String senha;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(foreignKey = @ForeignKey(name = "produto_fk"))
+	@JoinColumn(foreignKey = @ForeignKey(name = "endereco_fk"))
 	private List<Endereco> endereco;
 
 	public long getId() {
