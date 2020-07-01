@@ -145,7 +145,7 @@
                       <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
                       <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
                       </p>
-                      <p><strong>Preço: </strong>{{produto.valor | currency}}</p>
+                      <p><strong>Preço: </strong>R{{produto.valor | currency}}</p>
                       <div class="row">
                         <div class="col-8">
                           <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>

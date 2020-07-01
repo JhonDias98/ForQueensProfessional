@@ -125,26 +125,16 @@ h1 {
   margin: 0 2px;
   display: block;
   transition: all 0.3s ease 0s;
-  padding-left: 15px;
+  padding-left: 13px;
 }
 
 .product-grid3 .social li a:hover {
   background: rgb(242,242,240);
   color: #fff;
   cursor: pointer;
-}
-
-
-.product-grid3 .product-discount-label,
-.product-grid3 .product-new-label {
-  background-color: #ffde59;
-  color: #fff;
-  font-size: 17px;
-  padding: 2px 10px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  transition: all 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding-left: 13px;
+  margin-bottom: 2px;
 }
 
 .product-grid3 .product-content {
@@ -188,7 +178,7 @@ h1 {
 }
 
 .cardProduto:hover {
-  box-shadow: 0 2px 3px 0;
+  box-shadow: 0 1px 2px 0;
   cursor: pointer;
 }
 
