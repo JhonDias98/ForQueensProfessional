@@ -3,15 +3,6 @@
   text-align: center;
 }
 
-/* .parallax {
-  background-image: url('../../assets/img/pagina-perguntas/PERGUNTAS.png');
-  min-height: 400px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
 .accordion_faq {
 	background-color: #eee;
 	color: #444;
@@ -53,4 +44,12 @@
 
 h1 {
   font-weight: bold;
+}
+@media(max-width:560px){
+  *{
+    font-size:13px
+  }
+  h1{
+    font-size:35px
+  }
 }
