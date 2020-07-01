@@ -34,7 +34,7 @@ export class ListaUsuarioComponent implements OnInit {
   }
 
   getId(id: number) {
-    this.usuarioService.getUserById(1).subscribe((resp: Usuario) => {
+    this.usuarioService.getUserById(id).subscribe((resp: Usuario) => {
       this.user = resp
     }, err => {
       console.log(`Erro: ${err.status}, ocorreu um erro na busca pelo id`)

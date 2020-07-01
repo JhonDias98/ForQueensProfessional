@@ -11,13 +11,16 @@
 
     <div class="row">
       <div class="col-lg-3 col-md-12">
-        <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" >
-        <label>Todos produtos</label> <br>
 
-        <h5>Categorias</h5>
+
+
         <form>
+          <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" checked>
+          <label>Todos produtos</label> <br>
+          
+          <h5>Categorias</h5>
           <input class="mr-1" (change)="getBotox()" name="options" type="radio">
-          <label >Botox</label> <br>
+          <label>Botox</label> <br>
 
           <input class="mr-1" (change)="getHidratante()" name="options" type="radio">
           <label>Hidratante</label> <br>
@@ -73,8 +76,7 @@
         <div id="categorias" class="row" *ngFor="let categoria of listaCategoria">
           <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of categoria.produto">
             <div class="product-grid3 cardProduto ">
-              <div class="product-image3" 
-                (click)='produtoId(produto.codigoProduto)'>
+              <div class="product-image3" (click)='produtoId(produto.codigoProduto)'>
                 <a data-toggle="modal" data-target="#modalProduto">
                   <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
                   <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
@@ -111,7 +113,7 @@
                   <ul class="social">
                     <li>
                       <a (click)="adicionarAoCarrinho(produto)">
-                        <fa-icon [icon]="faShoppingCart"  class="fa icones">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones">
                         </fa-icon>
                       </a>
                     </li>

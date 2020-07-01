@@ -16,7 +16,7 @@
           </td>
           <td>
             <p>{{ itemCarrinho.nome }}</p>
-            <p>{{ itemCarrinho.valor | currency: 'USD' }}</p>
+            <p>R{{ itemCarrinho.valor | currency }}</p>
           </td>
           <td>
             <div class="items">
@@ -49,7 +49,7 @@
           <td style="font-weight: bold">
             <p>Quantidade Total: {{ quantidadeTotal }}</p>
             <p>Frete: gratuito</p>
-            <p>Valor tota: {{ valorTotal | currency: 'USD' }}</p>
+            <p>Valor tota: R{{ valorTotal | currency }}</p>
           </td>
         </tr>
       </table>
@@ -88,7 +88,7 @@
       </div>
 
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg">Confirmar compra</button>
     </div>
     <div *ngIf="carrinho.length == 0" class="alert alert-warning col-md-12" role="alert">
       Seu carrinho de compras está vazio.

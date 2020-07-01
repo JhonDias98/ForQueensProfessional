@@ -44,5 +44,5 @@ export class PedidoComponent implements OnInit {
   remover(carrinho: Carrinho) {
     this.carrinhoService.remover(carrinho)
   }
-
+  
 }
