@@ -40,36 +40,37 @@ export class PerfilComponent implements OnInit {
   endereco: Endereco = new Endereco()
 
   ngOnInit() {
-    this.getIdEndereco()
+    this.findAllEnderecos()
   }
 
   findAllEnderecos() {
-    this.enderecoService.getAllEnderecos().subscribe((resp: Endereco[]) => {
+    let ender = Number(localStorage.getItem('id'))
+    this.enderecoService.getEndUser(ender).subscribe((resp: Endereco[]) => {
       this.listaEndereco = resp
     })
   }
 
-  getIdEndereco() {
-    this.end = Number(localStorage.getItem('id'))
-    this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco) => {
-      this.endereco = resp
-      this.umEndereco.codigoEndereco = this.endereco.codigoEndereco
-      this.umEndereco.rua = this.endereco.rua
-      this.umEndereco.cep = this.endereco.cep
-      this.umEndereco.cidade = this.endereco.cidade
-      this.umEndereco.estado = this.endereco.estado
-      this.umEndereco.numero = this.endereco.numero
-      this.umEndereco.complemento = this.endereco.complemento
-      this.umEndereco.bairro = this.endereco.bairro
-    })
-  }
+  // getIdEndereco() {
+  //   this.end = Number(localStorage.getItem('id'))
+  //   this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco) => {
+  //     this.endereco = resp
+  //     this.umEndereco.codigoEndereco = this.endereco.codigoEndereco
+  //     this.umEndereco.rua = this.endereco.rua
+  //     this.umEndereco.cep = this.endereco.cep
+  //     this.umEndereco.cidade = this.endereco.cidade
+  //     this.umEndereco.estado = this.endereco.estado
+  //     this.umEndereco.numero = this.endereco.numero
+  //     this.umEndereco.complemento = this.endereco.complemento
+  //     this.umEndereco.bairro = this.endereco.bairro
+  //   })
+  // }
 
-  getEnderecos() {
-    this.end = Number(localStorage.getItem('id'))
-    this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco[]) => {
-      this.listaEndereco = resp
-    })
-  }
+  // getEnderecos() {
+  //   this.end = Number(localStorage.getItem('id'))
+  //   this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco[]) => {
+  //     this.listaEndereco = resp
+  //   })
+  // }
 
   adicionarEndereco() {
     this.end = Number(localStorage.getItem('id'))

@@ -26,7 +26,7 @@ export class EnderecoService {
   }
 
   getEndUser(id: number) {
-    return this.http.get(`http://localhost:8080/endereco/meus/${id}`)
+    return this.http.get(`http://localhost:8080/endereco/meus/${id}`, this.token)
   }
 
   postEndereco(id: number, endereco: Endereco) {
