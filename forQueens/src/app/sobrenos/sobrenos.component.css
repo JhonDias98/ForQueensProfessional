@@ -45,6 +45,7 @@ a{
 
 .texto_direita{
 	text-align: end;
+	height: 80%;
 }
 
 .div_esquerda{
@@ -212,10 +213,6 @@ a{
 
 	.sumir {
 		display: none;
-	}
-
-	#edu_foto{
-		margin-top: 40px;
 	}
 
 }
