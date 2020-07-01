@@ -1,137 +1,112 @@
-<div class="fundo mt-3">
+<div class="fundo mt-3" style="min-height: 400px;">
   <div class="container">
-
-    <div *ngIf="carrinho.length > 0">
-
-      <table class="table table-bordered">
-        <tr>
-          <th width="20%">Imagem do prodtudo</th>
-          <th width="50%">Detalhes</th>
-          <th width="30%"></th>
-        </tr>
-
-        <tr *ngFor="let itemCarrinho of carrinho">
-          <td>
-            <img src="{{ itemCarrinho.urlImagem }}" width="150px" height="150px" />
-          </td>
-          <td>
-            <p>{{ itemCarrinho.nome }}</p>
-            <p>R{{ itemCarrinho.valor | currency }}</p>
-          </td>
-          <td>
-            <div class="items">
-              <label>Quantidade:</label>
-
-              <div class="row no-gutters">
-                <div class="col-2">
-                  <button (click)="decrementarQuantidade(itemCarrinho)" class="btn">
-                    <fa-icon [icon]="faMinus" class="fa fa-lg"></fa-icon>
-                  </button>
+    <h1 class="text-center mb-5 mt-2">Minhas Compras</h1>
+    <div class="row" *ngIf="carrinho.length > 0">
+      <div class="container">
+        <table class="table table-bordered">
+          <tr>
+            <th width="20%">Imagem do produto</th>
+            <th width="40%">Detalhes</th>
+            <th width="40%">Valores</th>
+          </tr>
+          
+          <tr *ngFor="let itemCarrinho of carrinho">
+            <td>
+              <img src="{{ itemCarrinho.urlImagem }}" width="100px" height="100px" class="imagem_produto" />
+            </td>
+            <td>
+              <p>{{ itemCarrinho.nome }}</p>
+              <p>R{{ itemCarrinho.valor | currency }}</p>
+            </td>
+            <td>
+              <div class="items">
+                <label>Quantidade:</label>
+                
+                <div class="row no-gutters">
+                  <div class="col-2">
+                    <button (click)="decrementarQuantidade(itemCarrinho)" class="btn btn-danger menos">
+                      <fa-icon [icon]="faMinus" class="fa fa-lg"></fa-icon>
+                    </button>
+                  </div>
+                  
+                  <div class="col-1" style="font-size: 18px; font-weight: 700; margin-top: 5px;">
+                    {{ itemCarrinho.quantidade }}
+                  </div>
+                  <div class="col-2">
+                    <button (click)="incrementarQuantidade(itemCarrinho)" class="btn btn-success mais">
+                      <fa-icon [icon]="faPlus" class="fa fa-lg"></fa-icon>
+                    </button>
+                  </div>
+                  <div class="col-2">
+                    <button (click)="remover(itemCarrinho)" class="btn lixeira">
+                      <fa-icon [icon]="faTrash" class="fa fa-lg"></fa-icon>
+                    </button>
+                  </div>
                 </div>
-
-                <div class="col-1">
-                  {{ itemCarrinho.quantidade }}
+                <div class="row pl-3"> 
+                  <p class="mt-2">Subtotal: R{{ itemCarrinho.quantidade * itemCarrinho.valor | currency: 'USD' }}</p>
                 </div>
-                <div class="col-2">
-                  <button (click)="incrementarQuantidade(itemCarrinho)" class="btn">
-                    <fa-icon [icon]="faPlus" class="fa fa-lg"></fa-icon>
-                  </button>
-                </div>
-                <button (click)="remover(itemCarrinho)" class="col-5 btn">Remover</button>
               </div>
+            </td>
+          </tr>
+        </table>
+        <div class="row d-flex justify-content-end mb-3">
+          <div class="shadow-sm col-3" style="margin-right:15px !important;">
+            <h5 style="font-weight: bolder;">Dados da compra</h5>
+            <div style="font-weight: bold;">
+              <p>Quantidade Total: {{ quantidadeTotal }}</p>
+              <p>Frete: gratuito</p>
+              <p>Valor total: R{{ valorTotal | currency }}</p>
             </div>
-            <p class="mt-2">Subtotal: {{ itemCarrinho.quantidade * itemCarrinho.valor | currency: 'USD' }}</p>
-          </td>
-        </tr>
-
-        <tr>
-          <td colspan="2"></td>
-          <td style="font-weight: bold">
-            <p>Quantidade Total: {{ quantidadeTotal }}</p>
-            <p>Frete: gratuito</p>
-            <p>Valor tota: R{{ valorTotal | currency }}</p>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
+        
+      </div>
       <h5>Dados de entrega</h5>
       <hr />
-
+      
       <div class="form-row">
-
+        
         <div class="form-group col-md-6">
           <input type="text" class="form-control" placeholder="Endereço">
         </div>
-
+        
         <div class="form-group col-md-2">
           <input type="text" class="form-control" placeholder="Número">
         </div>
-
+        
         <div class="form-group col-md-4">
           <input type="text" class="form-control" placeholder="Complemento">
         </div>
-
+        
       </div>
       <br />
-
+      
       <h5>Dados de pagamento</h5>
       <hr />
-
+      
       <div class="form-row">
-
+        
         <div class="form-group col-md-3">
           <select class="form-control">
-            <option value="">Selecione uma opção</option>
+            <option hidden value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
+            <option value="debito">Crédito</option>
           </select>
         </div>
       </div>
-
+      
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Confirmar compra</button>
+      <div class="justify-content-end d-flex">
+        <button type="submit" class="btn btn-lg">Confirmar compra</button>
+        
+      </div>
+      
     </div>
-    <div *ngIf="carrinho.length == 0" class="alert alert-warning col-md-12" role="alert">
-      Seu carrinho de compras está vazio.
+    <div *ngIf="carrinho.length == 0" class="alert alert-warning col-md-12 text-center" role="alert">
+      Seu carrinho de compras está vazio, vá para <a [routerLink]="['/produtos']" style="color:rgb(141,107,23)">Produtos</a> e comece suas compras!
     </div>
+    <button></button>
   </div>
 </div>
-
-
-
-
-
-
-
-<!-- Modal Produto -->
-<!-- <div class="modal " id="modalProduto">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <div class="modal-body">
-
-
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="../../assets/img/pagina_home/produtos/Botox Platinum.png" height="250px" class="card-img mt-4"
-              alt="Produto do site">
-          </div>
-
-          <div class="col-md-8">
-
-            <div class="card-body">
-              <h5 class="card-title">PLATINUN BLOND</h5>
-              <p class="card-text"><strong>Categoria:</strong> Botox</p>
-              <p class="card-text"><strong>Descrição:</strong> Desenvolvidos com complexo Nanotecnológicos de ativos
-                reconstrutores e matizadores que reestruturam, alinham e
-                fortalecem os cabelos penetrando e preenchendo as falhas do cimento intercelular e das fibrilas do
-                Córtex.
-              </p>
-              <span class="textoCinza">Em estoque</span>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
