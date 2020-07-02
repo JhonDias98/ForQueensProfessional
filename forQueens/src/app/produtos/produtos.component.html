@@ -80,14 +80,26 @@
                   <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
                   <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                 </a>
-                <ul class="social">
-                  <li>
-                    <a (click)="adicionarAoCarrinho(produto)">
-                      <fa-icon [icon]="faShoppingCart" class="fa icones">
-                      </fa-icon>
-                    </a>
-                  </li>
-                </ul>
+                <div *ngIf='authService.btnSemLogin()'>
+                  <ul class="social">
+                    <li>
+                      <a data-toggle="modal" data-target="#modalLogin">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones">
+                        </fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div *ngIf='authService.btnComLogin()'>
+                  <ul class="social">
+                    <li>
+                      <a (click)="adicionarAoCarrinho(produto)">
+                        <fa-icon [icon]="faShoppingCart" class="fa icones">
+                        </fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div class="product-content">
                 <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
@@ -109,14 +121,26 @@
                     <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
                     <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                   </a>
-                  <ul class="social">
-                    <li>
-                      <a (click)="adicionarAoCarrinho(produto)">
-                        <fa-icon [icon]="faShoppingCart" class="fa icones">
-                        </fa-icon>
-                      </a>
-                    </li>
-                  </ul>
+                  <div *ngIf='authService.btnSemLogin()'>
+                    <ul class="social">
+                      <li>
+                        <a data-toggle="modal" data-target="#modalLogin">
+                          <fa-icon [icon]="faShoppingCart" class="fa icones">
+                          </fa-icon>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngIf='authService.btnComLogin()'>
+                    <ul class="social">
+                      <li>
+                        <a (click)="adicionarAoCarrinho(produto)">
+                          <fa-icon [icon]="faShoppingCart" class="fa icones">
+                          </fa-icon>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <div class="product-content">
                   <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
@@ -148,7 +172,12 @@
                       <p><strong>Preço: </strong>R{{produto.valor | currency}}</p>
                       <div class="row">
                         <div class="col-8">
-                          <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
+                          <div class="col-8" *ngIf='authService.btnSemLogin()'>
+                            <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO CARRINHO</button>
+                          </div>
+                          <div class="col-8" *ngIf='authService.btnComLogin()'>
+                            <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -174,9 +203,12 @@
                       <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
                       <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
                       </p>
-                      <p><strong>Preço: </strong>{{produto.valor | currency}}</p>
+                      <p><strong>Preço: </strong>R{{produto.valor | currency}}</p>
                       <div class="row">
-                        <div class="col-8">
+                        <div class="col-8" *ngIf='authService.btnSemLogin()'>
+                          <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO CARRINHO</button>
+                        </div>
+                        <div class="col-8" *ngIf='authService.btnComLogin()'>
                           <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
                         </div>
                       </div>

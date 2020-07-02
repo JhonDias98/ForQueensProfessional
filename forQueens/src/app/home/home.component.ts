@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faShoppingBag, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { ProdutoService } from '../service/produto.service';
+import { Produto } from '../model/Produto';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,7 @@ export class HomeComponent implements OnInit {
   faShoppingBag = faShoppingBag
   faShoppingCart = faShoppingCart
 
-  constructor() { }
+  constructor( ) { }
   
   ngOnInit(): void {
     window.scroll(0, 0)
@@ -35,8 +37,5 @@ export class HomeComponent implements OnInit {
       animeScroll()
     })
   }
-
-  
-  
 
 }
