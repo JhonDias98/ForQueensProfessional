@@ -453,6 +453,11 @@ font-family: 'Raleway', sans-serif;
       .h2{
         font-size: 28px;
       }
+      /* carousel produtos */
+      .carousel-banner{
+        padding:0
+      }
+
       /* carousel instagram */
       .container_mobile_instagram{
         max-width: 570px !important;
