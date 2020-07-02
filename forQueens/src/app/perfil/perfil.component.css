@@ -10,3 +10,7 @@ input:focus {
 .enderecos label {
     padding-top: 10px;
 }
+
+#btSalvar {
+    width: 138px;
+}

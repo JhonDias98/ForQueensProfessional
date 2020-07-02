@@ -1,9 +1,9 @@
 <div class="container">
     <main>
-        <h1 class="mt-5 pt-5 text-center">Meu perfil</h1>
+        <h1 class="mt-5 pt-5 text-center">Meu Perfil</h1>
         <hr>
 
-        <h4 class="mt-4 pt-4">Informações da conta</h4>
+        <h4 class="mt-4 pt-4">Informações Da Conta</h4>
         <div class="row mt-2 pt-2">
 
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
@@ -35,8 +35,8 @@
 
             </div>
             <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
-                <button class="btn mr-4">Salvar</button>
-                <button class="btn" data-toggle="modal" data-target="#alterar-senha">Alterar senha</button>
+                <button class="btn mr-4" id="btSalvar">Salvar</button>
+                <button class="btn" data-toggle="modal" data-target="#alterar-senha">Alterar Senha</button>
             </div>
         </div>
 
@@ -46,18 +46,18 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar senha</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Alterar Senha</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body row">
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Senha atual</label>
+                            <label for="">Senha Atual:</label>
                             <input class="input-field form-control" type="password">
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Nova senha</label>
+                            <label for="">Nova Senha:</label>
                             <input class="input-field form-control" type="password">
                         </div>
                     </div>
@@ -112,11 +112,13 @@
                 </li>
             </ul>
         </div>
+        <div *ngIf="listaEndereco.length==0" class="col md-12 text-center alert alert-warning" role="alert">Ainda não há endereços cadastrados.</div>
+
         <div class="row m-3 p-3">
-            <div class="col-md-12 text-center ">
-                <a href="" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
-                <a href="" class="pr-4 pl-4" data-toggle="modal" data-target="#adicionar-endereco">Adicionar</a>
-                <a href="" data-toggle="modal" data-target="#editar-endereco">Editar</a>
+            <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
+                <a *ngIf="listaEndereco.length>0" class="btn mr-4" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
+                <a class="btn" data-toggle="modal" data-target="#adicionar-endereco">Adicionar</a>
+                <a *ngIf="listaEndereco.length>0" class="btn ml-4" data-toggle="modal" data-target="#editar-endereco">Editar</a>
             </div>
         </div>
 
@@ -126,7 +128,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar endereço</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Endereço</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -234,7 +236,7 @@
             <div class="modal-dialog" >
                 <div class="modal-content" >
                     <div class="modal-header" >
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar senha</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Alterar Endereço</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
