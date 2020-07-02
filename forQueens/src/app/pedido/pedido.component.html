@@ -223,20 +223,18 @@
       </div>
       <div class="modal-body" >
         <div class="card mt-4" *ngFor="let endereco of listaEndereco">
-          <ul class="list-group list-group-flush">
+          <ul class="list-group ">
             <li class="list-group-item">
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline1">Rua:
-                  {{endereco.rua}}, {{endereco.numero}} </label>
+              <div class="pt-2">
+                <input (change)="pegarUmEndereco(endereco.codigoEndereco)" class="mr-1" name="options" type="radio">
+                <label>Rua: {{endereco.rua}}, Nº {{endereco.numero}}</label> <br>
               </div>
             </li>
           </ul>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
       </div>
     </div>
   </div>
