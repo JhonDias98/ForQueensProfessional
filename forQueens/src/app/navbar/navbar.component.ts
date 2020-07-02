@@ -64,6 +64,7 @@ export class NavbarComponent implements OnInit {
       }
     })
     this.statusCarrinho()
+    this.carrinhoService.calcularTotal();
   }
 
   statusCarrinho() {

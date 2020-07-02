@@ -7,11 +7,18 @@ import { Subject } from 'rxjs';
 })
 export class CarrinhoService {
 
-  carrinho: Carrinho[] = []
+  carrinho: Carrinho[];
 
   precoTotal: Subject<number> = new Subject<number>();
   quantidadeTotal: Subject<number> = new Subject<number>();
-  constructor() { }
+
+  constructor() {
+    this.carrinho = JSON.parse(sessionStorage.getItem('carrinho')) ? JSON.parse(sessionStorage.getItem('carrinho')) : [];
+  }
+
+  carrinhoAtivo() {
+    sessionStorage.setItem('carrinho', JSON.stringify(this.carrinho))
+  }
 
   adicionarAoCarrinho(itemCarrinho: Carrinho) {
     let possuiNoCarrinho: boolean = false;
@@ -51,6 +58,7 @@ export class CarrinhoService {
     this.quantidadeTotal.next(quantidadeTotalCarrinho);
 
     this.detalheCarrinho(valorTotalCarrinho, quantidadeTotalCarrinho);
+    this.carrinhoAtivo();
   }
 
   detalheCarrinho(valorTotalCarrinho: number, quantidadeTotalCarrinho: number) {
