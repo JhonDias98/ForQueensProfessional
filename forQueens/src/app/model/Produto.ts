@@ -5,7 +5,7 @@ export class Produto {
   public nomeProduto: string
   public urlImage: string
   public descricao: string
+  public quantidade: string
   public valor: number
-  public qtdEstoque: number
   public categoria: Categoria
 }

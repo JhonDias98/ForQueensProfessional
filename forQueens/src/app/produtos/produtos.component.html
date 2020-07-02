@@ -11,13 +11,13 @@
 
     <div class="row">
       <div class="col-lg-3 col-md-12">
-        
+
         <form>
           <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" checked>
           <label>Todos produtos</label> <br>
 
           <h5>Categorias</h5>
-          
+
           <input class="mr-1" (change)="getBotox()" name="options" type="radio">
           <label>Botox</label> <br>
 
@@ -102,7 +102,7 @@
                 </div>
               </div>
               <div class="product-content">
-                <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
+                <h3 class="title"><a>{{produto.nomeProduto}} <span>({{produto.quantidade}})</span></a></h3>
                 <div class="price">
                   R{{produto.valor | currency}}
                   <span>{{categoria.descricao}}</span>
@@ -114,10 +114,11 @@
 
         <div id="buscaProduto">
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
+            <div class="col-md-4 col-sm-6 col-6 mb-3"
+              *ngFor="let produto of listaProduto | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
               <div class="product-grid3 cardProduto ">
                 <div class="product-image3">
-                  <a data-toggle="modal" data-target="#modalProduto2"(click)='produtoId(produto.codigoProduto)' >
+                  <a data-toggle="modal" data-target="#modalProduto2" (click)='produtoId(produto.codigoProduto)'>
                     <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
                     <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                   </a>
@@ -143,7 +144,7 @@
                   </div>
                 </div>
                 <div class="product-content">
-                  <h3 class="title"><a>{{produto.nomeProduto}}</a></h3>
+                  <h3 class="title"><a>{{produto.nomeProduto}} <span>({{produto.quantidade}})</span></a></h3>
                   <div class="price">
                     R{{produto.valor | currency}}
                     <span>{{produto.categoria.descricao}}</span>
@@ -153,10 +154,11 @@
             </div>
           </div>
           <div *ngIf="pag == true" class="justify-content-center d-flex">
-            <pagination-controls (click)="paginacao()" (pageChange)="paginaAtual= $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+            <pagination-controls (click)="paginacao()" (pageChange)="paginaAtual= $event" previousLabel="Anterior"
+              nextLabel="Próximo"></pagination-controls>
           </div>
         </div>
-        
+
         <div class="modal " id="modalProduto">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -167,19 +169,19 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                      <h5 class="card-title">{{produto.nomeProduto}}
+                        <span>({{produto.quantidade}})</span></h5>
                       <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
                       <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
                       </p>
                       <p><strong>Preço: </strong>R{{produto.valor | currency}}</p>
                       <div class="row">
-                        <div class="col-8">
-                          <div class="col-8" *ngIf='authService.btnSemLogin()'>
-                            <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO CARRINHO</button>
-                          </div>
-                          <div class="col-8" *ngIf='authService.btnComLogin()'>
-                            <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
-                          </div>
+                        <div class="col-8" *ngIf='authService.btnSemLogin()'>
+                          <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO
+                            CARRINHO</button>
+                        </div>
+                        <div class="col-8" *ngIf='authService.btnComLogin()'>
+                          <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
                         </div>
                       </div>
                     </div>
@@ -201,14 +203,17 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">{{produto.nomeProduto}}</h5>
+                      <h5 class="card-title">{{produto.nomeProduto}}
+                        <span>({{produto.quantidade}})</span>
+                      </h5>
                       <p class="card-text"><strong>Categoria: </strong>{{descricaoC}}</p>
                       <p class="card-text"><strong>Descrição: </strong> {{produto.descricao}}
                       </p>
                       <p><strong>Preço: </strong>R{{produto.valor | currency}}</p>
                       <div class="row">
                         <div class="col-8" *ngIf='authService.btnSemLogin()'>
-                          <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO CARRINHO</button>
+                          <button class="btn" data-toggle="modal" data-target="#modalLogin">ADICIONAR AO
+                            CARRINHO</button>
                         </div>
                         <div class="col-8" *ngIf='authService.btnComLogin()'>
                           <button class="btn" (click)="adicionarAoCarrinho(produto)">ADICIONAR AO CARRINHO</button>
