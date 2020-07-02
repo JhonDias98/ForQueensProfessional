@@ -76,8 +76,21 @@
                 <li class="list-group-item">
                     <div class="row">
                         <label class="col-md-2"><b>Rua:</b></label>
-                        <input type="text" class="col-md-3 border-0" value="{{endereco.rua}}" disabled
+                        <input type="text" class="col-md-8 border-0" value="{{endereco.rua}}" disabled
                             style="background-color: transparent;">
+                        <div class="col">
+                            <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)"
+                             data-toggle="modal" data-target="#editar-endereco" >
+                                <fa-icon [icon]="faEdit" class="fa fa-lg"></fa-icon>
+                            </button>
+                        </div>
+
+                        <div class="col">
+                            <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)" data-toggle="modal"
+                                data-target="#modal1" id="botaoApagar">
+                                <fa-icon [icon]="faTrash" class="fa fa-lg"></fa-icon>
+                            </button>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -116,9 +129,9 @@
 
         <div class="row m-3 p-3">
             <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
-                <a *ngIf="listaEndereco.length>0" class="btn mr-4" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
+                <a *ngIf="listaEndereco.length>0" class="btn mr-4" data-toggle="modal"
+                    data-target="#alterar-endereco">Alterar</a>
                 <a class="btn" data-toggle="modal" data-target="#adicionar-endereco">Adicionar</a>
-                <a *ngIf="listaEndereco.length>0" class="btn ml-4" data-toggle="modal" data-target="#editar-endereco">Editar</a>
             </div>
         </div>
 
@@ -135,42 +148,49 @@
                     </div>
                     <div class="modal-body row">
                         <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
-                            <label for="">CEP</label>
-                            <input class="input-field form-control" id="cep-input2" type="text">
+                            <label for="">Rua/Avenida</label>
+                            <input [(ngModel)]="endereco.rua" value="" class="input-field form-control" type="text">
                         </div>
-
+                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Estado</label>
-                            <input class="input-field form-control" type="text">
+                            <input [(ngModel)]="endereco.estado" class="input-field form-control" type="text">
                         </div>
-
+                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Cidade</label>
-                            <input class="input-field form-control" type="text">
+                            <input [(ngModel)]="endereco.cidade" class="input-field form-control" type="text">
                         </div>
-
-                        <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
-                            <label for="">Bairro</label>
-                            <input class="input-field form-control" id="bairro-input2" type="text">
-                        </div>
-
+                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Rua/Avenida</label>
-                            <input class="input-field form-control" type="text">
+                            <label for="">Bairro</label>
+                            <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
                         </div>
-
+                    
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">Complemento</label>
+                            <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">CEP</label>
+                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text">
+                        </div>
+                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Numero</label>
-                            <input class="input-field form-control" type="text">
+                            <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn">Salvar</button>
+                        <button type="button" class="btn" (click)="editarEndereco()">Salvar</button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- fim modal editar -->
+
 
         <!-- Modal adicionar-endereço -->
         <div class="modal fade" id="adicionar-endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -229,37 +249,23 @@
                 </div>
             </div>
         </div>
+        <!-- fim modal adicionar -->
 
-        <!-- Modal alterar endereço-->
-        <div class="modal fade" id="alterar-endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true" >
-            <div class="modal-dialog" >
-                <div class="modal-content" >
-                    <div class="modal-header" >
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar Endereço</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" >
-                        <div class="card mt-4" *ngFor="let endereco of listaEndereco">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                                            class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline1">Rua:
-                                            {{endereco.rua}}, {{endereco.numero}} </label>
-                                    </div>
-                                </li>
-                            </ul>
+        <!-- Modal deletar endereco -->
+        <div class="modal" id="modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <h5>Você quer excluir este endereço?</h5>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Salvar</button>
+                    <div class="modal-footer justify-content-center d-flex">
+                        <button type="button" class="btn btn-secondary" (click)="deletarEndereco()">Sim</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">Não</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+</div>

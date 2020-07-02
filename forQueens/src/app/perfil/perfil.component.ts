@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserLogin } from '../model/UserLogin';
 import { Endereco } from '../model/Endereco';
 import { EnderecoService } from '../service/endereco.service';
-import { Usuario } from '../model/Usuario';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-perfil',
@@ -10,6 +10,9 @@ import { Usuario } from '../model/Usuario';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+
+  faTrash = faTrash;
+  faEdit = faEdit;
 
   id: string = localStorage.getItem('id')
   cpf: string = localStorage.getItem('cpf')
@@ -79,6 +82,25 @@ export class PerfilComponent implements OnInit {
       this.endereco = resp;
       alert("Endereço cadastrado com sucesso")
       location.assign("/perfil")
+    })
+  }
+
+  pegarUmEndereco(id: number) {
+    this.enderecoService.getByIdEndereco(id).subscribe((resp: Endereco) => {
+      this.endereco = resp
+    })
+  }
+
+  editarEndereco() {
+    this.enderecoService.putEndereco(this.endereco).subscribe((resp: Endereco) => {
+      this.endereco = resp
+      location.reload()
+    })
+  }
+
+  deletarEndereco() {
+    this.enderecoService.delete(this.endereco.codigoEndereco).subscribe(() => {
+      location.assign('/perfil')
     })
   }
 

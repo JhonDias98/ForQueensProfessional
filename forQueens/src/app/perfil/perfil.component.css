@@ -11,6 +11,14 @@ input:focus {
     padding-top: 10px;
 }
 
+.lixeira{
+    background: white!important;
+    transition: .5s;
+}
+.lixeira:hover{
+    background-color: black solid;
+}
+
 #btSalvar {
     width: 138px;
 }
