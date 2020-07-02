@@ -1,13 +1,13 @@
-<div class="fundo mt-3" style="min-height: 400px;">
+<div class="fundo mt-3" style="min-height: 500px;">
   <div class="container">
     <h1 class="text-center mb-5 mt-2">Minhas Compras</h1>
     <div class="row" *ngIf="carrinho.length > 0">
-      <div class="container">
+      <div class="container col-9">
         <table class="table table-bordered">
           <tr>
-            <th width="20%">Imagem do produto</th>
-            <th width="40%">Detalhes</th>
-            <th width="40%">Valores</th>
+            <th width="30%">Imagem do produto</th>
+            <th width="20%">Detalhes</th>
+            <th width="50%">Valores</th>
           </tr>
           
           <tr *ngFor="let itemCarrinho of carrinho">
@@ -50,17 +50,16 @@
             </td>
           </tr>
         </table>
-        <div class="row d-flex justify-content-end mb-3">
-          <div class="shadow-sm col-3" style="margin-right:15px !important;">
-            <h5 style="font-weight: bolder;">Dados da compra</h5>
-            <div style="font-weight: bold;">
-              <p>Quantidade Total: {{ quantidadeTotal }}</p>
-              <p>Frete: gratuito</p>
-              <p>Valor total: R{{ valorTotal | currency }}</p>
-            </div>
+      </div>
+      <div class="col-3 dados_compra" style="max-height: 136px;">
+        <div class="shadow-sm" style="padding:5px 15px !important;">
+          <h5 style="font-weight: bolder;">Dados da compra</h5>
+          <div style="font-weight: bold;">
+            <p>Quantidade Total: {{ quantidadeTotal }}</p>
+            <p>Frete: gratuito</p>
+            <p>Valor total: R{{ valorTotal | currency }}</p>
           </div>
         </div>
-        
       </div>
       <h5>Dados de entrega</h5>
       <hr />

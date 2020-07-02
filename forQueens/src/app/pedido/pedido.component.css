@@ -4,7 +4,7 @@ td{
 
 .imagem_produto{
     padding-left: 20px;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 .menos{
     background: linear-gradient(150deg, rgba(220, 53, 69, 0.8)20%, rgba(220, 53, 69, 0.6) 50%, rgba(220, 53, 69, 0.4) 80%);  
@@ -34,4 +34,8 @@ td{
 }
 .lixeira:hover{
     background-color: black solid;
+}
+.dados_compra{
+    position: sticky !important;
+    top:85.5px;
 }
