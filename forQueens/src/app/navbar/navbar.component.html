@@ -1,4 +1,7 @@
 <div id="backdrop" (click)="cadastro_finalizar()"></div>
+<div id="backdrop2" (click)="fechar_alert()"></div>
+<div class="alert alert-dark text-center" id="alerta" role="alert">
+</div>
 <nav class="container">
   <div class="navbar shadow-sm navbar-dark fixed-top">
     <a class="navbar-brand logoSite" [routerLink]="['/home']">
@@ -117,7 +120,7 @@
           <div class="form-group">
             <label>Senha</label>
             <input type="password" class="form-control" id="passwordLogin" [(ngModel)]='userLogin.senha'>
-            <span id="vazio_email">E-mail ou senha incorretos</span>
+            <span id="erro_login">E-mail ou senha incorretos</span>
           </div>
           <div style="font-size: 13px;">Não tem uma conta? <button data-toggle="modal" data-target="#modalCadastro" style="background: none; color: rgb(0, 103, 184);"> Cadastre-se</button></div>
           <div class="d-flex justify-content-end mt-3">
@@ -133,9 +136,6 @@
 <div class="modal" id="modalCadastro">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="alert alert-dark text-center" id="alerta_login" role="alert">
-        Cadastro realizado com sucesso!!
-      </div>
       <div class="modal-header">
         <div class="modal-title">
           <h3>CRIE SUA CONTA</h3>
@@ -199,7 +199,7 @@
               </div>
               <!-- Fim dos dados PF -->
               <div class="d-flex justify-content-end">
-                <button type="submit" class="btn mt-3" (click)="cadastrarPF()" id="botaoCPF">Cadastrar</button>
+                <button type="submit" class="btn mt-3" (click)="validarCPF()" id="botaoCPF">Cadastrar</button>
               </div>
             </div>
           </div>

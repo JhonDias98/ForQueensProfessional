@@ -104,31 +104,32 @@ button.nav-link {
 .navegacao:hover {
   border-bottom: 1px solid black;
 }
-#alerta_login{
+#alerta{
   position: fixed !important;
-  top: 20vh;
-  left: 9.5vw;
+  top: 100px;
+  left: 10vw;
   z-index: 1052;
   display: none;
   width: 80vw;
   height: 3rem !important;
 }
-#backdrop {
+#backdrop,#backdrop2 {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
-  top: 50px;
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1051;
   display: none;
+  height: 100vh;
 }
 /* Modal cadastro */
 #cnpj {
   display: none;
 }
 #erro_senha, #erro_nome, #erro_confirmaSenha, #erro_cpf, #erro_cnpj, #erro_email, #vazio_senha, #vazio_nome, #vazio_cpf, #vazio_cnpj,
-#vazio_email, #vazio_dataNascimento, #erro_dataNascimento,#dezoito_dataNascimento, #erro_celular, #vazio_celular{  
+#vazio_email, #vazio_dataNascimento, #erro_dataNascimento,#dezoito_dataNascimento, #erro_celular, #vazio_celular, #erro_login{  
   display: none;
   color: red;
 }
