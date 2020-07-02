@@ -346,7 +346,7 @@ export class NavbarComponent implements OnInit {
   cadastrarPF() {
     this.authService.cadastrarUsuario(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
-      document.getElementById("backdrop").style.display="block"
+      document.getElementById("backdrop3").style.display="block"
       document.getElementById("alerta").style.display="block"
       document.getElementById("alerta").innerHTML="Cadastro realizado com sucesso!!"
     }, err => {

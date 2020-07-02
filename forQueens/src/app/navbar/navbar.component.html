@@ -1,5 +1,6 @@
-<div id="backdrop" (click)="cadastro_finalizar()"></div>
+<div id="backdrop3" (click)="cadastro_finalizar()"></div>
 <div id="backdrop2" (click)="fechar_alert()"></div>
+<div id="backdrop"></div>
 <div class="alert alert-dark text-center" id="alerta" role="alert">
 </div>
 <nav class="container">
@@ -44,7 +45,7 @@
             <a class="btn" (click)='sair()'>Sair</a>
           </li>
           <li>
-            <a routerLink="/pedido" class="row">
+            <a [routerLink]="['/pedido']" class="row carrinho">
               <fa-icon [icon]="faShoppingCart" class="fa fa-lg ml-3 mr-3 icones"></fa-icon>
               <div>R{{ precoTotal | currency }}</div>
             </a>
@@ -64,36 +65,42 @@
         </li>
       </div>
       <a [routerLink]="['/produtos']"><li class="nav-item">
-        <a class="text-reset" [routerLink]="['/produtos']">Produtos</a>
+        <a class="text-reset" style="text-decoration: none;" [routerLink]="['/produtos']">Produtos</a>
       </li>
       </a>
       <a [routerLink]="['/dicas']">
       <li class="nav-item">
-        <a class="text-reset" [routerLink]="['/dicas']">Dicas</a>
+        <a class="text-reset" style="text-decoration: none;" [routerLink]="['/dicas']">Dicas</a>
       </li>
       </a>
       <a [routerLink]="['/contato']">
       <li class="nav-item">
-        <a class="text-reset" [routerLink]="['/contato']">Contato</a>
+        <a class="text-reset" style="text-decoration: none;" [routerLink]="['/contato']">Contato</a>
       </li>
       </a>
       <a [routerLink]="['/sobrenos']">
       <li class="nav-item">
-        <a class="text-reset" [routerLink]="['/sobrenos']">Sobre</a>
+        <a class="text-reset" style="text-decoration: none;" [routerLink]="['/sobrenos']">Sobre</a>
       </li>
       </a>
       <div *ngIf='authService.btnSemLogin()'>
-        <li class="nav-item" style="font-size: 22px;" data-toggle="modal" data-target="#modalLogin">
+        <li class="nav-item texto_sidebar" data-toggle="modal" data-target="#modalLogin">
           Login
         </li>
       </div>
       <div *ngIf='authService.btnSemLogin()'>
-          <li class="nav-item" style="font-size: 22px;" data-toggle="modal" data-target="#modalCadastro">
+          <li class="nav-item texto_sidebar" data-toggle="modal" data-target="#modalCadastro">
             Cadastro
           </li>
       </div>
       <div *ngIf='authService.btnComLogin()'>
         <li class="nav-item">
+          <a [routerLink]="['/pedido']" class="row ml-1" style="font-size: 20px;text-decoration: none;">
+            <fa-icon [icon]="faShoppingCart" class="fa fa-lg icones"></fa-icon>
+            <div style="font-size: 20px;" class="ml-3">R{{ precoTotal | currency }}</div>
+          </a>
+        </li>
+        <li class="nav-item" (click)='sair()'>
           <a class="text-reset" (click)='sair()'>Sair</a>
         </li>
       </div>
