@@ -40,6 +40,7 @@ export class PerfilComponent implements OnInit {
   endereco: Endereco = new Endereco()
 
   ngOnInit() {
+    window.scroll(0, 0)
     this.findAllEnderecos()
   }
 

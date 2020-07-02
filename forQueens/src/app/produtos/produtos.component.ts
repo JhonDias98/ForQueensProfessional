@@ -28,6 +28,8 @@ export class ProdutosComponent implements OnInit {
   pesquisa: boolean = false;
   catCard: string;
 
+  pag: boolean = false
+
   produtoP = {
     nome: '',
     categotia: '',
@@ -81,6 +83,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   buscarPorNome() {
+    this.pag = false;
     this.produtoService
       .findByNome(this.nomeInput)
       .subscribe((resp: Produto[]) => {
@@ -91,6 +94,7 @@ export class ProdutosComponent implements OnInit {
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
       this.listaProduto = resp;
+      this.pag = true
       document.getElementById('buscaProduto').style.display = 'block';
       document.getElementById('categorias').style.display = 'none';
     });
@@ -193,6 +197,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false;
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
@@ -204,6 +209,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false;
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
@@ -215,6 +221,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false;
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
@@ -226,6 +233,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false;
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
@@ -237,6 +245,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false;
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
@@ -248,6 +257,7 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeProduto)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        this.pag = false
         document.getElementById('buscaProduto').style.display = 'block';
         document.getElementById('categorias').style.display = 'none';
       });
