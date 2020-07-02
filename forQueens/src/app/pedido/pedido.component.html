@@ -64,24 +64,30 @@
     </div>
 
     <div *ngIf="carrinho.length > 0">
-      <div *ngIf="listaEndereco.length==0" class="col md-12 text-center alert alert-warning" role="alert">Ainda não há
+      <div *ngIf="listaEndereco.length===0" class="col md-12 text-center alert alert-warning" role="alert">Ainda não há
         endereços cadastrados, para continuar a comprar, adicione um agora mesmo!</div>
       
       <div class="d-flex justify-content-end col-md-12 col-lg-12 col-sm-12 mt-5">
-        <a *ngIf="listaEndereco.length>0" class="btn mr-4" data-toggle="modal" data-target="#alterar-endereco">Alterar</a>
+        <a *ngIf="listaEndereco.length>0" class="btn mr-4" data-toggle="modal" data-target="#alterar-endereco" (click)="findAllEnderecos()">Alterar</a>
         <a class="btn" data-toggle="modal" data-target="#adicionar-endereco">Adicionar novo endereço</a>
       </div>
       
       <div *ngIf="listaEndereco.length>0">
         <h5>Dados da Entrega</h5>
       
-        <div class="card mt-4 enderecos" *ngFor="let endereco of listaEndereco">
+        <div class="card mt-4 enderecos">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="row">
                 <label class="col-md-2"><b>Rua:</b></label>
-                <input type="text" class="col-md-3 border-0" value="{{endereco.rua}}" disabled
+                <input type="text" class="col-md-9 border-0" value="{{endereco.rua}}" disabled
                   style="background-color: transparent;">
+                <div class="col">
+                  <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)" data-toggle="modal"
+                    data-target="#editar-endereco">
+                    <fa-icon [icon]="faEdit" class="fa fa-lg"></fa-icon>
+                  </button>
+                </div>
               </div>
             </li>
             <li class="list-group-item">
@@ -178,17 +184,17 @@
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
           <label for="">Bairro</label>
-          <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
+          <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input2" type="text">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
           <label for="">Complemento</label>
-          <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
+          <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input2" type="text">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
           <label for="">CEP</label>
-          <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text">
+          <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input2" type="text">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
@@ -215,7 +221,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <div class="card mt-4" *ngFor="let endereco of listaEndereco">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -235,6 +241,62 @@
     </div>
   </div>
 </div>
+
+<!-- Modal editar-endereço -->
+<div class="modal fade" id="editar-endereco" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Endereço</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body row">
+        <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
+          <label for="">Rua/Avenida</label>
+          <input [(ngModel)]="endereco.rua" value="" class="input-field form-control" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Estado</label>
+          <input [(ngModel)]="endereco.estado" class="input-field form-control" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Cidade</label>
+          <input [(ngModel)]="endereco.cidade" class="input-field form-control" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Bairro</label>
+          <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Complemento</label>
+          <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">CEP</label>
+          <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Numero</label>
+          <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn" (click)="editarEndereco()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fim modal editar -->
 
 <!-- Modal compra finalizada -->
 <div class="modal fade" id="compraConfirmada" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
