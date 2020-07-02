@@ -13,7 +13,7 @@
       <div class="col-lg-3 col-md-12">
         
         <form>
-          <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" >
+          <input class="mr-1" (change)="findAllProdutos()" name="options" type="radio" checked>
           <label>Todos produtos</label> <br>
 
           <h5>Categorias</h5>
@@ -77,12 +77,12 @@
             <div class="product-grid3 cardProduto">
               <div class="product-image3" (click)='produtoId(produto.codigoProduto)'>
                 <a data-toggle="modal" data-target="#modalProduto">
-                  <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                  <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
                   <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                 </a>
                 <ul class="social">
                   <li>
-                    <a (click)="adicionarAoCarrinho(categoria)">
+                    <a (click)="adicionarAoCarrinho(produto)">
                       <fa-icon [icon]="faShoppingCart" class="fa icones">
                       </fa-icon>
                     </a>
@@ -105,8 +105,8 @@
             <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto">
               <div class="product-grid3 cardProduto ">
                 <div class="product-image3">
-                  <a data-toggle="modal" data-target="#modalProduto2">
-                    <img (click)='produtoId(produto.codigoProduto)' class="pic-1 imgProduto" src="{{produto.urlImage}}">
+                  <a data-toggle="modal" data-target="#modalProduto2"(click)='produtoId(produto.codigoProduto)' >
+                    <img class="pic-1 imgProduto" src="{{produto.urlImage}}">
                     <img class="pic-2 imgProduto" src="{{produto.urlImage}}">
                   </a>
                   <ul class="social">
@@ -160,7 +160,7 @@
         </div>
 
 
-        <div class="modal " id="modalProduto2" *ngFor="let produto of listaProduto">
+        <div class="modal " id="modalProduto2">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-body">
