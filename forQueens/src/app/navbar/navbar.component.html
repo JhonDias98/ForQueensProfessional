@@ -37,23 +37,19 @@
             <button class="btn" data-toggle="modal" data-target="#modalCadastro">Cadastro</button>
           </li>
         </div>
-        <div *ngIf='authService.btnComLogin()'>
+        <div class="carrinho_desktop"  *ngIf='authService.btnComLogin()'>
           <li class="nav-item">
             <a class="btn" [routerLink]="['/perfil']">{{pegarPrimeiroNome(nomeUser)}}</a>
           </li>
           <li class="nav-item">
             <a class="btn" (click)='sair()'>Sair</a>
           </li>
-          <li>
-            <a [routerLink]="['/pedido']" class="row carrinho">
-              <fa-icon [icon]="faShoppingCart" class="fa fa-lg ml-3 mr-3 icones"></fa-icon>
+          <li class="position-fixed nav-item">
+            <a [routerLink]="['/pedido']" class="carrinho">
+              <fa-icon [icon]="faShoppingCart" class="fa fa-lg icones pl-3"></fa-icon>
               <div>R{{ precoTotal | currency }}</div>
             </a>
           </li>
-          
-        </div>
-        <div>
-          
         </div>
       </ul>
     </div>

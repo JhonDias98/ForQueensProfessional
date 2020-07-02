@@ -111,6 +111,9 @@ button.nav-link {
 .texto_sidebar{
   font-size:22px
 }
+.carrinho_desktop{
+  padding-right: 85px
+}
 #alerta{
   position: fixed !important;
   top: 100px;
@@ -178,6 +181,9 @@ button.nav-link {
   .logo{
     width: 100px;
     height: 40px;
+  }
+  .carrinho_desktop{
+    padding-right: 65px
   }
 }
 @media (max-width: 767px) {
