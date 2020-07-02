@@ -182,7 +182,17 @@ export class NavbarComponent implements OnInit {
 
   verificar_celular(){
     let celular = this.data.celular
-    if (celular == "" || celular.length == 11){
+    if(celular == ""){
+      document.getElementById("erro_celular").style.display = "none"
+      document.getElementById("celular").style.border = "red 1px solid"
+      document.getElementById("vazio_celular").style.display = "block"
+      return false
+    }
+    else{
+      document.getElementById("celular").style.border = "red 1px solid"
+      document.getElementById("vazio_celular").style.display = "none"
+    }
+    if (celular.length == 11){
       document.getElementById("erro_celular").style.display = "none"
       document.getElementById("celular").style.border = "black 1px solid"
       return true
@@ -334,10 +344,11 @@ export class NavbarComponent implements OnInit {
 
 
   cadastrarPF() {
+    document.getElementById("backdrop").style.display="block"
+    document.getElementById("backdrop").style.zIndex="999"
+    document.getElementById("alerta").style.display="block"
     this.authService.cadastrarUsuario(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
-      location.assign('/home')
-      alert("Usuário cadastrado com sucesso")
     }, err => {
       alert('Usuário já existe')
     })
@@ -357,11 +368,15 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('token', this.userLogin.token)
       location.assign('/home')
     }, err => {
+      alert('email ou senha merda')
     })
   }
 
   sair() {
     localStorage.clear();
     location.assign('/home')
-  } 
+  }
+  cadastro_finalizar(){
+    location.assign('/home')
+  }
 }
