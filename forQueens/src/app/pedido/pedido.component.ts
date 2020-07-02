@@ -54,6 +54,7 @@ export class PedidoComponent implements OnInit {
 
   confirmarCompra() {
     location.assign("/home")
+    sessionStorage.clear()
   }
 
   detalhesCarrinho() {
