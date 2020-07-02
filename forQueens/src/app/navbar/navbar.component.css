@@ -104,6 +104,11 @@ button.nav-link {
 .navegacao:hover {
   border-bottom: 1px solid black;
 }
+
+#modalLogin {
+  z-index: 999999;
+}
+
 #backdrop {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;

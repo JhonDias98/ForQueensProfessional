@@ -6,6 +6,7 @@ import { Produto } from '../model/Produto';
 import { ProdutoService } from '../service/produto.service';
 import { CarrinhoService } from '../service/carrinho.service';
 import { Carrinho } from '../model/Carrinho';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-produtos',
@@ -38,7 +39,8 @@ export class ProdutosComponent implements OnInit {
   constructor(
     private categoriaService: CategoriaService, 
     private produtoService: ProdutoService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    public authService: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -196,7 +198,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   getQQCream() {
-    this.nomeProduto = "QQ Cream"
+    this.nomeProduto = "QQ-Cream"
     this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
       this.listaProduto = resp
       document.getElementById("buscaProduto").style.display = "block"
