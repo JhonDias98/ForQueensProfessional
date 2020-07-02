@@ -344,20 +344,21 @@ export class NavbarComponent implements OnInit {
 
 
   cadastrarPF() {
-    document.getElementById("backdrop").style.display="block"
-    document.getElementById("backdrop").style.zIndex="999"
-    document.getElementById("alerta").style.display="block"
     this.authService.cadastrarUsuario(this.user).subscribe((resp: Usuario) => {
       this.user = resp;
+      document.getElementById("backdrop").style.display="block"
+      document.getElementById("alerta").style.display="block"
+      document.getElementById("alerta").innerHTML="Cadastro realizado com sucesso!!"
     }, err => {
-      alert('Usuário já existe')
+      document.getElementById("backdrop2").style.display="block"
+      document.getElementById("alerta").style.display="block"
+      document.getElementById("alerta").innerHTML="Usuario já existe!!"
     })
   }
   
   entrar() {
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
-      
       localStorage.setItem('id', this.userLogin.id)
       localStorage.setItem('cpf', this.userLogin.cpf)
       localStorage.setItem('usuario', this.userLogin.usuario)
@@ -366,9 +367,10 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('dataNascimento', this.userLogin.dataNascimento)
       localStorage.setItem('senha', this.userLogin.senha)
       localStorage.setItem('token', this.userLogin.token)
+      document.getElementById("erro_login").style.display = "none"
       location.assign('/home')
     }, err => {
-      alert('email ou senha merda')
+      document.getElementById("erro_login").style.display = "block"
     })
   }
 
@@ -378,5 +380,9 @@ export class NavbarComponent implements OnInit {
   }
   cadastro_finalizar(){
     location.assign('/home')
+  }
+  fechar_alert(){
+    document.getElementById("backdrop2").style.display="none"
+    document.getElementById("alerta").style.display="none"
   }
 }
