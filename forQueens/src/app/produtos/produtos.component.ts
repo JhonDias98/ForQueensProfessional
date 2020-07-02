@@ -11,59 +11,62 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css']
+  styleUrls: ['./produtos.component.css'],
 })
 export class ProdutosComponent implements OnInit {
-
-  faSearch = faSearch
-  faShoppingBag = faShoppingBag
-  faShoppingCart = faShoppingCart
+  faSearch = faSearch;
+  faShoppingBag = faShoppingBag;
+  faShoppingCart = faShoppingCart;
 
   listaCategoria: Categoria[];
   listaProduto: Produto[];
   produto: Produto = new Produto();
 
-  descricaoC: string
-  nomeProduto: string
-  nomeInput: string
-  pesquisa: boolean = false
-  catCard: string
+  descricaoC: string;
+  nomeProduto: string;
+  nomeInput: string;
+  pesquisa: boolean = false;
+  catCard: string;
 
   produtoP = {
     nome: '',
     categotia: '',
     imagem: '',
-    valor: 0
-  }
+    valor: 0,
+  };
+
+  paginaAtual: number = 1
+  contador: number = 6
 
   constructor(
-    private categoriaService: CategoriaService, 
+    private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
     public authService: AuthService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    window.scroll(0, 0)
+    window.scroll(0, 0);
 
-    this.findAllProdutos()
+    this.findAllProdutos();
   }
 
   teclaEnter(event) {
     if (event.keyCode === 13) {
-      this.buscarPorNome()
+      this.buscarPorNome();
     }
   }
 
   adicionarAoCarrinho(produto: Produto) {
-    const carrinho = new Carrinho(produto)
-    this.carrinhoService.adicionarAoCarrinho(carrinho)
+    const carrinho = new Carrinho(produto);
+    this.carrinhoService.adicionarAoCarrinho(carrinho);
   }
 
   produtoId(id: number) {
-    this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
-      this.produto = resp;
-      this.descricaoC = this.produto.categoria.descricao
+    this.produtoService.getByIdProduto(id).subscribe(
+      (resp: Produto) => {
+        this.produto = resp;
+        this.descricaoC = this.produto.categoria.descricao;
       },
       (err) => {
         console.log(
@@ -73,146 +76,180 @@ export class ProdutosComponent implements OnInit {
     );
   }
 
+  paginacao() {
+    window.scroll(0, 500);
+  }
+
   buscarPorNome() {
-    this.produtoService.findByNome(this.nomeInput).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      
-    })
+    this.produtoService
+      .findByNome(this.nomeInput)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+      });
   }
 
   findAllProdutos() {
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+      this.listaProduto = resp;
+      document.getElementById('buscaProduto').style.display = 'block';
+      document.getElementById('categorias').style.display = 'none';
+    });
   }
 
   findAllCategoria() {
     this.categoriaService.getAllCategorias().subscribe((resp: Categoria[]) => {
       console.log(resp);
       this.listaCategoria = resp;
-    })
+    });
   }
 
   getBotox() {
-    this.descricaoC = "Botox"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Botox';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
 
   getHidratante() {
-    this.descricaoC = "Hidratante"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Hidratante';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
 
   getMascara() {
-    this.descricaoC = "Mascara"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Mascara';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
-  
+
   getReconstrutor() {
-    this.descricaoC = "Reconstrutor"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Reconstrutor';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
 
   getShampoo() {
-    this.descricaoC = "Shampoo"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Shampoo';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
 
   getKit() {
-    this.descricaoC = "Kit"
-    this.categoriaService.findByName(this.descricaoC).subscribe((resp: Categoria[]) => {
-      console.log(resp);
-      this.listaCategoria = resp;
-    }, err => {
-      console.log(err)
-    })
-    document.getElementById("buscaProduto").style.display = "none"
+    this.descricaoC = 'Kit';
+    this.categoriaService.findByName(this.descricaoC).subscribe(
+      (resp: Categoria[]) => {
+        console.log(resp);
+        this.listaCategoria = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+    document.getElementById('buscaProduto').style.display = 'none';
   }
 
   getEssenceLiss() {
-    this.nomeProduto = "Essence Liss"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'Essence Liss';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
 
   getHoneyMilk() {
-    this.nomeProduto = "Honey Milk"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'Honey Milk';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
 
   getLuxuryGold() {
-    this.nomeProduto = "Luxury Gold"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'Luxury Gold';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
 
   getNutritionRose() {
-    this.nomeProduto = "Nutrition Rose"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'Nutrition Rose';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
 
   getQQCream() {
-    this.nomeProduto = "QQ-Cream"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'QQ-Cream';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
 
   getSystemSave() {
-    this.nomeProduto = "System Save"
-    this.produtoService.findByNome(this.nomeProduto).subscribe((resp: Produto[]) => {
-      this.listaProduto = resp
-      document.getElementById("buscaProduto").style.display = "block"
-      document.getElementById("categorias").style.display = "none"
-    })
+    this.nomeProduto = 'System Save';
+    this.produtoService
+      .findByNome(this.nomeProduto)
+      .subscribe((resp: Produto[]) => {
+        this.listaProduto = resp;
+        document.getElementById('buscaProduto').style.display = 'block';
+        document.getElementById('categorias').style.display = 'none';
+      });
   }
-
 }

@@ -114,7 +114,7 @@
 
         <div id="buscaProduto">
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto">
+            <div class="col-md-4 col-sm-6 col-6 mb-3" *ngFor="let produto of listaProduto | paginate: { itemsPerPage: contador, currentPage: paginaAtual }">
               <div class="product-grid3 cardProduto ">
                 <div class="product-image3">
                   <a data-toggle="modal" data-target="#modalProduto2"(click)='produtoId(produto.codigoProduto)' >
@@ -150,6 +150,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div>
+              <pagination-controls (click)="paginacao()" (pageChange)="paginaAtual= $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
             </div>
           </div>
         </div>
