@@ -69,11 +69,6 @@ export class ProdutosComponent implements OnInit {
       (resp: Produto) => {
         this.produto = resp;
         this.descricaoC = this.produto.categoria.descricao;
-      },
-      (err) => {
-        console.log(
-          `Erro: ${err.status}, ocorreu um erro na busca pelo id do produto`
-        );
       }
     );
   }
@@ -102,7 +97,6 @@ export class ProdutosComponent implements OnInit {
 
   findAllCategoria() {
     this.categoriaService.getAllCategorias().subscribe((resp: Categoria[]) => {
-      console.log(resp);
       this.listaCategoria = resp;
     });
   }
@@ -111,12 +105,9 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Botox';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
       },
-      (err) => {
-        console.log(err);
-      }
     );
     document.getElementById('buscaProduto').style.display = 'none';
   }
@@ -125,11 +116,8 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Hidratante';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
-      },
-      (err) => {
-        console.log(err);
       }
     );
     document.getElementById('buscaProduto').style.display = 'none';
@@ -139,11 +127,8 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Mascara';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
-      },
-      (err) => {
-        console.log(err);
       }
     );
     document.getElementById('buscaProduto').style.display = 'none';
@@ -153,11 +138,8 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Reconstrutor';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
-      },
-      (err) => {
-        console.log(err);
       }
     );
     document.getElementById('buscaProduto').style.display = 'none';
@@ -167,12 +149,9 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Shampoo';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
       },
-      (err) => {
-        console.log(err);
-      }
     );
     document.getElementById('buscaProduto').style.display = 'none';
   }
@@ -181,11 +160,8 @@ export class ProdutosComponent implements OnInit {
     this.descricaoC = 'Kit';
     this.categoriaService.findByName(this.descricaoC).subscribe(
       (resp: Categoria[]) => {
-        console.log(resp);
+
         this.listaCategoria = resp;
-      },
-      (err) => {
-        console.log(err);
       }
     );
     document.getElementById('buscaProduto').style.display = 'none';

@@ -54,15 +54,9 @@ export class CarrinhoService {
   }
 
   detalheCarrinho(valorTotalCarrinho: number, quantidadeTotalCarrinho: number) {
-
-    console.log('Contém no carrinho');
     for (let i of this.carrinho) {
       const subPrecoTotal = i.quantidade * i.valor;
-      console.log(`nome: ${i.nome}, quantidade=${i.quantidade}, preço=${i.valor}, total=${subPrecoTotal}`);
     }
-
-    console.log(`PrecoTotal: ${valorTotalCarrinho.toFixed(2)}, QuantidadeToral: ${quantidadeTotalCarrinho}`);
-    console.log('----');
   }
 
   diminuirDoCariinho(carrinho: Carrinho) {
