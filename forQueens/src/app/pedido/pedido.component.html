@@ -51,7 +51,7 @@
           </tr>
         </table>
       </div>
-      <div class="col-3 dados_compra" style="max-height: 136px;">
+      <div class="col-3 dados_compra" style="max-height: 182px;">
         <div class="shadow-sm" style="padding:5px 15px !important;">
           <h5 style="font-weight: bolder;">Dados da compra</h5>
           <div style="font-weight: bold;">
@@ -86,6 +86,16 @@
             </li>
             <li class="list-group-item">
               <div class="row">
+                <label class="col-md-2"><b>Número:</b></label>
+                <input type="text" class="col-md-4 border-0" value="{{endereco.numero}}" disabled
+                  style="background-color: transparent;">
+                <label class="col-md-2"><b>CEP:</b></label>
+                <input type="text" class="col-md-4 border-0" value="{{endereco.cep}}" disabled
+                  style="background-color: transparent;">
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
                 <label class="col-md-2"><b>Estado:</b></label>
                 <input type="text" class="col-md-4 border-0" value="{{endereco.estado}}" disabled
                   style="background-color: transparent;">
@@ -104,16 +114,6 @@
                   style="background-color: transparent;">
               </div>
             </li>
-            <li class="list-group-item">
-              <div class="row">
-                <label class="col-md-2"><b>CEP:</b></label>
-                <input type="text" class="col-md-4 border-0" value="{{endereco.cep}}" disabled
-                  style="background-color: transparent;">
-                <label class="col-md-2"><b>Número:</b></label>
-                <input type="text" class="col-md-4 border-0" value="{{endereco.numero}}" disabled
-                  style="background-color: transparent;">
-              </div>
-            </li>
           </ul>
         </div>
       
@@ -125,7 +125,7 @@
         <div class="form-row">
       
           <div class="form-group col-md-3">
-            <select class="form-control">
+            <select class="form-control opcao_borda">
               <option hidden value="">Selecione uma opção</option>
               <option value="dinheiro">Dinheiro</option>
               <option value="debito">Débito</option>
@@ -136,7 +136,7 @@
       
         <hr />
         <div class="justify-content-end d-flex">
-          <button type="submit" class="btn btn-lg" class="btn btn-primary" data-toggle="modal"
+          <button type="submit" class="btn btn-lg" data-toggle="modal"
             data-target="#compraConfirmada">Confirmar Compra</button>
         </div>
       </div>
@@ -163,37 +163,37 @@
       <div class="modal-body row">
         <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
           <label for="">Rua/Avenida</label>
-          <input [(ngModel)]="endereco.rua" value="" class="input-field form-control" type="text">
+          <input [(ngModel)]="endereco.rua" value="" class="input-field form-control opcao_borda" type="text">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-          <label for="">Estado</label>
-          <input [(ngModel)]="endereco.estado" class="input-field form-control" type="text">
-        </div>
-
-        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-          <label for="">Cidade</label>
-          <input [(ngModel)]="endereco.cidade" class="input-field form-control" type="text">
-        </div>
-
-        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-          <label for="">Bairro</label>
-          <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
-        </div>
-
-        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-          <label for="">Complemento</label>
-          <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
+          <label for="">Número</label>
+          <input [(ngModel)]="endereco.numero" class="input-field form-control opcao_borda" type="text">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
           <label for="">CEP</label>
-          <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text">
+          <input [(ngModel)]="endereco.cep" class="input-field form-control opcao_borda" id="cep-input" type="text" mask="00000-000">
         </div>
 
         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-          <label for="">Numero</label>
-          <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
+          <label for="">Estado</label>
+          <input [(ngModel)]="endereco.estado" class="input-field form-control opcao_borda" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Cidade</label>
+          <input [(ngModel)]="endereco.cidade" class="input-field form-control opcao_borda" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Bairro</label>
+          <input [(ngModel)]="endereco.bairro" class="input-field form-control opcao_borda" id="bairro-input" type="text">
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+          <label for="">Complemento</label>
+          <input [(ngModel)]="endereco.complemento" class="input-field form-control opcao_borda" id="complemento-input" type="text">
         </div>
       </div>
       <div class="modal-footer">
@@ -251,7 +251,7 @@
         Obrigado por comprar com nós!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="confirmarCompra()" data-dismiss="modal">OK</button>
+        <button type="button" class="btn" (click)="confirmarCompra()" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

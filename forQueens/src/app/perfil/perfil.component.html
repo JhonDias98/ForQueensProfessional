@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                <label for="">Telefone</label>
+                <label for="">Celular</label>
                 <input class="input-field form-control" type="text" value="{{celular}}" disabled>
             </div>
 
@@ -95,6 +95,16 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row">
+                        <label class="col-md-2"><b>Número:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.numero}}" disabled
+                            style="background-color: transparent;">
+                        <label class="col-md-2"><b>CEP:</b></label>
+                        <input type="text" class="col-md-4 border-0" value="{{endereco.cep}}" disabled
+                            style="background-color: transparent;">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
                         <label class="col-md-2"><b>Estado:</b></label>
                         <input type="text" class="col-md-4 border-0" value="{{endereco.estado}}" disabled
                             style="background-color: transparent;">
@@ -110,16 +120,6 @@
                             style="background-color: transparent;">
                         <label class="col-md-2"><b>Complemento:</b></label>
                         <input type="text" class="col-md-4 border-0" value="{{endereco.complemento}}" disabled
-                            style="background-color: transparent;">
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <label class="col-md-2"><b>CEP:</b></label>
-                        <input type="text" class="col-md-4 border-0" value="{{endereco.cep}}" disabled
-                            style="background-color: transparent;">
-                        <label class="col-md-2"><b>Número:</b></label>
-                        <input type="text" class="col-md-4 border-0" value="{{endereco.numero}}" disabled
                             style="background-color: transparent;">
                     </div>
                 </li>
@@ -151,35 +151,29 @@
                             <label for="">Rua/Avenida</label>
                             <input [(ngModel)]="endereco.rua" value="" class="input-field form-control" type="text">
                         </div>
-                    
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">Numero</label>
+                            <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
+                        </div>                   
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">CEP</label>
+                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text" mask="00000-000">
+                        </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Estado</label>
                             <input [(ngModel)]="endereco.estado" class="input-field form-control" type="text">
                         </div>
-                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Cidade</label>
                             <input [(ngModel)]="endereco.cidade" class="input-field form-control" type="text">
                         </div>
-                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Bairro</label>
                             <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
                         </div>
-                    
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Complemento</label>
                             <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
-                        </div>
-                    
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">CEP</label>
-                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text">
-                        </div>
-                    
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Numero</label>
-                            <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -208,38 +202,32 @@
                             <label for="">Rua/Avenida</label>
                             <input [(ngModel)]="endereco.rua" value="" class="input-field form-control" type="text">
                         </div>
-
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">Numero</label>
+                            <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                            <label for="">CEP</label>
+                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input"
+                                type="text" mask="00000-000">
+                        </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Estado</label>
                             <input [(ngModel)]="endereco.estado" class="input-field form-control" type="text">
                         </div>
-
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Cidade</label>
                             <input [(ngModel)]="endereco.cidade" class="input-field form-control" type="text">
                         </div>
-
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Bairro</label>
                             <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input"
                                 type="text">
                         </div>
-
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Complemento</label>
                             <input [(ngModel)]="endereco.complemento" class="input-field form-control"
                                 id="complemento-input" type="text">
-                        </div>
-
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">CEP</label>
-                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input"
-                                type="text">
-                        </div>
-
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Numero</label>
-                            <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
                         </div>
                     </div>
                     <div class="modal-footer">

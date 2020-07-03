@@ -39,3 +39,9 @@ td{
     position: sticky !important;
     top:85.5px;
 }
+.opcao_borda:hover, .opcao_borda:active, .opcao_borda:focus{
+    box-shadow: none;
+}
+.opcao_borda:active, .opcao_borda:focus{
+    border: 1px black solid!important;
+}
