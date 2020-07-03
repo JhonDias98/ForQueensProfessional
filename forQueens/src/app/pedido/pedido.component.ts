@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../service/carrinho.service';
 import { Carrinho } from '../model/Carrinho';
-import { faPlus, faMinus, faTrash} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
 import { EnderecoService } from '../service/endereco.service';
 import { Endereco } from '../model/Endereco';
 
@@ -14,6 +14,7 @@ export class PedidoComponent implements OnInit {
   faPlus = faPlus;
   faMinus = faMinus;
   faTrash = faTrash;
+  faEdit = faEdit;
 
   listaEndereco: Endereco[];
   endereco: Endereco = new Endereco();
@@ -39,6 +40,19 @@ export class PedidoComponent implements OnInit {
     this.enderecoService.getEndUser(ender).subscribe((resp: Endereco[]) => {
       this.listaEndereco = resp;
     });
+  }
+
+  pegarUmEndereco(id: number) {
+    this.enderecoService.getByIdEndereco(id).subscribe((resp: Endereco) => {
+      this.endereco = resp
+    })
+  }
+
+  editarEndereco() {
+    this.enderecoService.putEndereco(this.endereco).subscribe((resp: Endereco) => {
+      this.endereco = resp
+      location.reload()
+    })
   }
 
   adicionarEndereco() {

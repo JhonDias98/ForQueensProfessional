@@ -35,6 +35,17 @@ export class PerfilComponent implements OnInit {
     cep: ''
   }
 
+  perfil = {
+    id: 0,
+    cpf: 0,
+    usuario: '',
+    nome: '',
+    celular: '',
+    dataNascimento: '',
+    senha: 0,
+    endereco: []
+  }
+
   end: number = 0
 
   constructor(private enderecoService: EnderecoService) { }
