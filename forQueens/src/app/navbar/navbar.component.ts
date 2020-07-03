@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Usuario } from '../model/Usuario';
-import { Empresa } from '../model/Empresa';
 import { AuthService } from '../service/auth.service';
 import { UserLogin } from '../model/UserLogin';
 import { CarrinhoService } from '../service/carrinho.service';
-import { EmpresaLogin } from '../model/EmpresaLogin';
 
 @Component({
   selector: 'app-navbar',
@@ -17,9 +15,7 @@ export class NavbarComponent implements OnInit {
   faSearch = faSearch
   faShoppingCart = faShoppingCart
   user: Usuario = new Usuario();
-  empresa: Empresa = new Empresa();
   userLogin: UserLogin = new UserLogin();
-  empresaLogin: EmpresaLogin = new EmpresaLogin();
   nomeUser: string = localStorage.getItem('nome');
   
   precoTotal: number = 0.00

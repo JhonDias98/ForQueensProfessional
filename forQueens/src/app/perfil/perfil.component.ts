@@ -3,6 +3,8 @@ import { UserLogin } from '../model/UserLogin';
 import { Endereco } from '../model/Endereco';
 import { EnderecoService } from '../service/endereco.service';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Usuario } from '../model/Usuario';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -42,20 +44,49 @@ export class PerfilComponent implements OnInit {
     nome: '',
     celular: '',
     dataNascimento: '',
-    senha: 0,
+    senha: '',
     endereco: []
   }
 
+  attPerfil: boolean = false
+
   end: number = 0
 
-  constructor(private enderecoService: EnderecoService) { }
+  constructor(private enderecoService: EnderecoService, private usuarioService: UsuarioService) { }
 
   listaEndereco: Endereco[]
   endereco: Endereco = new Endereco()
+  usuarioL: Usuario = new Usuario()
 
   ngOnInit() {
     window.scroll(0, 0)
     this.findAllEnderecos()
+  }
+
+  atualizarUsuario() {
+    this.perfil.id = Number(localStorage.getItem('id'))
+    this.perfil.cpf = Number(localStorage.getItem('cpf'))
+    this.perfil.usuario = localStorage.getItem('usuario')
+    this.perfil.nome = this.usuarioL.nome
+    this.perfil.celular = this.usuarioL.celular
+    this.perfil.dataNascimento = localStorage.getItem('dataNascimento')
+    this.perfil.senha = this.usuarioL.senha
+    this.perfil.endereco = this.listaEndereco
+
+    this.usuarioService.putUser(this.perfil).subscribe((resp: Usuario) => {
+      this.usuarioL = resp
+      localStorage.setItem('nome', this.perfil.nome)
+      localStorage.setItem('celular', this.perfil.celular)
+      location.reload()
+    })
+  }
+
+  editarPerfil() {
+    this.attPerfil = true
+  }
+
+  naoEditarPerfil() {
+    this.attPerfil = false
   }
 
   findAllEnderecos() {

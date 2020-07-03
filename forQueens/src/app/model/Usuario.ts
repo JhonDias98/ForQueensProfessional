@@ -7,6 +7,6 @@ export class Usuario {
   public nome: string
   public celular: string
   public dataNascimento: String
-  public senha: number
+  public senha: string
   public endereco: Endereco[]
 }

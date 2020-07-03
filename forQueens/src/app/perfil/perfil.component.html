@@ -3,69 +3,88 @@
         <h1 class="mt-5 pt-5 text-center">Meu Perfil</h1>
         <hr>
 
-        <h4 class="mt-4 pt-4">Informações Da Conta</h4>
-        <div class="row mt-2 pt-2">
-
-            <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                <label for="">Nome</label>
-                <input class="input-field form-control" type="text" value="{{nome}}" disabled>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                <label for="">CPF</label>
-                <input class="input-field form-control" type="text" value="{{formatarCpf(cpf)}}" disabled>
-            </div>
-
-            <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
-                <label for="">E-mail</label>
-                <input class="input-field form-control" type="text" value="{{usuario}}" disabled>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                <label for="">Celular</label>
-                <input class="input-field form-control" type="text" value="{{formatarNumero(celular)}}" disabled>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                <label for="">Data de Nascimento</label>
-                <input class="input-field form-control" value="{{formatarData(dataNascimento)}}" disabled>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-sm-12 pt-3 text-center">
-
-            </div>
-            <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
-                <button class="btn mr-4" id="btSalvar">Salvar</button>
-                <button class="btn" data-toggle="modal" data-target="#alterar-senha">Alterar Senha</button>
-            </div>
-        </div>
-
-        <!-- Modal senha -->
-        <div class="modal fade" id="alterar-senha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar Senha</h5>
-                    </div>
-                    <div class="modal-body row">
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Senha Atual:</label>
-                            <input class="input-field form-control" type="password">
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
-                            <label for="">Nova Senha:</label>
-                            <input class="input-field form-control" type="password">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Salvar</button>
-                    </div>
+        <div *ngIf="attPerfil == false">
+            <h4 class="mt-4 pt-4">Informações Da Conta</h4>
+            <div class="row mt-2 pt-2">
+            
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Nome</label>
+                    <input class="input-field form-control" type="text" value="{{nome}}" disabled>
+                </div>
+            
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">CPF</label>
+                    <input class="input-field form-control" type="text" value="{{formatarCpf(cpf)}}" disabled>
+                </div>
+            
+                <div class="col-md-12 col-lg-12 col-sm-12 pt-3">
+                    <label for="">E-mail</label>
+                    <input class="input-field form-control" type="text" value="{{usuario}}" disabled>
+                </div>
+            
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Celular</label>
+                    <input class="input-field form-control" type="text" value="{{formatarNumero(celular)}}" disabled>
+                </div>
+            
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Data de Nascimento</label>
+                    <input class="input-field form-control" value="{{formatarData(dataNascimento)}}" disabled>
+                </div>
+            
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3 text-center">
                 </div>
             </div>
         </div>
-        <!-- fim modal senha -->
+        
+        <div *ngIf="attPerfil == true">
+            <h4 class="mt-4 pt-4">Editar perfil</h4>
+            <div class="row mt-2 pt-2">
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Nome</label>
+                    <input class="input-field form-control" [(ngModel)]="usuarioL.nome" type="text" value="{{nome}}">
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">CPF</label>
+                    <input class="input-field form-control" type="text" value="{{formatarCpf(cpf)}}" disabled>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">E-mail</label>
+                    <input class="input-field form-control" type="text" value="{{usuario}}" disabled>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Celular</label>
+                    <input class="input-field form-control" [(ngModel)]="usuarioL.celular" type="text"
+                        value="{{formatarNumero(celular)}}">
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Data de Nascimento</label>
+                    <input class="input-field form-control" value="{{formatarData(dataNascimento)}}" disabled>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
+                    <label for="">Insira sua senha</label>
+                    <input class="input-field form-control" [(ngModel)]="usuarioL.senha" type="password">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12 pt-3 text-center">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
+            <div *ngIf="attPerfil == true">
+               <button class="btn mr-4" id="btSalvar" (click)="atualizarUsuario()">Salvar</button> 
+               <button class="btn" (click)="naoEditarPerfil()">Cancelar</button>
+            </div>
+            <div *ngIf="attPerfil == false">
+                <button class="btn" (click)="editarPerfil()">Editar</button>
+            </div>
+        </div>
 
         <h4 class="mt-4 pt-4">Endereço</h4>
         <div class="card mt-4 enderecos" *ngFor="let endereco of listaEndereco">
@@ -77,14 +96,14 @@
                             style="background-color: transparent;">
                         <div class="col">
                             <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)"
-                             data-toggle="modal" data-target="#editar-endereco" >
+                                data-toggle="modal" data-target="#editar-endereco">
                                 <fa-icon [icon]="faEdit" class="fa fa-lg"></fa-icon>
                             </button>
                         </div>
 
                         <div class="col">
-                            <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)" data-toggle="modal"
-                                data-target="#modal1" id="botaoApagar">
+                            <button class="btn lixeira" (click)="pegarUmEndereco(endereco.codigoEndereco)"
+                                data-toggle="modal" data-target="#modal1" id="botaoApagar">
                                 <fa-icon [icon]="faTrash" class="fa fa-lg"></fa-icon>
                             </button>
                         </div>
@@ -122,7 +141,8 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="listaEndereco.length==0" class="col md-12 text-center alert alert-warning" role="alert">Ainda não há endereços cadastrados.</div>
+        <div *ngIf="listaEndereco.length==0" class="col md-12 text-center alert alert-warning" role="alert">Ainda não há
+            endereços cadastrados.</div>
 
         <div class="row m-3 p-3">
             <div class="d-flex justify-content-center col-md-12 col-lg-12 col-sm-12 mt-3">
@@ -146,10 +166,11 @@
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Numero</label>
                             <input [(ngModel)]="endereco.numero" class="input-field form-control" type="text">
-                        </div>                   
+                        </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">CEP</label>
-                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input" type="text" mask="00000-000">
+                            <input [(ngModel)]="endereco.cep" class="input-field form-control" id="cep-input"
+                                type="text" mask="00000-000">
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Estado</label>
@@ -161,11 +182,13 @@
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Bairro</label>
-                            <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input" type="text">
+                            <input [(ngModel)]="endereco.bairro" class="input-field form-control" id="bairro-input"
+                                type="text">
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 pt-3">
                             <label for="">Complemento</label>
-                            <input [(ngModel)]="endereco.complemento" class="input-field form-control" id="complemento-input" type="text">
+                            <input [(ngModel)]="endereco.complemento" class="input-field form-control"
+                                id="complemento-input" type="text">
                         </div>
                     </div>
                     <div class="modal-footer">
