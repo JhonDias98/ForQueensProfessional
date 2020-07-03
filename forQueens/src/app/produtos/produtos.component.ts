@@ -38,7 +38,7 @@ export class ProdutosComponent implements OnInit {
   };
 
   paginaAtual: number = 1
-  contador: number = 6
+  contador: number = 9
 
   constructor(
     private categoriaService: CategoriaService,
