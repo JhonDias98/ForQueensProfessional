@@ -83,6 +83,12 @@ export class ProdutosComponent implements OnInit {
       .findByNome(this.nomeInput)
       .subscribe((resp: Produto[]) => {
         this.listaProduto = resp;
+        if(this.listaProduto.length==0){
+          document.getElementById("texto_procura").style.display="flex"
+        }
+        else{
+          document.getElementById("texto_procura").style.display="none"
+        }
       });
   }
 
