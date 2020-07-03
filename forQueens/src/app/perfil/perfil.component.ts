@@ -122,4 +122,19 @@ export class PerfilComponent implements OnInit {
     return `${dia}/${mes}/${ano}`
   }
 
+  formatarCpf(cpf: string) {
+    let tresP = cpf.substring(0, 3)
+    let tresS = cpf.substring(3, 6)
+    let tresT = cpf.substring(6, 9)
+    let doisQ = cpf.substring(9, 11)
+    return `${tresP}.${tresS}.${tresT}-${doisQ}`
+  }
+
+  formatarNumero(numero: string) {
+    let dois = numero.substring(0, 2)
+    let cinco = numero.substring(2, 7)
+    let quatro = numero.substring(7, 11)
+    return `(${dois})${cinco}-${quatro}`
+  }
+
 }
