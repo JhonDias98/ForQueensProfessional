@@ -21,11 +21,11 @@ export class PedidoService {
     return this.http.get(`http://localhost:8080/pedidos/${codigoPedido}`, this.token)
   }
 
-  postCategoria(pedido: Pedido) {
+  postPedido(pedido: Pedido) {
     return this.http.post("http://localhost:8080/pedidos", pedido, this.token)
   }
 
-  putCategoria(pedido: Pedido) {
+  putPedido(pedido: Pedido) {
     return this.http.put("http://localhost:8080/pedidos", pedido, this.token)
   }
 
