@@ -16,6 +16,7 @@ export class PerfilComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
 
+
   id: string = localStorage.getItem('id')
   cpf: string = localStorage.getItem('cpf')
   usuario: string = localStorage.getItem('usuario')
@@ -26,16 +27,12 @@ export class PerfilComponent implements OnInit {
   token: string = localStorage.getItem('token');
   usuarioLogin: UserLogin = new UserLogin
 
-  umEndereco = {
-    codigoEndereco: 0,
-    estado: '',
-    cidade: '',
-    bairro: '',
-    rua: '',
-    numero: '',
-    complemento: '',
-    cep: ''
-  }
+  listaEndereco: Endereco[]
+  endereco: Endereco = new Endereco()
+  usuarioL: Usuario = new Usuario()
+
+  attPerfil: boolean = false
+  end: number = 0
 
   perfil = {
     id: 0,
@@ -48,15 +45,18 @@ export class PerfilComponent implements OnInit {
     endereco: []
   }
 
-  attPerfil: boolean = false
-
-  end: number = 0
+  umEndereco = {
+    codigoEndereco: this.endereco.codigoEndereco,
+    estado: this.endereco.estado,
+    cidade: this.endereco.cidade,
+    bairro: this.endereco.bairro,
+    rua: this.endereco.rua,
+    numero: this.endereco.numero,
+    complemento: this.endereco.complemento,
+    cep: this.endereco.cep
+  }
 
   constructor(private enderecoService: EnderecoService, private usuarioService: UsuarioService) { }
-
-  listaEndereco: Endereco[]
-  endereco: Endereco = new Endereco()
-  usuarioL: Usuario = new Usuario()
 
   ngOnInit() {
     window.scroll(0, 0)
@@ -96,31 +96,10 @@ export class PerfilComponent implements OnInit {
     })
   }
 
-  // getIdEndereco() {
-  //   this.end = Number(localStorage.getItem('id'))
-  //   this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco) => {
-  //     this.endereco = resp
-  //     this.umEndereco.codigoEndereco = this.endereco.codigoEndereco
-  //     this.umEndereco.rua = this.endereco.rua
-  //     this.umEndereco.cep = this.endereco.cep
-  //     this.umEndereco.cidade = this.endereco.cidade
-  //     this.umEndereco.estado = this.endereco.estado
-  //     this.umEndereco.numero = this.endereco.numero
-  //     this.umEndereco.complemento = this.endereco.complemento
-  //     this.umEndereco.bairro = this.endereco.bairro
-  //   })
-  // }
-
-  // getEnderecos() {
-  //   this.end = Number(localStorage.getItem('id'))
-  //   this.enderecoService.getByIdEndereco(this.end).subscribe((resp: Endereco[]) => {
-  //     this.listaEndereco = resp
-  //   })
-  // }
-
   adicionarEndereco() {
     this.end = Number(localStorage.getItem('id'))
-    this.enderecoService.postEndereco(this.end, this.endereco).subscribe((resp: Endereco) => {
+    
+    this.enderecoService.postEndereco(this.end, this.umEndereco).subscribe((resp: Endereco) => {
       this.endereco = resp;
       alert("Endereço cadastrado com sucesso")
       location.assign("/perfil")

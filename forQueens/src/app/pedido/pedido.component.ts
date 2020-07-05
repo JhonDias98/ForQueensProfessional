@@ -24,6 +24,17 @@ export class PedidoComponent implements OnInit {
   valorTotal: number = 0;
   quantidadeTotal: number = 0;
 
+  umEndereco = {
+    codigoEndereco: this.endereco.codigoEndereco,
+    estado: this.endereco.estado,
+    cidade: this.endereco.cidade,
+    bairro: this.endereco.bairro,
+    rua: this.endereco.rua,
+    numero: this.endereco.numero,
+    complemento: this.endereco.complemento,
+    cep: this.endereco.cep
+  }
+
   constructor(
     private carrinhoService: CarrinhoService,
     private enderecoService: EnderecoService
@@ -57,12 +68,10 @@ export class PedidoComponent implements OnInit {
 
   adicionarEndereco() {
     this.end = Number(localStorage.getItem('id'));
-    this.enderecoService
-      .postEndereco(this.end, this.endereco)
-      .subscribe((resp: Endereco) => {
-        this.endereco = resp;
-        location.reload()
-        alert('Endereço cadastrado com sucesso');
+    this.enderecoService.postEndereco(this.end, this.umEndereco).subscribe((resp: Endereco) => {
+      this.endereco = resp;
+      location.reload()
+      alert('Endereço cadastrado com sucesso');
       });
   }
 
