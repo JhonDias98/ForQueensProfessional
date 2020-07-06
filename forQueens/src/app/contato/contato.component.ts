@@ -150,18 +150,23 @@ export class ContatoComponent implements OnInit {
   verificar_celular(){
     let celular = this.contato.celular
     if(celular == ""){
+      console.log("entrou 1")
       document.getElementById("celularinput").style.border = "red 1px solid"
-      document.getElementById("vazio_celular").style.display = "block"
+      document.getElementById("vazio_celular_contato").style.display = "block"
       return false
     }
     if(celular.length == 10 || celular.length == 11){
+      console.log("entrou 2")
       document.getElementById("celularinput").style.border = "black 1px solid"
-      document.getElementById("vazio_celular").style.display = "none"
+      document.getElementById("vazio_celular_contato").style.display = "none"
+      document.getElementById("erro_celular_contato").style.display = "none"
       return true
     }
     else{
+      console.log("entrou 3")
       document.getElementById("celularinput").style.border = "red 1px solid"
-      document.getElementById("erro_celular").style.display = "block"
+      document.getElementById("erro_celular_contato").style.display = "block"
+      document.getElementById("vazio_celular_contato").style.display = "none"
       return false
     }
   }
